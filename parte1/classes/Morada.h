@@ -10,17 +10,26 @@
 
 using namespace std;
 
+/**
+ * @brief Classe Morada
+ *
+ * A classe Morada é uma classe simples, apenas para armazenar os dados de uma morada como\n
+ * por exemplo rua, numero, codigo posta, etc.
+ *
+ * \n\n
+ *
+ * Estão também definidos os vários métodos GET, SET e construtores
+ */
 class Morada {
     string rua;
     string localidade;
     unsigned int numero;
     vector<int> codPostal;
 public:
-    Morada();
+    Morada();   // Construtor padrão
     Morada(string rua, string localidade, unsigned int numero, vector<int> codPostal);
 
     // GET Methods
-
     string getRua();
     string getLocalidade();
     unsigned int getNumero();
@@ -28,7 +37,6 @@ public:
     string getMorada();
 
     // SET Methods
-
     void setRua (string rua);
     void setLocalidade (string localidade);
     void setNumero (unsigned int numero);
