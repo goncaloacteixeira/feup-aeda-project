@@ -4,41 +4,10 @@
 
 #include "Servico.h"
 
-Servico::Servico(float custo, string prestador, enum tipo_servico servico) {
+Servico::Servico(float custo, string prestador, string servico) {
     this->custo = custo;
     this->prestador = prestador;
-
-    switch (servico)
-    {
-        case limpeza:
-            this->servico = "limpeza";
-        case canalizacao:
-            this->servico = "canalização";
-        case pintura:
-            this->servico = "pintura";
-        case arrumadorCarros:
-            this->servico = "arrumador de carros";
-        case babysitting:
-            this->servico = "babysitting";
-        case cabeleireiro:
-            this->servico = "cabeleireiro";
-        case petsitter:
-            this->servico = "petsitter";
-        case jardineiro:
-            this->servico = "jardineiro";
-        case spa:
-            this->servico = "spa";
-        case cinema:
-            this->servico = "cinema";
-        case lavagem_carros:
-            this->servico = "lavagem de carros";
-        case seguranca:
-            this->servico = "segurança";
-        case cozinheiro:
-            this->servico = "cozinheiro";
-        default:
-            this->servico = "unknown";
-    }
+    this->servico = servico;
 }
 
 string Servico::getTipo() {

@@ -9,28 +9,24 @@
 
 using namespace std;
 
-enum tipo_servico {
-    limpeza,
-    canalizacao,
-    pintura,
-    arrumadorCarros,
-    babysitting,
-    cabeleireiro,
-    petsitter,
-    jardineiro,
-    spa,
-    cinema,
-    lavagem_carros,
-    seguranca,
-    cozinheiro
-};
-
+/**
+ * Classe Serviço
+ *
+ * Métodos GET definidos
+ */
 class Servico {
-    float custo;
-    string prestador;
-    string servico;
+    float custo;        //*< Custo do serviço prestado
+    string prestador;   //*< Nome da empresa ou do functionário prestador do serviço
+    string servico;     //*< Serviço prestado
 public:
-    Servico(const float custo, string prestador, enum tipo_servico servico);
+
+    /** @brief Construtor da Classe Serviço
+     *
+     * @param custo         Custo do serviço prestado
+     * @param prestador     Nome da empresa ou do functionário prestador do serviço
+     * @param servico       Serviço prestado
+     */
+    Servico(const float custo, string prestador, string servico);
     string getTipo();
     float getCusto();
     string getPrestador();
