@@ -38,14 +38,14 @@ int Apartamento::getPiso() {
 
 //Vivenda Constructor
 
-Vivenda::Vivenda(Morada morada, float areaHabitacional, string areaExterior, bool piscina) : Habitacao(morada, areaHabitacional) {
+Vivenda::Vivenda(Morada morada, float areaHabitacional, float areaExterior, bool piscina) : Habitacao(morada, areaHabitacional) {
     this->areaExterior = areaExterior;
     this->piscina = piscina;
 }
 
 //GET Methods
 
-string Vivenda::getAreaExterior() {
+float Vivenda::getAreaExterior() {
     return areaExterior;
 }
 
