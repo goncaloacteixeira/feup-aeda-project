@@ -22,12 +22,6 @@ public:
      */
     Habitacao(Morada morada, float areaHabitacional);
 
-    /** @brief Método Virtual para calculo da mensalidade da habitação
-     *
-     * @return Devolve o valor da mensalidade
-     */
-    virtual float mensalidade();
-
     //GET Methods
     /** @brief Método GET da morada da habitação
      *
@@ -40,6 +34,8 @@ public:
      * @return Devolve a área habitacional
      */
     float getAreaHabitacional();
+
+    float mensalidade;
 };
 
 /**
@@ -48,6 +44,7 @@ public:
 class Apartamento : public Habitacao {
     string tipologia;   //*< Tipo de apartamento ("T0", "T1", ...)
     int piso;           //*< Número do piso em que o apartamento se encontra
+    const string id;
 public:
 
     /** @brief Construtor da classe derivada Apartamento
@@ -58,12 +55,6 @@ public:
      * @param piso Piso em que o apartamento se encontra
      */
     Apartamento(Morada morada, float areaHabitacional, string tipologia, int piso);
-
-    /** @brief Método para calcular a mensalidade do apartamento
-     *
-     * @return Valor da mensalidade
-     */
-    float mensalidade();
 
     //GET Methods
 
@@ -92,6 +83,8 @@ public:
     * @param tipologia Piso a definir o apartamento existente
     */
     void setPiso(int piso);
+
+    virtual string getID() { return id; };
 };
 
 /**
@@ -100,6 +93,7 @@ public:
 class Vivenda : public Habitacao {
     float areaExterior;    //*< Área exterior da vivenda
     bool piscina;           //*< Existe piscina (sim - true)
+    const string id;
 public:
 
     /** @brief Construtor da classe derivada Vivenda
@@ -110,12 +104,6 @@ public:
      * @param piscina           Existe piscina (sim - true)
      */
     Vivenda(Morada morada, float areaHabitacional, float areaExterior, bool piscina);
-
-    /** @brief Método para calcular a mensalidade da vivenda
-     *
-     * @return Valor da mensalidade
-     */
-    float mensalidade();
 
     //GET Methods
 
@@ -144,6 +132,8 @@ public:
      * @param piscina se existe piscina - true
      */
     void setPiscina (bool piscina);
+
+    string getID() { return id; };
 };
 
 
