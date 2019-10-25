@@ -12,6 +12,7 @@
  */
 class Habitacao {
 protected:
+    bool ocupado;           //*< estado "true" para ocupado
     Morada morada;          //*< morada é um objeto da classe Morada
     float areaHabitacional; //*< Área Habitacional da habitação
 public:
@@ -34,7 +35,8 @@ public:
      * @return Devolve a área habitacional
      */
     float getAreaHabitacional();
-
+    bool getEstado() { return ocupado; };
+    bool setEstado(bool ocupado) {this->ocupado = ocupado; };
     float mensalidade;
 };
 
