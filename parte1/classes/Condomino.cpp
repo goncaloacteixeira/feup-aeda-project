@@ -91,6 +91,7 @@ void Condomino::setHabitacoes(vector<Habitacao *> hab) {
 
 void Condomino::adicionaHabitacao(Habitacao *hab) {
     this->habitacoes.push_back(hab);
+    hab->setEstado(true);
 }
 
 void Condomino::removeHabitacao(Habitacao *hab) {

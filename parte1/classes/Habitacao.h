@@ -56,7 +56,7 @@ public:
      * @param tipologia Tipo de apartamento - "T0", "T1", "T2", ...
      * @param piso Piso em que o apartamento se encontra
      */
-    Apartamento(Morada morada, float areaHabitacional, string tipologia, int piso);
+    Apartamento(Morada morada, float areaHabitacional, string tipologia, int piso, const string id);
 
     //GET Methods
 
@@ -105,7 +105,7 @@ public:
      * @param areaExterior      Área exterior da vivenda
      * @param piscina           Existe piscina (sim - true)
      */
-    Vivenda(Morada morada, float areaHabitacional, float areaExterior, bool piscina);
+    Vivenda(Morada morada, float areaHabitacional, float areaExterior, bool piscina, const string id);
 
     //GET Methods
 

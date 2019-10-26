@@ -28,6 +28,7 @@ class Morada {
 public:
     Morada();   // Construtor padrão
     Morada(string rua, string localidade, unsigned int numero, vector<int> codPostal);
+    Morada(string morada);
 
     // GET Methods
     string getRua();

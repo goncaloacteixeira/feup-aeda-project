@@ -9,16 +9,17 @@
 
 
 class Condominio {
-    static unsigned int current_ap_id;
-    static unsigned int current_vi_id;
+    // static unsigned int current_ap_id;
+    // static unsigned int current_vi_id;
 
-    const unsigned int numPrestLimpeza;
+    unsigned int numPrestLimpeza;
     vector<Habitacao *> habitacoes;
     vector<Condomino *> condominos;
     vector<Servico *> servicosPrestados;
 
 public:
     Condominio(unsigned int numPrestLimpeza);
+    Condominio(string filename);
 
     float calcReceitas();
 

@@ -1,0 +1,24 @@
+24
+condominos.txt
+3
+A0
+true
+Rua 1, Porto, 13, 2345-234
+40
+T2
+2
+::::::::::
+A1
+false
+Rua 1, Porto, 15, 2345-234
+50
+T3
+2
+::::::::::
+V0
+false
+Rua 2, Porto, 17, 2312-231
+200
+50
+true
+

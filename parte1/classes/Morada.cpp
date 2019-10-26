@@ -19,6 +19,28 @@ Morada::Morada(string rua, string localidade, unsigned int numero, vector<int> c
     this-> codPostal = codPostal;
 }
 
+#include "utils.h"
+
+void vecStrtoInt(vector<string> &vec, vector<int> *out)
+{
+    for (string elem : vec)
+    {
+        out->push_back(stoi(elem));
+    }
+}
+
+Morada::Morada(string morada) {
+    vector<string> vecMorada = split(morada, ", ");
+    this->rua = vecMorada[0];
+    this->localidade = vecMorada[1];
+    stringstream os(vecMorada[2]);
+    os >> this->numero;
+
+    this->codPostal = {};
+    vector<string> codVec = split(vecMorada[3], "-");
+    vecStrtoInt(codVec, &this->codPostal);
+}
+
 //GET Methods
 
 string Morada::getRua() {

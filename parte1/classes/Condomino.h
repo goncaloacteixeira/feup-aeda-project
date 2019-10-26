@@ -7,6 +7,7 @@
 
 #include "Habitacao.h"
 #include "Servico.h"
+#include <fstream>
 
 class Condomino {
     const string nome;

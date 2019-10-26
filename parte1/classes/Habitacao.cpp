@@ -7,6 +7,7 @@
 Habitacao::Habitacao(Morada morada, float areaHabitacional) {
     this->morada = morada;
     this->areaHabitacional = areaHabitacional;
+    this->ocupado = false;
 }
 
 //GET Methods
@@ -21,7 +22,7 @@ float Habitacao::getAreaHabitacional() {
 
 //Apartament Constructor
 
-Apartamento::Apartamento(Morada morada, float areaHabitacional, string tipologia, int piso) : Habitacao(morada, areaHabitacional) {
+Apartamento::Apartamento(Morada morada, float areaHabitacional, string tipologia, int piso, const string id) : Habitacao(morada, areaHabitacional), id(id){
     this->tipologia = tipologia;
     this->piso = piso;
 }
@@ -38,7 +39,7 @@ int Apartamento::getPiso() {
 
 //Vivenda Constructor
 
-Vivenda::Vivenda(Morada morada, float areaHabitacional, float areaExterior, bool piscina) : Habitacao(morada, areaHabitacional) {
+Vivenda::Vivenda(Morada morada, float areaHabitacional, float areaExterior, bool piscina, const string id) : Habitacao(morada, areaHabitacional) , id(id)  {
     this->areaExterior = areaExterior;
     this->piscina = piscina;
 }

@@ -1,0 +1,12 @@
+Joao Pedro
+234123456
+A0
+2
+Limpeza : 35 : Limpezas.Lda
+Cabeleireiro : 15 : EmpresaCabelo
+::::::::::
+Jose Luis
+236438097
+
+0
+::::::::::
