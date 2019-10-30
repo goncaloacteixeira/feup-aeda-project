@@ -19,10 +19,10 @@ int testReading()
     auto end = chrono::steady_clock::now();
     cout << "The reading took: " << chrono::duration_cast<chrono::microseconds>(end-start).count() << " microseconds -> " << chrono::duration_cast<chrono::milliseconds>(end-start).count() << " milliseconds \n";
 
-    Habitacao *hab = new Vivenda(Morada("rua 1", "porto", 455, {124,512}),2525,21315,true);
-
-    C.adicionaHabitacao(hab);
+    start = chrono::steady_clock::now();
     C.writeToFiles("condominio.txt", "condominos.txt");
+    end = chrono::steady_clock::now();
+    cout << "The writing took: " << chrono::duration_cast<chrono::microseconds>(end-start).count() << " microseconds -> " << chrono::duration_cast<chrono::milliseconds>(end-start).count() << " milliseconds \n";
 }
 
 int main() {

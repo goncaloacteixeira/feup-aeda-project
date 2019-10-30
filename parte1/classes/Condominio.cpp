@@ -76,12 +76,13 @@ Condominio::Condominio(string filename) {
             Morada novaMorada(info[i][2]);
             if (info[i][0][0] == 'A') {
                 Apartamento *ap = new Apartamento(novaMorada, stof(info[i][3]), info[i][4],stoi(info[i][5]));
+
                 ap->setEstado(info[i][1] == "0");
                 habitacoes.push_back(ap);
             }
             if (info[i][0][0] == 'V') {
                 bool piscina;
-                (info[i][5] == "1") ? piscina = true : piscina = false;
+                piscina = info[i][5] == "1";
                 Vivenda *vi = new Vivenda(novaMorada, stof(info[i][3]), stof(info[i][4]), piscina);
 
                 vi->setEstado(info[i][1] == "0");
@@ -315,6 +316,4 @@ Servico *Condominio::findServ(float custo, string prestador, string servico) {
     }
     return nullptr;
 }
-
-
 
