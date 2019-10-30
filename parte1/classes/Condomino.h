@@ -26,6 +26,7 @@ public:
 
     void adicionaHabitacao(Habitacao *hab);
     void removeHabitacao(Habitacao *hab);
+    void adicionaServico(Servico *serv);
 
     string info();
 

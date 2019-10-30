@@ -9,8 +9,19 @@ Condominio::Condominio(unsigned int numPrestLimpeza) : numPrestLimpeza(numPrestL
     this->habitacoes = {};
     this->condominos = {};
 
-    // current_ap_id = 0;
-    // current_vi_id = 0;
+}
+
+vector<string> split1 (string &s, string delimiter) {
+    size_t pos = 0;
+    std::string token;
+    vector<string> result;
+    while ((pos = s.find(delimiter)) != std::string::npos) {
+        token = s.substr(0, pos);
+        result.push_back(token);
+        s.erase(0, pos + delimiter.length());
+    }
+    result.push_back(s);
+    return result;
 }
 
 Condominio::Condominio(string filename) {
@@ -19,15 +30,12 @@ Condominio::Condominio(string filename) {
     string line;
     int i = 0;
 
-    // current_ap_id = 0;
-    // current_vi_id = 0;
 
     string condominosFileName;
     int numHab;
 
     condominio.open(filename);
-    if (condominio.is_open())
-    {
+    if (condominio.is_open()) {
         while (getline(condominio, line) && i < 3) {
             if (i == 0)
                 this->numPrestLimpeza = stoi(line);
@@ -41,22 +49,17 @@ Condominio::Condominio(string filename) {
     condominio.close();
     if (numHab == 0)
         this->habitacoes = {};
-    else
-    {
-        vector< vector<string>> info;
+    else {
+        vector<vector<string>> info;
         condominio.open(filename);
-        if (condominio.is_open())
-        {
+        if (condominio.is_open()) {
             int ctr = 0;
             string line1;
-            for (int i = 0; i < numHab; i++)
-            {
+            for (int i = 0; i < numHab; i++) {
                 vector<string> hab;
-                while (getline(condominio, line1))
-                {
-                    if (ctr >= 3)
-                    {
-                        if (line1 != "::::::::::\r")
+                while (getline(condominio, line1)) {
+                    if (ctr >= 3) {
+                        if (line1 != "::::::::::")
                             hab.push_back(line1);
                         else
                             break;
@@ -65,38 +68,142 @@ Condominio::Condominio(string filename) {
                 }
                 info.push_back(hab);
             }
+            condominio.close();
         }
 
-        for (int i = 0; i < numHab; i++)
-        {
+
+        for (int i = 0; i < numHab; i++) {
             Morada novaMorada(info[i][2]);
-            if (info[i][0].at(0) == 'A')
-            {
-                Apartamento *ap = new Apartamento(novaMorada, stof(info[i][3]), info[i][4], stoi(info[i][5]), info[i][0]);
-                if (info[i][1] == "true")
-                    ap->setEstado(true);
-                else
-                    ap->setEstado(false);
+            if (info[i][0][0] == 'A') {
+                Apartamento *ap = new Apartamento(novaMorada, stof(info[i][3]), info[i][4],stoi(info[i][5]));
+                ap->setEstado(info[i][1] == "0");
                 habitacoes.push_back(ap);
-                // this->current_ap_id = stoi(ap->getID().erase(0,1));
             }
-            if (info[i][0][0] == 'V')
-            {
+            if (info[i][0][0] == 'V') {
                 bool piscina;
-                (info[i][5] == "true") ? piscina = true : piscina = false;
-                Vivenda *vi = new Vivenda(novaMorada, stof(info[i][3]), stof(info[i][4]), piscina, info[i][0]);
+                (info[i][5] == "1") ? piscina = true : piscina = false;
+                Vivenda *vi = new Vivenda(novaMorada, stof(info[i][3]), stof(info[i][4]), piscina);
 
-                if (info[i][1] == "true")
-                    vi->setEstado(true);
-                else
-                    vi->setEstado(false);
+                vi->setEstado(info[i][1] == "0");
                 habitacoes.push_back(vi);
-                // this->current_vi_id = stoi(vi->getID().erase(0,1));
             }
         }
+        info.clear();
+    }
+
+    // Condominos Read Snippet Code
+    this->condominos = {};
+
+    condominosFileName = "../" + condominosFileName;
+
+    ifstream condominos;
+    condominos.open(condominosFileName);
+
+    int numCondominos = 0;
+
+    if (condominos.is_open())
+    {
+        string l;
+        getline(condominos, l);
+        numCondominos = stoi(l);
+        condominos.close();
+    }
+
+    vector<vector<string> > info;
+    if (numCondominos != 0)
+    {
+        condominos.open(condominosFileName);
+        if (condominos.is_open())
+        {
+            int ctr = 0;
+            string line1;
+            for (int i = 0; i < numCondominos; i++) {
+                vector<string> con;
+                while (getline(condominos, line1)) {
+                    if (ctr >= 1) {
+                        if (line1 != "::::::::::")
+                            con.push_back(line1);
+                        else
+                            break;
+                    }
+                    ctr++;
+                }
+                info.push_back(con);
+            }
+            condominos.close();
+        }
+    }
+
+    for (int i = 0; i < numCondominos; i++)
+    {
+        Condomino *c = new Condomino(info[i][0], stoi(info[i][1]));
+        int numHabs = stoi(info[i][2]);
+        if (numHabs != 0) {
+            for (int j = 0; j < numHabs ; j++)
+                c->adicionaHabitacao(findHab(info[i][3 + j]));
+        }
+
+        int numServ = stoi(info[i][3 + numHabs]);
+        if (numServ != 0) {
+            for (int j = 0; j < numServ ; j++) {
+                vector<string> servico = split1(info[i][4 + numHabs + j]," : ");
+                Servico *serv = new Servico(stof(servico[1]),servico[2],servico[0]);
+                c->adicionaServico(serv);
+            }
+        }
+        this->condominos.push_back(c);
     }
 }
 
+void Condominio::writeToFiles(string condominioFilename, string condominosFilename) {
+    condominioFilename = "../" + condominioFilename;
+
+    fstream condominio(condominioFilename, std::ofstream::out | std::ofstream::trunc);
+    condominio << this->getNumPrestLimpeza() << endl;
+    condominio << condominosFilename << endl;
+    condominio << this->getNumHabitacoes() << endl;
+    if (this->getNumHabitacoes() != 0) {
+        for (int i = 0; i < this->getNumHabitacoes(); i++)
+        {
+            condominio << this->habitacoes[i]->getID() << endl;
+            condominio << this->habitacoes[i]->getEstado() << endl;
+            condominio << this->habitacoes[i]->getMorada() << endl;
+            condominio << this->habitacoes[i]->getAreaHabitacional() << endl;
+            condominio << this->habitacoes[i]->extraInfo()[0] << endl;
+            condominio << this->habitacoes[i]->extraInfo()[1];
+            if (i != this->getNumHabitacoes() - 1)
+                condominio << "\n::::::::::\n";
+        }
+    }
+    condominio.close();
+
+    condominosFilename = "../" + condominosFilename;
+
+    fstream cond(condominosFilename, std::ofstream::out | std::ofstream::trunc);
+    cond << this->getNumCondominos() << endl;
+    if (this->getNumCondominos() != 0)
+    {
+        for (int i = 0; i < this->getNumCondominos(); i++)
+        {
+            cond << this->condominos[i]->getNome() << endl;
+            cond << this->condominos[i]->getNIF() << endl;
+            cond << this->condominos[i]->getNumHabitacoes() << endl;
+            if (this->condominos[i]->getNumHabitacoes() != 0)
+            {
+                for (int j = 0; j < this->condominos[i]->getNumHabitacoes() ; j++)
+                    cond << this->condominos[i]->getHabitacoes()[j]->getID() << endl;
+            }
+            cond << this->condominos[i]->getServicos().size();
+            if (this->condominos[i]->getServicos().size() != 0)
+            {
+                for (int j = 0; j < this->condominos[i]->getServicos().size() ; j++)
+                    cond << endl << this->condominos[i]->getServicos()[j]->getTipo() << " : " << this->condominos[i]->getServicos()[j]->getCusto() << " : " << this->condominos[i]->getServicos()[j]->getPrestador();
+            }
+            if (i != this->getNumCondominos() - 1)
+                cond << "\n::::::::::\n";
+        }
+    }
+}
 
 float Condominio::calcReceitas() {
     float rec = 0;
@@ -175,3 +282,39 @@ void Condominio::ordenarCond() {
         }
     }
 }
+
+Habitacao *Condominio::findHab(string id) {
+    if (this->getNumHabitacoes() == 0)
+        return nullptr;
+    for (int i = 0; this->getNumHabitacoes(); i++)
+    {
+        if (this->getHabitacoes()[i]->getID() == id)
+            return this->getHabitacoes()[i];
+    }
+    return nullptr;
+}
+
+Condomino *Condominio::findCon(int nif) {
+    if (this->getNumCondominos() == 0)
+        return nullptr;
+    for (int i = 0; this->getNumCondominos(); i++)
+    {
+        if (this->getCondominos()[i]->getNIF() == nif)
+            return this->getCondominos()[i];
+    }
+    return nullptr;
+}
+
+Servico *Condominio::findServ(float custo, string prestador, string servico) {
+    if (this->getServicos().size() == 0)
+        return nullptr;
+    for (int i = 0; this->getServicos().size(); i++)
+    {
+        if (this->getServicos()[i]->getCusto() == custo && this->getServicos()[i]->getPrestador() == prestador && this->getServicos()[i]->getTipo() == servico)
+            return this->getServicos()[i];
+    }
+    return nullptr;
+}
+
+
+

@@ -61,7 +61,7 @@ vector<int> Morada::getCodpostal() {
 
 string Morada::getMorada() {
     string res;
-    res = this->getRua() + ", " + to_string(this->getNumero()) + ", " + to_string(this->getCodpostal()[0]) + "-" + to_string(this->getCodpostal()[1]) + ", " + this->getLocalidade();
+    res = this->getRua() + ", " + to_string(this->getNumero()) + ", " + this->getLocalidade() + ", " + to_string(this->getCodpostal()[0]) + "-" + to_string(this->getCodpostal()[1]);
     return res;
 }
 

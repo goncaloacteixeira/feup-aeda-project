@@ -38,6 +38,9 @@ public:
     bool getEstado() { return ocupado; };
     bool setEstado(bool ocupado) {this->ocupado = ocupado; };
     float mensalidade;
+    virtual string getID() = 0;
+    virtual string info();
+    virtual vector<string> extraInfo() = 0;
 };
 
 /**
@@ -47,6 +50,7 @@ class Apartamento : public Habitacao {
     string tipologia;   //*< Tipo de apartamento ("T0", "T1", ...)
     int piso;           //*< Número do piso em que o apartamento se encontra
     const string id;
+    static int ap_current_id;
 public:
 
     /** @brief Construtor da classe derivada Apartamento
@@ -56,7 +60,7 @@ public:
      * @param tipologia Tipo de apartamento - "T0", "T1", "T2", ...
      * @param piso Piso em que o apartamento se encontra
      */
-    Apartamento(Morada morada, float areaHabitacional, string tipologia, int piso, const string id);
+    Apartamento(Morada morada, float areaHabitacional, string tipologia, int piso);
 
     //GET Methods
 
@@ -86,7 +90,11 @@ public:
     */
     void setPiso(int piso);
 
-    virtual string getID() { return id; };
+    string getID();
+
+    string info();
+
+    vector<string> extraInfo();
 };
 
 /**
@@ -96,6 +104,7 @@ class Vivenda : public Habitacao {
     float areaExterior;    //*< Área exterior da vivenda
     bool piscina;           //*< Existe piscina (sim - true)
     const string id;
+    static int vi_current_id;
 public:
 
     /** @brief Construtor da classe derivada Vivenda
@@ -105,7 +114,7 @@ public:
      * @param areaExterior      Área exterior da vivenda
      * @param piscina           Existe piscina (sim - true)
      */
-    Vivenda(Morada morada, float areaHabitacional, float areaExterior, bool piscina, const string id);
+    Vivenda(Morada morada, float areaHabitacional, float areaExterior, bool piscina);
 
     //GET Methods
 
@@ -135,7 +144,11 @@ public:
      */
     void setPiscina (bool piscina);
 
-    string getID() { return id; };
+    string getID();
+
+    string info();
+
+    vector<string> extraInfo();
 };
 
 

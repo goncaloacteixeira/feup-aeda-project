@@ -9,8 +9,6 @@
 
 
 class Condominio {
-    // static unsigned int current_ap_id;
-    // static unsigned int current_vi_id;
 
     unsigned int numPrestLimpeza;
     vector<Habitacao *> habitacoes;
@@ -38,6 +36,12 @@ public:
     void adicionaCondomino(Condomino *con);
     void removeCondomino(Condomino *con);
     void ordenarCond();
+
+    Habitacao* findHab(string id);
+    Condomino* findCon(int nif);
+    Servico* findServ(float custo, string prestador, string servico);
+
+    void writeToFiles(string condominio, string condominos);
 };
 
 

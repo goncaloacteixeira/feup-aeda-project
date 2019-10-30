@@ -109,3 +109,7 @@ float Condomino::mensalidadeTotal() {
         mens += habitacao->mensalidade;
     return mens;
 }
+
+void Condomino::adicionaServico(Servico *serv) {
+    this->servicos.push_back(serv);
+}
