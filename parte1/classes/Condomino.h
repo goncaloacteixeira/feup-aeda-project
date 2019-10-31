@@ -39,5 +39,29 @@ public:
     void setHabitacoes(vector<Habitacao* > hab);
 };
 
+// Exception Classes
+
+class NoSuchHabitation {
+    string id;
+public:
+    NoSuchHabitation(string id) { this->id = id; }
+    string getID() { return this->id; }
+};
+class NoSuchCondomino {
+    unsigned int nif;
+public:
+    NoSuchCondomino(unsigned int nif) { this->nif = nif; }
+    unsigned int getNIF() { return this->nif; }
+};
+class NoSuchService {
+public:
+    NoSuchService() {};
+};
+
+
+
+
+
+
 
 #endif //PARTE1_CONDOMINO_H

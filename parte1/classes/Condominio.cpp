@@ -284,36 +284,38 @@ void Condominio::ordenarCond() {
     }
 }
 
+// Functions to find the pointers to objects in vector
+
 Habitacao *Condominio::findHab(string id) {
     if (this->getNumHabitacoes() == 0)
-        return nullptr;
-    for (int i = 0; this->getNumHabitacoes(); i++)
+        throw NoSuchHabitation(id);
+    for (int i = 0; i < this->getNumHabitacoes(); i++)
     {
         if (this->getHabitacoes()[i]->getID() == id)
             return this->getHabitacoes()[i];
     }
-    return nullptr;
+    throw NoSuchHabitation(id);
 }
 
 Condomino *Condominio::findCon(int nif) {
     if (this->getNumCondominos() == 0)
-        return nullptr;
-    for (int i = 0; this->getNumCondominos(); i++)
+        throw NoSuchCondomino(nif);
+    for (int i = 0; i < this->getNumCondominos(); i++)
     {
         if (this->getCondominos()[i]->getNIF() == nif)
             return this->getCondominos()[i];
     }
-    return nullptr;
+    throw NoSuchCondomino(nif);
 }
 
 Servico *Condominio::findServ(float custo, string prestador, string servico) {
     if (this->getServicos().size() == 0)
-        return nullptr;
-    for (int i = 0; this->getServicos().size(); i++)
+        throw NoSuchService();
+    for (int i = 0; i < this->getServicos().size(); i++)
     {
         if (this->getServicos()[i]->getCusto() == custo && this->getServicos()[i]->getPrestador() == prestador && this->getServicos()[i]->getTipo() == servico)
             return this->getServicos()[i];
     }
-    return nullptr;
+    throw NoSuchService();
 }
 
