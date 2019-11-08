@@ -15,9 +15,9 @@ using namespace std;
  * Métodos GET definidos
  */
 class Servico {
-    float custo;        //*< Custo do serviço prestado
-    string prestador;   //*< Nome da empresa ou do functionário prestador do serviço
-    string servico;     //*< Serviço prestado
+    float custo;        //!< Custo do serviço prestado
+    string prestador;   //!< Nome da empresa ou do functionário prestador do serviço
+    string servico;     //!< Serviço prestado
 public:
 
     /** @brief Construtor da Classe Serviço
@@ -27,8 +27,23 @@ public:
      * @param servico       Serviço prestado
      */
     Servico(const float custo, string prestador, string servico);
+
+    /**
+     *
+     * @return Tipo do serviço prestado (limpeza, cabeleireiro, jardineiro, etc.)
+     */
     string getTipo();
+
+    /**
+     *
+     * @return Custo do serviço prestado
+     */
     float getCusto();
+
+    /**
+     *
+     * @return Prestador do serviço
+     */
     string getPrestador();
 };
 
