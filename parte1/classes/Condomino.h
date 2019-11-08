@@ -10,29 +10,91 @@
 #include <fstream>
 
 class Condomino {
-    const string nome;
-    const unsigned int nif;
-    vector<Habitacao *> habitacoes;
-    vector<Servico *> servicos;
+    const string nome;                  //!< Nome do Condómino
+    const unsigned int nif;             //!< NIF do Condómino
+    vector<Habitacao *> habitacoes;     //!< Vetor de Habitações pertencentes ao condómino
+    vector<Servico *> servicos;         //!< Vetor de Serviços prestados ao condómino
 public:
+    /**
+     *
+     * @param nome Nome do Condómino
+     * @param nif  NIF do Condómino
+     */
     Condomino(string nome, unsigned int nif);
 
     // Métodos GET
+
+    /**
+     *
+     * @return Nome do condómino
+     */
     string getNome();
+
+    /**
+     *
+     * @return NIF do condómino
+     */
     unsigned int getNIF();
+
+    /**
+     *
+     * @return Número de Habitações do condómino
+     */
     int getNumHabitacoes();
+
+    /**
+     *
+     * @return Vetor das Habitações pertencentes ao condómino
+     */
     vector<Habitacao *> getHabitacoes();
+
+    /**
+     *
+     * @return Vetor das Serviços prestados ao condómino
+     */
     vector<Servico *> getServicos();
 
+    /**
+     *
+     * @param hab Apontador para Habitação a adicionar ao condómino
+     */
     void adicionaHabitacao(Habitacao *hab);
+
+    /**
+     *
+     * @param hab Apontador para Habitação a remover do condómino
+     */
     void removeHabitacao(Habitacao *hab);
+
+    /**
+     *
+     * @param serv Apontador para Serviço a adicionar ao condómino
+     */
     void adicionaServico(Servico *serv);
 
+    /**
+     *
+     * @return Info do condómino em string 'user-friendly'
+     */
     string info();
 
+    /** @brief Ordena habitações por area habitacional
+     *
+     * @param reverse true - area maior para area menor
+     */
     void ordenarHabitacoesArea(bool reverse);           // true -> area maior para area menor
+
+
+    /** @brief Ordena habitaçoes por mensalidade
+     *
+     * @param reverse true - mensalidade maior para mensalidade menor
+     */
     void ordenarHabitacoesMensalidade(bool reverse);    // true -> mensalidade maior para mensalidade menor
 
+    /**
+     *
+     * @return Mensalidade total a pagar pelo condómino
+     */
     float mensalidadeTotal();
 
     // testing functions
@@ -41,27 +103,33 @@ public:
 
 // Exception Classes
 
+/**
+ * Exception Class para quando não conseguimos encontrar uma habitação
+ */
 class NoSuchHabitation {
     string id;
 public:
     NoSuchHabitation(string id) { this->id = id; }
     string getID() { return this->id; }
 };
+
+/**
+ * Exception Class para quando não conseguimos encontrar um condómino
+ */
 class NoSuchCondomino {
     unsigned int nif;
 public:
     NoSuchCondomino(unsigned int nif) { this->nif = nif; }
     unsigned int getNIF() { return this->nif; }
 };
+
+/**
+ * Exception Class para quando não conseguimos encontrar um serviço
+ */
 class NoSuchService {
 public:
     NoSuchService() {};
 };
-
-
-
-
-
 
 
 #endif //PARTE1_CONDOMINO_H
