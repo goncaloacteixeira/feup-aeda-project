@@ -12,9 +12,9 @@
  */
 class Habitacao {
 protected:
-    bool ocupado;           //*< estado "true" para ocupado
-    Morada morada;          //*< morada é um objeto da classe Morada
-    float areaHabitacional; //*< Área Habitacional da habitação
+    bool ocupado;           //!< estado "true" para ocupado
+    Morada morada;          //!< morada é um objeto da classe Morada
+    float areaHabitacional; //!< Área Habitacional da habitação
 public:
     /** @brief Construtor da classe Habitação
      *
@@ -35,9 +35,20 @@ public:
      * @return Devolve a área habitacional
      */
     float getAreaHabitacional();
-    bool getEstado() { return ocupado; };
-    bool setEstado(bool ocupado) {this->ocupado = ocupado; };
-    float mensalidade;
+
+    /**
+     *
+     * @return Ocupação da Habitação (true - ocupado)
+     */
+    bool getEstado() { return ocupado; }
+
+    /**
+     *
+     * @param ocupado Ocupação da Habitação (true - ocupado)
+     */
+    void setEstado(bool ocupado) {this->ocupado = ocupado; }
+
+    float mensalidade;                      //!< Mensalidade da Habitação
     virtual string getID() = 0;
     virtual string info();
     virtual vector<string> extraInfo() = 0;
@@ -47,10 +58,10 @@ public:
  * Classe Derivada de Habitação
  */
 class Apartamento : public Habitacao {
-    string tipologia;   //*< Tipo de apartamento ("T0", "T1", ...)
-    int piso;           //*< Número do piso em que o apartamento se encontra
-    const string id;
-    static int ap_current_id;
+    string tipologia;           //!< Tipo de apartamento ("T0", "T1", ...)
+    int piso;                   //!< Número do piso em que o apartamento se encontra
+    const string id;            //!< ID do Apartamento
+    static int ap_current_id;   //!< ID do Apartamento atual
 public:
 
     /** @brief Construtor da classe derivada Apartamento
@@ -90,10 +101,22 @@ public:
     */
     void setPiso(int piso);
 
+    /**
+     *
+     * @return ID do Apartamento
+     */
     string getID();
 
+    /**
+     *
+     * @return Info acerca do Apartamento
+     */
     string info();
 
+    /**
+     *
+     * @return Info extra acerca do Apartamento (Tipologia - Piso)
+     */
     vector<string> extraInfo();
 };
 
@@ -101,10 +124,10 @@ public:
  *  Classe Derivada de Habitação
  */
 class Vivenda : public Habitacao {
-    float areaExterior;    //*< Área exterior da vivenda
-    bool piscina;           //*< Existe piscina (sim - true)
-    const string id;
-    static int vi_current_id;
+    float areaExterior;     //!< Área exterior da vivenda
+    bool piscina;           //!< Existe piscina (sim - true)
+    const string id;        //!< ID da Vivenda
+    static int vi_current_id;   //!< ID da Vivenda atual
 public:
 
     /** @brief Construtor da classe derivada Vivenda
@@ -144,10 +167,22 @@ public:
      */
     void setPiscina (bool piscina);
 
+    /**
+     *
+     * @return ID da Vivenda
+     */
     string getID();
 
+    /**
+     *
+     * @return Info da Vivenda
+     */
     string info();
 
+    /**
+     *
+     * @return Info extra acerca da vivenda (area exterior - piscina)
+     */
     vector<string> extraInfo();
 };
 
