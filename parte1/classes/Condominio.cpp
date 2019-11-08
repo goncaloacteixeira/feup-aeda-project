@@ -8,7 +8,6 @@
 Condominio::Condominio(unsigned int numPrestLimpeza) : numPrestLimpeza(numPrestLimpeza) {
     this->habitacoes = {};
     this->condominos = {};
-
 }
 
 vector<string> split1 (string &s, string delimiter) {
@@ -29,7 +28,6 @@ Condominio::Condominio(string filename) {
     ifstream condominio;
     string line;
     int i = 0;
-
 
     string condominosFileName;
     int numHab;
