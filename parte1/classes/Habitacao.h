@@ -8,7 +8,7 @@
 #include "Morada.h"
 
 /**
- * Classe Habitação
+ * @brief Classe Habitação
  */
 class Habitacao {
 protected:
@@ -55,7 +55,7 @@ public:
 };
 
 /**
- * Classe Derivada de Habitação
+ * @brief Classe Derivada de Habitação
  */
 class Apartamento : public Habitacao {
     string tipologia;           //!< Tipo de apartamento ("T0", "T1", ...)
@@ -121,7 +121,7 @@ public:
 };
 
 /**
- *  Classe Derivada de Habitação
+ *  @brief Classe Derivada de Habitação
  */
 class Vivenda : public Habitacao {
     float areaExterior;     //!< Área exterior da vivenda

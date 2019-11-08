@@ -10,7 +10,7 @@
 using namespace std;
 
 /**
- * Classe Serviço
+ * @brief Classe Serviço
  *
  * Métodos GET definidos
  */

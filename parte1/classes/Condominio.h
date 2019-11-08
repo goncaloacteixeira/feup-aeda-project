@@ -7,7 +7,9 @@
 
 #include "Condomino.h"
 
-
+/**
+ * @brief Classe Condomínio
+ */
 class Condominio {
 
     unsigned int numPrestLimpeza;           //!< Número de prestadores de limpeza do condomínio

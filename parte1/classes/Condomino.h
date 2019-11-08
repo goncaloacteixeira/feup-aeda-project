@@ -9,6 +9,9 @@
 #include "Servico.h"
 #include <fstream>
 
+/**
+ * @brief Classe Condómino
+ */
 class Condomino {
     const string nome;                  //!< Nome do Condómino
     const unsigned int nif;             //!< NIF do Condómino
