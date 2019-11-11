@@ -135,7 +135,10 @@ public:
      */
     void writeToFiles(string condominio, string condominos);
 
-
+    /**
+     *
+     * @return Prestadores de Serviço de Limpeza
+     */
     set<string> prestLimpezaAtuais() { return prestLimpeza; }
 
     // Mensalidades
@@ -149,7 +152,7 @@ public:
 // Exception Classes
 
 /**
- * Exception Class para quando não conseguimos encontrar uma habitação
+ * @brief Exception Class para quando não conseguimos encontrar uma habitação
  */
 class NoSuchHabitation {
     string id;
@@ -159,7 +162,7 @@ public:
 };
 
 /**
- * Exception Class para quando não conseguimos encontrar um condómino
+ * @brief Exception Class para quando não conseguimos encontrar um condómino
  */
 class NoSuchCondomino {
     unsigned int nif;
@@ -169,7 +172,7 @@ public:
 };
 
 /**
- * Exception Class para quando não conseguimos encontrar um serviço
+ * @brief Exception Class para quando não conseguimos encontrar um serviço
  */
 class NoSuchService {
 public:
@@ -177,7 +180,7 @@ public:
 };
 
 /**
- * Exception Class para quando ja existe determinado condómino
+ * @brief Exception Class para quando ja existe determinado condómino
  */
 class RepeatedCondomino {
     unsigned int nif;
