@@ -251,9 +251,54 @@ void Condominio::removeHabitacao(Habitacao *hab) {
     }
 }
 
-// a implementar
-void Condominio::ordernarHab() {
-    return;
+void Condominio::ordernarHab(string protocol) {
+    if (protocol == "area-ascending") {
+        for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (habitacoes[i + 1]->getAreaHabitacional() < habitacoes[i]->getAreaHabitacional()) {
+                    swap(habitacoes[i], habitacoes[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "area-descending") {
+        for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (habitacoes[i + 1]->getAreaHabitacional() > habitacoes[i]->getAreaHabitacional()) {
+                    swap(habitacoes[i], habitacoes[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "pay-ascending") {
+        for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (habitacoes[i + 1]->mensalidade < habitacoes[i]->mensalidade) {
+                    swap(habitacoes[i], habitacoes[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "pay-descending") {
+        for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (habitacoes[i + 1]->mensalidade > habitacoes[i]->mensalidade) {
+                    swap(habitacoes[i], habitacoes[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
 }
 
 vector<Condomino *> Condominio::getCondominos() {

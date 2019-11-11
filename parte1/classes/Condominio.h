@@ -74,7 +74,7 @@ public:
     /**
      * @brief Ordena habitações
      */
-    void ordernarHab();
+    void ordernarHab(string protocol);
 
     /**
      *

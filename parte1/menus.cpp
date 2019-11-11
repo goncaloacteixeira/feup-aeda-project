@@ -130,14 +130,15 @@ int condominiumMenu(Condominio *con) {
     cout << tab << "[02] Add Habitation\n";
     cout << tab << "[03] Remove Habitation\n";
     cout << tab << "[04] Assign Habitation\n";
-    cout << tab << "[05] Sort Habitations\n";
-    cout << tab << "[06] View all Habitations\n";
-    cout << tab << "[07] View all Apartments\n";
-    cout << tab << "[08] View all Villas\n\n";
+    cout << tab << "[05] Unassign Habitation\n";
+    cout << tab << "[06] Sort Habitations\n";
+    cout << tab << "[07] View all Habitations\n";
+    cout << tab << "[08] View all Apartments\n";
+    cout << tab << "[09] View all Villas\n\n";
 
 
-    cout << tab << "[09] View Services provided\n";
-    cout << tab << "[10] View Income\n\n";
+    cout << tab << "[10] View Services provided\n";
+    cout << tab << "[11] View Income\n\n";
 
     cout << tab << "[0] Exit\n";
 
@@ -146,7 +147,7 @@ int condominiumMenu(Condominio *con) {
     cout << tab << "Choice: ";
 
     cin >> choice;
-    while (!cin.good() || choice < 0 || choice > 10) {
+    while (!cin.good() || choice < 0 || choice > 11) {
         cin.clear();
         cin.ignore();
 
@@ -205,13 +206,14 @@ void printTable(vector<Habitacao *> habitacoes) {
     table.set_border_style(FT_DOUBLE2_STYLE);
 
     table << fort::header
-          << "ID" << "Type of Habitation" << "Address" << "Status" << "External Area" << "Typology" << "Pool" << "Floor" << "Monthly Payment" << fort::endr;
+          << "ID" << "Type of Habitation" << "Address" << "Habitation's Area" << "Status" << "External Area" << "Typology" << "Pool" << "Floor" << "Monthly Payment" << fort::endr;
 
     for (unsigned int i = 0; i < numHabs; i++) {
         table << habitacoes[i]->getID();
         (habitacoes[i]->getID()[0] == 'V') ? table << "Villa" : table << "Apartment";
 
         table << habitacoes[i]->getMorada();
+        table << habitacoes[i]->getAreaHabitacional();
 
         (habitacoes[i]->getEstado()) ? table << "occupied" : table << "unoccupied";
 
@@ -993,6 +995,105 @@ int unassignHab(Condominio *con) {
     condomino->removeHabitacao(habitacao);
 
 }
+
+int sortHabMenu(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
+    cout.width(65);
+    cout << "Sort Members" << endl;
+    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+
+    cout << tab << "[1] Sort Habitations by Monthly Payment in descending order\n";
+    cout << tab << "[2] Sort Habitations by Monthly Payment in ascending order\n";
+    cout << tab << "[3] Sort Habitations by Habitation's Area in descending order\n";
+    cout << tab << "[4] Sort Habitations by Habitation's Area in ascending order\n";
+
+
+    cout << tab << "[5] Back\n";
+    cout << tab << "[0] Exit\n";
+
+    int choice;
+
+    cout << tab << "Choice: ";
+
+    cin >> choice;
+    while (!cin.good() || choice < 0 || choice > 5) {
+        cin.clear();
+        cin.ignore();
+
+        cout << endl << tab << "Type a valid number please\n";
+        cout << tab << "Choice: ";
+
+        cin >> choice;
+    }
+    cin.ignore();
+
+
+    if (choice == 1)
+        con->ordernarHab("pay-descending");
+    else if (choice == 2)
+        con->ordernarHab("pay-ascending");
+    else if (choice == 3)
+        con->ordernarHab("area-descending");
+    else if (choice == 4)
+        con->ordernarHab("area-ascending");
+
+    if (choice != 0 && choice != 5) {
+        cout << endl << endl << tab << tab << "Habitations successfully sorted!" << endl;
+        wait();
+    }
+
+    return choice;
+}
+
+void viewHabs(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
+    cout.width(65);
+    cout << "View Habitations" << endl;
+    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+
+    printTable(con->getHabitacoes());
+    wait();
+}
+
+void viewAps(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
+    cout.width(65);
+    cout << "View Apartments" << endl;
+    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+
+    vector<Habitacao *> habs;
+    for (auto hab : con->getHabitacoes())
+        if (hab->getID()[0] == 'A')
+            habs.push_back(hab);
+
+    printTable(habs);
+    wait();
+}
+
+void viewVivs(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
+    cout.width(65);
+    cout << "View Villas" << endl;
+    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+
+    vector<Habitacao *> habs;
+    for (auto hab : con->getHabitacoes())
+        if (hab->getID()[0] == 'V')
+            habs.push_back(hab);
+
+    printTable(habs);
+    wait();
+}
+
+
 
 
 

@@ -31,8 +31,9 @@ int main() {
 
     Condominio C("condominio.txt");
 
-    unassignHab(&C);
-    membersMenu(&C);
+    viewHabs(&C);
+    sortHabMenu(&C);
+    viewHabs(&C);
 
     return 0;
 }

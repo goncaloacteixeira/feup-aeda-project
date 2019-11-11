@@ -24,12 +24,15 @@ void rmConMenu(Condominio *con);
 int sortConMenu(Condominio *con);
 int rqServiceMenu(Condominio *con);
 
+void viewHabs(Condominio *con);
+void viewAps(Condominio *con);
+void viewVivs(Condominio *con);
 
 int addHabMenu(Condominio *con);
 int rmHabMenu(Condominio *con);
 int assignHab(Condominio *con);
 int unassignHab(Condominio *con);
-void sortHabMenu(Condominio *con);
+int sortHabMenu(Condominio *con);
 
 
 void servicesProvided(Condominio *con);
