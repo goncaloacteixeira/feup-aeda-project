@@ -12,15 +12,15 @@ using namespace std;
 
 void wait();
 
-int mainMenu();
+int firstMenu();
 string filenameMenu();
 Condominio newCondominium();
 
-int condominiumMenu(Condominio *con);
+int mainMenu(Condominio *con);
 
 int membersMenu(Condominio *con);
-void addConMenu(Condominio *con);
-void rmConMenu(Condominio *con);
+int addConMenu(Condominio *con);
+int rmConMenu(Condominio *con);
 int sortConMenu(Condominio *con);
 int rqServiceMenu(Condominio *con);
 
@@ -34,8 +34,10 @@ int assignHab(Condominio *con);
 int unassignHab(Condominio *con);
 int sortHabMenu(Condominio *con);
 
-
 void servicesProvided(Condominio *con);
 void incomeMenu(Condominio *con);
+
+int exitMenu(Condominio *con);
+
 
 #endif //PARTE1_MENUS_H

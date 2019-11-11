@@ -12,14 +12,13 @@ void wait() {
     getchar();
 }
 
-int mainMenu() {
+int firstMenu() {
 
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(70);
-    cout << "Condominium Management" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Condominium Management" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     cout << tab << "Name: Condomix\n";
 
@@ -50,18 +49,18 @@ int mainMenu() {
 string filenameMenu() {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "Read From Files" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
-
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "      Read from files" << endl;
+    cout << "------------------------------------------------------\n\n";
     cout << tab << "Name: Condomix\n";
 
     string filename;
 
     while (true) {
-        cout << tab << "Filename: ";
+        cout << tab << "Filename (type -1 to CANCEL): ";
         getline(cin, filename);
+
+        if (filename == "-1") return filename;
 
         cout << endl << tab << "Is this filename correct? (Y/N): ";
         string option;
@@ -87,11 +86,9 @@ string filenameMenu() {
 Condominio newCondominium() {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "New Condominium" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
-
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    New Condominium" << endl;
+    cout << "------------------------------------------------------\n\n";
     cout << tab << "Name: Condomix\n";
 
     cout << tab << "Number of Cleaning providers: ";
@@ -116,14 +113,12 @@ Condominio newCondominium() {
     return Condominio(numLimp);
 }
 
-int condominiumMenu(Condominio *con) {
+int mainMenu(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "Condominium Menu" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
-
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Condominium Menu" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     // options
     cout << tab << "[01] Condominium Members Menu\n";
@@ -228,14 +223,27 @@ void printTable(vector<Habitacao *> habitacoes) {
     cout << table.to_string() << endl;
 }
 
+void printTable(vector<Servico *> servicos) {
+    unsigned int numServ = servicos.size();
+    fort::char_table table;
+    table.set_border_style(FT_DOUBLE2_STYLE);
+
+    table << fort::header
+          << "Service" << "Provider" << "Cost" << fort::endr;
+
+    for (auto serv : servicos)
+        table << serv->getTipo() << serv->getPrestador() << serv->getCusto() << fort::endr;
+
+    table.set_cell_text_align(fort::text_align::center);
+    cout << table.to_string() << endl;
+}
+
 int membersMenu(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "Members Menu" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
-
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Members Menu" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     if (con->getNumCondominos() == 0) {
         cout << tab << "No Members yet\n\n";
@@ -277,23 +285,20 @@ bool checkNIF(unsigned int nif) {
     return to_string(nif).size() == 9;
 }
 
-
-
-void addConMenu(Condominio *con) {
+int addConMenu(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "New Member" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
-
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    New Member" << endl;
+    cout << "------------------------------------------------------\n\n";
     string name;
     unsigned int nif;
 
     while (true) {
-        cout << tab << "Name: ";
+        cout << tab << "Name (type -1 to CANCEL): ";
         getline(cin, name);
 
+        if (name == "-1") return -1;
 
         cout << endl << tab << "Is this name correct? (Y/N): ";
         string option;
@@ -316,8 +321,9 @@ void addConMenu(Condominio *con) {
 
     while (true) {
         try {
-            cout << tab << "VAT number: ";
+            cout << tab << "VAT number (type -1 to CANCEL): ";
             cin >> nif;
+            if (nif == -1) return -1;
             while (!cin.good() || nif <= 0 || !checkNIF(nif)) {
                 cin.clear();
                 cin.ignore();
@@ -341,13 +347,12 @@ void addConMenu(Condominio *con) {
     wait();
 }
 
-void rmConMenu(Condominio *con) {
+int rmConMenu(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "Remove Member" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Remove Member" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     if (con->getNumCondominos() == 0) {
         cout << tab << "Nothing to Remove\n";
@@ -357,8 +362,11 @@ void rmConMenu(Condominio *con) {
 
         while (true) {
             try {
-                cout << tab << "VAT number: ";
+                cout << tab << "VAT number (type -1 to CANCEL): ";
                 cin >> nif;
+
+                if (nif == -1) return -1;
+
                 while (!cin.good() || nif <= 0 || !checkNIF(nif)) {
                     cin.clear();
                     cin.ignore();
@@ -382,15 +390,15 @@ void rmConMenu(Condominio *con) {
         cout << endl << endl << tab << tab << "Member successfully removed!" << endl;
     }
     wait();
+    return 0;
 }
 
 int sortConMenu(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "Sort Members" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Sort Members" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     cout << tab << "[1] Sort Members by Monthly Payment in descending order\n";
     cout << tab << "[2] Sort Members by Monthly Payment in ascending order\n";
@@ -435,11 +443,9 @@ int sortConMenu(Condominio *con) {
 int rqServiceMenu(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "Request Service" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
-
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Request Service" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     if (con->getNumCondominos() == 0) {
         cout << tab << "No members!\n";
@@ -584,7 +590,7 @@ int rqServiceMenu(Condominio *con) {
         con->adicionaServico(servico);
 
         cout << endl << endl << tab << tab << "Service successfully requested!" << endl;
-
+        wait();
         return choice;
     }
     return -1;
@@ -593,11 +599,9 @@ int rqServiceMenu(Condominio *con) {
 int addHabMenu(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "New Habitation" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
-
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    New Habitation" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     int choice;
 
@@ -630,7 +634,7 @@ int addHabMenu(Condominio *con) {
         getline(cin, address);
 
 
-        cout << tab << "Is this address correct and as asked? (Y/N): ";
+        cout << "\tIs this address correct and as asked? (Y/N): ";
         string option;
         getline(cin, option);
 
@@ -742,15 +746,15 @@ int addHabMenu(Condominio *con) {
 
     cout << endl << endl << tab << tab << "Habitation successfully added!" << endl;
     wait();
+    return choice;
 }
 
 int rmHabMenu(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "Remove Habitation" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Remove Habitation" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     if (con->getNumHabitacoes() == 0) {
         cout << tab << "Nothing to Remove\n";
@@ -759,7 +763,7 @@ int rmHabMenu(Condominio *con) {
         string id;
         while (true) {
             try {
-                cout << tab << "ID (starts with V for Villa and A for Apartment) (type -1 to CANCEL): ";
+                cout << "\tID (starts with V for Villa and A for Apartment) (type -1 to CANCEL): ";
                 getline(cin, id);
                 if (id == "-1") return -1;
                 Habitacao* habitacao = con->findHab(id);
@@ -771,7 +775,7 @@ int rmHabMenu(Condominio *con) {
                 con->removeHabitacao(habitacao);
             }
             catch (NoSuchHabitation &e) {
-                cout << tab << "Habitation with ID: " << e.getID() << " does not exist on this condominium\n";
+                cout << "\tHabitation with ID: " << e.getID() << " does not exist on this condominium\n";
                 continue;
             }
             break;
@@ -784,10 +788,9 @@ int rmHabMenu(Condominio *con) {
 int assignHab(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "Assign Habitation" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Assign Habitation" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     if (con->getNumHabitacoes() == 0 || con->getNumCondominos() == 0) {
         cout << tab << "Cannot assign member to habitation\n";
@@ -831,7 +834,7 @@ int assignHab(Condominio *con) {
             condomino = con->findCon(nif);
         }
         catch (NoSuchCondomino &e) {
-            cout << tab << "Person with VAT: " << e.getNIF() << " does not exist in members\n";
+            cout << "\tPerson with VAT: " << e.getNIF() << " does not exist in members\n";
             continue;
         }
         break;
@@ -845,7 +848,7 @@ int assignHab(Condominio *con) {
     Habitacao* habitacao;
     while (true) {
         try {
-            cout << tab << "ID (starts with V for Villa and A for Apartment) (type -1 to CANCEL): ";
+            cout << "\tID (starts with V for Villa and A for Apartment) (type -1 to CANCEL): ";
             getline(cin, id);
             if (id == "-1") return -1;
 
@@ -860,11 +863,11 @@ int assignHab(Condominio *con) {
             habitacao = con->findHab(id);
         }
         catch (NoSuchHabitation &e) {
-            cout << tab << "Habitation with ID: " << e.getID() << " does not exist on this condominium\n";
+            cout << "\tHabitation with ID: " << e.getID() << " does not exist on this condominium\n";
             continue;
         }
         catch (string &e) {
-            cout << tab << "Habitation with ID: " << e << " is not available\n";
+            cout << "\tHabitation with ID: " << e << " is not available\n";
             continue;
         }
         break;
@@ -880,10 +883,9 @@ int assignHab(Condominio *con) {
 int unassignHab(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "Unassign Habitation" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Unassign Habitation" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     if (con->getNumHabitacoes() == 0 || con->getNumCondominos() == 0) {
         cout << tab << "Cannot assign member to habitation\n";
@@ -946,11 +948,11 @@ int unassignHab(Condominio *con) {
             condomino = con->findCon(nif);
         }
         catch (NoSuchCondomino &e) {
-            cout << tab << "Person with VAT: " << e.getNIF() << " does not exist in members\n";
+            cout << "\tPerson with VAT: " << e.getNIF() << " does not exist in members\n";
             continue;
         }
         catch (int &e) {
-            cout << tab << "Person with VAT: " << e  << " has no habitations assigned\n";
+            cout << "\tPerson with VAT: " << e  << " has no habitations assigned\n";
             continue;
         }
         break;
@@ -968,7 +970,7 @@ int unassignHab(Condominio *con) {
     Habitacao* habitacao;
     while (true) {
         try {
-            cout << tab << "ID (starts with V for Villa and A for Apartment) (type -1 to CANCEL): ";
+            cout << "\tID (starts with V for Villa and A for Apartment) (type -1 to CANCEL): ";
             getline(cin, id);
             if (id == "-1") return -1;
 
@@ -983,11 +985,11 @@ int unassignHab(Condominio *con) {
             habitacao = con->findHab(id);
         }
         catch (NoSuchHabitation &e) {
-            cout << tab << "Habitation with ID: " << e.getID() << " does not exist on this condominium\n";
+            cout << "\tHabitation with ID: " << e.getID() << " does not exist on this condominium\n";
             continue;
         }
         catch (string &e) {
-            cout << tab << "Habitation with ID: " << e << " is not available\n";
+            cout << "\tHabitation with ID: " << e << " is not available\n";
             continue;
         }
         break;
@@ -999,10 +1001,9 @@ int unassignHab(Condominio *con) {
 int sortHabMenu(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "Sort Members" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Sort Habitation" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     cout << tab << "[1] Sort Habitations by Monthly Payment in descending order\n";
     cout << tab << "[2] Sort Habitations by Monthly Payment in ascending order\n";
@@ -1050,10 +1051,9 @@ int sortHabMenu(Condominio *con) {
 void viewHabs(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "View Habitations" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    View Habitations" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     printTable(con->getHabitacoes());
     wait();
@@ -1062,10 +1062,9 @@ void viewHabs(Condominio *con) {
 void viewAps(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "View Apartments" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    View Apartments" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     vector<Habitacao *> habs;
     for (auto hab : con->getHabitacoes())
@@ -1079,10 +1078,9 @@ void viewAps(Condominio *con) {
 void viewVivs(Condominio *con) {
     string tab = "\t\t\t";
 
-    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
-    cout.width(65);
-    cout << "View Villas" << endl;
-    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    View Villas" << endl;
+    cout << "------------------------------------------------------\n\n";
 
     vector<Habitacao *> habs;
     for (auto hab : con->getHabitacoes())
@@ -1093,9 +1091,72 @@ void viewVivs(Condominio *con) {
     wait();
 }
 
+void servicesProvided(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Services Provided" << endl;
+    cout << "------------------------------------------------------\n\n";
+
+    if (con->getServicos().empty()) {
+        cout << tab << "Nothing to show\n";
+        wait();
+        return;
+    }
+
+    printTable(con->getServicos());
+    wait();
+}
+
+void incomeMenu(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Income Menu" << endl;
+    cout << "------------------------------------------------------\n\n";
+
+    if (con->getServicos().empty()) {
+        cout << tab << "Nothing to show\n";
+        wait();
+        return;
+    }
+
+    cout << tab << "Monthly Profits: " << con->calcReceitas();
+    wait();
+}
+
+int exitMenu(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Exit Menu" << endl;
+    cout << "------------------------------------------------------\n\n";
+
+    string option;
+    while (true) {
+        cout << "\tDo you want to save the information (Y/N)? (type -1 to CANCEL): ";
+        getline(cin, option);
+
+        if (option == "-1") return -1;
 
 
+        bool flag = false;
+        if (option == "Y" || option == "N" || option == "y" || option == "n")
+            flag = true;
 
+        while (!flag) {
+            cout << endl << tab << "Type 'Y' or 'N' please: ";
 
+            getline(cin, option);
+            if (option == "Y" || option == "N" || option == "y" || option == "n")
+                flag = true;
+        }
 
+        if (flag) break;
+    }
 
+    if (option == "y" || option == "Y")
+        return 0;
+    else
+        return 1;
+}

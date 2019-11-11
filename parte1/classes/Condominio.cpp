@@ -5,6 +5,7 @@
 #include "Condominio.h"
 #include <algorithm>
 #include <iostream>
+#include <chrono>
 
 set<string> Condominio::prestLimpeza = {};
 
@@ -27,6 +28,8 @@ vector<string> split1 (string &s, string delimiter) {
 }
 
 Condominio::Condominio(string filename) {
+    auto start = chrono::steady_clock::now();
+
     filename = "../" + filename;
     ifstream condominio;
     string line;
@@ -160,9 +163,14 @@ Condominio::Condominio(string filename) {
         }
     }
 
+    auto end = chrono::steady_clock::now();
+    cout << "The reading took: " << chrono::duration_cast<chrono::microseconds>(end-start).count() << " microseconds -> " << chrono::duration_cast<chrono::milliseconds>(end-start).count() << " milliseconds \n";
+
 }
 
 void Condominio::writeToFiles(string condominioFilename, string condominosFilename) {
+    auto start = chrono::steady_clock::now();
+
     condominioFilename = "../" + condominioFilename;
 
     fstream condominio(condominioFilename, std::ofstream::out | std::ofstream::trunc);
@@ -211,6 +219,8 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
                 cond << "\n::::::::::\n";
         }
     }
+    auto end = chrono::steady_clock::now();
+    cout << "The writing took: " << chrono::duration_cast<chrono::microseconds>(end-start).count() << " microseconds -> " << chrono::duration_cast<chrono::milliseconds>(end-start).count() << " milliseconds \n";
 }
 
 float Condominio::calcReceitas() {
@@ -360,7 +370,7 @@ void Condominio::ordenarCond(string protocol) {
         for (unsigned int j = condominos.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
-                if (condominos[i + 1]->mensalidadeTotal() < condominos[i]->mensalidadeTotal()) {
+                if (condominos[i + 1]->mensalidadeTotal() > condominos[i]->mensalidadeTotal()) {
                     swap(condominos[i], condominos[i + 1]);
                     troca = true;
                 }
