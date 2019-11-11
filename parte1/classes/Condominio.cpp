@@ -73,7 +73,7 @@ Condominio::Condominio(string filename) {
         for (int i = 0; i < numHab; i++) {
             Morada novaMorada(info[i][2]);
             if (info[i][0][0] == 'A') {
-                Apartamento *ap = new Apartamento(novaMorada, stof(info[i][3]), info[i][4],stoi(info[i][5]));
+                Apartamento *ap = new Apartamento(novaMorada, stof(info[i][3]), info[i][4],stoi(info[i][5]), stof(info[i][6]));
 
                 ap->setEstado(info[i][1] == "0");
                 habitacoes.push_back(ap);
@@ -81,7 +81,7 @@ Condominio::Condominio(string filename) {
             if (info[i][0][0] == 'V') {
                 bool piscina;
                 piscina = info[i][5] == "1";
-                Vivenda *vi = new Vivenda(novaMorada, stof(info[i][3]), stof(info[i][4]), piscina);
+                Vivenda *vi = new Vivenda(novaMorada, stof(info[i][3]), stof(info[i][4]), piscina, stof(info[i][6]));
 
                 vi->setEstado(info[i][1] == "0");
                 habitacoes.push_back(vi);
@@ -169,7 +169,8 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
             condominio << this->habitacoes[i]->getMorada() << endl;
             condominio << this->habitacoes[i]->getAreaHabitacional() << endl;
             condominio << this->habitacoes[i]->extraInfo()[0] << endl;
-            condominio << this->habitacoes[i]->extraInfo()[1];
+            condominio << this->habitacoes[i]->extraInfo()[1] << endl;
+            condominio << this->habitacoes[i]->mensalidade;
             if (i != this->getNumHabitacoes() - 1)
                 condominio << "\n::::::::::\n";
         }
@@ -256,6 +257,12 @@ unsigned int Condominio::getNumCondominos() {
 }
 
 void Condominio::adicionaCondomino(Condomino *con) {
+    if (this->condominos.size() == 0)
+        this->condominos.push_back(con);
+    for (int i = 0; i < this->getNumCondominos(); i++) {
+        if (this->getCondominos()[i]->getNIF() == con->getNIF())
+            throw RepeatedCondomino(con->getNIF());
+    }
     this->condominos.push_back(con);
 }
 

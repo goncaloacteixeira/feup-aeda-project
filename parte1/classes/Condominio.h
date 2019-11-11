@@ -30,10 +30,6 @@ public:
      */
     Condominio(string filename);
 
-    /**
-     * @return O total de receitas no condomínio
-     */
-    float calcReceitas();
 
     // Métodos GET
     /**
@@ -134,7 +130,54 @@ public:
      * @param condominos Filename dos condóminos
      */
     void writeToFiles(string condominio, string condominos);
+
+
+    // Mensalidades
+
+    /**
+    * @return O total de receitas no condomínio
+    */
+    float calcReceitas();
 };
 
+// Exception Classes
+
+/**
+ * Exception Class para quando não conseguimos encontrar uma habitação
+ */
+class NoSuchHabitation {
+    string id;
+public:
+    NoSuchHabitation(string id) { this->id = id; }
+    string getID() { return this->id; }
+};
+
+/**
+ * Exception Class para quando não conseguimos encontrar um condómino
+ */
+class NoSuchCondomino {
+    unsigned int nif;
+public:
+    NoSuchCondomino(unsigned int nif) { this->nif = nif; }
+    unsigned int getNIF() { return this->nif; }
+};
+
+/**
+ * Exception Class para quando não conseguimos encontrar um serviço
+ */
+class NoSuchService {
+public:
+    NoSuchService() {};
+};
+
+/**
+ * Exception Class para quando ja existe determinado condómino
+ */
+class RepeatedCondomino {
+    unsigned int nif;
+public:
+    RepeatedCondomino(unsigned int nif) { this->nif = nif; }
+    unsigned int getNIF() { return this->nif; }
+};
 
 #endif //PARTE1_CONDOMINIO_H

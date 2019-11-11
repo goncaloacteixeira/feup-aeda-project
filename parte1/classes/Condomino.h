@@ -104,35 +104,7 @@ public:
     void setHabitacoes(vector<Habitacao* > hab);
 };
 
-// Exception Classes
 
-/**
- * Exception Class para quando não conseguimos encontrar uma habitação
- */
-class NoSuchHabitation {
-    string id;
-public:
-    NoSuchHabitation(string id) { this->id = id; }
-    string getID() { return this->id; }
-};
-
-/**
- * Exception Class para quando não conseguimos encontrar um condómino
- */
-class NoSuchCondomino {
-    unsigned int nif;
-public:
-    NoSuchCondomino(unsigned int nif) { this->nif = nif; }
-    unsigned int getNIF() { return this->nif; }
-};
-
-/**
- * Exception Class para quando não conseguimos encontrar um serviço
- */
-class NoSuchService {
-public:
-    NoSuchService() {};
-};
 
 
 #endif //PARTE1_CONDOMINO_H
