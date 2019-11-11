@@ -3,7 +3,10 @@
 //
 
 #include "Condominio.h"
+#include <algorithm>
 #include <iostream>
+
+set<string> Condominio::prestLimpeza = {};
 
 Condominio::Condominio(unsigned int numPrestLimpeza) : numPrestLimpeza(numPrestLimpeza) {
     this->habitacoes = {};
@@ -133,25 +136,30 @@ Condominio::Condominio(string filename) {
         }
     }
 
-    for (int i = 0; i < numCondominos; i++)
-    {
-        Condomino *c = new Condomino(info[i][0], stoi(info[i][1]));
-        int numHabs = stoi(info[i][2]);
-        if (numHabs != 0) {
-            for (int j = 0; j < numHabs ; j++)
-                c->adicionaHabitacao(findHab(info[i][3 + j]));
-        }
-
-        int numServ = stoi(info[i][3 + numHabs]);
-        if (numServ != 0) {
-            for (int j = 0; j < numServ ; j++) {
-                vector<string> servico = split1(info[i][4 + numHabs + j]," : ");
-                Servico *serv = new Servico(stof(servico[1]),servico[2],servico[0]);
-                c->adicionaServico(serv);
+    if (numCondominos != 0) {
+        for (int i = 0; i < numCondominos; i++) {
+            Condomino *c = new Condomino(info[i][0], stoi(info[i][1]));
+            int numHabs = stoi(info[i][2]);
+            if (numHabs != 0) {
+                for (int j = 0; j < numHabs; j++)
+                    c->adicionaHabitacao(findHab(info[i][3 + j]));
             }
+
+            int numServ = stoi(info[i][3 + numHabs]);
+            if (numServ != 0) {
+                for (int j = 0; j < numServ; j++) {
+                    vector<string> servico = split1(info[i][4 + numHabs + j], " : ");
+                    Servico *serv = new Servico(stof(servico[1]), servico[2], servico[0]);
+                    if (serv->getTipo() == "Limpeza" || serv->getTipo() == "Cleaning")
+                        prestLimpeza.insert(serv->getPrestador());
+                    c->adicionaServico(serv);
+                    this->servicosPrestados.push_back(serv);
+                }
+            }
+            this->condominos.push_back(c);
         }
-        this->condominos.push_back(c);
     }
+
 }
 
 void Condominio::writeToFiles(string condominioFilename, string condominosFilename) {
@@ -275,16 +283,55 @@ void Condominio::removeCondomino(Condomino *con) {
     }
 }
 
-void Condominio::ordenarCond() {
-    int i, j;
-    for (j = 1; j < condominos.size(); j++)    // Start with 1 (not 0)
-    {
-        Condomino *temp = condominos[j];
 
-        for (i = j - 1; (i >= 0) && (condominos[i]->mensalidadeTotal() <
-                                     temp->mensalidadeTotal()); i--)   // Smaller values move up
-        {
-            condominos[i + 1] = condominos[i];
+
+void Condominio::ordenarCond(string protocol) {
+
+    if (protocol == "name-ascending") {
+        for (unsigned int j = condominos.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (condominos[i + 1]->getNome() < condominos[i]->getNome()) {
+                    swap(condominos[i], condominos[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "name-descending") {
+        for (unsigned int j = condominos.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (condominos[i + 1]->getNome() > condominos[i]->getNome()) {
+                    swap(condominos[i], condominos[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "pay-ascending") {
+        for (unsigned int j = condominos.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (condominos[i + 1]->mensalidadeTotal() < condominos[i]->mensalidadeTotal()) {
+                    swap(condominos[i], condominos[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "pay-descending") {
+        for (unsigned int j = condominos.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (condominos[i + 1]->mensalidadeTotal() < condominos[i]->mensalidadeTotal()) {
+                    swap(condominos[i], condominos[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
         }
     }
 }
@@ -322,5 +369,9 @@ Servico *Condominio::findServ(float custo, string prestador, string servico) {
             return this->getServicos()[i];
     }
     throw NoSuchService();
+}
+
+void Condominio::adicionaServico(Servico *serv) {
+    this->servicosPrestados.push_back(serv);
 }
 

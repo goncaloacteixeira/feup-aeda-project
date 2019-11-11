@@ -107,6 +107,8 @@ float Condomino::mensalidadeTotal() {
     float mens = 0;
     for (Habitacao *habitacao : habitacoes)
         mens += habitacao->mensalidade;
+    for (Servico *servico : servicos)
+        mens += servico->getCusto();
     return mens;
 }
 

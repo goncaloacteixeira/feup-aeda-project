@@ -21,8 +21,8 @@ int condominiumMenu(Condominio *con);
 int membersMenu(Condominio *con);
 void addConMenu(Condominio *con);
 void rmConMenu(Condominio *con);
-void sortConMenu(Condominio *con);
-void rqServiceMenu(Condominio *con);
+int sortConMenu(Condominio *con);
+int rqServiceMenu(Condominio *con);
 
 
 void addHabMenu(Condominio *con);

@@ -30,8 +30,13 @@ int test()
 int main() {
 
     Condominio C("condominio.txt");
-    addConMenu(&C);
-    rmConMenu(&C);
+
+
+    membersMenu(&C);
+
+    rqServiceMenu(&C);
+
+    membersMenu(&C);
 
     return 0;
 }

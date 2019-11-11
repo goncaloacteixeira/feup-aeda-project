@@ -6,12 +6,13 @@
 #define PARTE1_CONDOMINIO_H
 
 #include "Condomino.h"
+#include <set>
 
 /**
  * @brief Classe Condomínio
  */
 class Condominio {
-
+    static set<string> prestLimpeza;
     unsigned int numPrestLimpeza;           //!< Número de prestadores de limpeza do condomínio
     vector<Habitacao *> habitacoes;         //!< Vetor de apontadores para objetos Habitação
     vector<Condomino *> condominos;         //!< Vetor de apontadores para objetos Condómino
@@ -42,6 +43,9 @@ public:
      * @return Vetor com os serviços prestados pelo condomínio
      */
     vector<Servico *> getServicos();
+
+
+    void adicionaServico(Servico *serv);
 
     /**
      *
@@ -99,7 +103,7 @@ public:
     /**
      * @brief Ordena os condóminos
      */
-    void ordenarCond();
+    void ordenarCond(string protocol); // true - descending order
 
     /**
      *
@@ -131,6 +135,8 @@ public:
      */
     void writeToFiles(string condominio, string condominos);
 
+
+    set<string> prestLimpezaAtuais() { return prestLimpeza; }
 
     // Mensalidades
 

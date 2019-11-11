@@ -349,6 +349,212 @@ void rmConMenu(Condominio *con) {
     wait();
 }
 
+int sortConMenu(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
+    cout.width(65);
+    cout << "Sort Members" << endl;
+    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+
+    cout << tab << "[1] Sort Members by Monthly Payment in descending order\n";
+    cout << tab << "[2] Sort Members by Monthly Payment in ascending order\n";
+    cout << tab << "[3] Sort Members by Name in descending order\n";
+    cout << tab << "[4] Sort Members by Name in ascending order\n";
+
+    cout << tab << "[5] Back\n";
+    cout << tab << "[0] Exit\n";
+
+    int choice;
+
+    cout << tab << "Choice: ";
+
+    cin >> choice;
+    while (!cin.good() || choice < 0 || choice > 5) {
+        cin.clear();
+        cin.ignore();
+
+        cout << endl << tab << "Type a valid number please\n";
+        cout << tab << "Choice: ";
+
+        cin >> choice;
+    }
+    cin.ignore();
+
+
+    if (choice == 1)
+        con->ordenarCond("pay-descending");
+    else if (choice == 2)
+        con->ordenarCond("pay-ascending");
+    else if (choice == 3)
+        con->ordenarCond("name-descending");
+    else if (choice == 4)
+        con->ordenarCond("name-ascending");
+
+    if (choice != 0 && choice != 5)
+        cout << endl << endl << tab << tab << "Members successfully sorted!" << endl;
+
+    return choice;
+}
+
+int rqServiceMenu(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
+    cout.width(65);
+    cout << "Request Service" << endl;
+    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+
+
+    if (con->getNumCondominos() == 0) {
+        cout << tab << "No members!\n";
+    } else {
+        unsigned int nif;
+
+        Condomino *condomino;
+        while (true) {
+            try {
+                cout << tab << "VAT number: ";
+                cin >> nif;
+                while (!cin.good() || nif <= 0 || !checkNIF(nif)) {
+                    cin.clear();
+                    cin.ignore();
+
+                    cout << endl << tab << "Type a valid number please\n";
+                    cout << tab << "VAT number: ";
+
+                    cin >> nif;
+                }
+                cin.ignore();
+                condomino = con->findCon(nif);
+            }
+            catch (NoSuchCondomino &e) {
+                cout << tab << "Person with VAT: " << e.getNIF() << " does not exist in members\n";
+                continue;
+            }
+            break;
+        }
+
+        cout << tab << tab << "Request a service for " << condomino->getNome() << endl << endl;
+
+        cout << tab << "[01] Cleaning\n";
+        cout << tab << "[02] Hairdresser\n";
+        cout << tab << "[03] Car Cleaner\n";
+        cout << tab << "[04] Security\n";
+        cout << tab << "[05] Babysitter\n";
+        cout << tab << "[06] Plumber\n";
+        cout << tab << "[07] Gardener\n";
+        cout << tab << "[08] Electrician\n";
+
+        // todo - add more services
+
+
+        cout << tab << "[09] Back\n";
+        cout << tab << "[0] Exit\n";
+
+
+        int choice;
+
+        cout << tab << "Choice: ";
+
+        cin >> choice;
+        while (!cin.good() || choice < 0 || choice > 9) {
+            cin.clear();
+            cin.ignore();
+
+            cout << endl << tab << "Type a valid number please\n";
+            cout << tab << "Choice: ";
+
+            cin >> choice;
+        }
+        cin.ignore();
+
+
+        if (choice == 0 || choice == 9)
+            return choice;
+
+        bool flag = false;
+        string prestador;
+        string type;
+
+        switch (choice) {
+            case 1:
+                while (!flag) {
+                    cout << tab << "Provider: ";
+                    getline(cin, prestador);
+                    if (con->getNumPrestLimpeza() == con->prestLimpezaAtuais().size()) {
+                        for (const string &provider : con->prestLimpezaAtuais())
+                            if (provider == prestador) {
+                                flag = true;
+                                break;
+                            }
+                        if (!flag)
+                            cout << tab << "That provider cannot be added. Maximum cleaning providers reached!\n";
+                    }
+                    flag = true;
+                }
+                type = "Cleaning";
+                break;
+            case 2:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Hairdresser";
+                break;
+            case 4:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Security";
+                break;
+            case 5:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Babysitter";
+                break;
+            case 6:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Plumber";
+                break;
+            case 7:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Gardener";
+                break;
+            case 8:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Electrician";
+                break;
+            default:
+                break;
+        }
+
+        int custo;
+        cout << tab << "Custo: ";
+        cin >> custo;
+        while (!cin.good() || choice < 0 || choice > INT32_MAX) {
+            cin.clear();
+            cin.ignore();
+
+            cout << endl << tab << "Type a valid number please\n";
+            cout << tab << "Custo: ";
+
+            cin >> custo;
+        }
+        cin.ignore();
+
+
+        Servico *servico = new Servico(custo, prestador, type);
+        condomino->adicionaServico(servico);
+        con->adicionaServico(servico);
+
+        cout << endl << endl << tab << tab << "Service successfully requested!" << endl;
+
+        return choice;
+    }
+    return -1;
+}
+
 
 
 
