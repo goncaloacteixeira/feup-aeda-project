@@ -848,8 +848,8 @@ int assignHab(Condominio *con) {
             if (id == "-1") return -1;
 
             bool flag = false;
-            for (int i = 0; i < availableHabs.size(); i++) {
-                if (id == availableHabs[i]->getID()) {
+            for (auto & availableHab : availableHabs) {
+                if (id == availableHab->getID()) {
                     flag = true;
                     break;
                 }
@@ -861,7 +861,7 @@ int assignHab(Condominio *con) {
             cout << tab << "Habitation with ID: " << e.getID() << " does not exist on this condominium\n";
             continue;
         }
-        catch (string e) {
+        catch (string &e) {
             cout << tab << "Habitation with ID: " << e << " is not available\n";
             continue;
         }
@@ -873,6 +873,125 @@ int assignHab(Condominio *con) {
     cout << endl << endl << tab << tab << "Habitation successfully assigned!" << endl;
     wait();
     return 0;
+}
+
+int unassignHab(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
+    cout.width(65);
+    cout << "Unassign Habitation" << endl;
+    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+
+    if (con->getNumHabitacoes() == 0 || con->getNumCondominos() == 0) {
+        cout << tab << "Cannot assign member to habitation\n";
+        wait();
+        return -1;
+    }
+
+    vector<Habitacao *> availableHabs;
+
+    for (unsigned int i = 0; i < con->getNumHabitacoes(); i++) {
+        if (con->getHabitacoes()[i]->getEstado())
+            availableHabs.push_back(con->getHabitacoes()[i]);
+    }
+
+    if (availableHabs.empty()) {
+        cout << tab << "No habitations available to unassign\n";
+        wait();
+        return -1;
+    }
+
+    vector<Condomino *> condominos;
+    for (unsigned int i = 0; i < con->getNumCondominos(); i++) {
+        if (con->getCondominos()[i]->getHabitacoes().size() != 0)
+            condominos.push_back(con->getCondominos()[i]);
+    }
+    if (condominos.empty()) {
+        cout << tab << "No members available to unassign\n";
+        wait();
+        return -1;
+    }
+
+    int nif;
+    Condomino* condomino;
+    printTable(condominos);
+    while (true) {
+        try {
+            cout << tab << "VAT number (-1 to CANCEL): ";
+            cin >> nif;
+            if (nif == -1) return -1;
+            while (!cin.good() || nif <= 0 || !checkNIF(nif)) {
+                cin.clear();
+                cin.ignore();
+                cout << endl << tab << "Type a valid number please\n";
+                cout << tab << "VAT number: ";
+
+                cin >> nif;
+                if (nif == -1) return -1;
+            }
+
+            bool flag = false;
+            for (auto & c : condominos) {
+                if (nif == c->getNIF()) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) throw nif;
+
+            cin.ignore();
+            condomino = con->findCon(nif);
+        }
+        catch (NoSuchCondomino &e) {
+            cout << tab << "Person with VAT: " << e.getNIF() << " does not exist in members\n";
+            continue;
+        }
+        catch (int &e) {
+            cout << tab << "Person with VAT: " << e  << " has no habitations assigned\n";
+            continue;
+        }
+        break;
+    }
+
+    availableHabs.clear();
+
+    for (auto hab : condomino->getHabitacoes())
+        availableHabs.push_back(hab);
+
+    cout << tab << "Choose an habitation to unassign\n";
+    printTable(availableHabs);
+
+    string id;
+    Habitacao* habitacao;
+    while (true) {
+        try {
+            cout << tab << "ID (starts with V for Villa and A for Apartment) (type -1 to CANCEL): ";
+            getline(cin, id);
+            if (id == "-1") return -1;
+
+            bool flag = false;
+            for (auto & availableHab : availableHabs) {
+                if (id == availableHab->getID()) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) throw id;
+            habitacao = con->findHab(id);
+        }
+        catch (NoSuchHabitation &e) {
+            cout << tab << "Habitation with ID: " << e.getID() << " does not exist on this condominium\n";
+            continue;
+        }
+        catch (string &e) {
+            cout << tab << "Habitation with ID: " << e << " is not available\n";
+            continue;
+        }
+        break;
+    }
+    condomino->removeHabitacao(habitacao);
+
 }
 
 

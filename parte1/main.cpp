@@ -31,7 +31,7 @@ int main() {
 
     Condominio C("condominio.txt");
 
-    assignHab(&C);
+    unassignHab(&C);
     membersMenu(&C);
 
     return 0;
