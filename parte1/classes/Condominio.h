@@ -6,12 +6,13 @@
 #define PARTE1_CONDOMINIO_H
 
 #include "Condomino.h"
+#include <set>
 
 /**
  * @brief Classe Condomínio
  */
 class Condominio {
-
+    static set<string> prestLimpeza;
     unsigned int numPrestLimpeza;           //!< Número de prestadores de limpeza do condomínio
     vector<Habitacao *> habitacoes;         //!< Vetor de apontadores para objetos Habitação
     vector<Condomino *> condominos;         //!< Vetor de apontadores para objetos Condómino
@@ -30,10 +31,6 @@ public:
      */
     Condominio(string filename);
 
-    /**
-     * @return O total de receitas no condomínio
-     */
-    float calcReceitas();
 
     // Métodos GET
     /**
@@ -46,6 +43,9 @@ public:
      * @return Vetor com os serviços prestados pelo condomínio
      */
     vector<Servico *> getServicos();
+
+
+    void adicionaServico(Servico *serv);
 
     /**
      *
@@ -74,7 +74,7 @@ public:
     /**
      * @brief Ordena habitações
      */
-    void ordernarHab();
+    void ordernarHab(string protocol);
 
     /**
      *
@@ -103,7 +103,7 @@ public:
     /**
      * @brief Ordena os condóminos
      */
-    void ordenarCond();
+    void ordenarCond(string protocol); // true - descending order
 
     /**
      *
@@ -134,7 +134,56 @@ public:
      * @param condominos Filename dos condóminos
      */
     void writeToFiles(string condominio, string condominos);
+
+
+    set<string> prestLimpezaAtuais() { return prestLimpeza; }
+
+    // Mensalidades
+
+    /**
+    * @return O total de receitas no condomínio
+    */
+    float calcReceitas();
 };
 
+// Exception Classes
+
+/**
+ * Exception Class para quando não conseguimos encontrar uma habitação
+ */
+class NoSuchHabitation {
+    string id;
+public:
+    NoSuchHabitation(string id) { this->id = id; }
+    string getID() { return this->id; }
+};
+
+/**
+ * Exception Class para quando não conseguimos encontrar um condómino
+ */
+class NoSuchCondomino {
+    unsigned int nif;
+public:
+    NoSuchCondomino(unsigned int nif) { this->nif = nif; }
+    unsigned int getNIF() { return this->nif; }
+};
+
+/**
+ * Exception Class para quando não conseguimos encontrar um serviço
+ */
+class NoSuchService {
+public:
+    NoSuchService() {};
+};
+
+/**
+ * Exception Class para quando ja existe determinado condómino
+ */
+class RepeatedCondomino {
+    unsigned int nif;
+public:
+    RepeatedCondomino(unsigned int nif) { this->nif = nif; }
+    unsigned int getNIF() { return this->nif; }
+};
 
 #endif //PARTE1_CONDOMINIO_H

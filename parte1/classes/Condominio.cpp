@@ -3,7 +3,11 @@
 //
 
 #include "Condominio.h"
+#include <algorithm>
 #include <iostream>
+#include <chrono>
+
+set<string> Condominio::prestLimpeza = {};
 
 Condominio::Condominio(unsigned int numPrestLimpeza) : numPrestLimpeza(numPrestLimpeza) {
     this->habitacoes = {};
@@ -24,6 +28,8 @@ vector<string> split1 (string &s, string delimiter) {
 }
 
 Condominio::Condominio(string filename) {
+    auto start = chrono::steady_clock::now();
+
     filename = "../" + filename;
     ifstream condominio;
     string line;
@@ -73,17 +79,17 @@ Condominio::Condominio(string filename) {
         for (int i = 0; i < numHab; i++) {
             Morada novaMorada(info[i][2]);
             if (info[i][0][0] == 'A') {
-                Apartamento *ap = new Apartamento(novaMorada, stof(info[i][3]), info[i][4],stoi(info[i][5]));
+                Apartamento *ap = new Apartamento(novaMorada, stof(info[i][3]), info[i][4],stoi(info[i][5]), stof(info[i][6]));
 
-                ap->setEstado(info[i][1] == "0");
+                ap->setEstado(info[i][1] == "1");
                 habitacoes.push_back(ap);
             }
             if (info[i][0][0] == 'V') {
                 bool piscina;
                 piscina = info[i][5] == "1";
-                Vivenda *vi = new Vivenda(novaMorada, stof(info[i][3]), stof(info[i][4]), piscina);
+                Vivenda *vi = new Vivenda(novaMorada, stof(info[i][3]), stof(info[i][4]), piscina, stof(info[i][6]));
 
-                vi->setEstado(info[i][1] == "0");
+                vi->setEstado(info[i][1] == "1");
                 habitacoes.push_back(vi);
             }
         }
@@ -133,28 +139,38 @@ Condominio::Condominio(string filename) {
         }
     }
 
-    for (int i = 0; i < numCondominos; i++)
-    {
-        Condomino *c = new Condomino(info[i][0], stoi(info[i][1]));
-        int numHabs = stoi(info[i][2]);
-        if (numHabs != 0) {
-            for (int j = 0; j < numHabs ; j++)
-                c->adicionaHabitacao(findHab(info[i][3 + j]));
-        }
-
-        int numServ = stoi(info[i][3 + numHabs]);
-        if (numServ != 0) {
-            for (int j = 0; j < numServ ; j++) {
-                vector<string> servico = split1(info[i][4 + numHabs + j]," : ");
-                Servico *serv = new Servico(stof(servico[1]),servico[2],servico[0]);
-                c->adicionaServico(serv);
+    if (numCondominos != 0) {
+        for (int i = 0; i < numCondominos; i++) {
+            Condomino *c = new Condomino(info[i][0], stoi(info[i][1]));
+            int numHabs = stoi(info[i][2]);
+            if (numHabs != 0) {
+                for (int j = 0; j < numHabs; j++)
+                    c->adicionaHabitacao(findHab(info[i][3 + j]));
             }
+
+            int numServ = stoi(info[i][3 + numHabs]);
+            if (numServ != 0) {
+                for (int j = 0; j < numServ; j++) {
+                    vector<string> servico = split1(info[i][4 + numHabs + j], " : ");
+                    Servico *serv = new Servico(stof(servico[1]), servico[2], servico[0]);
+                    if (serv->getTipo() == "Limpeza" || serv->getTipo() == "Cleaning")
+                        prestLimpeza.insert(serv->getPrestador());
+                    c->adicionaServico(serv);
+                    this->servicosPrestados.push_back(serv);
+                }
+            }
+            this->condominos.push_back(c);
         }
-        this->condominos.push_back(c);
     }
+
+    auto end = chrono::steady_clock::now();
+    cout << "The reading took: " << chrono::duration_cast<chrono::microseconds>(end-start).count() << " microseconds -> " << chrono::duration_cast<chrono::milliseconds>(end-start).count() << " milliseconds \n";
+
 }
 
 void Condominio::writeToFiles(string condominioFilename, string condominosFilename) {
+    auto start = chrono::steady_clock::now();
+
     condominioFilename = "../" + condominioFilename;
 
     fstream condominio(condominioFilename, std::ofstream::out | std::ofstream::trunc);
@@ -169,7 +185,8 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
             condominio << this->habitacoes[i]->getMorada() << endl;
             condominio << this->habitacoes[i]->getAreaHabitacional() << endl;
             condominio << this->habitacoes[i]->extraInfo()[0] << endl;
-            condominio << this->habitacoes[i]->extraInfo()[1];
+            condominio << this->habitacoes[i]->extraInfo()[1] << endl;
+            condominio << this->habitacoes[i]->mensalidade;
             if (i != this->getNumHabitacoes() - 1)
                 condominio << "\n::::::::::\n";
         }
@@ -202,6 +219,8 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
                 cond << "\n::::::::::\n";
         }
     }
+    auto end = chrono::steady_clock::now();
+    cout << "The writing took: " << chrono::duration_cast<chrono::microseconds>(end-start).count() << " microseconds -> " << chrono::duration_cast<chrono::milliseconds>(end-start).count() << " milliseconds \n";
 }
 
 float Condominio::calcReceitas() {
@@ -242,9 +261,54 @@ void Condominio::removeHabitacao(Habitacao *hab) {
     }
 }
 
-// a implementar
-void Condominio::ordernarHab() {
-    return;
+void Condominio::ordernarHab(string protocol) {
+    if (protocol == "area-ascending") {
+        for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (habitacoes[i + 1]->getAreaHabitacional() < habitacoes[i]->getAreaHabitacional()) {
+                    swap(habitacoes[i], habitacoes[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "area-descending") {
+        for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (habitacoes[i + 1]->getAreaHabitacional() > habitacoes[i]->getAreaHabitacional()) {
+                    swap(habitacoes[i], habitacoes[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "pay-ascending") {
+        for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (habitacoes[i + 1]->mensalidade < habitacoes[i]->mensalidade) {
+                    swap(habitacoes[i], habitacoes[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "pay-descending") {
+        for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (habitacoes[i + 1]->mensalidade > habitacoes[i]->mensalidade) {
+                    swap(habitacoes[i], habitacoes[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
 }
 
 vector<Condomino *> Condominio::getCondominos() {
@@ -256,6 +320,12 @@ unsigned int Condominio::getNumCondominos() {
 }
 
 void Condominio::adicionaCondomino(Condomino *con) {
+    if (this->condominos.size() == 0)
+        this->condominos.push_back(con);
+    for (int i = 0; i < this->getNumCondominos(); i++) {
+        if (this->getCondominos()[i]->getNIF() == con->getNIF())
+            throw RepeatedCondomino(con->getNIF());
+    }
     this->condominos.push_back(con);
 }
 
@@ -268,16 +338,55 @@ void Condominio::removeCondomino(Condomino *con) {
     }
 }
 
-void Condominio::ordenarCond() {
-    int i, j;
-    for (j = 1; j < condominos.size(); j++)    // Start with 1 (not 0)
-    {
-        Condomino *temp = condominos[j];
 
-        for (i = j - 1; (i >= 0) && (condominos[i]->mensalidadeTotal() <
-                                     temp->mensalidadeTotal()); i--)   // Smaller values move up
-        {
-            condominos[i + 1] = condominos[i];
+
+void Condominio::ordenarCond(string protocol) {
+
+    if (protocol == "name-ascending") {
+        for (unsigned int j = condominos.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (condominos[i + 1]->getNome() < condominos[i]->getNome()) {
+                    swap(condominos[i], condominos[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "name-descending") {
+        for (unsigned int j = condominos.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (condominos[i + 1]->getNome() > condominos[i]->getNome()) {
+                    swap(condominos[i], condominos[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "pay-ascending") {
+        for (unsigned int j = condominos.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (condominos[i + 1]->mensalidadeTotal() > condominos[i]->mensalidadeTotal()) {
+                    swap(condominos[i], condominos[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "pay-descending") {
+        for (unsigned int j = condominos.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (condominos[i + 1]->mensalidadeTotal() < condominos[i]->mensalidadeTotal()) {
+                    swap(condominos[i], condominos[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
         }
     }
 }
@@ -315,5 +424,9 @@ Servico *Condominio::findServ(float custo, string prestador, string servico) {
             return this->getServicos()[i];
     }
     throw NoSuchService();
+}
+
+void Condominio::adicionaServico(Servico *serv) {
+    this->servicosPrestados.push_back(serv);
 }
 

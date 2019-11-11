@@ -1,14 +1,26 @@
-2
+4
+Filipe Pinto
+236438096
+1
+A2
+0
+::::::::::
 Joao Pedro
 234123456
-2
+1
 A0
-A3
 2
 Limpeza : 35 : Limpezas.Lda
 Cabeleireiro : 15 : EmpresaCabelo
 ::::::::::
 Jose Luis
 236438097
+1
+V1
+1
+Hairdresser : 25 : Hairs.lda
+::::::::::
+Joana Monteiro
+325792735
 0
 0
