@@ -279,8 +279,6 @@ void addConMenu(Condominio *con) {
         if (option == "Y" || option == "y") break;
     }
 
-
-
     while (true) {
         try {
             cout << tab << "VAT number: ";
@@ -305,6 +303,49 @@ void addConMenu(Condominio *con) {
     }
 
     cout << endl << endl << tab << tab << "Member successfully added!" << endl;
+    wait();
+}
+
+void rmConMenu(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
+    cout.width(65);
+    cout << "Remove Member" << endl;
+    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+
+    if (con->getNumCondominos() == 0) {
+        cout << tab << "Nothing to Remove\n";
+    }
+    else {
+        unsigned int nif;
+
+        while (true) {
+            try {
+                cout << tab << "VAT number: ";
+                cin >> nif;
+                while (!cin.good() || nif <= 0 || !checkNIF(nif)) {
+                    cin.clear();
+                    cin.ignore();
+
+                    cout << endl << tab << "Type a valid number please\n";
+                    cout << tab << "VAT number: ";
+
+                    cin >> nif;
+                }
+                cin.ignore();
+                Condomino* condomino = con->findCon(nif);
+                con->removeCondomino(condomino);
+            }
+            catch (NoSuchCondomino &e) {
+                cout << tab << "Person with VAT: " << e.getNIF() << " does not exist in members\n";
+                continue;
+            }
+            break;
+        }
+
+        cout << endl << endl << tab << tab << "Member successfully removed!" << endl;
+    }
     wait();
 }
 

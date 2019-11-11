@@ -31,6 +31,7 @@ int main() {
 
     Condominio C("condominio.txt");
     addConMenu(&C);
+    rmConMenu(&C);
 
     return 0;
 }
