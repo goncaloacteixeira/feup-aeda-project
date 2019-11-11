@@ -126,16 +126,18 @@ int condominiumMenu(Condominio *con) {
 
 
     // options
-    cout << tab << "[1] Condominium Members Menu\n";
-    cout << tab << "[2] Add Habitation\n";
-    cout << tab << "[3] Remove Habitation\n";
-    cout << tab << "[4] Assign Habitation\n";
-    cout << tab << "[5] View all Apartments\n";
-    cout << tab << "[6] View all Villas\n\n";
+    cout << tab << "[01] Condominium Members Menu\n";
+    cout << tab << "[02] Add Habitation\n";
+    cout << tab << "[03] Remove Habitation\n";
+    cout << tab << "[04] Assign Habitation\n";
+    cout << tab << "[05] Sort Habitations\n";
+    cout << tab << "[06] View all Habitations\n";
+    cout << tab << "[07] View all Apartments\n";
+    cout << tab << "[08] View all Villas\n\n";
 
 
-    cout << tab << "[7] View Services provided\n";
-    cout << tab << "[8] View Income\n\n";
+    cout << tab << "[09] View Services provided\n";
+    cout << tab << "[10] View Income\n\n";
 
     cout << tab << "[0] Exit\n";
 
@@ -144,7 +146,7 @@ int condominiumMenu(Condominio *con) {
     cout << tab << "Choice: ";
 
     cin >> choice;
-    while (!cin.good() || choice < 0 || choice > 8) {
+    while (!cin.good() || choice < 0 || choice > 10) {
         cin.clear();
         cin.ignore();
 
@@ -156,6 +158,45 @@ int condominiumMenu(Condominio *con) {
     cin.ignore();
 
     return choice;
+}
+
+void printTable(vector<Condomino *> condominos) {
+    unsigned int numCon = condominos.size();
+    fort::char_table table;
+    table.set_border_style(FT_DOUBLE2_STYLE);
+
+    table << fort::header
+          << "Name" << "VAT" << "Habitations" << "Services" << "Monthly Payment" << fort::endr;
+
+    for (unsigned int i = 0; i < numCon; i++) {
+        table << condominos[i]->getNome() << condominos[i]->getNIF();
+        int numHab = condominos[i]->getNumHabitacoes();
+        if (numHab == 0)
+            table << 0;
+        else {
+            string habs = "";
+            for (int j = 0; j < numHab; j++) {
+                habs += condominos[i]->getHabitacoes()[j]->getID();
+                if (j != numHab - 1) habs += " : ";
+            }
+            table << habs;
+        }
+
+        int numServ = condominos[i]->getServicos().size();
+        if (numServ == 0)
+            table << 0;
+        else {
+            string servs = "";
+            for (int j = 0; j < numServ; j++) {
+                servs += condominos[i]->getServicos()[j]->getTipo();
+                if (j != numServ - 1) servs += " : ";
+            }
+            table << servs;
+        }
+        table << condominos[i]->mensalidadeTotal() << fort::endr;
+    }
+    table.set_cell_text_align(fort::text_align::center);
+    cout << table.to_string() << endl;
 }
 
 int membersMenu(Condominio *con) {
@@ -172,42 +213,7 @@ int membersMenu(Condominio *con) {
     }
 
     else {
-        unsigned int numCon = con->getNumCondominos();
-        fort::char_table table;
-        table.set_border_style(FT_DOUBLE2_STYLE);
-
-        table << fort::header
-              << "Name" << "VAT" << "Habitations" << "Services" << "Monthly Payment" << fort::endr;
-
-        for (unsigned int i = 0; i < numCon; i++) {
-            table << con->getCondominos()[i]->getNome() << con->getCondominos()[i]->getNIF();
-            int numHab = con->getCondominos()[i]->getNumHabitacoes();
-            if (numHab == 0)
-                table << 0;
-            else {
-                string habs = "";
-                for (int j = 0; j < numHab; j++) {
-                    habs += con->getCondominos()[i]->getHabitacoes()[j]->getID();
-                    if (j != numHab - 1) habs += " : ";
-                }
-                table << habs;
-            }
-
-            int numServ = con->getCondominos()[i]->getServicos().size();
-            if (numServ == 0)
-                table << 0;
-            else {
-                string servs = "";
-                for (int j = 0; j < numServ; j++) {
-                    servs += con->getCondominos()[i]->getServicos()[j]->getTipo();
-                    if (j != numServ - 1) servs += " : ";
-                }
-                table << servs;
-            }
-            table << con->getCondominos()[i]->mensalidadeTotal() << fort::endr;
-        }
-        table.set_cell_text_align(fort::text_align::center);
-        cout << table.to_string() << endl;
+        printTable(con->getCondominos());
     }
 
     cout << tab << "[1] Add Member\n";
@@ -553,6 +559,161 @@ int rqServiceMenu(Condominio *con) {
         return choice;
     }
     return -1;
+}
+
+int addHabMenu(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
+    cout.width(65);
+    cout << "New Habitation" << endl;
+    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+
+
+    int choice;
+
+    cout << tab << "[1] Apartment\n";
+    cout << tab << "[2] Villa\n\n";
+
+    cout << tab << "[3] Back\n";
+    cout << tab << "[0] Exit\n";
+
+    cout << tab << "Choice: ";
+
+    cin >> choice;
+    while (!cin.good() || choice < 0 || choice > 9) {
+        cin.clear();
+        cin.ignore();
+
+        cout << endl << tab << "Type a valid number please\n";
+        cout << tab << "Choice: ";
+
+        cin >> choice;
+    }
+    cin.ignore();
+
+    if (choice == 0 || choice == 3) return choice;
+
+    string address;
+
+    while (true) {
+        cout << tab << "Address (Street, Location, Number, Zip-Code: ";
+        getline(cin, address);
+
+
+        cout << tab << "Is this address correct and as asked? (Y/N): ";
+        string option;
+        getline(cin, option);
+
+        bool flag = false;
+        if (option == "Y" || option == "N" || option == "y" || option == "n")
+            flag = true;
+
+        while (!flag) {
+            cout << endl << tab << "Type 'Y' or 'N' please: ";
+
+            getline(cin, option);
+            if (option == "Y" || option == "N" || option == "y" || option == "n")
+                flag = true;
+        }
+
+        if (option == "Y" || option == "y") break;
+    }
+
+    cout << tab << "Habitation's Area: ";
+    float habArea;
+    cin >> habArea;
+    while (!cin.good() || choice < 0) {
+        cin.clear();
+        cin.ignore();
+
+        cout << endl << tab << "Type a valid number please\n";
+        cout << tab << "Habitation's Area: ";
+
+        cin >> habArea;
+    }
+    cin.ignore();
+
+    cout << tab << "Monthly Payment: ";
+    float mensalidade;
+    cin >> mensalidade;
+    while (!cin.good() || choice < 0) {
+        cin.clear();
+        cin.ignore();
+
+        cout << endl << tab << "Type a valid number please\n";
+        cout << tab << "Monthly Payment: ";
+
+        cin >> mensalidade;
+    }
+    cin.ignore();
+
+
+    if (choice == 1) {
+        string type;
+        cout << tab << "Typology (T0, T1, etc.): ";
+        getline(cin, type);
+
+        cout << tab << "Floor: ";
+        int floor;
+        cin >> floor;
+        while (!cin.good()) {
+            cin.clear();
+            cin.ignore();
+
+            cout << endl << tab << "Type a valid number please\n";
+            cout << tab << "Floor: ";
+
+            cin >> floor;
+        }
+        cin.ignore();
+
+        con->adicionaHabitacao(new Apartamento(Morada(address),habArea,type,floor,mensalidade));
+    }
+
+    else if (choice == 2) {
+        float extArea;
+        cout << tab << "External Area: ";
+        cin >> extArea;
+        while (!cin.good() || extArea < 0) {
+            cin.clear();
+            cin.ignore();
+
+            cout << endl << tab << "Type a valid number please\n";
+            cout << tab << "External Area: ";
+
+            cin >> extArea;
+        }
+        cin.ignore();
+
+        string option;
+        while (true) {
+            cout << tab << "Pool? (Y/N): ";
+
+            getline(cin, option);
+
+            bool flag = false;
+            if (option == "Y" || option == "N" || option == "y" || option == "n")
+                flag = true;
+
+            while (!flag) {
+                cout << endl << tab << "Type 'Y' or 'N' please: ";
+
+                getline(cin, option);
+                if (option == "Y" || option == "N" || option == "y" || option == "n")
+                    flag = true;
+            }
+
+            if (option == "Y" || option == "y") break;
+        }
+        bool pool;
+        (option == "Y" || option == "y") ? pool = true : pool = false;
+
+        con->adicionaHabitacao(new Vivenda(Morada(address),habArea,extArea,pool,mensalidade));
+    }
+
+    cout << endl << endl << tab << tab << "Habitation successfully added!" << endl;
+    wait();
 }
 
 

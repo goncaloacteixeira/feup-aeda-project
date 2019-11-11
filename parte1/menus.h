@@ -25,9 +25,13 @@ int sortConMenu(Condominio *con);
 int rqServiceMenu(Condominio *con);
 
 
-void addHabMenu(Condominio *con);
+int addHabMenu(Condominio *con);
 void rmHabMenu(Condominio *con);
 void assignHab(Condominio *con);
+void sortHabMenu(Condominio *con);
 
+
+void servicesProvided(Condominio *con);
+void incomeMenu(Condominio *con);
 
 #endif //PARTE1_MENUS_H
