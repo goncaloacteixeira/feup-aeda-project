@@ -31,8 +31,8 @@ int main() {
 
     Condominio C("condominio.txt");
 
-    addHabMenu(&C);
-    cout << C.getHabitacoes()[C.getNumHabitacoes()-1]->getMorada();
+    assignHab(&C);
+    membersMenu(&C);
 
     return 0;
 }

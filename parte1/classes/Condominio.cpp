@@ -78,7 +78,7 @@ Condominio::Condominio(string filename) {
             if (info[i][0][0] == 'A') {
                 Apartamento *ap = new Apartamento(novaMorada, stof(info[i][3]), info[i][4],stoi(info[i][5]), stof(info[i][6]));
 
-                ap->setEstado(info[i][1] == "0");
+                ap->setEstado(info[i][1] == "1");
                 habitacoes.push_back(ap);
             }
             if (info[i][0][0] == 'V') {
@@ -86,7 +86,7 @@ Condominio::Condominio(string filename) {
                 piscina = info[i][5] == "1";
                 Vivenda *vi = new Vivenda(novaMorada, stof(info[i][3]), stof(info[i][4]), piscina, stof(info[i][6]));
 
-                vi->setEstado(info[i][1] == "0");
+                vi->setEstado(info[i][1] == "1");
                 habitacoes.push_back(vi);
             }
         }

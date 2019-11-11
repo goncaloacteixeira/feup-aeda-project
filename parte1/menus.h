@@ -26,8 +26,8 @@ int rqServiceMenu(Condominio *con);
 
 
 int addHabMenu(Condominio *con);
-void rmHabMenu(Condominio *con);
-void assignHab(Condominio *con);
+int rmHabMenu(Condominio *con);
+int assignHab(Condominio *con);
 void sortHabMenu(Condominio *con);
 
 

@@ -174,7 +174,7 @@ void printTable(vector<Condomino *> condominos) {
         if (numHab == 0)
             table << 0;
         else {
-            string habs = "";
+            string habs;
             for (int j = 0; j < numHab; j++) {
                 habs += condominos[i]->getHabitacoes()[j]->getID();
                 if (j != numHab - 1) habs += " : ";
@@ -186,7 +186,7 @@ void printTable(vector<Condomino *> condominos) {
         if (numServ == 0)
             table << 0;
         else {
-            string servs = "";
+            string servs;
             for (int j = 0; j < numServ; j++) {
                 servs += condominos[i]->getServicos()[j]->getTipo();
                 if (j != numServ - 1) servs += " : ";
@@ -194,6 +194,33 @@ void printTable(vector<Condomino *> condominos) {
             table << servs;
         }
         table << condominos[i]->mensalidadeTotal() << fort::endr;
+    }
+    table.set_cell_text_align(fort::text_align::center);
+    cout << table.to_string() << endl;
+}
+
+void printTable(vector<Habitacao *> habitacoes) {
+    unsigned int numHabs = habitacoes.size();
+    fort::char_table table;
+    table.set_border_style(FT_DOUBLE2_STYLE);
+
+    table << fort::header
+          << "ID" << "Type of Habitation" << "Address" << "Status" << "External Area" << "Typology" << "Pool" << "Floor" << "Monthly Payment" << fort::endr;
+
+    for (unsigned int i = 0; i < numHabs; i++) {
+        table << habitacoes[i]->getID();
+        (habitacoes[i]->getID()[0] == 'V') ? table << "Villa" : table << "Apartment";
+
+        table << habitacoes[i]->getMorada();
+
+        (habitacoes[i]->getEstado()) ? table << "occupied" : table << "unoccupied";
+
+        if (habitacoes[i]->getID()[0] == 'V') {
+            table << habitacoes[i]->extraInfo()[0] << "-" << habitacoes[i]->extraInfo()[1] << "-";
+        } else {
+            table << "-" << habitacoes[i]->extraInfo()[0] << "-" << habitacoes[i]->extraInfo()[1];
+        }
+        table << habitacoes[i]->mensalidade << fort::endr;
     }
     table.set_cell_text_align(fort::text_align::center);
     cout << table.to_string() << endl;
@@ -324,7 +351,7 @@ void rmConMenu(Condominio *con) {
         cout << tab << "Nothing to Remove\n";
     }
     else {
-        unsigned int nif;
+        int nif;
 
         while (true) {
             try {
@@ -415,7 +442,7 @@ int rqServiceMenu(Condominio *con) {
     if (con->getNumCondominos() == 0) {
         cout << tab << "No members!\n";
     } else {
-        unsigned int nif;
+        int nif;
 
         Condomino *condomino;
         while (true) {
@@ -535,10 +562,10 @@ int rqServiceMenu(Condominio *con) {
                 break;
         }
 
-        int custo;
+        float custo;
         cout << tab << "Custo: ";
         cin >> custo;
-        while (!cin.good() || choice < 0 || choice > INT32_MAX) {
+        while (!cin.good() || choice < 0) {
             cin.clear();
             cin.ignore();
 
@@ -550,7 +577,7 @@ int rqServiceMenu(Condominio *con) {
         cin.ignore();
 
 
-        Servico *servico = new Servico(custo, prestador, type);
+        auto *servico = new Servico(custo, prestador, type);
         condomino->adicionaServico(servico);
         con->adicionaServico(servico);
 
@@ -703,8 +730,7 @@ int addHabMenu(Condominio *con) {
                 if (option == "Y" || option == "N" || option == "y" || option == "n")
                     flag = true;
             }
-
-            if (option == "Y" || option == "y") break;
+            if (flag) break;
         }
         bool pool;
         (option == "Y" || option == "y") ? pool = true : pool = false;
@@ -715,6 +741,140 @@ int addHabMenu(Condominio *con) {
     cout << endl << endl << tab << tab << "Habitation successfully added!" << endl;
     wait();
 }
+
+int rmHabMenu(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
+    cout.width(65);
+    cout << "Remove Habitation" << endl;
+    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+
+    if (con->getNumHabitacoes() == 0) {
+        cout << tab << "Nothing to Remove\n";
+    }
+    else {
+        string id;
+        while (true) {
+            try {
+                cout << tab << "ID (starts with V for Villa and A for Apartment) (type -1 to CANCEL): ";
+                getline(cin, id);
+                if (id == "-1") return -1;
+                Habitacao* habitacao = con->findHab(id);
+                if (habitacao->getEstado()) {
+                    cout << tab << "That habitation is occupied. Cannot remove\n";
+                    wait();
+                    return -1;
+                }
+                con->removeHabitacao(habitacao);
+            }
+            catch (NoSuchHabitation &e) {
+                cout << tab << "Habitation with ID: " << e.getID() << " does not exist on this condominium\n";
+                continue;
+            }
+            break;
+        }
+        cout << endl << endl << tab << tab << "Habitation successfully removed!" << endl;
+    }
+    wait();
+}
+
+int assignHab(Condominio *con) {
+    string tab = "\t\t\t";
+
+    cout << endl << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n";
+    cout.width(65);
+    cout << "Assign Habitation" << endl;
+    cout << "\t\t\t\t\t\t\t\t" << "------------------------------------------------------\n\n";
+
+    if (con->getNumHabitacoes() == 0 || con->getNumCondominos() == 0) {
+        cout << tab << "Cannot assign member to habitation\n";
+        wait();
+        return -1;
+    }
+    vector<Habitacao *> availableHabs;
+
+    for (unsigned int i = 0; i < con->getNumHabitacoes(); i++) {
+        if (!con->getHabitacoes()[i]->getEstado())
+            availableHabs.push_back(con->getHabitacoes()[i]);
+    }
+
+    if (availableHabs.empty()) {
+        cout << tab << "No habitations available to assign\n";
+        wait();
+        return -1;
+    }
+
+    cout << tab << "Choose a member to assign habitation\n";
+    printTable(con->getCondominos());
+
+    int nif;
+
+    Condomino* condomino;
+    while (true) {
+        try {
+            cout << tab << "VAT number (-1 to CANCEL): ";
+            cin >> nif;
+            if (nif == -1) return -1;
+            while (!cin.good() || nif <= 0 || !checkNIF(nif)) {
+                cin.clear();
+                cin.ignore();
+                cout << endl << tab << "Type a valid number please\n";
+                cout << tab << "VAT number: ";
+
+                cin >> nif;
+                if (nif == -1) return -1;
+            }
+            cin.ignore();
+            condomino = con->findCon(nif);
+        }
+        catch (NoSuchCondomino &e) {
+            cout << tab << "Person with VAT: " << e.getNIF() << " does not exist in members\n";
+            continue;
+        }
+        break;
+    }
+
+
+    cout << tab << "Choose an habitation to assign\n";
+    printTable(availableHabs);
+
+    string id;
+    Habitacao* habitacao;
+    while (true) {
+        try {
+            cout << tab << "ID (starts with V for Villa and A for Apartment) (type -1 to CANCEL): ";
+            getline(cin, id);
+            if (id == "-1") return -1;
+
+            bool flag = false;
+            for (int i = 0; i < availableHabs.size(); i++) {
+                if (id == availableHabs[i]->getID()) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) throw id;
+            habitacao = con->findHab(id);
+        }
+        catch (NoSuchHabitation &e) {
+            cout << tab << "Habitation with ID: " << e.getID() << " does not exist on this condominium\n";
+            continue;
+        }
+        catch (string e) {
+            cout << tab << "Habitation with ID: " << e << " is not available\n";
+            continue;
+        }
+        break;
+
+    }
+
+    condomino->adicionaHabitacao(habitacao);
+    cout << endl << endl << tab << tab << "Habitation successfully assigned!" << endl;
+    wait();
+    return 0;
+}
+
 
 
 
