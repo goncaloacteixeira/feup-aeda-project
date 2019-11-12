@@ -12,7 +12,7 @@
  * @brief Classe Condomínio
  */
 class Condominio {
-    static set<string> prestLimpeza;
+    static set<string> prestLimpeza;        //!< Set com os prestadores de limpeza atuais
     unsigned int numPrestLimpeza;           //!< Número de prestadores de limpeza do condomínio
     vector<Habitacao *> habitacoes;         //!< Vetor de apontadores para objetos Habitação
     vector<Condomino *> condominos;         //!< Vetor de apontadores para objetos Condómino
@@ -72,7 +72,8 @@ public:
     void removeHabitacao(Habitacao *hab);
 
     /**
-     * @brief Ordena habitações
+     * @brief Ordena Habitações
+     * @param protocol Portocolo de ordenação
      */
     void ordernarHab(string protocol);
 
@@ -101,9 +102,10 @@ public:
     void removeCondomino(Condomino *con);
 
     /**
-     * @brief Ordena os condóminos
+     * @brief Ordena Condóminos
+     * @param protocol Portocolo de ordenação
      */
-    void ordenarCond(string protocol); // true - descending order
+    void ordenarCond(string protocol);
 
     /**
      *
