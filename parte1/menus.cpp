@@ -517,7 +517,7 @@ int rqServiceMenu(Condominio *con) {
         cin.ignore();
 
 
-        if (choice == 0 || choice == 9)
+        if (choice == 0 || choice == 16)
             return choice;
 
         bool flag = false;
