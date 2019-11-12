@@ -2,8 +2,6 @@
 
 Gestão de Condomínio
 
-[Documentação (gerada por Doxygen)](https://project-aeda-p1-t03-g04-1920.000webhostapp.com/)
-
 
 
 ## Parte 1
@@ -31,7 +29,22 @@ A segunda parte do trabalho será enunciada posteriormente (após a entrega dest
 
 ### Suporte demonstração/Relatório (sujeito a avaliação)
 
-- A informação a incluir neste documento será especificada em breve.
+- Apresentação ppt (ou formato similar) que deve incluir o seguinte:
+
+  - - Identificação do trabalho e elementos do grupo (1 slide)
+    - Descrição do problema (1 slide)
+    - Descrição da solução, identificação de algoritmos relevantes (1 a 2 slides)
+    - Diagrama de classes (1 slide + slides ou zoom no mesmo slide com as partes principais do diagrama bem visíveis)
+    - Estrutura de ficheiros (1 slide mostrando como a informação é gravada e lida em ficheiros)
+    - Tratamento de exceções (1 slide com lista das exceções tratadas e exemplo de exceção)
+    - Lista de funcionalidades implementadas, incluindo CRUD, listagem, pesquisa e outras (1 a 3 slides com indicação para cada uma de: OK/Completa, Parcial)
+    - Destaque de funcionalidade (1 slide descrevendo uma "feature" que esteja muito bem implementada no trabalho)
+    - Principais dificuldades encontradas; esforço de cada elemento do grupo (1 slide)
+
+  Se achar necessário, incluir informação adicional (max. 5 slides):
+
+  - Exemplos de execução
+  - Outras observações
 
 # Entrega
 
