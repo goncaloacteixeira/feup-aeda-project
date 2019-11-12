@@ -155,9 +155,17 @@ void servicesProvided(Condominio *con);
  */
 void incomeMenu(Condominio *con);
 
+/**
+ * @brief Procurar um membro
+ * @param con Condominio atual
+ */
 void searchMember(Condominio *con);
-void searchHabitation(Condominio *con);
 
+/**
+ * @brief Procurar uma habitação
+ * @param con Condominio atual
+ */
+void searchHabitation(Condominio *con);
 
 /**
  * @brief Menu para saída do programa
