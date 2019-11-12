@@ -1,58 +1,216 @@
-# TEMA 4 - CondomiX
+# THEME 4 - CondomiX - Part 1
 
-Gestão de Condomínio
+Condominium Management
 
 
 
-## Parte 1
+## Getting started
 
-Trabalho prático - Parte 1
+Starting the program you will be asked if you rather create a new condominium or retrieve the information stored in text files.
 
-O trabalho agora enunciado apenas se refere à primeira parte do mesmo.
-A segunda parte do trabalho será enunciada posteriormente (após a entrega desta primeira parte).
+- If you choose to create a new condominium you will be asked how many cleaning providers are allowed to provide cleaning services to the condominium, this is a fixed number;
+- If you choose to read from files the formats of those same files are the same.
 
-### Notas relativas à implementação (itens sujeitos a avaliação)
+1. [condominium_example.txt (portuguese)](https://github.com/skdGT/ProjetoAEDA/blob/master/parte1/condominio_format.txt)
 
-- Deve utilizar classes adequadas para representação das entidades envolvidas. 
-- Os atributos devem ser escolhidos de forma a caracterizar os conceitos mais importantes das entidades a representar).
-- Deve utilizar o conceito de herança e polimorfismo onde considerar conveniente.
-- Os dados usados pela aplicação devem ser guardados em ficheiro, para utilização em futuras execuções.
-- Deve tratar convenientemente possíveis exceções.
-- Deve usar algoritmos de pesquisa e ordenação (por exemplo, nas múltiplas listagens solicitadas) 
-- As classes implementadas devem ser devidamente documentadas (usando Doxygen).
+```
+num_prestadores_limpeza
+condominos_filename
+num_hab
+ID hab0
+ocupado ? (1 - sim / 0 - nao)
+morada
+area_hab
+tipologia / area_ext
+piso / piscina (1 - sim / 0 - nao)
+mensalidade
+::::::::::
+ID hab1
+ocupado ? (1 - sim / 0 - nao)
+morada
+area_hab
+tipologia / area_ext
+piso / piscina (1 - sim / 0 - nao)
+mensalidade
+... (and so on)
+```
 
-### Notas relativas à demonstração (itens sujeitos a avaliação)
+2. [members_example.txt (portuguese)](https://github.com/skdGT/ProjetoAEDA/blob/master/parte1/condominos_format.txt)
 
-- Preparação adequada para demonstrar as funcionalidades do trabalho
-- Deve usar um número significativo de itens (dados).
-- Todos os elementos do grupo devem estar presentes
+```
+num_condominos
+nome_cond0
+nif
+num_hab
+id_hab0
+id_hab1
+num_servicos
+serv0 : custo : prestador
+serv1 : custo : prestador
+::::::::::
+nome_cond1
+nif
+num_hab
+id_hab0
+id_hab1
+num_servicos
+serv0 : custo : prestador
+serv1 : custo : prestador
+```
 
-### Suporte demonstração/Relatório (sujeito a avaliação)
+​	When the reading operation is concluded the display will show how much time that operation took.
 
-- Apresentação ppt (ou formato similar) que deve incluir o seguinte:
 
-  - - Identificação do trabalho e elementos do grupo (1 slide)
-    - Descrição do problema (1 slide)
-    - Descrição da solução, identificação de algoritmos relevantes (1 a 2 slides)
-    - Diagrama de classes (1 slide + slides ou zoom no mesmo slide com as partes principais do diagrama bem visíveis)
-    - Estrutura de ficheiros (1 slide mostrando como a informação é gravada e lida em ficheiros)
-    - Tratamento de exceções (1 slide com lista das exceções tratadas e exemplo de exceção)
-    - Lista de funcionalidades implementadas, incluindo CRUD, listagem, pesquisa e outras (1 a 3 slides com indicação para cada uma de: OK/Completa, Parcial)
-    - Destaque de funcionalidade (1 slide descrevendo uma "feature" que esteja muito bem implementada no trabalho)
-    - Principais dificuldades encontradas; esforço de cada elemento do grupo (1 slide)
 
-  Se achar necessário, incluir informação adicional (max. 5 slides):
+## Main functionalities
 
-  - Exemplos de execução
-  - Outras observações
+On this program you can:
 
-# Entrega
+- View Members
+  - Add Members
+  - Remove Members
+  - Sort Members
+  - Request a Service for a Member
+- View Habitations
+  - Add Habitations
+  - Remove Habitations
+  - Assign Habitations
+  - Unassign Habitations
+  - Sort Habitations
+  - View all Apartments
+  - View all Villas
+- View Services provided
+- View Income
 
-- Disponibilizar em um ficheiro \<NOME\>.zip:
-  - pasta **codigo** (contém código fonte do programa)
-  - pasta **documentacao** (contém documentação html, criada pelo Doxygen)
-  - ficheiro **apresentação** (formato pptx ou pdf) que servirá de base à demonstração e também de relatório.
-- O \<NOME\> do ficheiro deverá obedecer ao formato AEDA1819_Turma\<NT\>_G\<NG\>, onde \<NT\> é um número identificativo da turma teórico/prática e \<NG\> é um número identificativo do grupo, conforme indicado na atribuição de trabalhos. Por exemplo: AEDA1920_Turma5_G3.zip corresponde ao trabalho realizado pelo grupo 3 da turma 2MIEIC5.
 
-Última alteração: Terça, 8 de Outubro de 2019 às 16:41
 
+### Members
+
+- `Members` have a `name`, a unique `nif`, a `vector` of `Habitations`, a `vector` of `Services `and a `monthly_payment`;
+- A `Member `can have multiple habitations, and request an undetermined number of services. These factors will, ultimately, modify the `monthly payment`;
+- Members can be sorted by name or monthly payment, ascending or descending.
+
+
+
+### Habitations
+
+- `Habitations` can either be apartments or villas;
+
+- `Habitations` have an unique ID:
+
+  - starting with `A0` for apartments;
+  - starting with `V0` for villas;
+
+- `Habitations` have an address:
+
+  - **MUST** be given as:
+
+    `<Street>, <Location>, <Number>, <Zip-Code>`
+
+- `Habitations` have a `monthly_payment`, an `habitational_area` and `status` (true - occupied);
+
+- `Apartments` have a `floor `and a `typology`;
+
+- `Villas`have a `external_area` and can have a `pool`;
+
+- `Habitations` can be sorted by `monthly_payment` or `habitational_area`, ascending or descending;
+
+
+
+### Assigning and Unassigning Habitations
+
+- As logic says, can only assign unoccupied habitations to a member, and can't unassign habitations that are not yet assigned.
+
+
+
+### Removing Habitations
+
+- When trying to remove habitations, make sure the habitation is not assigned or it will raise an exception saying the habitation cannot be removed as it's occupied.
+
+
+
+## Some algorithms
+
+### 1. Finding an habitation, member or service:
+
+- As we only work with pointers, finding something is relatively easy and very low-time consuming.
+
+Here's an example:
+
+```c++
+template<class T>
+T *Condominio::findX(parameter_to_find) {
+    if (this->getVector() == 0)
+        throw NoSuchObject(parameter_to_find);
+    for (int i = 0; i < this->getVector(); i++)
+    {
+        if (this->getVector()[i]->getParameterToFind() == paramenter_to_find)
+            return this->getVector()[i];
+    }
+    throw NoSuchObject(parameter_to_find);
+}
+```
+
+
+
+### 2. Sorting Members and Habitations:
+
+- Unless we are using a massive number of objects, i.e. Habitations and Members, we think that the Bubble Sort algorithm was a good idea.
+
+```c++
+template <class Comparable>
+void bubbleSort(vector<Comparable> &v) {
+	for (unsigned int j = v.size() - 1; j > 0; j--) {
+	bool troca=false;
+	for (unsigned int i = 0; i < j; i++)
+		if (v[i+1] < v[i]) {
+			swap(v[i], v[i+1]);
+			troca = true;
+		}
+	if (!troca) return;
+	}
+}
+```
+
+
+
+### 3. Parsing a string
+
+- We used an algorithm to parse a string giving a delimiter;
+- For example:
+  - When we ask for the address in a specific format, it's because we parse the address with  `', '` as delimiter.
+
+```c++
+vector<string> split (string &s, string delimiter) {
+    size_t pos = 0;
+    std::string token;
+    vector<string> result;
+    while ((pos = s.find(delimiter)) != std::string::npos) {
+        token = s.substr(0, pos);
+        result.push_back(token);
+        s.erase(0, pos + delimiter.length());
+    }
+    result.push_back(s);
+    return result;
+}
+```
+
+
+
+## Exiting the program
+
+The user will be asked if they want to save the data in a text file or discard it, or even cancel the exiting operating going back to where the program was before issuing the exit command.
+
+If the user opts to save the information will be asked for the filenames that they wish to store the information in. Then the program will call a function to write the data to files, showing how much time it took.
+
+
+
+## External Libraries
+
+- We used [libfort]( https://github.com/seleznevae/libfort ) library on our project, so big thanks to seleznevae for his work on creating a library that allowed us to easily create formated tables for our data.
+
+
+
+
+
+  
