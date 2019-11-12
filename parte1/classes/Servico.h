@@ -5,6 +5,11 @@
 #ifndef PARTE1_SERVICO_H
 #define PARTE1_SERVICO_H
 
+/**
+ * @file Servico.h
+ * @brief Classe e Métodos para Serviço
+ */
+
 #include <string>
 
 using namespace std;

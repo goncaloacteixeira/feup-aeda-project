@@ -5,6 +5,11 @@
 #ifndef PARTE1_HABITACAO_H
 #define PARTE1_HABITACAO_H
 
+/**
+ * @file Habitacao.h
+ * @brief Classes relacionadas com Habitação e respetivos Métodos
+ */
+
 #include "Morada.h"
 
 /**

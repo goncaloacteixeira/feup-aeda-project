@@ -5,6 +5,11 @@
 #ifndef PARTE1_MORADA_H
 #define PARTE1_MORADA_H
 
+/**
+ * @file Morada.h
+ * @brief Classe Métodos para Morada
+ */
+
 #include <string>
 #include <vector>
 

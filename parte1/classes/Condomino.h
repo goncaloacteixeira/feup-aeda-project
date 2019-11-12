@@ -5,6 +5,11 @@
 #ifndef PARTE1_CONDOMINO_H
 #define PARTE1_CONDOMINO_H
 
+/**
+ * @file Condomino.h
+ * @brief Classe e Métodos para Condómino
+ */
+
 #include "Habitacao.h"
 #include "Servico.h"
 #include <fstream>

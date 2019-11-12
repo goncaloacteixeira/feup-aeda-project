@@ -5,6 +5,11 @@
 #ifndef PARTE1_CONDOMINIO_H
 #define PARTE1_CONDOMINIO_H
 
+/**
+ * @file Condominio.h
+ * @brief Classe e Métodos para Condomínio
+ */
+
 #include "Condomino.h"
 #include <set>
 

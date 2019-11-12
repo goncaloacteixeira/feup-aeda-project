@@ -5,6 +5,11 @@
 #ifndef PARTE1_MENUS_H
 #define PARTE1_MENUS_H
 
+/**
+ * @file menus.h
+ * @brief Funções documentadas para menus
+ */
+
 #include "classes/Condominio.h"
 #include <iostream>
 
