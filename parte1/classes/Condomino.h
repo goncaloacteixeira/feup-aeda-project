@@ -99,9 +99,6 @@ public:
      * @return Mensalidade total a pagar pelo condómino
      */
     float mensalidadeTotal();
-
-    // testing functions
-    void setHabitacoes(vector<Habitacao* > hab);
 };
 
 
