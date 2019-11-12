@@ -1,4 +1,10 @@
-2
+3
+Jose Luis
+236438097
+0
+1
+Cleaning : 50 : Limpezas.lda
+::::::::::
 Joao Pedro
 234123456
 1
@@ -7,7 +13,9 @@ A0
 Limpeza : 35 : Limpezas.Lda
 Cabeleireiro : 15 : EmpresaCabelo
 ::::::::::
-Jose Luis
-236438097
-0
-0
+Filipe Dinis
+123123123
+1
+V0
+1
+Cook : 75 : Cooking.lda

@@ -131,9 +131,11 @@ int mainMenu(Condominio *con) {
     cout << tab << "[08] View all Apartments\n";
     cout << tab << "[09] View all Villas\n\n";
 
+    cout << tab << "[10] Search Member\n";
+    cout << tab << "[11] Search Habitation\n\n";
 
-    cout << tab << "[10] View Services provided\n";
-    cout << tab << "[11] View Income\n\n";
+    cout << tab << "[12] View Services provided\n";
+    cout << tab << "[13] View Income\n\n";
 
     cout << tab << "[0] Exit\n";
 
@@ -142,7 +144,7 @@ int mainMenu(Condominio *con) {
     cout << tab << "Choice: ";
 
     cin >> choice;
-    while (!cin.good() || choice < 0 || choice > 11) {
+    while (!cin.good() || choice < 0 || choice > 13) {
         cin.clear();
         cin.ignore();
 
@@ -1221,10 +1223,10 @@ void searchMember(Condominio *con) {
 
                 /* Show details of Member found */
 
-                cout << tab << "  Member details\n\n";
+                cout << endl << tab << " --- Member details ---\n\n";
                 cout << tab << "Name: " << condomino->getNome() << endl;
                 cout << tab << "VAT: " << condomino->getNIF() << endl;
-                cout << tab << "Monthly Payment: " << condomino->mensalidadeTotal() << endl;
+                cout << tab << "Monthly Payment: " << condomino->mensalidadeTotal() << endl << endl;
                 cout << tab << " Member's Habitations" << endl;
                 printTable(condomino->getHabitacoes());
                 cout << endl << tab << " Member's requested services" << endl;
@@ -1237,6 +1239,7 @@ void searchMember(Condominio *con) {
             break;
         }
     }
+    wait();
 }
 
 void searchHabitation(Condominio *con) {
@@ -1260,6 +1263,8 @@ void searchHabitation(Condominio *con) {
             if (id == "-1") return;
 
             habitacao = con->findHab(id);
+
+            cout << endl << tab << " --- Habitation details ---\n\n";
             cout << tab << "Type: ";
             (habitacao->getID()[0] == 'A') ? cout << "Apartment" << endl : cout << "Villa" << endl;
             cout << tab << "ID: " << habitacao->getID() << endl;
@@ -1273,6 +1278,7 @@ void searchHabitation(Condominio *con) {
         }
         break;
     }
+    wait();
 }
 
 int exitMenu(Condominio *con) {
