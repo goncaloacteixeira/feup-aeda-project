@@ -176,10 +176,18 @@ int main() {
             continue;
         }
         else if (option == 10) {
-            servicesProvided(&c);
+            searchMember(&c);
             continue;
         }
         else if (option == 11) {
+            searchHabitation(&c);
+            continue;
+        }
+        else if (option == 12) {
+            servicesProvided(&c);
+            continue;
+        }
+        else if (option == 13) {
             incomeMenu(&c);
             continue;
         }

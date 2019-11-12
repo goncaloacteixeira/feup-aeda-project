@@ -131,9 +131,11 @@ int mainMenu(Condominio *con) {
     cout << tab << "[08] View all Apartments\n";
     cout << tab << "[09] View all Villas\n\n";
 
+    cout << tab << "[10] Search Member\n";
+    cout << tab << "[11] Search Habitation\n\n";
 
-    cout << tab << "[10] View Services provided\n";
-    cout << tab << "[11] View Income\n\n";
+    cout << tab << "[12] View Services provided\n";
+    cout << tab << "[13] View Income\n\n";
 
     cout << tab << "[0] Exit\n";
 
@@ -142,7 +144,7 @@ int mainMenu(Condominio *con) {
     cout << tab << "Choice: ";
 
     cin >> choice;
-    while (!cin.good() || choice < 0 || choice > 11) {
+    while (!cin.good() || choice < 0 || choice > 13) {
         cin.clear();
         cin.ignore();
 
@@ -160,6 +162,11 @@ void printTable(vector<Condomino *> condominos) {
     unsigned int numCon = condominos.size();
     fort::char_table table;
     table.set_border_style(FT_DOUBLE2_STYLE);
+
+    if (condominos.empty()) {
+        cout << "\tNothing to show\n";
+        return;
+    }
 
     table << fort::header
           << "Name" << "VAT" << "Habitations" << "Services" << "Monthly Payment" << fort::endr;
@@ -200,6 +207,11 @@ void printTable(vector<Habitacao *> habitacoes) {
     fort::char_table table;
     table.set_border_style(FT_DOUBLE2_STYLE);
 
+    if (habitacoes.empty()) {
+        cout << "\tNothing to show\n";
+        return;
+    }
+
     table << fort::header
           << "ID" << "Type of Habitation" << "Address" << "Habitation's Area" << "Status" << "External Area" << "Typology" << "Pool" << "Floor" << "Monthly Payment" << fort::endr;
 
@@ -227,6 +239,11 @@ void printTable(vector<Servico *> servicos) {
     unsigned int numServ = servicos.size();
     fort::char_table table;
     table.set_border_style(FT_DOUBLE2_STYLE);
+
+    if (servicos.empty()) {
+        cout << "\tNothing to show\n";
+        return;
+    }
 
     table << fort::header
           << "Service" << "Provider" << "Cost" << fort::endr;
@@ -1168,6 +1185,99 @@ void incomeMenu(Condominio *con) {
     }
 
     cout << tab << "Monthly Profits: " << con->calcReceitas();
+    wait();
+}
+
+void searchMember(Condominio *con) {
+    string tab = "\t";
+
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Search Member" << endl;
+    cout << "------------------------------------------------------\n\n";
+
+    if (con->getNumCondominos() == 0) {
+        cout << tab << "Nothing to show\n";
+    }
+    else {
+        int nif;
+
+        Condomino* condomino;
+        while (true) {
+            try {
+                cout << tab << "VAT number (type -1 to CANCEL): ";
+                cin >> nif;
+
+                if (nif == -1) return;
+
+                while (!cin.good() || nif <= 0 || !checkNIF(nif)) {
+                    cin.clear();
+                    cin.ignore();
+
+                    cout << endl << tab << "Type a valid number please\n";
+                    cout << tab << "VAT number: ";
+
+                    cin >> nif;
+                }
+                cin.ignore();
+                condomino = con->findCon(nif);
+
+                /* Show details of Member found */
+
+                cout << endl << tab << " --- Member details ---\n\n";
+                cout << tab << "Name: " << condomino->getNome() << endl;
+                cout << tab << "VAT: " << condomino->getNIF() << endl;
+                cout << tab << "Monthly Payment: " << condomino->mensalidadeTotal() << endl << endl;
+                cout << tab << " Member's Habitations" << endl;
+                printTable(condomino->getHabitacoes());
+                cout << endl << tab << " Member's requested services" << endl;
+                printTable(condomino->getServicos());
+            }
+            catch (NoSuchCondomino &e) {
+                cout << tab << "Person with VAT: " << e.getNIF() << " does not exist in members\n";
+                continue;
+            }
+            break;
+        }
+    }
+    wait();
+}
+
+void searchHabitation(Condominio *con) {
+    string tab = "\t";
+
+    cout << endl << "------------------------------------------------------\n";
+    cout << tab << "    Search Habitation" << endl;
+    cout << "------------------------------------------------------\n\n";
+
+    if (con->getNumHabitacoes() == 0) {
+        cout << tab << "Nothing to Show\n";
+        return;
+    }
+
+    string id;
+    Habitacao* habitacao;
+    while (true) {
+        try {
+            cout << "\tID (starts with V for Villa and A for Apartment) (type -1 to CANCEL): ";
+            getline(cin, id);
+            if (id == "-1") return;
+
+            habitacao = con->findHab(id);
+
+            cout << endl << tab << " --- Habitation details ---\n\n";
+            cout << tab << "Type: ";
+            (habitacao->getID()[0] == 'A') ? cout << "Apartment" << endl : cout << "Villa" << endl;
+            cout << tab << "ID: " << habitacao->getID() << endl;
+            cout << tab << "Address: " << habitacao->getMorada() << endl;
+            (habitacao->getEstado()) ? cout << tab << "Occupied" << endl : cout << tab << "Unoccupied" << endl;
+            cout << tab << "Monthly Payment: " << habitacao->mensalidade << endl;
+        }
+        catch (NoSuchHabitation &e) {
+            cout << "\tHabitation with ID: " << e.getID() << " does not exist on this condominium\n";
+            continue;
+        }
+        break;
+    }
     wait();
 }
 
