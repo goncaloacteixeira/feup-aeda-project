@@ -1,10 +1,4 @@
-4
-Filipe Pinto
-236438096
-1
-A2
-0
-::::::::::
+2
 Joao Pedro
 234123456
 1
@@ -15,12 +9,5 @@ Cabeleireiro : 15 : EmpresaCabelo
 ::::::::::
 Jose Luis
 236438097
-1
-V1
-1
-Hairdresser : 25 : Hairs.lda
-::::::::::
-Joana Monteiro
-325792735
 0
 0
