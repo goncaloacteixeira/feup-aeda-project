@@ -84,11 +84,6 @@ void Condomino::ordenarHabitacoesMensalidade(bool reverse) {
 }
 
 
-
-void Condomino::setHabitacoes(vector<Habitacao *> hab) {
-    this->habitacoes = hab;
-}
-
 void Condomino::adicionaHabitacao(Habitacao *hab) {
     this->habitacoes.push_back(hab);
     hab->setEstado(true);

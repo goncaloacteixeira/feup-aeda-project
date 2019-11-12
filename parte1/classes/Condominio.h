@@ -12,7 +12,7 @@
  * @brief Classe Condomínio
  */
 class Condominio {
-    static set<string> prestLimpeza;
+    static set<string> prestLimpeza;        //!< Set com os prestadores de limpeza atuais
     unsigned int numPrestLimpeza;           //!< Número de prestadores de limpeza do condomínio
     vector<Habitacao *> habitacoes;         //!< Vetor de apontadores para objetos Habitação
     vector<Condomino *> condominos;         //!< Vetor de apontadores para objetos Condómino
@@ -72,7 +72,8 @@ public:
     void removeHabitacao(Habitacao *hab);
 
     /**
-     * @brief Ordena habitações
+     * @brief Ordena Habitações
+     * @param protocol Portocolo de ordenação
      */
     void ordernarHab(string protocol);
 
@@ -101,9 +102,10 @@ public:
     void removeCondomino(Condomino *con);
 
     /**
-     * @brief Ordena os condóminos
+     * @brief Ordena Condóminos
+     * @param protocol Portocolo de ordenação
      */
-    void ordenarCond(string protocol); // true - descending order
+    void ordenarCond(string protocol);
 
     /**
      *
@@ -135,7 +137,10 @@ public:
      */
     void writeToFiles(string condominio, string condominos);
 
-
+    /**
+     *
+     * @return Prestadores de Serviço de Limpeza
+     */
     set<string> prestLimpezaAtuais() { return prestLimpeza; }
 
     // Mensalidades
@@ -149,7 +154,7 @@ public:
 // Exception Classes
 
 /**
- * Exception Class para quando não conseguimos encontrar uma habitação
+ * @brief Exception Class para quando não conseguimos encontrar uma habitação
  */
 class NoSuchHabitation {
     string id;
@@ -159,7 +164,7 @@ public:
 };
 
 /**
- * Exception Class para quando não conseguimos encontrar um condómino
+ * @brief Exception Class para quando não conseguimos encontrar um condómino
  */
 class NoSuchCondomino {
     unsigned int nif;
@@ -169,7 +174,7 @@ public:
 };
 
 /**
- * Exception Class para quando não conseguimos encontrar um serviço
+ * @brief Exception Class para quando não conseguimos encontrar um serviço
  */
 class NoSuchService {
 public:
@@ -177,7 +182,7 @@ public:
 };
 
 /**
- * Exception Class para quando ja existe determinado condómino
+ * @brief Exception Class para quando ja existe determinado condómino
  */
 class RepeatedCondomino {
     unsigned int nif;
