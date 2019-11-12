@@ -14,7 +14,7 @@ void wait() {
 
 int firstMenu() {
 
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Condominium Management" << endl;
@@ -47,7 +47,7 @@ int firstMenu() {
 }
 
 string filenameMenu() {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "      Read from files" << endl;
@@ -84,7 +84,7 @@ string filenameMenu() {
 }
 
 Condominio newCondominium() {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    New Condominium" << endl;
@@ -114,7 +114,7 @@ Condominio newCondominium() {
 }
 
 int mainMenu(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Condominium Menu" << endl;
@@ -239,7 +239,7 @@ void printTable(vector<Servico *> servicos) {
 }
 
 int membersMenu(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Members Menu" << endl;
@@ -286,7 +286,7 @@ bool checkNIF(unsigned int nif) {
 }
 
 int addConMenu(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    New Member" << endl;
@@ -348,7 +348,7 @@ int addConMenu(Condominio *con) {
 }
 
 int rmConMenu(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Remove Member" << endl;
@@ -394,7 +394,7 @@ int rmConMenu(Condominio *con) {
 }
 
 int sortConMenu(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Sort Members" << endl;
@@ -441,7 +441,7 @@ int sortConMenu(Condominio *con) {
 }
 
 int rqServiceMenu(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Request Service" << endl;
@@ -643,7 +643,7 @@ int rqServiceMenu(Condominio *con) {
 }
 
 int addHabMenu(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    New Habitation" << endl;
@@ -796,7 +796,7 @@ int addHabMenu(Condominio *con) {
 }
 
 int rmHabMenu(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Remove Habitation" << endl;
@@ -832,7 +832,7 @@ int rmHabMenu(Condominio *con) {
 }
 
 int assignHab(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Assign Habitation" << endl;
@@ -927,7 +927,7 @@ int assignHab(Condominio *con) {
 }
 
 int unassignHab(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Unassign Habitation" << endl;
@@ -1045,7 +1045,7 @@ int unassignHab(Condominio *con) {
 }
 
 int sortHabMenu(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Sort Habitation" << endl;
@@ -1095,7 +1095,7 @@ int sortHabMenu(Condominio *con) {
 }
 
 void viewHabs(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    View Habitations" << endl;
@@ -1138,7 +1138,7 @@ void viewVivs(Condominio *con) {
 }
 
 void servicesProvided(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Services Provided" << endl;
@@ -1155,7 +1155,7 @@ void servicesProvided(Condominio *con) {
 }
 
 void incomeMenu(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Income Menu" << endl;
@@ -1172,7 +1172,7 @@ void incomeMenu(Condominio *con) {
 }
 
 int exitMenu(Condominio *con) {
-    string tab = "\t\t\t";
+    string tab = "\t";
 
     cout << endl << "------------------------------------------------------\n";
     cout << tab << "    Exit Menu" << endl;
