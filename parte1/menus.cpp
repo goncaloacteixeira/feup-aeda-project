@@ -486,11 +486,17 @@ int rqServiceMenu(Condominio *con) {
         cout << tab << "[06] Plumber\n";
         cout << tab << "[07] Gardener\n";
         cout << tab << "[08] Electrician\n";
+        cout << tab << "[09] Cook\n";
+        cout << tab << "[10] Car Usher\n";
+        cout << tab << "[11] Spa\n";
+        cout << tab << "[12] Cinema\n";
+        cout << tab << "[13] Event Organizer\n";
+        cout << tab << "[14] Petsitter\n";
+        cout << tab << "[15] Painter\n";
 
-        // todo - add more services
 
 
-        cout << tab << "[09] Back\n";
+        cout << tab << "[16] Back\n";
         cout << tab << "[0] Exit\n";
 
 
@@ -499,7 +505,7 @@ int rqServiceMenu(Condominio *con) {
         cout << tab << "Choice: ";
 
         cin >> choice;
-        while (!cin.good() || choice < 0 || choice > 9) {
+        while (!cin.good() || choice < 0 || choice > 16) {
             cin.clear();
             cin.ignore();
 
@@ -511,7 +517,7 @@ int rqServiceMenu(Condominio *con) {
         cin.ignore();
 
 
-        if (choice == 0 || choice == 9)
+        if (choice == 0 || choice == 16)
             return choice;
 
         bool flag = false;
@@ -541,6 +547,11 @@ int rqServiceMenu(Condominio *con) {
                 getline(cin, prestador);
                 type = "Hairdresser";
                 break;
+            case 3:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Car Cleaner";
+                break;
             case 4:
                 cout << tab << "Provider: ";
                 getline(cin, prestador);
@@ -565,6 +576,41 @@ int rqServiceMenu(Condominio *con) {
                 cout << tab << "Provider: ";
                 getline(cin, prestador);
                 type = "Electrician";
+                break;
+            case 9:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Cook";
+                break;
+            case 10:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Car Usher";
+                break;
+            case 11:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Spa";
+                break;
+            case 12:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Cinema";
+                break;
+            case 13:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Event Organizer";
+                break;
+            case 14:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Petsitter";
+                break;
+            case 15:
+                cout << tab << "Provider: ";
+                getline(cin, prestador);
+                type = "Painter";
                 break;
             default:
                 break;
