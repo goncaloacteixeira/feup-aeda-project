@@ -11,7 +11,7 @@ Condominium Management
 Starting the program you will be asked if you rather create a new condominium or retrieve the information stored in text files.
 
 - If you choose to create a new condominium you will be asked how many cleaning providers are allowed to provide cleaning services to the condominium, this is a fixed number;
-- If you choose to read from files the formats of those same files are the same.
+- If you choose to read from files the formats of those same files are:
 
 1. [condominium_example.txt (portuguese)](https://github.com/skdGT/ProjetoAEDA/blob/master/parte1/condominio_format.txt)
 
