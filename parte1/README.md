@@ -127,7 +127,7 @@ On this program you can:
 
 ### Removing Habitations
 
-- When trying to remove habitations, make sure the habitation is not assigned or it will raise an exception saying the habitation cannot be removed as it's occupied.
+- When trying to remove habitations, make sure the habitation is not assigned or it will raise an exception saying the habitation cannot be removed as it is occupied.
 
 
 
@@ -201,7 +201,7 @@ vector<string> split (string &s, string delimiter) {
 
 ## Exiting the program
 
-The user will be asked if they want to save the data in a text file or discard it, or even cancel the exiting operating going back to where the program was before issuing the exit command.
+The user will be asked if they want to save the data in a text file or discard it, or even cancel the exiting operation going back to where the program was before issuing the exit command.
 
 If the user opts to save the information will be asked for the filenames that they wish to store the information in. Then the program will call a function to write the data to files, showing how much time it took.
 
