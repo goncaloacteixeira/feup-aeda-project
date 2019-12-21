@@ -1,0 +1,242 @@
+20
+condominos.txt
+30
+V0
+0
+Maldwyn, Manchester, 294, 400-185
+55
+21.000000
+0
+632
+::::::::::
+A0
+0
+Attercliffe, Manchester, 31, 400-30
+292
+T0
+2
+449
+::::::::::
+V1
+0
+Oakfield, Manchester, 373, 400-48
+369
+44.000000
+1
+1607
+::::::::::
+V2
+0
+Riddings, Manchester, 320, 400-110
+421
+28.000000
+1
+831
+::::::::::
+V3
+1
+Captain Lees, Manchester, 28, 400-152
+610
+10.000000
+1
+1258
+::::::::::
+A1
+1
+Bay Tree, Manchester, 37, 400-111
+73
+T6+
+5
+900
+::::::::::
+A2
+0
+Morley, Manchester, 353, 400-155
+49
+T1
+10
+511
+::::::::::
+A3
+0
+Bay Tree, Manchester, 37, 400-111
+165
+T3
+5
+335
+::::::::::
+V4
+0
+Great Ancoats, Manchester, 144, 400-127
+137
+108.000000
+0
+1414
+::::::::::
+A4
+1
+Highclove, Manchester, 135, 400-145
+192
+T6
+1
+983
+::::::::::
+V5
+1
+Bay Tree, Manchester, 37, 400-111
+113
+58.000000
+1
+388
+::::::::::
+V6
+1
+Captain Lees, Manchester, 28, 400-152
+417
+32.000000
+0
+1585
+::::::::::
+V7
+0
+Kirby, Manchester, 361, 400-105
+181
+14.000000
+0
+449
+::::::::::
+A5
+0
+Maldwyn, Manchester, 294, 400-185
+404
+T1
+1
+745
+::::::::::
+A6
+0
+Ancroft, Manchester, 165, 400-193
+409
+T1
+7
+837
+::::::::::
+V8
+1
+Riddings, Manchester, 320, 400-110
+163
+16.000000
+1
+362
+::::::::::
+A7
+1
+Great Ancoats, Manchester, 144, 400-127
+306
+T4
+5
+688
+::::::::::
+A8
+0
+Oakfield, Manchester, 373, 400-48
+371
+T5
+9
+398
+::::::::::
+V9
+0
+Great Ancoats, Manchester, 144, 400-127
+606
+100.000000
+1
+1530
+::::::::::
+A9
+1
+Eyam, Manchester, 250, 400-197
+160
+T5
+1
+463
+::::::::::
+A10
+0
+Howgate, Manchester, 112, 400-120
+104
+T6
+6
+529
+::::::::::
+V10
+0
+Morley, Manchester, 353, 400-155
+554
+49.000000
+1
+1750
+::::::::::
+V11
+0
+Captain Lees, Manchester, 28, 400-152
+127
+76.000000
+1
+1547
+::::::::::
+A11
+1
+Highclove, Manchester, 135, 400-145
+88
+T5
+4
+771
+::::::::::
+V12
+0
+Maldwyn, Manchester, 294, 400-185
+583
+64.000000
+0
+1073
+::::::::::
+V13
+0
+Hollincross, Manchester, 224, 400-181
+302
+44.000000
+1
+367
+::::::::::
+V14
+0
+Peckford, Manchester, 333, 400-170
+533
+45.000000
+1
+1519
+::::::::::
+A12
+0
+Rink, Manchester, 92, 400-76
+297
+T6+
+8
+903
+::::::::::
+V15
+0
+Great Ancoats, Manchester, 144, 400-127
+453
+33.000000
+1
+1011
+::::::::::
+A13
+1
+Ancroft, Manchester, 165, 400-193
+107
+T3
+5
+246

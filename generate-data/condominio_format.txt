@@ -1,0 +1,18 @@
+num_prestadores_limpeza
+condominos_filename
+num_hab
+ID hab0
+ocupado ? (1 - sim / 0 - nao)
+morada
+area_hab
+tipologia / area_ext
+piso / piscina (1 - sim / 0 - nao)
+mensalidade
+::::::::::
+ID hab1
+ocupado ? (1 - sim / 0 - nao)
+morada
+area_hab
+tipologia / area_ext
+piso / piscina (1 - sim / 0 - nao)
+mensalidade
