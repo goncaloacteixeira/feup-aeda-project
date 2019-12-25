@@ -3,8 +3,6 @@
 //
 
 #include "Condomino.h"
-
-#include "Condomino.h"
 #include <sstream>
 
 Condomino::Condomino(string nome, unsigned int nif) : nome(nome), nif(nif){
