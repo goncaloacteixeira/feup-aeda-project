@@ -9,7 +9,8 @@
 
 set<string> Condominio::prestLimpeza = {};
 
-Condominio::Condominio(unsigned int numPrestLimpeza) : numPrestLimpeza(numPrestLimpeza) {
+Condominio::Condominio(string designation, string location, unsigned int numPrestLimpeza) :
+    numPrestLimpeza(numPrestLimpeza), designation(designation), location(location) {
     this->habitacoes = {};
     this->condominos = {};
 }
@@ -40,12 +41,24 @@ Condominio::Condominio(string filename) {
 
     condominio.open(filename);
     if (condominio.is_open()) {
-        while (getline(condominio, line) && i < 3) {
+        while (getline(condominio, line) && i < 5) {
+            /**
+             * line 0 -> designation
+             * line 1 -> location
+             * line 2 -> numPrestLimpeza
+             * line 3 -> filename condominos
+             * line 4 -> numHab
+             */
+
             if (i == 0)
-                this->numPrestLimpeza = stoi(line);
+                this->designation = line;
             else if (i == 1)
-                condominosFileName = line;
+                this->location = line;
             else if (i == 2)
+                this->numPrestLimpeza = stoi(line);
+            else if (i == 3)
+                condominosFileName = line;
+            else if (i == 4)
                 numHab = stoi(line);
             i++;
         }
@@ -174,6 +187,8 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
     condominioFilename = "../" + condominioFilename;
 
     fstream condominio(condominioFilename, std::ofstream::out | std::ofstream::trunc);
+    condominio << this->designation << endl;
+    condominio << this->location << endl;
     condominio << this->getNumPrestLimpeza() << endl;
     condominio << condominosFilename << endl;
     condominio << this->getNumHabitacoes() << endl;

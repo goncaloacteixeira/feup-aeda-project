@@ -17,6 +17,9 @@
  * @brief Classe Condomínio
  */
 class Condominio {
+    string designation;
+    string location;
+
     static set<string> prestLimpeza;        //!< Set com os prestadores de limpeza atuais
     unsigned int numPrestLimpeza;           //!< Número de prestadores de limpeza do condomínio
     vector<Habitacao *> habitacoes;         //!< Vetor de apontadores para objetos Habitação
@@ -28,7 +31,7 @@ public:
      *
      * @param numPrestLimpeza Número de prestadores de limpeza do condomínio
      */
-    Condominio(unsigned int numPrestLimpeza);
+    Condominio(string designation, string location, unsigned int numPrestLimpeza);
 
     /** @brief Construtor da Classe Comdoninio com leitura de ficheiros
      *
