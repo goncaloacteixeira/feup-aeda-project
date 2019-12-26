@@ -3,13 +3,13 @@
 //
 
 #include <iostream>
-#include "menus.h"
+#include "classes/Condominio.h"
 
 using namespace std;
 
 
 int main() {
-    Condominio c(20);
+    Condominio c("Con1","Manchester",20);
 
     ifstream fn;
     fn.open("../first_names.txt");
@@ -118,6 +118,6 @@ int main() {
         }
     }
 
-    c.writeToFiles("condominio.txt","condominos.txt");
+    c.writeToFiles("con1.txt","mem1.txt");
 
 }
