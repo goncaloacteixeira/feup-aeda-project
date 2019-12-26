@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/generate-data.dir/main.cpp.o CMakeFiles/generate-data.dir/classes/Morada.cpp.o CMakeFiles/generate-data.dir/classes/Habitacao.cpp.o CMakeFiles/generate-data.dir/classes/Servico.cpp.o CMakeFiles/generate-data.dir/classes/Condomino.cpp.o CMakeFiles/generate-data.dir/classes/Condominio.cpp.o CMakeFiles/generate-data.dir/fort.c.o  -o generate-data 

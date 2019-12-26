@@ -440,4 +440,21 @@ string Condominio::getLocation() {
     return this->location;
 }
 
+bool Condominio::operator<(Condominio &con1) {
+    if (this->getNumHabitacoes() == con1.getNumHabitacoes()) {
+        return this->getNumVivendas() < con1.getNumVivendas();
+    }
+    return this->getNumHabitacoes() < con1.getNumHabitacoes();
+}
+
+unsigned int Condominio::getNumVivendas() {
+    int res = 0;
+    for (auto &h : this->getHabitacoes()) {
+        if (h->getID()[0] == 'V') {
+            res++;
+        }
+    }
+    return res;
+}
+
 

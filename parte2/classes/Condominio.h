@@ -77,6 +77,12 @@ public:
 
     /**
      *
+     * @return Número de Vivendas do Condomínio
+     */
+    unsigned int getNumVivendas();
+
+    /**
+     *
      * @param hab Apontador para a habitação a adicionar ao condomínio
      */
     void adicionaHabitacao(Habitacao *hab);
@@ -165,6 +171,11 @@ public:
     * @return O total de receitas no condomínio
     */
     float calcReceitas();
+
+
+    // operators
+
+    bool operator<(Condominio &con1);
 };
 
 // Exception Classes

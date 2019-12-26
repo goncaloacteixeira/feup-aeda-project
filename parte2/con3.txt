@@ -1,0 +1,44 @@
+Con3
+Manchester
+10
+mem3.txt
+5
+V0
+0
+Wavertree, Manchester, 363, 400-22
+328
+35.000000
+1
+727
+::::::::::
+V1
+0
+Winskill, Manchester, 194, 400-116
+397
+17.000000
+0
+1723
+::::::::::
+A0
+1
+Wavertree, Manchester, 363, 400-22
+374
+T5
+1
+188
+::::::::::
+V2
+0
+Wavertree, Manchester, 363, 400-22
+518
+54.000000
+0
+531
+::::::::::
+A1
+0
+Wavertree, Manchester, 363, 400-22
+342
+T3
+9
+916

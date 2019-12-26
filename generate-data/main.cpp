@@ -9,7 +9,20 @@ using namespace std;
 
 
 int main() {
-    Condominio c("Con1","Manchester",20);
+
+    cout << "Designation: ";
+    string des;
+    getline(cin, des);
+
+    cout << "Localization: ";
+    string loc;
+    getline(cin, loc);
+
+    cout << "Num prest. limpeza: ";
+    string nl;
+    getline(cin, nl);
+
+    Condominio c(des,loc,stoi(nl));
 
     ifstream fn;
     fn.open("../first_names.txt");
@@ -118,6 +131,15 @@ int main() {
         }
     }
 
-    c.writeToFiles("con1.txt","mem1.txt");
+    cin.ignore();
+    cout << "Filename Condominium: ";
+    string filename1;
+    getline(cin,filename1);
+
+    cout << "Filename Members: ";
+    string filename2;
+    getline(cin, filename2);
+
+    c.writeToFiles(filename1, filename2);
 
 }

@@ -1,5 +1,5 @@
 Con1
-Manchester
+Porto
 20
 mem1.txt
 30
@@ -12,7 +12,7 @@ Howgate, Manchester, 112, 400-120
 1358
 ::::::::::
 A0
-1
+0
 Peckford, Manchester, 333, 400-170
 86
 T6+
@@ -116,7 +116,7 @@ T0
 245
 ::::::::::
 V7
-0
+1
 Eyam, Manchester, 250, 400-197
 559
 64.000000
@@ -124,7 +124,7 @@ Eyam, Manchester, 250, 400-197
 1015
 ::::::::::
 V8
-1
+0
 Attercliffe, Manchester, 31, 400-30
 51
 100.000000
@@ -140,7 +140,7 @@ Rink, Manchester, 92, 400-76
 1392
 ::::::::::
 A7
-0
+1
 Hollincross, Manchester, 224, 400-181
 242
 T1
@@ -172,7 +172,7 @@ Oakfield, Manchester, 373, 400-48
 1100
 ::::::::::
 A9
-1
+0
 Riddings, Manchester, 320, 400-110
 392
 T6
@@ -220,7 +220,7 @@ Carib, Manchester, 144, 400-134
 1302
 ::::::::::
 A10
-1
+0
 Oakfield, Manchester, 373, 400-48
 132
 T2
@@ -228,7 +228,7 @@ T2
 560
 ::::::::::
 A11
-1
+0
 Eyam, Manchester, 250, 400-197
 172
 T1
@@ -236,7 +236,7 @@ T1
 597
 ::::::::::
 A12
-1
+0
 Renolds, Manchester, 236, 400-25
 388
 T2

@@ -1,86 +1,90 @@
-25
+20
 Bernice GIBSON
 759481682
-0
 1
-Mechanic : 88 : SDHF
+A7
+2
+Petsitting : 29 : EverytingUNeed
+Plumbing : 41 : SDHF
 ::::::::::
 Melony WEBB
 105711500
-1
-V10
-0
+2
+V7
+V1
+2
+Security : 32 : Homes.LDA
+Car Wash : 34 : Homes.LDA
 ::::::::::
 Glenda MORRIS
 123689366
-0
 1
-Petsitting : 26 : Homes.LDA
+V0
+1
+Petsitting : 35 : AFA
 ::::::::::
 Florida GOMEZ
 775026724
-1
-V12
-1
-Babysitting : 63 : SDHF
+0
+0
 ::::::::::
 Etty WASHINGTON
 285694320
-0
-0
+1
+V0
+2
+Plumbing : 98 : Easy Home
+Babysitting : 14 : AFA
 ::::::::::
 Shandeigh HENDERSON
 108781873
-1
-V6
+0
 2
-Gardener : 99 : Easy Home
-Gardener : 102 : AFA
+Babysitting : 17 : SDHF
+Babysitting : 77 : Easy Home
 ::::::::::
 Kitti SHAW
 141127596
-0
 1
-Security : 103 : BeautifulHome
+V10
+2
+Gardener : 108 : SDHF
+Plumbing : 17 : AFA
 ::::::::::
 Daffie ANDERSON
 109984505
-1
-V13
+0
 0
 ::::::::::
 Cate HICKS
 700558246
+1
+V12
 0
-2
-Security : 68 : EverytingUNeed
-Gardener : 53 : AlwaysThere
 ::::::::::
 Glenine WALLACE
 245222950
-1
-V9
 0
+1
+Plumbing : 40 : AlwaysThere
 ::::::::::
 Rozelle LEE
 209934476
 1
-A5
-2
-Cleaning : 98 : AFA
-Cleaning : 11 : AlwaysThere
+V6
+0
 ::::::::::
 Madalena OWENS
 309526757
-1
-A4
+0
 0
 ::::::::::
 Jodie HOLMES
 387531641
 1
-V14
-0
+V13
+1
+Babysitting : 63 : SDHF
 ::::::::::
 Michelle HUGHES
 447176135
@@ -89,80 +93,43 @@ Michelle HUGHES
 ::::::::::
 Cher COLLINS
 298427211
-2
-V0
-A1
 1
-Hairdresser : 21 : BeautifulHome
+V9
+2
+Gardener : 99 : Easy Home
+Gardener : 102 : AFA
 ::::::::::
 Kamillah BELL
 304255255
-2
-V8
-A9
-2
-Babysitting : 33 : Easy Home
-Car Wash : 14 : SDHF
+1
+A5
+1
+Security : 103 : BeautifulHome
 ::::::::::
 Constanta GONZALEZ
 309707626
-2
-V1
-A0
-2
-Petsitting : 73 : EverytingUNeed
-Cleaning : 85 : BeautifulHome
+1
+A4
+0
 ::::::::::
 Leela ALEXANDER
 100079172
 1
-A11
+V14
 2
-Babysitting : 106 : Homes.LDA
-Petsitting : 68 : EverytingUNeed
+Security : 68 : EverytingUNeed
+Gardener : 53 : AlwaysThere
 ::::::::::
 Emera CAMPBELL
 791055053
 0
-1
-Petsitting : 66 : Easy Home
+0
 ::::::::::
 Val SCOTT
 558914655
-0
 2
-Babysitting : 104 : EverytingUNeed
-Security : 33 : BeautifulHome
-::::::::::
-Xylia PETERSON
-999333078
+V0
+A1
 2
-V12
-V14
-1
-Gardener : 12 : AlwaysThere
-::::::::::
-Anthia ALLEN
-781350654
-1
-A12
-0
-::::::::::
-Lorrie PORTER
-105748216
-0
-1
-Car Wash : 98 : AFA
-::::::::::
-Randene WALLACE
-233968318
-2
-V8
-A11
-0
-::::::::::
-Beatrix BRYANT
-206757931
-1
-A10
-0
+Cleaning : 98 : AFA
+Cleaning : 11 : AlwaysThere
