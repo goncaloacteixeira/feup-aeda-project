@@ -432,4 +432,12 @@ void Condominio::adicionaServico(Servico *serv) {
     this->servicosPrestados.push_back(serv);
 }
 
+string Condominio::getDesignation() {
+    return this->designation;
+}
+
+string Condominio::getLocation() {
+    return this->location;
+}
+
 

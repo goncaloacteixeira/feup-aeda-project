@@ -5,10 +5,9 @@
 
 int main() {
 
+    auto c = Condominio("con1.txt");
 
-    auto c = Condominio("Con1","Porto",20);
-
-    c.writeToFiles("con1.txt","mem1.txt");
+    cout << c.getDesignation();
 
     return 0;
 }
