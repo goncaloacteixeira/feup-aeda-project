@@ -7,6 +7,7 @@
 
 
 #include "Condomino.h"
+#include "Transporte.h"
 #include <set>
 
 /**
