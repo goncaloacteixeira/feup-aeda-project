@@ -1,0 +1,221 @@
+30
+Nanon YOUNG
+684559772
+2
+A12
+V19
+2
+Hairdresser : 40 : Homes.LDA
+Car Wash : 35 : Homes.LDA
+::::::::::
+Raynell BUTLER
+652485882
+2
+A15
+A13
+0
+::::::::::
+Jaime RIVERA
+533753685
+0
+1
+Security : 26 : EverytingUNeed
+::::::::::
+Rasia SANCHEZ
+145513517
+2
+A14
+V11
+1
+Hairdresser : 47 : EverytingUNeed
+::::::::::
+Rosemarie HUGHES
+683725183
+0
+1
+Cleaning : 54 : Homes.LDA
+::::::::::
+Elie REYES
+404342442
+0
+1
+Plumbing : 39 : SDHF
+::::::::::
+Ros COLLINS
+741994336
+2
+A13
+V16
+2
+Cleaning : 67 : BeautifulHome
+Plumbing : 16 : SDHF
+::::::::::
+Kassia STEWART
+405968686
+2
+A22
+A20
+2
+Security : 22 : Homes.LDA
+Hairdresser : 45 : SDHF
+::::::::::
+Lauraine ROBERTSON
+669833042
+0
+2
+Petsitting : 79 : SDHF
+Petsitting : 63 : BeautifulHome
+::::::::::
+Becky RICE
+991646501
+2
+V18
+A20
+2
+Mechanic : 75 : BeautifulHome
+Car Wash : 106 : SDHF
+::::::::::
+Pavla BURNS
+206428387
+2
+A22
+V11
+0
+::::::::::
+Tamarra ROBINSON
+355023447
+1
+A15
+0
+::::::::::
+Charmion WALLACE
+678273468
+0
+2
+Car Wash : 84 : Homes.LDA
+Security : 13 : SDHF
+::::::::::
+Gretta MARTIN
+114587870
+1
+A18
+1
+Mechanic : 24 : SDHF
+::::::::::
+Donia GORDON
+267142944
+1
+A10
+1
+Gardener : 24 : EverytingUNeed
+::::::::::
+Meriel GOMEZ
+739335261
+2
+A11
+V17
+0
+::::::::::
+Jennette ROBINSON
+104171779
+1
+V20
+1
+Security : 53 : AFA
+::::::::::
+Conni HILL
+612234317
+2
+V15
+V12
+0
+::::::::::
+Kathleen COOK
+468071470
+2
+V19
+V11
+0
+::::::::::
+Channa MARSHALL
+894643506
+0
+1
+Hairdresser : 90 : Homes.LDA
+::::::::::
+Stevena PERRY
+524408420
+1
+V13
+2
+Gardener : 34 : EverytingUNeed
+Babysitting : 59 : Easy Home
+::::::::::
+Vonnie CRUZ
+942194653
+2
+V11
+A22
+1
+Babysitting : 51 : SDHF
+::::::::::
+Adele BURNS
+369648149
+2
+V16
+V13
+1
+Babysitting : 93 : AlwaysThere
+::::::::::
+Matelda TUCKER
+108495660
+1
+V18
+0
+::::::::::
+Corene BLACK
+128963553
+0
+1
+Petsitting : 73 : AlwaysThere
+::::::::::
+Almeda TORRES
+456348216
+1
+A23
+2
+Mechanic : 38 : SDHF
+Babysitting : 58 : BeautifulHome
+::::::::::
+Pavla MOORE
+575185820
+2
+V15
+A18
+2
+Mechanic : 43 : AFA
+Security : 62 : AFA
+::::::::::
+Brittany MORGAN
+184113443
+0
+2
+Babysitting : 82 : SDHF
+Security : 99 : AlwaysThere
+::::::::::
+Cynthy MYERS
+357942890
+2
+A21
+A13
+2
+Hairdresser : 89 : AlwaysThere
+Car Wash : 81 : AlwaysThere
+::::::::::
+Austin WRIGHT
+295952443
+2
+V11
+A9
+1
+Car Wash : 21 : SDHF
