@@ -463,4 +463,59 @@ bool Condominio::operator==(const Condominio &con1) const {
     return this->designation == con1.designation && this->location == con1.designation;
 }
 
+// HEAP
+void Condominio::setTransports(vector<Transporte>* tr) {
+    for (auto &t : *tr) {
+        transport.push(t);
+    }
+}
+
+HEAP_TRANSPORT Condominio::getTransports() const {
+    return transport;
+}
+
+void Condominio::addTransportStop(Transporte t1) {
+    this->transport.push(t1);
+}
+
+bool Condominio::removeTransportStop(const Transporte t1) {
+    vector<Transporte> toPutBack;
+    bool found = false;
+    while (!this->transport.empty()) {
+        if (transport.top().getDestiny() == t1.getDestiny() &&
+            transport.top().getDistance() == t1.getDistance() &&
+            transport.top().getLocalization() == t1.getLocalization()) {
+            found = true;
+        }
+        else {
+            toPutBack.emplace_back(transport.top());
+        }
+        transport.pop();
+    }
+    return found;
+}
+
+Transporte Condominio::getTransport(string dest) {
+    HEAP_TRANSPORT temp = this->transport;
+
+    while (!temp.empty()) {
+        if (temp.top().getDestiny() == dest) {
+            return temp.top();
+        }
+        temp.pop();
+    }
+    return Transporte();
+}
+
+vector<Transporte> Condominio::getVectorTransports() const {
+    HEAP_TRANSPORT temp = this->transport;
+    vector<Transporte> res;
+
+    while (!temp.empty()) {
+        res.push_back(temp.top());
+        temp.pop();
+    }
+    return res;
+}
+
 

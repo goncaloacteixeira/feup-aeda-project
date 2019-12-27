@@ -14,11 +14,8 @@ int main() {
     a.addCondominio(c2);
     a.addCondominio(c3);
 
-    Transporte t1("Porto",23,"Gaia");
 
-    vector<Condominio*> temp = a.getCondominios(20);
 
-    cout << t1;
 
     return 0;
 }

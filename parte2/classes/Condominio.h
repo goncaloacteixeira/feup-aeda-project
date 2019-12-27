@@ -9,6 +9,9 @@
 #include "Condomino.h"
 #include "Transporte.h"
 #include <set>
+#include <queue>
+
+typedef priority_queue<Transporte> HEAP_TRANSPORT;
 
 /**
  * @brief Classe Condomínio
@@ -21,6 +24,9 @@ class Condominio {
     vector<Habitacao *> habitacoes;         //!< Vetor de apontadores para objetos Habitação
     vector<Condomino *> condominos;         //!< Vetor de apontadores para objetos Condómino
     vector<Servico *> servicosPrestados;    //!< Vetor de apontadores para objetos Serviço
+
+    HEAP_TRANSPORT transport;               //!< Priority Queue com os pontos de paragem relativos ao condominio em questão
+
 
 public:
     /** @brief Construtor da Classe Comdoninio sem leitura de ficheiros
@@ -173,6 +179,14 @@ public:
     */
     float calcReceitas();
 
+
+    // HEAP
+    void setTransports(vector<Transporte>* transports);
+    HEAP_TRANSPORT getTransports() const;
+    vector<Transporte> getVectorTransports() const;
+    void addTransportStop(Transporte t1);
+    bool removeTransportStop(Transporte t1);
+    Transporte getTransport(string dest);
 
     // operators
     bool operator<(const Condominio &con1) const;

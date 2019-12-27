@@ -4,7 +4,9 @@
 
 #include "Transporte.h"
 
-Transporte::Transporte(string loc, unsigned dist, string dest) : localizacao(loc), distancia(dist), destino(dest) {
+#include <utility>
+
+Transporte::Transporte(string loc, unsigned dist, string dest) : localizacao(std::move(loc)), distancia(dist), destino(std::move(dest)) {
     // do nothing
 }
 
@@ -20,13 +22,21 @@ string Transporte::getDestiny() const {
     return destino;
 }
 
-void Transporte::changeDestiny(const string dest) {
-    this->destino = dest;
+void Transporte::changeDestiny(string dest) {
+    this->destino = std::move(dest);
 }
 
 ostream &operator<<(ostream &os, Transporte &t1) {
     os << "Location: " << t1.localizacao << endl;
     os << "Distance: " << t1.distancia << endl;
     os << "Destiny: " << t1.destino << endl;
+}
+
+bool Transporte::operator<(const Transporte &t1) const  {
+    return this->distancia > t1.distancia;
+}
+
+bool Transporte::operator==(const Transporte &t1) const {
+    return this->distancia == t1.distancia && this->localizacao == t1.localizacao && this->destino == t1.destino;
 }
 
