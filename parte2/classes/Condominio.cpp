@@ -6,11 +6,12 @@
 #include <chrono>
 #include "utils.h"
 #include <iostream>
+#include <utility>
 
 set<string> Condominio::prestLimpeza = {};
 
 Condominio::Condominio(string designation, string location, unsigned int numPrestLimpeza) :
-    designation(designation), location(location), numPrestLimpeza(numPrestLimpeza) {
+    designation(std::move(designation)), location(std::move(location)), numPrestLimpeza(numPrestLimpeza) {
 
     this->condominos = {};
     this->habitacoes = {};
@@ -26,17 +27,19 @@ Condominio::Condominio(string filename) {
     int i = 0;
 
     string condominosFileName;
-    int numHab;
+    string transportsFileName;
+    int numHab = 0;
 
     condominio.open(filename);
     if (condominio.is_open()) {
-        while (getline(condominio, line) && i < 5) {
+        while (getline(condominio, line) && i < 6) {
             /**
              * line 0 -> designation
              * line 1 -> location
              * line 2 -> numPrestLimpeza
              * line 3 -> filename condominos
              * line 4 -> numHab
+             * line 5 -> transports filename
              */
 
             if (i == 0)
@@ -49,6 +52,8 @@ Condominio::Condominio(string filename) {
                 condominosFileName = line;
             else if (i == 4)
                 numHab = stoi(line);
+            else if (i == 5)
+                transportsFileName = line;
             i++;
         }
     }
@@ -61,10 +66,10 @@ Condominio::Condominio(string filename) {
         if (condominio.is_open()) {
             int ctr = 0;
             string line1;
-            for (int i = 0; i < numHab; i++) {
+            for (i = 0; i < numHab; i++) {
                 vector<string> hab;
                 while (getline(condominio, line1)) {
-                    if (ctr >= 5) {
+                    if (ctr >= 6) {     // control to skip first lines
                         if (line1 != "::::::::::")
                             hab.push_back(line1);
                         else
@@ -78,9 +83,9 @@ Condominio::Condominio(string filename) {
         }
 
 
-        for (int i = 0; i < numHab; i++) {
+        for (i = 0; i < numHab; i++) {
             if (info[i][0][0] == 'A') {
-                Apartamento *ap = new Apartamento(info[i][2], stof(info[i][3]), info[i][4],stoi(info[i][5]), stof(info[i][6]));
+                auto *ap = new Apartamento(info[i][2], stof(info[i][3]), info[i][4],stoi(info[i][5]), stof(info[i][6]));
 
                 ap->setEstado(info[i][1] == "1");
                 habitacoes.push_back(ap);
@@ -88,7 +93,7 @@ Condominio::Condominio(string filename) {
             if (info[i][0][0] == 'V') {
                 bool piscina;
                 piscina = info[i][5] == "1";
-                Vivenda *vi = new Vivenda(info[i][2], stof(info[i][3]), stof(info[i][4]), piscina, stof(info[i][6]));
+                auto *vi = new Vivenda(info[i][2], stof(info[i][3]), stof(info[i][4]), piscina, stof(info[i][6]));
 
                 vi->setEstado(info[i][1] == "1");
                 habitacoes.push_back(vi);
@@ -97,35 +102,55 @@ Condominio::Condominio(string filename) {
         info.clear();
     }
 
+    // Transportes Read Snippet Code
+    vector<Transporte> transports = {};
+    transportsFileName = "../" + transportsFileName;
+
+    ifstream transportsFile;
+    transportsFile.open(transportsFileName);
+    string trLine;
+
+    if (transportsFile.is_open()) {
+        while (getline(transportsFile, trLine)) {
+            vector<string> temp = split(trLine, " : ");
+            transport.push(Transporte(temp[0], stoi(temp[1]), temp[2]));
+        }
+        transportsFile.close();
+    }
+    else {
+        cerr << "error opening transports file";
+    }
+
+
     // Condominos Read Snippet Code
     this->condominos = {};
 
     condominosFileName = "../" + condominosFileName;
 
-    ifstream condominos;
-    condominos.open(condominosFileName);
+    ifstream condominosFile;
+    condominosFile.open(condominosFileName);
 
     int numCondominos = 0;
 
-    if (condominos.is_open())
+    if (condominosFile.is_open())
     {
         string l;
-        getline(condominos, l);
+        getline(condominosFile, l);
         numCondominos = stoi(l);
-        condominos.close();
+        condominosFile.close();
     }
 
     vector<vector<string> > info;
     if (numCondominos != 0)
     {
-        condominos.open(condominosFileName);
-        if (condominos.is_open())
+        condominosFile.open(condominosFileName);
+        if (condominosFile.is_open())
         {
             int ctr = 0;
             string line1;
-            for (int i = 0; i < numCondominos; i++) {
+            for (i = 0; i < numCondominos; i++) {
                 vector<string> con;
-                while (getline(condominos, line1)) {
+                while (getline(condominosFile, line1)) {
                     if (ctr >= 1) {
                         if (line1 != "::::::::::")
                             con.push_back(line1);
@@ -136,13 +161,13 @@ Condominio::Condominio(string filename) {
                 }
                 info.push_back(con);
             }
-            condominos.close();
+            condominosFile.close();
         }
     }
 
     if (numCondominos != 0) {
-        for (int i = 0; i < numCondominos; i++) {
-            Condomino *c = new Condomino(info[i][0], stoi(info[i][1]));
+        for (i = 0; i < numCondominos; i++) {
+            auto *c = new Condomino(info[i][0], stoi(info[i][1]));
             int numHabs = stoi(info[i][2]);
             if (numHabs != 0) {
                 for (int j = 0; j < numHabs; j++)
@@ -153,7 +178,7 @@ Condominio::Condominio(string filename) {
             if (numServ != 0) {
                 for (int j = 0; j < numServ; j++) {
                     vector<string> servico = split(info[i][4 + numHabs + j], " : ");
-                    Servico *serv = new Servico(stof(servico[1]), servico[2], servico[0]);
+                    auto *serv = new Servico(stof(servico[1]), servico[2], servico[0]);
                     if (serv->getTipo() == "Limpeza" || serv->getTipo() == "Cleaning")
                         prestLimpeza.insert(serv->getPrestador());
                     c->adicionaServico(serv);
@@ -169,7 +194,7 @@ Condominio::Condominio(string filename) {
 
 }
 
-void Condominio::writeToFiles(string condominioFilename, string condominosFilename) {
+void Condominio::writeToFiles(string condominioFilename, string condominosFilename, string transportFilename) {
     auto start = chrono::steady_clock::now();
 
     condominioFilename = "../" + condominioFilename;
@@ -180,6 +205,7 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
     condominio << this->numPrestLimpeza << endl;
     condominio << condominosFilename << endl;
     condominio << this->getNumHabitacoes() << endl;
+    condominio << transportFilename << endl;
     if (this->getNumHabitacoes() != 0) {
         for (int i = 0; i < this->getNumHabitacoes(); i++)
         {
@@ -213,7 +239,7 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
                     cond << this->condominos[i]->getHabitacoes()[j]->getID() << endl;
             }
             cond << this->condominos[i]->getServicos().size();
-            if (this->condominos[i]->getServicos().size() != 0)
+            if (!this->condominos[i]->getServicos().empty())
             {
                 for (int j = 0; j < this->condominos[i]->getServicos().size() ; j++)
                     cond << endl << this->condominos[i]->getServicos()[j]->getTipo() << " : " << this->condominos[i]->getServicos()[j]->getCusto() << " : " << this->condominos[i]->getServicos()[j]->getPrestador();
@@ -222,15 +248,27 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
                 cond << "\n::::::::::\n";
         }
     }
+
+    transportFilename = "../" + transportFilename;
+    fstream trans(transportFilename, std::ofstream::out | std::ofstream::trunc);
+    if (!transport.empty()) {
+        auto transports = this->getVectorTransports();
+        for (auto &t : transports) {
+            trans << t.getLocalization() << " : " << t.getDistance() << " : " << t.getDestiny() << endl;
+        }
+    }
+
+
     auto end = chrono::steady_clock::now();
     cout << "The writing took: " << chrono::duration_cast<chrono::microseconds>(end-start).count() << " microseconds -> " << chrono::duration_cast<chrono::milliseconds>(end-start).count() << " milliseconds \n";
 }
 
-float Condominio::calcReceitas() {
+float Condominio::calcReceitas() const {
     float rec = 0;
+
     if (this->getNumHabitacoes() != 0) {
-        for (int i = 0; i < this->getCondominos().size(); i++)
-            rec += this->getCondominos()[i]->mensalidadeTotal();
+        for (auto condomino : condominos)
+            rec += condomino->mensalidadeTotal();
     }
     return rec;
 }
@@ -264,7 +302,7 @@ void Condominio::removeHabitacao(Habitacao *hab) {
     }
 }
 
-void Condominio::ordernarHab(string protocol) {
+void Condominio::ordernarHab(const string& protocol) {
     if (protocol == "area-ascending") {
         for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
             bool troca = false;
@@ -323,7 +361,7 @@ unsigned int Condominio::getNumCondominos() {
 }
 
 void Condominio::adicionaCondomino(Condomino *con) {
-    if (this->condominos.size() == 0)
+    if (this->condominos.empty())
         this->condominos.push_back(con);
     for (int i = 0; i < this->getNumCondominos(); i++) {
         if (this->getCondominos()[i]->getNIF() == con->getNIF())
@@ -343,7 +381,7 @@ void Condominio::removeCondomino(Condomino *con) {
 
 
 
-void Condominio::ordenarCond(string protocol) {
+void Condominio::ordenarCond(const string& protocol) {
 
     if (protocol == "name-ascending") {
         for (unsigned int j = condominos.size() - 1; j > 0; j--) {
@@ -396,7 +434,7 @@ void Condominio::ordenarCond(string protocol) {
 
 // Functions to find the pointers to objects in vector
 
-Habitacao *Condominio::findHab(string id) {
+Habitacao *Condominio::findHab(const string& id) {
     if (this->getNumHabitacoes() == 0)
         throw NoSuchHabitation(id);
     for (int i = 0; i < this->getNumHabitacoes(); i++)
@@ -418,8 +456,8 @@ Condomino *Condominio::findCon(int nif) {
     throw NoSuchCondomino(nif);
 }
 
-Servico *Condominio::findServ(float custo, string prestador, string servico) {
-    if (this->getServicos().size() == 0)
+Servico *Condominio::findServ(float custo, const string& prestador, const string& servico) {
+    if (this->getServicos().empty())
         throw NoSuchService();
     for (int i = 0; i < this->getServicos().size(); i++)
     {
@@ -461,6 +499,70 @@ unsigned int Condominio::getNumVivendas() const {
 
 bool Condominio::operator==(const Condominio &con1) const {
     return this->designation == con1.designation && this->location == con1.designation;
+}
+
+// HEAP
+void Condominio::setTransports(vector<Transporte>* tr) {
+    for (auto &t : *tr) {
+        transport.push(t);
+    }
+}
+
+HEAP_TRANSPORT Condominio::getTransports() const {
+    return transport;
+}
+
+void Condominio::addTransportStop(const Transporte& t1) {
+    this->transport.push(t1);
+}
+
+bool Condominio::removeTransportStop(const Transporte& t1) {
+    vector<Transporte> toPutBack;
+    bool found = false;
+    while (!this->transport.empty()) {
+        if (transport.top().getDestiny() == t1.getDestiny() &&
+            transport.top().getDistance() == t1.getDistance() &&
+            transport.top().getLocalization() == t1.getLocalization()) {
+            found = true;
+        }
+        else {
+            toPutBack.emplace_back(transport.top());
+        }
+        transport.pop();
+    }
+    return found;
+}
+
+Transporte Condominio::getTransport(const string& dest) {
+    HEAP_TRANSPORT temp = this->transport;
+
+    while (!temp.empty()) {
+        if (temp.top().getDestiny() == dest) {
+            return temp.top();
+        }
+        temp.pop();
+    }
+    return Transporte();
+}
+
+vector<Transporte> Condominio::getVectorTransports() const {
+    HEAP_TRANSPORT temp = this->transport;
+    vector<Transporte> res;
+
+    while (!temp.empty()) {
+        res.push_back(temp.top());
+        temp.pop();
+    }
+    return res;
+}
+
+ostream &operator<<(ostream &os, const Condominio &con) {
+    os << "Designation: " << con.designation << endl;
+    os << "Location: " << con.location << endl;
+    os << "Number of Habitations: " << con.habitacoes.size() << endl;
+    os << "Number of Members: " << con.condominos.size() << endl;
+    os << "Revenue: " << con.calcReceitas() << " euro" << endl;
+    return os;
 }
 
 

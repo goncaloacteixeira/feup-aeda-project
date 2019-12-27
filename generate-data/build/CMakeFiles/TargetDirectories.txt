@@ -1,3 +1,0 @@
-/mnt/c/Users/skidr/OneDrive/Desktop/feup-aeda-project/generate-data/build/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/skidr/OneDrive/Desktop/feup-aeda-project/generate-data/build/CMakeFiles/generate-data.dir
-/mnt/c/Users/skidr/OneDrive/Desktop/feup-aeda-project/generate-data/build/CMakeFiles/edit_cache.dir

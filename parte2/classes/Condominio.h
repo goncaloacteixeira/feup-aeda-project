@@ -7,7 +7,11 @@
 
 
 #include "Condomino.h"
+#include "Transporte.h"
 #include <set>
+#include <queue>
+
+typedef priority_queue<Transporte> HEAP_TRANSPORT;
 
 /**
  * @brief Classe Condomínio
@@ -20,6 +24,9 @@ class Condominio {
     vector<Habitacao *> habitacoes;         //!< Vetor de apontadores para objetos Habitação
     vector<Condomino *> condominos;         //!< Vetor de apontadores para objetos Condómino
     vector<Servico *> servicosPrestados;    //!< Vetor de apontadores para objetos Serviço
+
+    HEAP_TRANSPORT transport;               //!< Priority Queue com os pontos de paragem relativos ao condominio em questão
+
 
 public:
     /** @brief Construtor da Classe Comdoninio sem leitura de ficheiros
@@ -97,7 +104,7 @@ public:
      * @brief Ordena Habitações
      * @param protocol Portocolo de ordenação
      */
-    void ordernarHab(string protocol);
+    void ordernarHab(const string& protocol);
 
     /**
      *
@@ -127,14 +134,14 @@ public:
      * @brief Ordena Condóminos
      * @param protocol Portocolo de ordenação
      */
-    void ordenarCond(string protocol);
+    void ordenarCond(const string& protocol);
 
     /**
      *
      * @param id ID da habitação a encontrar
      * @return Apontador para habitação encontrada ou exception
      */
-    Habitacao* findHab(string id);
+    Habitacao* findHab(const string& id);
 
     /**
      *
@@ -150,14 +157,14 @@ public:
      * @param servico Serviço a encontrar
      * @return Apontador para serviço ou exception
      */
-    Servico* findServ(float custo, string prestador, string servico);
+    Servico* findServ(float custo, const string& prestador, const string& servico);
 
     /** @brief Função para escrita em ficheiros
      *
      * @param condominio Filename do condomínio
      * @param condominos Filename dos condóminos
      */
-    void writeToFiles(string condominio, string condominos);
+    void writeToFiles(string condominio, string condominos, string transportes);
 
     /**
      *
@@ -170,10 +177,19 @@ public:
     /**
     * @return O total de receitas no condomínio
     */
-    float calcReceitas();
+    float calcReceitas() const;
 
+
+    // HEAP
+    void setTransports(vector<Transporte>* transports);
+    HEAP_TRANSPORT getTransports() const;
+    vector<Transporte> getVectorTransports() const;
+    void addTransportStop(const Transporte& t1);
+    bool removeTransportStop(const Transporte& t1);
+    Transporte getTransport(const string& dest);
 
     // operators
+    friend ostream& operator<<(ostream& os, const Condominio& con);
     bool operator<(const Condominio &con1) const;
     bool operator==(const Condominio &con1) const;
 };
