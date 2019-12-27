@@ -13,7 +13,6 @@ class CAgency {
     unsigned nif;
 
     BST<Condominio*> condominios;
-
 public:
     CAgency(string name, unsigned int nif) :
         condominios(new Condominio("","",0)),
@@ -22,6 +21,8 @@ public:
     int addCondominios(const vector<Condominio*>& cons);
     void addCondominio(Condominio* con);
     void removeCondominio(Condominio* con);
+
+    vector<Condominio*> getCondominios(int nHabsMax);
 
     friend ostream& operator<<(ostream& os, const CAgency& dt);
 

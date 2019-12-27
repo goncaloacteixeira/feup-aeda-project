@@ -14,6 +14,8 @@ int main() {
     a.addCondominio(c2);
     a.addCondominio(c3);
 
+    vector<Condominio*> temp = a.getCondominios(20);
+
     cout << a;
 
     return 0;

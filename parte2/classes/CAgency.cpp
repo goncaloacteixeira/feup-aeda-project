@@ -33,4 +33,17 @@ ostream& operator<<(ostream &os, const CAgency &dt) {
     }
 }
 
+vector<Condominio *> CAgency::getCondominios(int nHabsMax) {
+    vector<Condominio*> temp;
+    BSTItrIn<Condominio*> it(condominios);
+
+    while (!it.isAtEnd()) {
+        if (it.retrieve()->getNumHabitacoes() <= nHabsMax) {
+            temp.emplace_back(it.retrieve());
+        }
+        it.advance();
+    }
+    return temp;
+}
+
 
