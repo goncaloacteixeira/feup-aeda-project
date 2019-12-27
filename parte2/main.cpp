@@ -1,17 +1,20 @@
 #include <iostream>
 
 
-#include "classes/Condominio.h"
-#include "classes/bst.h"
+#include "classes/CAgency.h"
 
 int main() {
 
-    auto c1 = Condominio("con1.txt");
-    auto c2 = Condominio("con2.txt");
-    auto c3 = Condominio("con3.txt");
+    auto *c1 = new Condominio("con1.txt");
+    auto *c2 = new Condominio("con2.txt");
+    auto *c3 = new Condominio("con3.txt");
 
-    // cout << c1.getDesignation() << endl << c2.getDesignation() << endl << c3.getDesignation();
+    CAgency a("Joao",919234123);
+    a.addCondominio(c1);
+    a.addCondominio(c2);
+    a.addCondominio(c3);
 
+    cout << a;
 
     return 0;
 }

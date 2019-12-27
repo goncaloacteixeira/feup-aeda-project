@@ -1,324 +1,204 @@
 Con2
 Manchester
-20
+15
 mem2.txt
-40
-A0
-1
-Mostyn, Manchester, 45, 400-90
-418
-T6+
-2
-548
-::::::::::
-A1
-1
-Ranford, Manchester, 102, 400-157
-375
-T3
-3
-879
-::::::::::
-V0
-1
-Rossal, Manchester, 230, 400-43
-487
-59.000000
-1
-623
-::::::::::
-V1
-1
-Emma, Manchester, 203, 400-130
-52
-82.000000
-0
-1165
-::::::::::
-V2
-1
-Felltop, Manchester, 140, 400-169
-460
-40.000000
-1
-413
-::::::::::
-V3
-1
-Wainman, Manchester, 151, 400-44
-432
-12.000000
-0
-1046
-::::::::::
-A2
-1
-Prospect, Manchester, 92, 400-127
-103
-T5
-8
-967
-::::::::::
-A3
-1
-Wainman, Manchester, 151, 400-44
-290
-T5
-7
-814
-::::::::::
-A4
-1
-Glenthorn, Manchester, 98, 400-2
-74
-T5
-10
-716
-::::::::::
-A5
-0
-Alstone, Manchester, 137, 400-173
-339
-T3
-9
-155
-::::::::::
-A6
-1
-Milner, Manchester, 93, 400-187
-173
-T1
-7
-756
-::::::::::
-V4
-0
-Beynon, Manchester, 331, 400-183
-436
-100.000000
-0
-993
-::::::::::
-A7
-0
-Peatfield, Manchester, 141, 400-127
-279
-T2
-3
-557
-::::::::::
-V5
-1
-Ollerton, Manchester, 60, 400-91
-435
-43.000000
-0
-1234
-::::::::::
-V6
-1
-Milner, Manchester, 93, 400-187
-353
-70.000000
-0
-1501
-::::::::::
-V7
-0
-Newry, Manchester, 125, 400-58
-215
-70.000000
-1
-1431
-::::::::::
-V8
-1
-Peatfield, Manchester, 141, 400-127
-51
-65.000000
-1
-1568
-::::::::::
-A8
-0
-Orlanda, Manchester, 274, 400-157
-145
-T3
-9
-777
-::::::::::
-V9
-1
-Prospect, Manchester, 92, 400-127
-332
-56.000000
-0
-1333
-::::::::::
+25
 A9
-0
-Milner, Manchester, 93, 400-187
-427
-T1
-4
-734
-::::::::::
-V10
 1
-Wardlow, Manchester, 187, 400-27
-60
-64.000000
-0
-1256
+Hewitt, Manchester, 41, 400-144
+250
+T6+
+1
+545
+::::::::::
+V11
+1
+Lever Edge, Manchester, 56, 400-18
+57
+54.000000
+1
+1382
 ::::::::::
 A10
 1
-Paignton, Manchester, 379, 400-35
-302
-T5
-2
-282
+Whaley, Manchester, 27, 400-174
+262
+T6
+4
+237
 ::::::::::
 A11
 1
-Felltop, Manchester, 140, 400-169
-180
-T6+
-1
-540
-::::::::::
-V11
-0
-Sherborne, Manchester, 270, 400-59
-518
-97.000000
-0
-929
-::::::::::
-A12
-1
-Wardlow, Manchester, 187, 400-27
-271
-T0
-10
-266
-::::::::::
-A13
-0
-Furtherwood, Manchester, 242, 400-87
-39
-T4
-6
-366
+Moorings, Manchester, 373, 400-113
+172
+T1
+8
+462
 ::::::::::
 V12
 1
-Peatfield, Manchester, 141, 400-127
-590
-109.000000
+Side End, Manchester, 278, 400-177
+481
+47.000000
 1
-971
+1626
 ::::::::::
 V13
 1
-Furtherwood, Manchester, 242, 400-87
-202
-91.000000
+Back Holly, Manchester, 254, 400-154
+381
+41.000000
+0
+976
+::::::::::
+A12
 1
-684
+Hewitt, Manchester, 41, 400-144
+293
+T3
+3
+251
 ::::::::::
 V14
-1
-Sherborne, Manchester, 270, 400-59
-528
-101.000000
-1
-417
-::::::::::
-A14
 0
-Govan, Manchester, 57, 400-194
-369
-T0
-5
-799
-::::::::::
-A15
-0
-Felltop, Manchester, 140, 400-169
-329
-T1
-10
-756
+Williamson, Manchester, 255, 400-200
+87
+76.000000
+1
+1030
 ::::::::::
 V15
-0
-Paignton, Manchester, 379, 400-35
-251
-61.000000
-0
-1290
-::::::::::
-A16
 1
-Ringmoor, Manchester, 93, 400-118
-168
-T0
-10
-516
+Carrsfield, Manchester, 162, 400-3
+440
+27.000000
+0
+1466
 ::::::::::
 V16
 1
-Barleywood, Manchester, 396, 400-140
-597
-51.000000
-1
-1019
-::::::::::
-A17
+Clitheroe, Manchester, 136, 400-80
+437
+89.000000
 0
-Mostyn, Manchester, 45, 400-90
-344
-T0
-6
-678
+1627
 ::::::::::
 V17
 1
-Mostyn, Manchester, 45, 400-90
-551
-10.000000
+Clitheroe, Manchester, 136, 400-80
+574
+21.000000
 0
-1091
+1677
+::::::::::
+A13
+1
+Apprentice, Manchester, 11, 400-130
+294
+T3
+10
+811
 ::::::::::
 V18
-0
-Ringmoor, Manchester, 93, 400-118
-357
-20.000000
 1
-1323
-::::::::::
-A18
+Stocks Park, Manchester, 218, 400-164
+234
+82.000000
 1
-Ringmoor, Manchester, 93, 400-118
-399
-T5
-6
-199
+372
 ::::::::::
 V19
 1
-Beynon, Manchester, 331, 400-183
-554
-67.000000
+Williamson, Manchester, 255, 400-200
+518
+99.000000
+1
+1694
+::::::::::
+A14
+1
+Lever Edge, Manchester, 56, 400-18
+204
+T0
+8
+810
+::::::::::
+A15
+1
+Clitheroe, Manchester, 136, 400-80
+49
+T4
+4
+852
+::::::::::
+A16
 0
-1598
+Rothley, Manchester, 249, 400-78
+391
+T3
+5
+391
+::::::::::
+V20
+1
+Ehlinger, Manchester, 187, 400-5
+85
+57.000000
+1
+970
+::::::::::
+A17
+0
+Fiddle, Manchester, 166, 400-103
+85
+T5
+6
+405
+::::::::::
+A18
+1
+Lever Edge, Manchester, 56, 400-18
+405
+T4
+8
+542
 ::::::::::
 A19
 0
-Laxey, Manchester, 337, 400-128
-349
-T0
+Crownest, Manchester, 256, 400-118
+163
+T4
+7
+602
+::::::::::
+A20
+1
+Stocks Park, Manchester, 218, 400-164
+241
+T3
+1
+368
+::::::::::
+A21
+1
+Hewitt, Manchester, 41, 400-144
+60
+T1
 2
-554
+883
+::::::::::
+A22
+1
+Gildersdale, Manchester, 215, 400-5
+180
+T5
+4
+671
+::::::::::
+A23
+1
+Hewitt, Manchester, 41, 400-144
+221
+T6+
+1
+952

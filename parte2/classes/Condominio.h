@@ -73,13 +73,13 @@ public:
      *
      * @return Número de habitações do condomínio
      */
-    unsigned int getNumHabitacoes();
+    unsigned int getNumHabitacoes() const;
 
     /**
      *
      * @return Número de Vivendas do Condomínio
      */
-    unsigned int getNumVivendas();
+    unsigned int getNumVivendas() const;
 
     /**
      *
@@ -174,8 +174,8 @@ public:
 
 
     // operators
-
-    bool operator<(Condominio &con1);
+    bool operator<(const Condominio &con1) const;
+    bool operator==(const Condominio &con1) const;
 };
 
 // Exception Classes

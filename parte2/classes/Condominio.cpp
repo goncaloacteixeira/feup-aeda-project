@@ -16,6 +16,7 @@ Condominio::Condominio(string designation, string location, unsigned int numPres
     this->habitacoes = {};
 }
 
+
 Condominio::Condominio(string filename) {
     auto start = chrono::steady_clock::now();
 
@@ -63,7 +64,7 @@ Condominio::Condominio(string filename) {
             for (int i = 0; i < numHab; i++) {
                 vector<string> hab;
                 while (getline(condominio, line1)) {
-                    if (ctr >= 3) {
+                    if (ctr >= 5) {
                         if (line1 != "::::::::::")
                             hab.push_back(line1);
                         else
@@ -246,7 +247,7 @@ vector<Habitacao *> Condominio::getHabitacoes() {
     return this->habitacoes;
 }
 
-unsigned int Condominio::getNumHabitacoes() {
+unsigned int Condominio::getNumHabitacoes() const {
     return this->habitacoes.size();
 }
 
@@ -440,21 +441,26 @@ string Condominio::getLocation() {
     return this->location;
 }
 
-bool Condominio::operator<(Condominio &con1) {
+bool Condominio::operator<(const Condominio &con1) const {
     if (this->getNumHabitacoes() == con1.getNumHabitacoes()) {
         return this->getNumVivendas() < con1.getNumVivendas();
     }
     return this->getNumHabitacoes() < con1.getNumHabitacoes();
 }
 
-unsigned int Condominio::getNumVivendas() {
+unsigned int Condominio::getNumVivendas() const {
     int res = 0;
-    for (auto &h : this->getHabitacoes()) {
+
+    for (auto &h : this->habitacoes) {
         if (h->getID()[0] == 'V') {
             res++;
         }
     }
     return res;
+}
+
+bool Condominio::operator==(const Condominio &con1) const {
+    return this->designation == con1.designation && this->location == con1.designation;
 }
 
 

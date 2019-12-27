@@ -1,10 +1,10 @@
 Con1
 Manchester
-20
+10
 mem1.txt
-30
+20
 V0
-1
+0
 Howgate, Manchester, 112, 400-120
 112
 39.000000
@@ -12,15 +12,15 @@ Howgate, Manchester, 112, 400-120
 1358
 ::::::::::
 A0
-1
-Peckford, Manchester, 333, 400-170
+0
+Rink, Manchester, 92, 400-76
 86
 T6+
 2
 851
 ::::::::::
 V1
-1
+0
 Milbourne, Manchester, 331, 400-194
 158
 103.000000
@@ -28,24 +28,24 @@ Milbourne, Manchester, 331, 400-194
 716
 ::::::::::
 V2
-0
-Flixton, Manchester, 57, 400-153
+1
+Wildcroft, Manchester, 111, 400-145
 567
 57.000000
 1
 718
 ::::::::::
 A1
-1
-Malta, Manchester, 164, 400-85
+0
+Howgate, Manchester, 112, 400-120
 179
 T0
 5
 819
 ::::::::::
 V3
-0
-Highclove, Manchester, 135, 400-145
+1
+Oakfield, Manchester, 373, 400-48
 240
 34.000000
 0
@@ -53,15 +53,15 @@ Highclove, Manchester, 135, 400-145
 ::::::::::
 A2
 0
-Kirby, Manchester, 361, 400-105
+Captain Lees, Manchester, 28, 400-152
 292
 T4
 4
 901
 ::::::::::
 A3
-0
-Peckford, Manchester, 333, 400-170
+1
+Rink, Manchester, 92, 400-76
 306
 T6+
 10
@@ -69,7 +69,7 @@ T6+
 ::::::::::
 V4
 0
-Lewis, Manchester, 257, 400-21
+Renolds, Manchester, 236, 400-25
 640
 54.000000
 1
@@ -77,31 +77,31 @@ Lewis, Manchester, 257, 400-21
 ::::::::::
 V5
 0
-Carib, Manchester, 144, 400-134
+Captain Lees, Manchester, 28, 400-152
 377
 36.000000
 0
 684
 ::::::::::
 A4
-1
-Captain Lees, Manchester, 28, 400-152
+0
+Carib, Manchester, 144, 400-134
 179
 T4
 7
 182
 ::::::::::
 A5
-1
-Riddings, Manchester, 320, 400-110
+0
+Malta, Manchester, 164, 400-85
 120
 T5
 10
 455
 ::::::::::
 V6
-1
-Morley, Manchester, 353, 400-155
+0
+Ancroft, Manchester, 165, 400-193
 377
 29.000000
 0
@@ -116,15 +116,15 @@ T0
 245
 ::::::::::
 V7
-0
-Eyam, Manchester, 250, 400-197
+1
+Peckford, Manchester, 333, 400-170
 559
 64.000000
 1
 1015
 ::::::::::
 V8
-1
+0
 Attercliffe, Manchester, 31, 400-30
 51
 100.000000
@@ -132,7 +132,7 @@ Attercliffe, Manchester, 31, 400-30
 687
 ::::::::::
 V9
-1
+0
 Rink, Manchester, 92, 400-76
 613
 21.000000
@@ -148,8 +148,8 @@ T1
 630
 ::::::::::
 A8
-0
-Lewis, Manchester, 257, 400-21
+1
+Renolds, Manchester, 236, 400-25
 161
 T6
 8
@@ -157,88 +157,8 @@ T6
 ::::::::::
 V10
 1
-Farley, Manchester, 330, 400-32
+Milbourne, Manchester, 331, 400-194
 488
 41.000000
 1
 1337
-::::::::::
-V11
-0
-Oakfield, Manchester, 373, 400-48
-563
-89.000000
-0
-1100
-::::::::::
-A9
-1
-Riddings, Manchester, 320, 400-110
-392
-T6
-4
-897
-::::::::::
-V12
-1
-Carib, Manchester, 144, 400-134
-190
-67.000000
-1
-576
-::::::::::
-V13
-1
-Highclove, Manchester, 135, 400-145
-458
-103.000000
-1
-1588
-::::::::::
-V14
-1
-Howgate, Manchester, 112, 400-120
-638
-30.000000
-0
-1096
-::::::::::
-V15
-0
-Kirby, Manchester, 361, 400-105
-459
-97.000000
-1
-953
-::::::::::
-V16
-0
-Carib, Manchester, 144, 400-134
-124
-15.000000
-0
-1302
-::::::::::
-A10
-1
-Oakfield, Manchester, 373, 400-48
-132
-T2
-6
-560
-::::::::::
-A11
-1
-Eyam, Manchester, 250, 400-197
-172
-T1
-1
-597
-::::::::::
-A12
-1
-Renolds, Manchester, 236, 400-25
-388
-T2
-10
-550
