@@ -12,8 +12,9 @@ int main() {
     cout << "How many condominiuns do you want to generate? ";
     string n;
     getline(cin,n);
+    string conFileName, memFileName, transFileName;
 
-    for (int y = 0; y < stoi(n); y++) {
+    for (int y = 1; y < stoi(n)+1; y++) {
         cout << "Designation: ";
         string des;
         getline(cin, des);
@@ -64,7 +65,7 @@ int main() {
         st.close();
 
         string location = "Manchester";
-        vector<Morada> addr;
+        vector<string> addr;
 
         cout << "Seed: ";
         int seed;
@@ -75,7 +76,7 @@ int main() {
         cin >> nHabs;
 
         for (int i = 0; i < nHabs; i++) {
-            auto a = Morada(streets[rand() % streets.size()],location,rand() % 400 + 1,{400,rand()%200+1});
+            auto a = streets[rand() % streets.size()]+ ", " + location + ", " + to_string(rand() % 400 + 1) + ", " + "400" + "-" + to_string(rand() % 400 + 20);
             addr.push_back(a);
         }
 
@@ -136,15 +137,20 @@ int main() {
         }
 
         cin.ignore();
-        cout << "Filename Condominium: ";
-        string filename1;
-        getline(cin,filename1);
+        cout << "Number of transports: ";
+        string nTrans;
+        getline(cin,nTrans);
 
-        cout << "Filename Members: ";
-        string filename2;
-        getline(cin, filename2);
+        for (int i = 0; i < stoi(nTrans); i++) {
+            string loc = streets[rand() % streets.size()];
+            string dest = streets[rand() % streets.size()];
+            while (loc == dest) {
+                dest = streets[rand() % streets.size()];
+            }
+            c.addTransportStop(Transporte(loc,rand() & 1000 + 5,dest));
+        }
 
-        c.writeToFiles(filename1, filename2);
+        c.writeToFiles("con"+to_string(y)+".txt", "mem"+to_string(y)+".txt", "tr"+to_string(y)+".txt");
     }
 
 

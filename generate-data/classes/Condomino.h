@@ -1,9 +1,9 @@
 //
-// Created by skidr on 25/10/2019.
+// Created by skidr on 25/12/2019.
 //
 
-#ifndef PARTE1_CONDOMINO_H
-#define PARTE1_CONDOMINO_H
+#ifndef PARTE2_CONDOMINO_H
+#define PARTE2_CONDOMINO_H
 
 /**
  * @file Condomino.h
@@ -108,5 +108,4 @@ public:
 
 
 
-
-#endif //PARTE1_CONDOMINO_H
+#endif //PARTE2_CONDOMINO_H

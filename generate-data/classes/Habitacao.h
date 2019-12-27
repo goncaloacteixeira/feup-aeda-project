@@ -1,16 +1,20 @@
 //
-// Created by skidr on 12/10/2019.
+// Created by skidr on 25/12/2019.
 //
 
-#ifndef PARTE1_HABITACAO_H
-#define PARTE1_HABITACAO_H
+#ifndef PARTE2_HABITACAO_H
+#define PARTE2_HABITACAO_H
+
+
+#include <string>
+#include <vector>
+
+using namespace std;
 
 /**
  * @file Habitacao.h
  * @brief Classes relacionadas com Habitação e respetivos Métodos
  */
-
-#include "Morada.h"
 
 /**
  * @brief Classe Habitação
@@ -18,7 +22,7 @@
 class Habitacao {
 protected:
     bool ocupado;           //!< estado "true" para ocupado
-    Morada morada;          //!< morada é um objeto da classe Morada
+    string morada;          //!< morada é um objeto da classe Morada
     float areaHabitacional; //!< Área Habitacional da habitação
 public:
     /** @brief Construtor da classe Habitação
@@ -26,7 +30,7 @@ public:
      * @param morada Objeto morada da classe Morada
      * @param areaHabitacional Área habitacional da habitação
      */
-    Habitacao(Morada morada, float areaHabitacional);
+    Habitacao(string morada, float areaHabitacional);
 
     //GET Methods
     /** @brief Método GET da morada da habitação
@@ -76,7 +80,7 @@ public:
      * @param tipologia Tipo de apartamento - "T0", "T1", "T2", ...
      * @param piso Piso em que o apartamento se encontra
      */
-    Apartamento(Morada morada, float areaHabitacional, string tipologia, int piso, float mensalidade);
+    Apartamento(string morada, float areaHabitacional, string tipologia, int piso, float mensalidade);
 
     //GET Methods
 
@@ -142,7 +146,7 @@ public:
      * @param areaExterior      Área exterior da vivenda
      * @param piscina           Existe piscina (sim - true)
      */
-    Vivenda(Morada morada, float areaHabitacional, float areaExterior, bool piscina, float mensalidade);
+    Vivenda(string morada, float areaHabitacional, float areaExterior, bool piscina, float mensalidade);
 
     //GET Methods
 
@@ -192,4 +196,4 @@ public:
 };
 
 
-#endif //PARTE1_HABITACAO_H
+#endif //PARTE2_HABITACAO_H

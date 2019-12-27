@@ -1,5 +1,5 @@
 //
-// Created by skidr on 12/10/2019.
+// Created by skidr on 25/12/2019.
 //
 
 #include "Servico.h"
@@ -21,8 +21,3 @@ float Servico::getCusto() {
 string Servico::getPrestador() {
     return prestador;
 }
-
-
-
-
-

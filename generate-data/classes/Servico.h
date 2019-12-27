@@ -1,9 +1,9 @@
 //
-// Created by skidr on 12/10/2019.
+// Created by skidr on 25/12/2019.
 //
 
-#ifndef PARTE1_SERVICO_H
-#define PARTE1_SERVICO_H
+#ifndef PARTE2_SERVICO_H
+#define PARTE2_SERVICO_H
 
 /**
  * @file Servico.h
@@ -53,4 +53,5 @@ public:
 };
 
 
-#endif //PARTE1_SERVICO_H
+
+#endif //PARTE2_SERVICO_H

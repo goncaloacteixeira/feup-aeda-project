@@ -1,35 +1,39 @@
 //
-// Created by skidr on 25/10/2019.
+// Created by skidr on 25/12/2019.
 //
 
-#ifndef PARTE1_CONDOMINIO_H
-#define PARTE1_CONDOMINIO_H
+#ifndef PARTE2_CONDOMINIO_H
+#define PARTE2_CONDOMINIO_H
 
-/**
- * @file Condominio.h
- * @brief Classe e Métodos para Condomínio
- */
 
 #include "Condomino.h"
+#include "Transporte.h"
 #include <set>
+#include <queue>
+
+typedef priority_queue<Transporte> HEAP_TRANSPORT;
 
 /**
  * @brief Classe Condomínio
  */
 class Condominio {
-    string designation;
-    string location;
-
+    string designation;                     //!< Designação do Condomínio
+    string location;                        //!< Localização do Condomínio
     static set<string> prestLimpeza;        //!< Set com os prestadores de limpeza atuais
     unsigned int numPrestLimpeza;           //!< Número de prestadores de limpeza do condomínio
     vector<Habitacao *> habitacoes;         //!< Vetor de apontadores para objetos Habitação
     vector<Condomino *> condominos;         //!< Vetor de apontadores para objetos Condómino
     vector<Servico *> servicosPrestados;    //!< Vetor de apontadores para objetos Serviço
 
+    HEAP_TRANSPORT transport;               //!< Priority Queue com os pontos de paragem relativos ao condominio em questão
+
+
 public:
     /** @brief Construtor da Classe Comdoninio sem leitura de ficheiros
      *
      * @param numPrestLimpeza Número de prestadores de limpeza do condomínio
+     * @param designation Designação do Condomínio
+     * @param location Localização do Condomínio
      */
     Condominio(string designation, string location, unsigned int numPrestLimpeza);
 
@@ -41,6 +45,17 @@ public:
 
 
     // Métodos GET
+
+    /**
+     * @return Designação do Condomínio
+     */
+    string getDesignation();
+
+    /**
+     * @return Localização do Condomínio
+     */
+    string getLocation();
+
     /**
      * @return Número de prestadores de limpeza do condomínio
      */
@@ -65,7 +80,13 @@ public:
      *
      * @return Número de habitações do condomínio
      */
-    unsigned int getNumHabitacoes();
+    unsigned int getNumHabitacoes() const;
+
+    /**
+     *
+     * @return Número de Vivendas do Condomínio
+     */
+    unsigned int getNumVivendas() const;
 
     /**
      *
@@ -83,7 +104,7 @@ public:
      * @brief Ordena Habitações
      * @param protocol Portocolo de ordenação
      */
-    void ordernarHab(string protocol);
+    void ordernarHab(const string& protocol);
 
     /**
      *
@@ -113,14 +134,14 @@ public:
      * @brief Ordena Condóminos
      * @param protocol Portocolo de ordenação
      */
-    void ordenarCond(string protocol);
+    void ordenarCond(const string& protocol);
 
     /**
      *
      * @param id ID da habitação a encontrar
      * @return Apontador para habitação encontrada ou exception
      */
-    Habitacao* findHab(string id);
+    Habitacao* findHab(const string& id);
 
     /**
      *
@@ -136,14 +157,14 @@ public:
      * @param servico Serviço a encontrar
      * @return Apontador para serviço ou exception
      */
-    Servico* findServ(float custo, string prestador, string servico);
+    Servico* findServ(float custo, const string& prestador, const string& servico);
 
     /** @brief Função para escrita em ficheiros
      *
      * @param condominio Filename do condomínio
      * @param condominos Filename dos condóminos
      */
-    void writeToFiles(string condominio, string condominos);
+    void writeToFiles(string condominio, string condominos, string transportes);
 
     /**
      *
@@ -157,6 +178,19 @@ public:
     * @return O total de receitas no condomínio
     */
     float calcReceitas();
+
+
+    // HEAP
+    void setTransports(vector<Transporte>* transports);
+    HEAP_TRANSPORT getTransports() const;
+    vector<Transporte> getVectorTransports() const;
+    void addTransportStop(const Transporte& t1);
+    bool removeTransportStop(const Transporte& t1);
+    Transporte getTransport(const string& dest);
+
+    // operators
+    bool operator<(const Condominio &con1) const;
+    bool operator==(const Condominio &con1) const;
 };
 
 // Exception Classes
@@ -199,4 +233,4 @@ public:
     unsigned int getNIF() { return this->nif; }
 };
 
-#endif //PARTE1_CONDOMINIO_H
+#endif //PARTE2_CONDOMINIO_H

@@ -1,10 +1,10 @@
 //
-// Created by skidr on 12/10/2019.
+// Created by skidr on 25/12/2019.
 //
 
 #include "Habitacao.h"
 
-Habitacao::Habitacao(Morada morada, float areaHabitacional) {
+Habitacao::Habitacao(string morada, float areaHabitacional) {
     this->morada = morada;
     this->areaHabitacional = areaHabitacional;
     this->ocupado = false;
@@ -13,7 +13,7 @@ Habitacao::Habitacao(Morada morada, float areaHabitacional) {
 //GET Methods
 
 string Habitacao::getMorada() {
-    return morada.getMorada();
+    return morada;
 }
 
 float Habitacao::getAreaHabitacional() {
@@ -29,7 +29,7 @@ string Habitacao::info() {
 
 
 int Apartamento::ap_current_id = 0;
-Apartamento::Apartamento(Morada morada, float areaHabitacional, string tipologia, int piso, float mensalidade) : Habitacao(morada, areaHabitacional), id("A" + to_string(ap_current_id)){
+Apartamento::Apartamento(string morada, float areaHabitacional, string tipologia, int piso, float mensalidade) : Habitacao(morada, areaHabitacional), id("A" + to_string(ap_current_id)){
     this->tipologia = tipologia;
     this->piso = piso;
     ap_current_id += 1;
@@ -59,7 +59,7 @@ vector<string> Apartamento::extraInfo() {
 }
 
 int Vivenda::vi_current_id = 0;
-Vivenda::Vivenda(Morada morada, float areaHabitacional, float areaExterior, bool piscina, float mensalidade) : Habitacao(morada, areaHabitacional) , id("V" + to_string(vi_current_id))  {
+Vivenda::Vivenda(string morada, float areaHabitacional, float areaExterior, bool piscina, float mensalidade) : Habitacao(morada, areaHabitacional) , id("V" + to_string(vi_current_id))  {
     this->areaExterior = areaExterior;
     this->piscina = piscina;
     vi_current_id += 1;
