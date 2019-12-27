@@ -263,11 +263,12 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
     cout << "The writing took: " << chrono::duration_cast<chrono::microseconds>(end-start).count() << " microseconds -> " << chrono::duration_cast<chrono::milliseconds>(end-start).count() << " milliseconds \n";
 }
 
-float Condominio::calcReceitas() {
+float Condominio::calcReceitas() const {
     float rec = 0;
+
     if (this->getNumHabitacoes() != 0) {
-        for (int i = 0; i < this->getCondominos().size(); i++)
-            rec += this->getCondominos()[i]->mensalidadeTotal();
+        for (auto condomino : condominos)
+            rec += condomino->mensalidadeTotal();
     }
     return rec;
 }
@@ -553,6 +554,15 @@ vector<Transporte> Condominio::getVectorTransports() const {
         temp.pop();
     }
     return res;
+}
+
+ostream &operator<<(ostream &os, const Condominio &con) {
+    os << "Designation: " << con.designation << endl;
+    os << "Location: " << con.location << endl;
+    os << "Number of Habitations: " << con.habitacoes.size() << endl;
+    os << "Number of Members: " << con.condominos.size() << endl;
+    os << "Revenue: " << con.calcReceitas() << " euro" << endl;
+    return os;
 }
 
 

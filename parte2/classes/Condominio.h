@@ -177,7 +177,7 @@ public:
     /**
     * @return O total de receitas no condomínio
     */
-    float calcReceitas();
+    float calcReceitas() const;
 
 
     // HEAP
@@ -189,6 +189,7 @@ public:
     Transporte getTransport(const string& dest);
 
     // operators
+    friend ostream& operator<<(ostream& os, const Condominio& con);
     bool operator<(const Condominio &con1) const;
     bool operator==(const Condominio &con1) const;
 };

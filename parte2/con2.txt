@@ -2,203 +2,404 @@ Con2
 Manchester
 15
 mem2.txt
-25
+50
+tr2.txt
 A9
-1
-Hewitt, Manchester, 41, 400-144
-250
-T6+
-1
-545
+0
+Windsor, Manchester, 113, 400-297
+368
+T0
+10
+688
 ::::::::::
 V11
 1
-Lever Edge, Manchester, 56, 400-18
-57
-54.000000
-1
-1382
-::::::::::
-A10
-1
-Whaley, Manchester, 27, 400-174
-262
-T6
-4
-237
-::::::::::
-A11
-1
-Moorings, Manchester, 373, 400-113
-172
-T1
-8
-462
+Blairgowrie, Manchester, 89, 400-309
+557
+83.000000
+0
+614
 ::::::::::
 V12
 1
-Side End, Manchester, 278, 400-177
-481
-47.000000
-1
-1626
+Colenso, Manchester, 15, 400-62
+430
+33.000000
+0
+951
 ::::::::::
 V13
 1
-Back Holly, Manchester, 254, 400-154
-381
-41.000000
+Windsor, Manchester, 113, 400-297
+214
+69.000000
 0
-976
+801
 ::::::::::
-A12
+A10
 1
-Hewitt, Manchester, 41, 400-144
-293
-T3
-3
-251
+Venice, Manchester, 357, 400-167
+94
+T4
+8
+937
 ::::::::::
 V14
-0
-Williamson, Manchester, 255, 400-200
-87
-76.000000
 1
-1030
+Upper Kent, Manchester, 13, 400-231
+198
+19.000000
+1
+1413
 ::::::::::
 V15
 1
-Carrsfield, Manchester, 162, 400-3
-440
+Royale, Manchester, 230, 400-363
+72
 27.000000
 0
-1466
+1751
 ::::::::::
-V16
-1
-Clitheroe, Manchester, 136, 400-80
-437
-89.000000
+A11
 0
-1627
+Gosport, Manchester, 48, 400-222
+417
+T5
+8
+970
 ::::::::::
-V17
+A12
 1
-Clitheroe, Manchester, 136, 400-80
-574
-21.000000
-0
-1677
-::::::::::
-A13
-1
-Apprentice, Manchester, 11, 400-130
-294
-T3
-10
-811
-::::::::::
-V18
-1
-Stocks Park, Manchester, 218, 400-164
-234
-82.000000
-1
-372
-::::::::::
-V19
-1
-Williamson, Manchester, 255, 400-200
-518
-99.000000
-1
-1694
-::::::::::
-A14
-1
-Lever Edge, Manchester, 56, 400-18
-204
+Demesne, Manchester, 5, 400-140
+121
 T0
 8
-810
+942
 ::::::::::
-A15
-1
-Clitheroe, Manchester, 136, 400-80
-49
-T4
-4
-852
-::::::::::
-A16
+A13
 0
-Rothley, Manchester, 249, 400-78
+Glaister, Manchester, 244, 400-174
 391
-T3
+T2
+9
+400
+::::::::::
+A14
+0
+Old Clough, Manchester, 60, 400-316
+183
+T2
 5
 391
 ::::::::::
+A15
+1
+Westbury, Manchester, 324, 400-312
+74
+T3
+8
+847
+::::::::::
+V16
+0
+Blyth, Manchester, 362, 400-336
+136
+46.000000
+1
+541
+::::::::::
+V17
+0
+Shakespeare, Manchester, 179, 400-245
+583
+62.000000
+1
+905
+::::::::::
+V18
+1
+Wortley, Manchester, 334, 400-124
+220
+99.000000
+0
+1215
+::::::::::
+V19
+1
+Lovell, Manchester, 352, 400-329
+353
+10.000000
+1
+1065
+::::::::::
+A16
+1
+Panton, Manchester, 193, 400-69
+326
+T1
+1
+400
+::::::::::
 V20
+0
+Silverlea, Manchester, 318, 400-152
+641
+69.000000
 1
-Ehlinger, Manchester, 187, 400-5
-85
-57.000000
+1652
+::::::::::
+V21
+0
+Buttermarket, Manchester, 366, 400-369
+219
+63.000000
 1
-970
+1429
 ::::::::::
 A17
-0
-Fiddle, Manchester, 166, 400-103
-85
-T5
-6
-405
+1
+Old Clough, Manchester, 60, 400-316
+215
+T2
+7
+313
 ::::::::::
 A18
+0
+Hayling, Manchester, 94, 400-314
+145
+T2
+4
+227
+::::::::::
+V22
 1
-Lever Edge, Manchester, 56, 400-18
-405
-T4
-8
-542
+Shakespeare, Manchester, 179, 400-245
+112
+85.000000
+0
+1051
 ::::::::::
 A19
-0
-Crownest, Manchester, 256, 400-118
-163
-T4
-7
-602
+1
+Delph, Manchester, 179, 400-217
+60
+T5
+3
+218
 ::::::::::
 A20
-1
-Stocks Park, Manchester, 218, 400-164
-241
+0
+Canon, Manchester, 42, 400-78
+387
 T3
+7
+245
+::::::::::
+V23
+0
+Plumbley, Manchester, 2, 400-312
+362
+14.000000
 1
-368
+1179
 ::::::::::
 A21
 1
-Hewitt, Manchester, 41, 400-144
-60
-T1
-2
-883
+Shakespeare, Manchester, 179, 400-245
+223
+T2
+8
+692
 ::::::::::
 A22
 1
-Gildersdale, Manchester, 215, 400-5
-180
-T5
-4
-671
+Turner, Manchester, 331, 400-229
+98
+T2
+10
+379
 ::::::::::
 A23
+0
+Oakden, Manchester, 199, 400-360
+237
+T3
+4
+681
+::::::::::
+V24
 1
-Hewitt, Manchester, 41, 400-144
-221
+Rawlinson, Manchester, 274, 400-211
+573
+63.000000
+0
+1846
+::::::::::
+V25
+0
+Bootle, Manchester, 253, 400-37
+373
+106.000000
+1
+825
+::::::::::
+V26
+1
+Turner, Manchester, 331, 400-229
+642
+49.000000
+1
+1488
+::::::::::
+A24
+1
+Hayling, Manchester, 94, 400-314
+138
+T1
+9
+397
+::::::::::
+A25
+1
+Delph, Manchester, 179, 400-217
+304
+T0
+9
+196
+::::::::::
+A26
+1
+Old Fold, Manchester, 120, 400-30
+110
+T6
+5
+390
+::::::::::
+A27
+0
+Hobson Moor, Manchester, 132, 400-318
+330
+T0
+5
+218
+::::::::::
+V27
+1
+Plumbley, Manchester, 2, 400-312
+416
+64.000000
+1
+373
+::::::::::
+V28
+1
+Glazebrook, Manchester, 5, 400-222
+583
+39.000000
+1
+456
+::::::::::
+A28
+0
+Back Hilden, Manchester, 193, 400-220
+363
+T5
+2
+256
+::::::::::
+A29
+1
+Turner, Manchester, 331, 400-229
+363
+T2
+5
+258
+::::::::::
+A30
+1
+Old Doctors, Manchester, 160, 400-326
+330
+T6
+1
+751
+::::::::::
+V29
+1
+Delahays, Manchester, 72, 400-315
+387
+76.000000
+1
+1023
+::::::::::
+A31
+0
+Wortley, Manchester, 334, 400-124
+382
 T6+
+6
+562
+::::::::::
+A32
+0
+Fitzwilliam, Manchester, 10, 400-209
+59
+T6+
+7
+614
+::::::::::
+A33
 1
-952
+Gosport, Manchester, 48, 400-222
+172
+T5
+6
+811
+::::::::::
+V30
+0
+Wortley, Manchester, 334, 400-124
+104
+76.000000
+1
+829
+::::::::::
+V31
+1
+Old Clough, Manchester, 60, 400-316
+468
+105.000000
+1
+817
+::::::::::
+A34
+1
+Turner, Manchester, 331, 400-229
+418
+T0
+3
+274
+::::::::::
+V32
+1
+Rawlinson, Manchester, 274, 400-211
+405
+47.000000
+1
+828
+::::::::::
+A35
+0
+Venice, Manchester, 357, 400-167
+187
+T3
+7
+251
+::::::::::
+A36
+1
+Delahays, Manchester, 72, 400-315
+271
+T5
+5
+357

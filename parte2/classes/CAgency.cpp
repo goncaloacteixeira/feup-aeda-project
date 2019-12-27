@@ -26,11 +26,9 @@ BST<Condominio *> CAgency::getCondominios() {
 }
 
 ostream& operator<<(ostream &os, const CAgency &dt) {
-    BSTItrLevel<Condominio*> it(dt.condominios);
-    while (!it.isAtEnd()) {
-        os << it.retrieve()->getDesignation() << " : " << it.retrieve()->getNumHabitacoes() << endl;
-        it.advance();
-    }
+    os << "Name: " << dt.name << endl;
+    os << "VAT: " << dt.nif << endl;
+    return os;
 }
 
 vector<Condominio *> CAgency::getCondominios(int nHabsMax) {
