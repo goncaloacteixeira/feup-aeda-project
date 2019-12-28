@@ -41,6 +41,13 @@ typedef priority_queue<Transporte> HEAP_TRANSPORT;
  * @brief Classe Condomínio
  */
 class Condominio {
+    static int id;
+
+    string conFileName;
+    string memFileName;
+    string trFileName;
+    string frFileName;
+
     string designation;                     //!< Designação do Condomínio
     string location;                        //!< Localização do Condomínio
     static set<string> prestLimpeza;        //!< Set com os prestadores de limpeza atuais
@@ -189,7 +196,7 @@ public:
      * @param condominio Filename do condomínio
      * @param condominos Filename dos condóminos
      */
-    void writeToFiles(string condominio, string condominos, string transportes, string formerMembersFilename);
+    void writeToFiles();
 
     /**
      *

@@ -9,9 +9,17 @@
 #include <utility>
 
 set<string> Condominio::prestLimpeza = {};
+int Condominio::id = 1;
 
 Condominio::Condominio(string designation, string location, unsigned int numPrestLimpeza) :
     designation(std::move(designation)), location(std::move(location)), numPrestLimpeza(numPrestLimpeza) {
+
+    this->conFileName = "con" + to_string(id) + ".txt";
+    this->memFileName = "mem" + to_string(id) + ".txt";
+    this->trFileName = "tr" + to_string(id) + ".txt";
+    this->frFileName = "former" + to_string(id) + ".txt";
+
+    id += 1;
 
     this->condominos = {};
     this->habitacoes = {};
@@ -20,6 +28,8 @@ Condominio::Condominio(string designation, string location, unsigned int numPres
 
 Condominio::Condominio(string filename) {
     auto start = chrono::steady_clock::now();
+
+    this->conFileName = filename;
 
     filename = "../" + filename;
     ifstream condominio;
@@ -61,6 +71,11 @@ Condominio::Condominio(string filename) {
             i++;
         }
     }
+
+    this->memFileName = condominosFileName;
+    this->trFileName = transportsFileName;
+    this->frFileName = formerMembersFileName;
+
     condominio.close();
     if (numHab == 0)
         this->habitacoes = {};
@@ -215,21 +230,22 @@ Condominio::Condominio(string filename) {
     auto end = chrono::steady_clock::now();
     cout << "The reading took: " << chrono::duration_cast<chrono::microseconds>(end-start).count() << " microseconds -> " << chrono::duration_cast<chrono::milliseconds>(end-start).count() << " milliseconds \n";
 
+
 }
 
-void Condominio::writeToFiles(string condominioFilename, string condominosFilename, string transportFilename, string formerMembersFilename) {
+void Condominio::writeToFiles() {
     auto start = chrono::steady_clock::now();
 
-    condominioFilename = "../" + condominioFilename;
+    string condominioFilename = "../" + this->conFileName;
 
     fstream condominio(condominioFilename, std::ofstream::out | std::ofstream::trunc);
     condominio << this->designation << endl;
     condominio << this->location << endl;
     condominio << this->numPrestLimpeza << endl;
-    condominio << condominosFilename << endl;
+    condominio << memFileName << endl;
     condominio << this->getNumHabitacoes() << endl;
-    condominio << transportFilename << endl;
-    condominio << formerMembersFilename << endl;
+    condominio << trFileName << endl;
+    condominio << frFileName << endl;
     if (this->getNumHabitacoes() != 0) {
         for (int i = 0; i < this->getNumHabitacoes(); i++)
         {
@@ -246,7 +262,7 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
     }
     condominio.close();
 
-    condominosFilename = "../" + condominosFilename;
+    string condominosFilename = "../" + memFileName;
 
     fstream cond(condominosFilename, std::ofstream::out | std::ofstream::trunc);
     cond << this->getNumCondominos() << endl;
@@ -274,7 +290,7 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
     }
     cond.close();
 
-    transportFilename = "../" + transportFilename;
+    string transportFilename = "../" + trFileName;
     fstream trans(transportFilename, std::ofstream::out | std::ofstream::trunc);
     if (!transport.empty()) {
         auto transports = this->getVectorTransports();
@@ -284,7 +300,7 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
     }
     trans.close();
 
-    formerMembersFilename = "../" + formerMembersFilename;
+    string formerMembersFilename = "../" + frFileName;
     fstream form(formerMembersFilename, std::ofstream::out | std::ofstream::trunc);
     if (!formerMembers.empty()) {
         for (auto &i : formerMembers) {

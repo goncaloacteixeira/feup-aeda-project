@@ -145,10 +145,7 @@ void generateData() {
             c.addTransportStop(Transporte(loc,rand() & 1000 + 5,dest));
         }
 
-        c.writeToFiles("con"+to_string(y)+".txt",
-                "mem"+to_string(y)+".txt",
-                "tr"+to_string(y)+".txt",
-                "former"+to_string(y)+".txt");
+        c.writeToFiles();
     }
 
 }
@@ -167,11 +164,9 @@ int main() {
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
 
-    // c1->removeCondomino(c1->findCon(105748216),10);
+    c1->adicionaCondomino(new Condomino("Gonçalo TEIXEIRA",192317794));
 
-    cout << "stop";
-
-    c1->writeToFiles("con1.txt","mem1.txt","tr1.txt","former1.txt");
+    c1->writeToFiles();
 
 
 
