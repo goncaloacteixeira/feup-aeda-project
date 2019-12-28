@@ -145,31 +145,35 @@ void generateData() {
             c.addTransportStop(Transporte(loc,rand() & 1000 + 5,dest));
         }
 
-        c.writeToFiles("con"+to_string(y)+".txt", "mem"+to_string(y)+".txt", "tr"+to_string(y)+".txt");
+        c.writeToFiles("con"+to_string(y)+".txt",
+                "mem"+to_string(y)+".txt",
+                "tr"+to_string(y)+".txt",
+                "former"+to_string(y)+".txt");
     }
 
 }
 
 
+
 int main() {
 
     auto *c1 = new Condominio("con1.txt");
-    auto *c2 = new Condominio("con2.txt");
-    auto *c3 = new Condominio("con3.txt");
+//    auto *c2 = new Condominio("con2.txt");
+//    auto *c3 = new Condominio("con3.txt");
 
 
-    CAgency a("Joao",919234123);
-    a.addCondominio(c1);
-    a.addCondominio(c2);
-    a.addCondominio(c3);
+//    CAgency a("Joao",919234123);
+//    a.addCondominio(c1);
+//    a.addCondominio(c2);
+//    a.addCondominio(c3);
 
-    auto temp = a.getCondominios();
-    BSTItrIn<Condominio*> it(temp);
+    // c1->removeCondomino(c1->findCon(105748216),10);
 
-    while (!it.isAtEnd()) {
-        cout << *it.retrieve() << endl;
-        it.advance();
-    }
+    cout << "stop";
+
+    c1->writeToFiles("con1.txt","mem1.txt","tr1.txt","former1.txt");
+
+
 
     return 0;
 }

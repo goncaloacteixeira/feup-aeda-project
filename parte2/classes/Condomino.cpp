@@ -10,11 +10,11 @@ Condomino::Condomino(string nome, unsigned int nif) : nome(nome), nif(nif){
     this->servicos = {};
 }
 
-string Condomino::getNome() {
+string Condomino::getNome() const {
     return this->nome;
 }
 
-unsigned Condomino::getNIF() {
+unsigned Condomino::getNIF() const {
     return this->nif;
 }
 

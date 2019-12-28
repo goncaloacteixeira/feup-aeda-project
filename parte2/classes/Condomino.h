@@ -36,13 +36,13 @@ public:
      *
      * @return Nome do condómino
      */
-    string getNome();
+    string getNome() const;
 
     /**
      *
      * @return NIF do condómino
      */
-    unsigned int getNIF();
+    unsigned int getNIF() const;
 
     /**
      *

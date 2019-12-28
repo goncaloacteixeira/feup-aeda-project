@@ -10,7 +10,31 @@
 #include "Transporte.h"
 #include <set>
 #include <queue>
+#include <unordered_set>
 
+
+typedef struct {
+    string name;
+    unsigned int nif;
+    unsigned int time;
+} FormerMember;
+
+
+struct FormerMembersHash {
+    int operator () (const FormerMember & f) const {
+        int v = 0;
+
+        for (int i = 0; i < f.name.size(); i++) {
+            v = 37*v + f.name[i];
+        }
+        return v;
+    }
+    bool operator () (const FormerMember & f1, const FormerMember & f2) const {
+        return f1.nif == f2.nif;
+    }
+};
+
+typedef unordered_set<FormerMember, FormerMembersHash, FormerMembersHash> tabHFormerMembers;
 typedef priority_queue<Transporte> HEAP_TRANSPORT;
 
 /**
@@ -26,6 +50,7 @@ class Condominio {
     vector<Servico *> servicosPrestados;    //!< Vetor de apontadores para objetos Serviço
 
     HEAP_TRANSPORT transport;               //!< Priority Queue com os pontos de paragem relativos ao condominio em questão
+    tabHFormerMembers formerMembers;        //!< Hash Table com os membros antigos do Condomínio em questão
 
 
 public:
@@ -128,7 +153,7 @@ public:
      *
      * @param con Apontador para o condómino a remover do condimínio
      */
-    void removeCondomino(Condomino *con);
+    void removeCondomino(Condomino *con, unsigned time);
 
     /**
      * @brief Ordena Condóminos
@@ -164,7 +189,7 @@ public:
      * @param condominio Filename do condomínio
      * @param condominos Filename dos condóminos
      */
-    void writeToFiles(string condominio, string condominos, string transportes);
+    void writeToFiles(string condominio, string condominos, string transportes, string formerMembersFilename);
 
     /**
      *

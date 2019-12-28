@@ -28,11 +28,12 @@ Condominio::Condominio(string filename) {
 
     string condominosFileName;
     string transportsFileName;
+    string formerMembersFileName;
     int numHab = 0;
 
     condominio.open(filename);
     if (condominio.is_open()) {
-        while (getline(condominio, line) && i < 6) {
+        while (getline(condominio, line) && i < 7) {
             /**
              * line 0 -> designation
              * line 1 -> location
@@ -40,6 +41,7 @@ Condominio::Condominio(string filename) {
              * line 3 -> filename condominos
              * line 4 -> numHab
              * line 5 -> transports filename
+             * line 6 -> former members filename
              */
 
             if (i == 0)
@@ -54,6 +56,8 @@ Condominio::Condominio(string filename) {
                 numHab = stoi(line);
             else if (i == 5)
                 transportsFileName = line;
+            else if (i == 6)
+                formerMembersFileName = line;
             i++;
         }
     }
@@ -69,7 +73,7 @@ Condominio::Condominio(string filename) {
             for (i = 0; i < numHab; i++) {
                 vector<string> hab;
                 while (getline(condominio, line1)) {
-                    if (ctr >= 6) {     // control to skip first lines
+                    if (ctr >= 7) {     // control to skip first lines
                         if (line1 != "::::::::::")
                             hab.push_back(line1);
                         else
@@ -118,9 +122,28 @@ Condominio::Condominio(string filename) {
         transportsFile.close();
     }
     else {
-        cerr << "error opening transports file";
+        cerr << "\nerror opening transports file\n";
     }
 
+    // Former Members Read Snippet Code
+    formerMembersFileName = "../" + formerMembersFileName;
+    ifstream formerMembersFile;
+    formerMembersFile.open(formerMembersFileName);
+    string frLine;
+
+    if (formerMembersFile.is_open()) {
+        while (getline(formerMembersFile, frLine)) {
+            vector<string> temp = split(frLine, " : ");
+            FormerMember former;
+            former.name = temp[0];
+            former.nif = stoi(temp[1]);
+            former.time = stoi(temp[2]);
+            formerMembers.insert(former);
+        }
+    }
+    else {
+        cerr << "\nerror opening former members file\n";
+    }
 
     // Condominos Read Snippet Code
     this->condominos = {};
@@ -194,7 +217,7 @@ Condominio::Condominio(string filename) {
 
 }
 
-void Condominio::writeToFiles(string condominioFilename, string condominosFilename, string transportFilename) {
+void Condominio::writeToFiles(string condominioFilename, string condominosFilename, string transportFilename, string formerMembersFilename) {
     auto start = chrono::steady_clock::now();
 
     condominioFilename = "../" + condominioFilename;
@@ -206,6 +229,7 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
     condominio << condominosFilename << endl;
     condominio << this->getNumHabitacoes() << endl;
     condominio << transportFilename << endl;
+    condominio << formerMembersFilename << endl;
     if (this->getNumHabitacoes() != 0) {
         for (int i = 0; i < this->getNumHabitacoes(); i++)
         {
@@ -248,6 +272,7 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
                 cond << "\n::::::::::\n";
         }
     }
+    cond.close();
 
     transportFilename = "../" + transportFilename;
     fstream trans(transportFilename, std::ofstream::out | std::ofstream::trunc);
@@ -257,6 +282,16 @@ void Condominio::writeToFiles(string condominioFilename, string condominosFilena
             trans << t.getLocalization() << " : " << t.getDistance() << " : " << t.getDestiny() << endl;
         }
     }
+    trans.close();
+
+    formerMembersFilename = "../" + formerMembersFilename;
+    fstream form(formerMembersFilename, std::ofstream::out | std::ofstream::trunc);
+    if (!formerMembers.empty()) {
+        for (auto &i : formerMembers) {
+            form << i.name << " : " << i.nif << " : " << i.time << endl;
+        }
+    }
+    form.close();
 
 
     auto end = chrono::steady_clock::now();
@@ -370,9 +405,14 @@ void Condominio::adicionaCondomino(Condomino *con) {
     this->condominos.push_back(con);
 }
 
-void Condominio::removeCondomino(Condomino *con) {
+void Condominio::removeCondomino(Condomino *con, unsigned time) {
     for (int i = 0; i < condominos.size(); i++) {
         if (condominos[i] == con) {
+            FormerMember former;
+            former.name = condominos[i]->getNome();
+            former.nif = condominos[i]->getNIF();
+            former.time = time;
+            formerMembers.insert(former);
             condominos.erase(condominos.begin() + i);
             break;
         }
