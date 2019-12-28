@@ -2,6 +2,7 @@
 
 
 #include "classes/CAgency.h"
+#include "output-formats.h"
 
 void generateData() {
     cout << "How many condominiuns do you want to generate? ";
@@ -167,9 +168,6 @@ int main() {
     a.addCondominio(c1);
     a.addCondominio(c2);
     a.addCondominio(c3);
-
-
-
 
     return 0;
 }

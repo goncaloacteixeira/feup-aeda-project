@@ -110,3 +110,20 @@ float Condomino::mensalidadeTotal() {
 void Condomino::adicionaServico(Servico *serv) {
     this->servicos.push_back(serv);
 }
+
+ostream &operator<<(ostream &os, const Condomino &mem) {
+    os << "Name: " << mem.nome << endl;
+    os << "VAT: " << mem.nif << endl;
+    os << "Habitations: " << mem.habitacoes.size() << endl;
+    os << "Services: " << mem.servicos.size() << endl;
+
+    float pay = 0;
+    for (auto &h : mem.habitacoes) {
+        pay += h->mensalidade;
+    }
+    for (auto &s : mem.servicos) {
+        pay += s->getCusto();
+    }
+
+    os << "Monthly Payment: " << pay;
+}

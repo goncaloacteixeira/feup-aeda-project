@@ -104,6 +104,8 @@ public:
      * @return Mensalidade total a pagar pelo condómino
      */
     float mensalidadeTotal();
+
+    friend ostream& operator<<(ostream& os, const Condomino& mem);
 };
 
 

@@ -571,6 +571,18 @@ HEAP_TRANSPORT Condominio::getTransports() const {
     return transport;
 }
 
+vector<Transporte> Condominio::getTransports(string destiny) const {
+    HEAP_TRANSPORT temp = this->transport;
+    vector<Transporte> ret;
+    while (!temp.empty()) {
+        if (temp.top().getDestiny() == destiny) {
+            ret.emplace_back(temp.top());
+        }
+        temp.pop();
+    }
+    return ret;
+}
+
 void Condominio::addTransportStop(const Transporte& t1) {
     this->transport.push(t1);
 }
@@ -622,6 +634,10 @@ ostream &operator<<(ostream &os, const Condominio &con) {
     os << "Number of Members: " << con.condominos.size() << endl;
     os << "Revenue: " << con.calcReceitas() << " euro" << endl;
     return os;
+}
+
+tabHFormerMembers Condominio::getFormerMembers() const {
+    return this->formerMembers;
 }
 
 
