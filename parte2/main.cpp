@@ -106,7 +106,7 @@ void generateData() {
                 auto con = new Condomino(nome,nif);
                 c.adicionaCondomino(con);
             }
-            catch (RepeatedCondomino &e) {
+            catch (InvalidNIF &e) {
                 i--;
             }
         }
@@ -150,10 +150,9 @@ void generateData() {
 
 }
 
-/*
- * TODO - FAZER MENUS E TRATAMENTO DE EXCEÇÕES
- * TODO - UTILIZAR TABELAS PARA REPRESENTAÇÃO DE DADOS
- */
+/* TODO - FAZER MENUS E TRATAMENTO DE EXCEÇÕES
+ * TODO - UTILIZAR TABELAS PARA REPRESENTAÇÃO DE DADOS */
+
 
 
 
