@@ -3,6 +3,8 @@
 
 #include "classes/CAgency.h"
 #include "output-formats.h"
+#include "classes/utils.h"
+#include "menus.h"
 
 void generateData() {
     cout << "How many condominiuns do you want to generate? ";
@@ -155,19 +157,64 @@ void generateData() {
  * TODO - UTILIZAR TABELAS PARA REPRESENTAÇÃO DE DADOS */
 
 
+void test() {
+    auto *c1 = new Condominio("con1.txt");
+//    auto *c2 = new Condominio("con2.txt");
+//    auto *c3 = new Condominio("con3.txt");
+
+
+    CAgency a("Joao",919234123);
+    a.addCondominio(c1);
+//    a.addCondominio(c2);
+//    a.addCondominio(c3);
+
+    viewCondos(&a);
+}
 
 
 int main() {
 
     auto *c1 = new Condominio("con1.txt");
-    auto *c2 = new Condominio("con2.txt");
-    auto *c3 = new Condominio("con3.txt");
+//    auto *c2 = new Condominio("con2.txt");
+//    auto *c3 = new Condominio("con3.txt");
 
 
     CAgency a("Joao",919234123);
     a.addCondominio(c1);
-    a.addCondominio(c2);
-    a.addCondominio(c3);
+//    a.addCondominio(c2);
+//    a.addCondominio(c3);
+
+    int choice = -1;
+
+    CAgency agency = firstMenu();
+    while (choice != 0) {
+        choice = agencyMenu(&agency);
+        if (choice == 1) {
+            while (true) {
+                choice = viewCondos(&agency);
+                if (choice == 1) {
+                    auto cond = speficifyCondo(&agency);
+                    if (cond == nullptr) {
+                        continue;
+                    } else {
+                        // TODO - MENUS PARA CONDOMINIO (COPIAR DA PARTE 1)
+                    }
+                } else if (choice == 2) {
+                    break;
+                } else if (choice == 0) {
+                    break;
+                }
+            }
+        }
+        else if (choice == 2) {
+            choice = addCondo(&agency);
+        }
+        else if (choice == 3) {
+            removeCondo(&agency);
+        }
+    }
+
+
 
     return 0;
 }

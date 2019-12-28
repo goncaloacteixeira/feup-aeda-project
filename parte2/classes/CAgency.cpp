@@ -44,4 +44,15 @@ vector<Condominio *> CAgency::getCondominios(int nHabsMax) {
     return temp;
 }
 
+Condominio *CAgency::findCondominio(string des, string loc) {
+    BSTItrIn<Condominio*> it(condominios);
+    while (!it.isAtEnd()) {
+        if (it.retrieve()->getDesignation() == des && it.retrieve()->getLocation() == loc) {
+            return it.retrieve();
+        }
+        it.advance();
+    }
+    return nullptr;
+}
+
 

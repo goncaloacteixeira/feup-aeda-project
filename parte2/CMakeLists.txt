@@ -7,4 +7,4 @@ add_executable(parte2 main.cpp classes/Servico.cpp classes/Servico.h classes/Hab
         classes/Habitacao.h classes/Condomino.cpp classes/Condomino.h classes/Condominio.cpp
         classes/Condominio.h classes/utils.cpp classes/utils.h classes/bst.h classes/CAgency.cpp
         classes/CAgency.h classes/Transporte.cpp classes/Transporte.h output-formats.cpp output-formats.h
-        fort.c fort.h fort.hpp)
+        fort.c fort.h fort.hpp menus.cpp menus.h)
