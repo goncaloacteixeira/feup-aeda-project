@@ -7,7 +7,7 @@
 #include <utility>
 
 Transporte::Transporte(string loc, unsigned dist, string dest) : localizacao(std::move(loc)), distancia(dist), destino(std::move(dest)) {
-    // do nothing
+    this->active = false;
 }
 
 string Transporte::getLocalization() const {
@@ -38,5 +38,9 @@ bool Transporte::operator<(const Transporte &t1) const  {
 
 bool Transporte::operator==(const Transporte &t1) const {
     return this->distancia == t1.distancia && this->localizacao == t1.localizacao && this->destino == t1.destino;
+}
+
+void Transporte::changeState(bool state) {
+    this->active = state;
 }
 

@@ -14,8 +14,9 @@ class Transporte {
     string localizacao;             //!< Localização do Ponto de Paragem
     unsigned int distancia;         //!< Distancia do Ponto de Paragem ao Condomínio
     string destino;                 //!< Destino do Ponto de Paragem
+    bool active;
 public:
-    Transporte() : localizacao(""), distancia(0), destino("") { };
+    Transporte() : localizacao(""), distancia(0), destino(""), active(false) { };
     Transporte(string loc, unsigned dist, string dest);
 
     string getLocalization() const;
@@ -23,6 +24,7 @@ public:
     string getDestiny() const;
 
     void changeDestiny(string dest);
+    void changeState(bool state);
 
     friend ostream& operator<<(ostream& os, Transporte& t1);
     bool operator<(const Transporte &t1) const;
