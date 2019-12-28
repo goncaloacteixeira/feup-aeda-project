@@ -414,9 +414,12 @@ unsigned int Condominio::getNumCondominos() {
 void Condominio::adicionaCondomino(Condomino *con) {
     if (this->condominos.empty())
         this->condominos.push_back(con);
+    if (to_string(con->getNIF()).size() != 9) {
+        throw InvalidNIF(con->getNIF());
+    }
     for (int i = 0; i < this->getNumCondominos(); i++) {
         if (this->getCondominos()[i]->getNIF() == con->getNIF())
-            throw RepeatedCondomino(con->getNIF());
+            throw InvalidNIF(con->getNIF());
     }
     this->condominos.push_back(con);
 }

@@ -259,10 +259,10 @@ public:
 /**
  * @brief Exception Class para quando ja existe determinado condómino
  */
-class RepeatedCondomino {
+class InvalidNIF {
     unsigned int nif;
 public:
-    RepeatedCondomino(unsigned int nif) { this->nif = nif; }
+    InvalidNIF(unsigned int nif) { this->nif = nif; }
     unsigned int getNIF() { return this->nif; }
 };
 
