@@ -215,10 +215,14 @@ public:
     // HEAP
     void setTransports(vector<Transporte>* transports);
     HEAP_TRANSPORT getTransports() const;
+    vector<Transporte> getTransports(string destiny) const;
     vector<Transporte> getVectorTransports() const;
     void addTransportStop(const Transporte& t1);
     bool removeTransportStop(const Transporte& t1);
     Transporte getTransport(const string& dest);
+
+    // HASH TABLE
+    tabHFormerMembers getFormerMembers() const;
 
     // operators
     friend ostream& operator<<(ostream& os, const Condominio& con);
