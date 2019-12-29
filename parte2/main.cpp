@@ -169,7 +169,7 @@ void testFunc() {
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
 
-    unassignHabMenu(c1);
+    sortHabMenu(c1);
     cout << printTable(c1->getHabitacoes());
 
 }

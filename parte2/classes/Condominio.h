@@ -133,8 +133,13 @@ public:
     void removeHabitacao(Habitacao *hab);
 
     /**
-     * @brief Ordena Habitações
+     * @brief Ordena Condóminos
      * @param protocol Portocolo de ordenação
+     * protocol "id" sort by id (descendant)
+     * protocol "area-descendant" sort by habitation's area (lower to higher)
+     * protocol "area-ascendant" sort by habitation's area (higher to lower)
+     * protocol "pay-descendant" sort by monthly payment (lower to higher)
+     * protocol "pay-ascendant" sort by montly payment (lower to higher)
      */
     void ordernarHab(const string& protocol);
 

@@ -170,4 +170,7 @@ void assignHabMenu(Condominio* cond);
 void unassignHabMenu(Condominio* cond);
 
 
+int sortHabMenu(Condominio* cond);
+
+
 #endif //PARTE2_MENUS_H

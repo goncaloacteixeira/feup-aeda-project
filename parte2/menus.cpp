@@ -1136,6 +1136,53 @@ void unassignHabMenu(Condominio *cond) {
     wait();
 }
 
+int sortHabMenu(Condominio *cond) {
+    cout << endl << tittleBars("Sort Habitations");
+    cout << "Sort Habitations" << endl;
+    cout << tittleBars("Sort Habitations") << endl;
+
+    cout << "\t[1] Sort by ID (descendant)\n";
+    cout << "\t[2] Sort by Habitation's Area (descendant)\n";
+    cout << "\t[3] Sort by Habitation's Area (ascendant)\n";
+    cout << "\t[4] Sort by Monthly Payment (descendant)\n";
+    cout << "\t[5] Sort by Monthly Payment (ascendant)\n\n";
+    cout << "\t[6] Back\n";
+    cout << "\t[0] Exit\n";
+
+    int choice = -1;
+    while (!cin.good() || choice < 0 || choice > 6) {
+        cin.clear();
+
+        cout << "\n\tChoice: ";
+        cin >> choice;
+        if (!cin.good() || choice < 0 || choice > 6) {
+            cout << "\tType a valid number please\n";
+        }
+        cin.ignore();
+    }
+
+    switch (choice) {
+        case 1:
+            cond->ordernarHab("id");
+            break;
+        case 2:
+            cond->ordernarHab("area-descendant");
+            break;
+        case 3:
+            cond->ordernarHab("area-ascendant");
+            break;
+        case 4:
+            cond->ordernarHab("pay-descendant");
+            break;
+        case 5:
+            cond->ordernarHab("pay-ascendant");
+            break;
+        default:
+            return choice;
+    }
+    return choice;
+}
+
 
 
 

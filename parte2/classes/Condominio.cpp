@@ -354,7 +354,20 @@ void Condominio::removeHabitacao(Habitacao *hab) {
 }
 
 void Condominio::ordernarHab(const string& protocol) {
-    if (protocol == "area-ascending") {
+
+    if (protocol == "id") {
+        for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (habitacoes[i + 1]->getID() < habitacoes[i]->getID()) {
+                    swap(habitacoes[i], habitacoes[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "area-descendant") {
         for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
@@ -366,7 +379,7 @@ void Condominio::ordernarHab(const string& protocol) {
         }
     }
 
-    else if (protocol == "area-descending") {
+    else if (protocol == "area-ascendant") {
         for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
@@ -378,7 +391,7 @@ void Condominio::ordernarHab(const string& protocol) {
         }
     }
 
-    else if (protocol == "pay-ascending") {
+    else if (protocol == "pay-descendant") {
         for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
@@ -390,7 +403,7 @@ void Condominio::ordernarHab(const string& protocol) {
         }
     }
 
-    else if (protocol == "pay-descending") {
+    else if (protocol == "pay-ascendant") {
         for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
