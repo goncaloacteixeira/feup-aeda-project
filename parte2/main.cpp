@@ -120,9 +120,13 @@ void generateData() {
             for (int i = 0; i < aux; i++) {
                 Habitacao* h = c.getHabitacoes()[rand() % c.getHabitacoes().size()];
                 if (!h->getEstado())
-                    con->adicionaHabitacao(c.getHabitacoes()[rand() % c.getHabitacoes().size()]);
-                else
-                    i--;
+                    con->adicionaHabitacao(h);
+                else {
+                    if (i != 0) {
+                        i--;
+                    }
+                }
+
             }
         }
 
@@ -165,8 +169,7 @@ void testFunc() {
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
 
-    removeMemberMenu(c1);
-    c1->writeToFiles();
+    sortMembersMenu(c1);
 }
 
 

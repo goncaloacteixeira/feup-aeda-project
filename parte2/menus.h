@@ -100,7 +100,15 @@ void addMemberMenu(Condominio* cond);
  * @param cond Condominio especificado pelo utilizador
  */
 void removeMemberMenu(Condominio* cond);
-void sortMembersMenu(Condominio* cond);
+
+/**
+ * @brief Menu para ordenar os condóminos
+ * @param cond Condominio especificado pelo utilizador
+ * @return 0 para sair
+ * @return 6 para voltar atrás
+ * @return diferente de 0 ou 6 para continuar
+ */
+int sortMembersMenu(Condominio* cond);
 void rqService(Condominio* cond);
 
 

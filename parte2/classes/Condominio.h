@@ -165,6 +165,11 @@ public:
     /**
      * @brief Ordena Condóminos
      * @param protocol Portocolo de ordenação
+     * protocol "name" sort by name (A-Z)
+     * protocol "number-descendant" sort by number of houses (lower to higher)
+     * protocol "number-ascendant" sort by number of houses (higher to lower)
+     * protocol "pay-descendant" sort by monthly payment (lower to higher)
+     * protocol "pay-ascendant" sort by montly payment (lower to higher)
      */
     void ordenarCond(const string& protocol);
 

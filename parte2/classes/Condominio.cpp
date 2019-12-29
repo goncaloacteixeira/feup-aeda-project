@@ -441,8 +441,7 @@ void Condominio::removeCondomino(Condomino *con, unsigned time) {
 
 
 void Condominio::ordenarCond(const string& protocol) {
-
-    if (protocol == "name-ascending") {
+    if (protocol == "name") {
         for (unsigned int j = condominos.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
@@ -454,11 +453,11 @@ void Condominio::ordenarCond(const string& protocol) {
         }
     }
 
-    else if (protocol == "name-descending") {
+    else if (protocol == "number-descendant") {
         for (unsigned int j = condominos.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
-                if (condominos[i + 1]->getNome() > condominos[i]->getNome()) {
+                if (condominos[i + 1]->getNumHabitacoes() < condominos[i]->getNumHabitacoes()) {
                     swap(condominos[i], condominos[i + 1]);
                     troca = true;
                 }
@@ -466,7 +465,19 @@ void Condominio::ordenarCond(const string& protocol) {
         }
     }
 
-    else if (protocol == "pay-ascending") {
+    else if (protocol == "number-ascendant") {
+        for (unsigned int j = condominos.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (condominos[i + 1]->getNumHabitacoes() > condominos[i]->getNumHabitacoes()) {
+                    swap(condominos[i], condominos[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "pay-ascendant") {
         for (unsigned int j = condominos.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
@@ -478,7 +489,7 @@ void Condominio::ordenarCond(const string& protocol) {
         }
     }
 
-    else if (protocol == "pay-descending") {
+    else if (protocol == "pay-descendant") {
         for (unsigned int j = condominos.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)

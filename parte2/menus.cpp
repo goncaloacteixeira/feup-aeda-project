@@ -36,7 +36,6 @@ CAgency firstMenu() {
     return CAgency(name, stoi(nif));
 }
 
-
 int agencyMenu(CAgency *agency) {
     cout << endl << tittleBars("Agency Menu");
     cout << "Agency Menu" << endl;
@@ -61,7 +60,6 @@ int agencyMenu(CAgency *agency) {
 
     return choice;
 }
-
 
 int addCondo(CAgency *agency) {
     cout << endl << tittleBars("Add Condominium");
@@ -160,7 +158,6 @@ int addCondo(CAgency *agency) {
     }
 }
 
-
 void removeCondo(CAgency *agency) {
     cout << endl << tittleBars("Remove Condominium");
     cout << "Remove Condominium" << endl;
@@ -250,6 +247,8 @@ int condoMenu() {
     }
     return choice;
 }
+
+// Members Menu ---
 
 int membersMenu(Condominio* cond) {
     cout << endl << tittleBars("Manage Members");
@@ -414,4 +413,54 @@ void removeMemberMenu(Condominio *cond) {
     cout << endl << "\t\tMember successfully removed!" << endl;
     wait();
 }
+
+int sortMembersMenu(Condominio *cond) {
+    cout << endl << tittleBars("Sort Members");
+    cout << "Sort Members" << endl;
+    cout << tittleBars("Sort Members") << endl;
+
+    cout << "\t[1] Sort by Name (A-Z)\n";
+    cout << "\t[2] Sort by Number of Properties (descendant)\n";
+    cout << "\t[3] Sort by Number of Properties (ascendant)\n";
+    cout << "\t[4] Sort by Monthly Payment (descendant)\n";
+    cout << "\t[5] Sort by Monthly Payment (ascendant)\n\n";
+    cout << "\t[6] Back\n";
+    cout << "\t[0] Exit\n";
+
+    int choice = -1;
+    while (!cin.good() || choice < 0 || choice > 6) {
+        cin.clear();
+
+        cout << "\n\tChoice: ";
+        cin >> choice;
+        if (!cin.good() || choice < 0 || choice > 6) {
+            cout << "\tType a valid number please\n";
+        }
+        cin.ignore();
+    }
+
+    switch (choice) {
+        case 1:
+            cond->ordenarCond("name");
+            break;
+        case 2:
+            cond->ordenarCond("number-descendant");
+            break;
+        case 3:
+            cond->ordenarCond("number-ascendant");
+            break;
+        case 4:
+            cond->ordenarCond("pay-descendant");
+            break;
+        case 5:
+            cond->ordenarCond("pay-ascendant");
+            break;
+        default:
+            return choice;
+    }
+    return choice;
+}
+
+
+
 

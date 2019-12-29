@@ -1,40 +1,50 @@
-Georges : 12 : Dunelm
-Godmond Hall : 40 : Simeon
-Nearbrook : 40 : Pewterspear Green
-Bankwell : 69 : Assheton
-Halifax : 101 : Back Longworth
-Boswell : 105 : Goulder
-Hulme Hall : 109 : Cheltenham
-Chataway : 164 : Back Hilden
-West : 168 : Kenneth
-Chelbourne : 193 : Scholey
-Pensarn : 201 : Burgess
-Selden : 225 : Ashmoor
-Colchester : 236 : Ripponden
-Lindinis : 269 : Hough Hall
-Breaston : 289 : Charles Halle
-Weber : 333 : Avocet
-Mill : 385 : Boscobel
-Oswald : 389 : Pool
-Booth Bank : 417 : Bobs
-Hare : 428 : Leestone
-Halesworth : 448 : Exchange
-Kersal Vale : 512 : Cleveleys
-Gill Bent : 516 : Graves
-Telegraph : 520 : Wilkinson
-Lingfield : 520 : Walnut Tree
-Rushton : 584 : Brideoake
-Burnaby : 612 : Eve
-Royal Oak : 685 : Onslow
-Scowcroft : 708 : Holmwood
-Hartgate : 776 : Merseybank
-Boarshurst : 781 : Wichbrook
-Tupelo : 808 : Heywood Fold
-Robertshaw : 812 : Corey
-Barwell : 832 : Colenso
-Maltmans : 840 : Thornycroft
-Coin : 865 : Rossett
-Ringlow Park : 908 : Buller
-Moyse : 928 : Briggs
-Sudley : 941 : Daisy Bank
-Fieldhouse : 965 : Walker
+Over Hill : 4 : Hardwicke
+Marle : 5 : Hogshaw
+Crantock : 9 : Scholar Green
+Rumford : 45 : Brixton
+Owen : 64 : Hartshead
+Plumley : 64 : Back Nelson
+Baillie : 69 : Richard
+Society : 73 : Lees Hall
+Springville : 76 : Back Wood
+Girton : 108 : Harris
+Acres : 136 : Hurstead
+Beckfield : 169 : Rouse
+Millford : 173 : East Market
+Doulton : 193 : Pennith
+Barnwell : 196 : Kelverlow
+Crummock : 224 : Dewhurst
+Huddersfield : 229 : Podnor
+Benbow : 232 : Brigade
+Back Lindley : 233 : Boscow
+Elgar : 233 : Greenfold
+Bothwell : 236 : Goodlad
+St. Georges : 261 : Cradley
+Tivoli : 324 : Belle Vue
+Gee : 360 : Waters Nook
+Joule : 428 : Burrfields
+Bellville : 429 : Clito
+Albert : 488 : Wilkes
+Cocksfoot : 525 : Entwistle Hall
+Touch : 545 : Palace
+Tipperary : 577 : North Butts
+Ruskington : 585 : Abington
+Hurstbrook : 589 : AVRowe
+Broomwood : 672 : Chelford
+Old Pewterspear : 676 : Rigby
+Back Albert : 684 : Teal
+Transvaal : 737 : Brenton
+Trafford Park : 737 : Aitchison
+Clough End : 772 : Daffodil
+Bath : 776 : Arliss
+Cob Kiln : 804 : North Western
+Lumber : 833 : Crofts Bank
+Pendennis : 836 : Nixon
+Brentfield : 837 : Lucy
+Bacon : 900 : Hadwin
+Hogarth : 909 : Debenham
+Doe Hey : 933 : Score
+Forshaw : 936 : Hawk Yard
+Rosary : 969 : Gayhurst
+Uxbridge : 992 : Carill
+Byland : 993 : Whiteacre

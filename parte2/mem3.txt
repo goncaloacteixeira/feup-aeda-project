@@ -1,433 +1,105 @@
-60
-Carry YOUNG
-131326238
-0
-0
-::::::::::
-Randi GOMEZ
-984351577
-0
-0
-::::::::::
-Billie PATTERSON
-860332329
-2
-V46
-V63
-2
-Car Wash : 64 : BeautifulHome
-Hairdresser : 60 : BeautifulHome
-::::::::::
-Anastasia WHITE
-104132611
+15
+Dixie OWENS
+900340116
 0
 2
-Gardener : 96 : Easy Home
-Car Wash : 31 : SDHF
+Cleaning : 108 : BeautifulHome
+Babysitting : 64 : EverytingUNeed
 ::::::::::
-Ynes ANDERSON
-877815574
-2
-A47
-V64
-2
-Security : 95 : AlwaysThere
-Car Wash : 31 : AFA
-::::::::::
-Pia PEREZ
-868044859
-2
-V47
-V64
-2
-Security : 108 : EverytingUNeed
-Cleaning : 109 : Homes.LDA
-::::::::::
-Marty REYNOLDS
-356993336
-2
-V56
-V70
-0
-::::::::::
-Marylinda ROGERS
-321121347
-0
+Angy MYERS
+131283477
 1
-Gardener : 40 : AlwaysThere
-::::::::::
-Regine SANDERS
-146489625
-1
-A59
-1
-Cleaning : 26 : Easy Home
-::::::::::
-Marketa DAVIS
-764046965
-1
-V42
-0
-::::::::::
-Krysta HILL
-211246351
-1
-A62
+A46
 2
-Petsitting : 53 : Homes.LDA
-Babysitting : 61 : SDHF
+Car Wash : 100 : EverytingUNeed
+Plumbing : 10 : BeautifulHome
 ::::::::::
-Kissie WALLACE
-460356549
+Dacie DANIEL
+621050862
 1
-A41
+V39
 1
-Mechanic : 13 : AFA
+Cleaning : 25 : BeautifulHome
 ::::::::::
-Kameko STEWART
-657668366
-2
-V43
-A53
-2
-Cleaning : 79 : BeautifulHome
-Security : 73 : Homes.LDA
-::::::::::
-Danny TURNER
-347810847
-2
-A71
-V52
-0
-::::::::::
-Becka WOODS
-552665042
+Filide SIMPSON
+109791770
 1
-A53
-2
-Mechanic : 61 : Homes.LDA
-Babysitting : 14 : BeautifulHome
-::::::::::
-Joletta JAMES
-242439621
-1
-V65
-1
-Car Wash : 87 : BeautifulHome
-::::::::::
-Anna GREEN
-682888060
-2
-V70
-A70
-1
-Plumbing : 33 : SDHF
-::::::::::
-Pearline DIAZ
-466102864
-1
-V73
-1
-Car Wash : 35 : AFA
-::::::::::
-Tove COOPER
-188006844
-2
-A66
-A63
-0
-::::::::::
-Clovis WILLIAMS
-170753469
-2
-A60
 V41
-2
-Babysitting : 107 : SDHF
-Security : 14 : BeautifulHome
-::::::::::
-Reggi CARTER
-134924972
-0
-2
-Petsitting : 80 : EverytingUNeed
-Hairdresser : 107 : SDHF
-::::::::::
-Marlee RICE
-108857881
-2
-V47
-A72
 1
-Babysitting : 98 : SDHF
+Plumbing : 68 : Easy Home
 ::::::::::
-Helaine MCDONALD
-625571875
-2
-A72
-V60
-2
-Gardener : 84 : BeautifulHome
-Car Wash : 22 : EverytingUNeed
-::::::::::
-Alidia PHILLIPS
-802061186
-2
-V42
-A74
-2
-Babysitting : 103 : BeautifulHome
-Security : 61 : Easy Home
-::::::::::
-Natalee HICKS
-850691511
-0
-0
-::::::::::
-Delphinia MCDONALD
-310961480
-0
+Arabelle RIVERA
+756060030
 1
-Cleaning : 109 : AlwaysThere
+A47
+0
 ::::::::::
-Dora COLEMAN
-168415198
+Wilhelmine ROSS
+177162920
 1
-V60
-1
-Mechanic : 80 : AFA
-::::::::::
-Grata ALLEN
-108510866
-0
-1
-Gardener : 32 : Homes.LDA
-::::::::::
-Rosamond BROOKS
-138200933
-0
-2
-Car Wash : 43 : AFA
-Hairdresser : 12 : SDHF
-::::::::::
-Lynna SIMPSON
-676153400
-0
-2
-Babysitting : 40 : SDHF
-Plumbing : 98 : Easy Home
-::::::::::
-Sharron DIAZ
-153184407
-2
-V45
-A61
-2
-Security : 48 : AlwaysThere
-Gardener : 81 : Homes.LDA
-::::::::::
-Maye KELLY
-566818316
-0
-2
-Babysitting : 12 : Easy Home
-Security : 77 : BeautifulHome
-::::::::::
-Cammie ALEXANDER
-962722922
-2
-V45
-A70
-1
-Plumbing : 49 : BeautifulHome
-::::::::::
-Carmelina BAKER
-435675495
-1
-A59
-1
-Mechanic : 42 : AlwaysThere
-::::::::::
-Sally GRAY
-219508359
-0
-2
-Hairdresser : 108 : Homes.LDA
-Mechanic : 30 : SDHF
-::::::::::
-Susette TURNER
-929196448
-0
-1
-Babysitting : 17 : BeautifulHome
-::::::::::
-Shalne MILLER
-788875154
-0
-1
-Gardener : 108 : SDHF
-::::::::::
-Rebe BOYD
-557292263
-2
-V47
-A42
-0
-::::::::::
-Vannie COX
-398358064
-0
-0
-::::::::::
-Stephana SIMPSON
-481867990
-2
-V72
-V70
-1
-Security : 11 : SDHF
-::::::::::
-Danice BROWN
-243007123
-1
-V43
-2
-Car Wash : 33 : AFA
-Hairdresser : 61 : Homes.LDA
-::::::::::
-Ardis COOPER
-102108720
-0
-2
-Gardener : 57 : AFA
-Mechanic : 39 : SDHF
-::::::::::
-Maribel WALLACE
-346811792
-2
 V44
-A66
-1
-Gardener : 12 : AlwaysThere
-::::::::::
-Sianna WOODS
-927049919
-1
-A61
-0
-::::::::::
-Kimberlyn COLE
-600006172
-0
 2
-Gardener : 105 : Homes.LDA
-Cleaning : 100 : BeautifulHome
+Car Wash : 39 : EverytingUNeed
+Car Wash : 66 : SDHF
 ::::::::::
-Antoinette KENNEDY
-552453095
-2
-V45
-A42
-2
-Car Wash : 12 : AlwaysThere
-Plumbing : 42 : EverytingUNeed
-::::::::::
-Dasya BENNETT
-732666577
+Amaleta BROWN
+559432358
 1
-A60
-1
-Security : 107 : Homes.LDA
-::::::::::
-Anetta SANCHEZ
-696511087
-0
+A45
 2
-Car Wash : 84 : AFA
-Hairdresser : 21 : SDHF
+Security : 61 : Homes.LDA
+Car Wash : 78 : BeautifulHome
 ::::::::::
-Clementine COLE
-327005165
+Ruperta KING
+521389295
+1
+A44
+1
+Plumbing : 18 : Homes.LDA
+::::::::::
+Demetra WELLS
+504076513
 1
 V40
-2
-Gardener : 82 : AFA
-Security : 89 : EverytingUNeed
-::::::::::
-Dre ROBINSON
-863726094
-1
-V64
 0
 ::::::::::
-Guglielma HOLMES
-356880831
-1
-V58
-2
-Cleaning : 99 : SDHF
-Security : 57 : Homes.LDA
-::::::::::
-Coletta SIMMONS
-382837003
-1
-V68
-1
-Hairdresser : 109 : SDHF
-::::::::::
-Mandie WALLACE
-205579449
-2
-A49
-A57
-2
-Hairdresser : 47 : Easy Home
-Car Wash : 20 : Homes.LDA
-::::::::::
-Laurie GONZALES
-719052567
-1
-A57
+Chiquia REED
+802311830
 0
+1
+Petsitting : 10 : Homes.LDA
 ::::::::::
-Claude COOPER
-261404025
+Mersey WILLIAMS
+452067794
 0
 2
-Babysitting : 75 : SDHF
-Hairdresser : 59 : SDHF
+Babysitting : 47 : Easy Home
+Mechanic : 83 : AFA
 ::::::::::
-Tiena SHAW
-613213750
+Clo SULLIVAN
+237997192
+0
 1
-A71
+Security : 41 : BeautifulHome
+::::::::::
+Cornela PHILLIPS
+668718068
+1
+A43
+2
+Security : 38 : BeautifulHome
+Gardener : 106 : SDHF
+::::::::::
+Harriett HICKS
+696036379
+1
+A42
 0
 ::::::::::
-Maggi NELSON
-380439912
-0
-2
-Cleaning : 106 : Homes.LDA
-Plumbing : 96 : Homes.LDA
-::::::::::
-Lanita MARTIN
-632120705
-2
-A55
-A58
+Thelma NELSON
+938673007
 1
-Car Wash : 52 : SDHF
-::::::::::
-Xylina GRAHAM
-917359563
-1
-A75
-1
-Petsitting : 57 : Easy Home
-::::::::::
-Johnna WILLIAMS
-158269411
+V42
 2
-A52
-V64
-0
+Plumbing : 43 : EverytingUNeed
+Cleaning : 17 : AlwaysThere
