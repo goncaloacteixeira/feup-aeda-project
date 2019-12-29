@@ -233,6 +233,13 @@ public:
 
     // HASH TABLE
     tabHFormerMembers getFormerMembers() const;
+
+    /**
+     * @brief Função para encontrar um antigo condómino dado um NIF
+     * @param nif NIF do antigo condómino a econtrar
+     * @return antigo condómino
+     * Levanta uma exceção quando não consegue encontrar o antigo condómino
+     */
     FormerMember findFormerMember(unsigned int nif);
     vector<FormerMember> getformerMembers(unsigned int time);
 
@@ -279,6 +286,13 @@ class InvalidNIF {
     unsigned int nif;
 public:
     InvalidNIF(unsigned int nif) { this->nif = nif; }
+    unsigned int getNIF() { return this->nif; }
+};
+
+class NoSuchFormerMember {
+    unsigned int nif;
+public:
+    NoSuchFormerMember(unsigned int nif) { this->nif = nif; }
     unsigned int getNIF() { return this->nif; }
 };
 

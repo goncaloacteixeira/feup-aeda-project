@@ -666,4 +666,15 @@ tabHFormerMembers Condominio::getFormerMembers() const {
     return this->formerMembers;
 }
 
+FormerMember Condominio::findFormerMember(unsigned int nif) {
+    if (formerMembers.empty()) {
+        throw NoSuchFormerMember(nif);
+    }
+    for (auto &fm : formerMembers) {
+        if (fm.nif == nif)
+            return fm;
+    }
+    throw NoSuchFormerMember(nif);
+}
+
 
