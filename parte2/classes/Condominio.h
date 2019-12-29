@@ -229,10 +229,12 @@ public:
     vector<Transporte> getVectorTransports() const;
     void addTransportStop(const Transporte& t1);
     bool removeTransportStop(const Transporte& t1);
-    Transporte getTransport(const string& dest);
+    Transporte getTransport(const string& loc, unsigned int dist, const string& dest);
 
     // HASH TABLE
     tabHFormerMembers getFormerMembers() const;
+    FormerMember findFormerMember(unsigned int nif);
+    vector<FormerMember> getformerMembers(unsigned int time);
 
     // operators
     friend ostream& operator<<(ostream& os, const Condominio& con);

@@ -628,11 +628,13 @@ bool Condominio::removeTransportStop(const Transporte& t1) {
     return found;
 }
 
-Transporte Condominio::getTransport(const string& dest) {
+Transporte Condominio::getTransport(const string& loc, unsigned int dist, const string& dest) {
     HEAP_TRANSPORT temp = this->transport;
 
     while (!temp.empty()) {
-        if (temp.top().getDestiny() == dest) {
+        if (temp.top().getLocalization() == loc &&
+            temp.top().getDistance() == dist &&
+            temp.top().getDestiny() == dest) {
             return temp.top();
         }
         temp.pop();
