@@ -37,15 +37,14 @@ int agencyMenu(CAgency *agency) {
     cout << "Agency Menu" << endl;
     cout << tittleBars("Agency Menu") << endl;
 
-    int choice = -1;
+    cout << "\t[1] View Condominiums\n";
+    cout << "\t[2] Add Condominium\n";
+    cout << "\t[3] Remove Condominium\n\n";
+    cout << "\t[0] Exit\n";
 
+    int choice = -1;
     while (!cin.good() || choice < 0 || choice > 3) {
         cin.clear();
-        cout << "\t[1] View Condominiums\n";
-        cout << "\t[2] Add Condominium\n";
-        cout << "\t[3] Remove Condominium\n\n";
-
-        cout << "\t[0] Exit\n";
 
         cout << "\n\tChoice: ";
         cin >> choice;
@@ -64,16 +63,16 @@ int addCondo(CAgency *agency) {
     cout << "Add Condominium" << endl;
     cout << tittleBars("Add Condominium") << endl;
 
-    int choice = -1;
+    cout << "\t[1] Add condominium from scatch\n";
+    cout << "\t[2] Add condominium from file\n\n";
+    cout << "\t[3] Back\n";
+    cout << "\t[0] Exit\n";
 
+    int choice = -1;
     while (!cin.good() || choice < 0 || choice > 3) {
         cin.clear();
-        cout << "\t[1] Add condominium from scatch\n";
-        cout << "\t[2] Add condominium from file\n\n";
-        cout << "\t[3] Back\n";
-        cout << "\t[0] Exit\n";
 
-        cout << "\n\tChoice: ";
+        cout << "\tChoice: ";
         cin >> choice;
         if (!cin.good() || choice < 0 || choice > 3) {
             cout << "\tType a valid number please\n";
@@ -183,18 +182,17 @@ int viewCondos(CAgency *agency) {
 
     cout << printTable(agency->getCondominios()) << endl;
 
+    cout << "\t[1] Select a specific condominium\n\n";
+    cout << "\t[2] Back\n";
+    cout << "\t[0] Exit\n";
+
     int choice = -1;
-
-    while (!cin.good() || choice < 0 || choice > 3) {
+    while (!cin.good() || choice < 0 || choice > 2) {
         cin.clear();
-        cout << "\t[1] Select a specific condominium\n\n";
-        cout << "\t[2] Back\n";
-
-        cout << "\t[0] Exit\n";
 
         cout << "\n\tChoice: ";
         cin >> choice;
-        if (!cin.good() || choice < 0 || choice > 3) {
+        if (!cin.good() || choice < 0 || choice > 2) {
             cout << "\tType a valid number please\n";
         }
         cin.ignore();
@@ -216,5 +214,59 @@ Condominio *speficifyCondo(CAgency *agency) {
     else {
         return agency->findCondominio(des,loc);
     }
+}
+
+int condoMenu() {
+    cout << endl << tittleBars("Manage Condominium");
+    cout << "Manage Condominium" << endl;
+    cout << tittleBars("Manage Condominium") << endl;
+
+    cout << "\t[1] Members Menu\n";
+    cout << "\t[2] Habitations Menu\n";
+    cout << "\t[3] Services Menu\n";
+    cout << "\t[4] Revenue\n\n";
+    cout << "\t[5] Back\n";
+    cout << "\t[0] Exit\n";
+
+    int choice = -1;
+    while (!cin.good() || choice < 0 || choice > 5) {
+        cin.clear();
+
+        cout << "\n\tChoice: ";
+        cin >> choice;
+        if (!cin.good() || choice < 0 || choice > 5) {
+            cout << "\tType a valid number please\n";
+        }
+        cin.ignore();
+    }
+    return choice;
+}
+
+int membersMenu(Condominio* cond) {
+    cout << endl << tittleBars("Manage Condominium");
+    cout << "Manage Condominium" << endl;
+    cout << tittleBars("Manage Condominium") << endl;
+
+    cout << endl << printTable(cond->getCondominos()) << endl;
+
+    cout << "\t[1] Add Member\n";
+    cout << "\t[2] Remove Member\n";
+    cout << "\t[3] Sort Members\n";
+    cout << "\t[4] Request a Service for a member\n\n";
+    cout << "\t[5] Back\n";
+    cout << "\t[0] Exit\n";
+
+    int choice = -1;
+    while (!cin.good() || choice < 0 || choice > 5) {
+        cin.clear();
+
+        cout << "\n\tChoice: ";
+        cin >> choice;
+        if (!cin.good() || choice < 0 || choice > 5) {
+            cout << "\tType a valid number please\n";
+        }
+        cin.ignore();
+    }
+    return choice;
 }
 
