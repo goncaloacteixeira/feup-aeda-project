@@ -176,20 +176,16 @@ void testFunc() {
 
 
 int main() {
-    testFunc();
-    return 0;
 
-    auto *c1 = new Condominio("con1.txt");
+//    auto *c1 = new Condominio("con1.txt");
 //    auto *c2 = new Condominio("con2.txt");
 //    auto *c3 = new Condominio("con3.txt");
 
 
-    CAgency a("Joao",919234123);
-    a.addCondominio(c1);
+//    CAgency a("Joao",919234123);
+//    a.addCondominio(c1);
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
-
-
 
     int choice = -1;
 
@@ -199,12 +195,62 @@ int main() {
         if (choice == 1) {
             while (true) {
                 choice = viewCondos(&agency);
+
+                if (choice == 3) {  // não tem condominios para mostrar
+                    break;
+                }
+
                 if (choice == 1) {
                     auto cond = speficifyCondo(&agency);
                     if (cond == nullptr) {
                         continue;
                     } else {
-                        // TODO - MENUS PARA CONDOMINIO (COPIAR DA PARTE 1)
+                        while (choice != 5) {
+                            choice = condoMenu();
+                            if (choice == 0) {
+                                // exit menu
+                                return 0;
+                            }
+                            else if (choice == 5) {
+                                break;
+                            }
+                            else if (choice == 1) {
+                                while (choice != 5) {
+                                    choice = membersMenu(cond);
+                                    if (choice == 0) {
+                                        // exit menu
+                                        return 0;
+                                    }
+                                    else if (choice == 5) {
+                                        choice = -1;
+                                        break;
+                                    }
+                                    else if (choice == 1) {
+                                        addMemberMenu(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 2) {
+                                        removeMemberMenu(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 3) {
+                                        choice = sortMembersMenu(cond);
+                                        if (choice == 0) {
+                                            // exit menu
+                                            return 0;
+                                        }
+                                        choice = 3;
+                                    }
+                                    else if (choice == 4) {
+                                        choice = rqService(cond);
+                                        if (choice == 0) {
+                                            // exit menu
+                                            return 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 } else if (choice == 2) {
                     break;

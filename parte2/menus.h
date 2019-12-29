@@ -27,6 +27,7 @@ CAgency firstMenu();
  * @return 1 para ver condominios
  * @return 2 para adicionar condominios
  * @return 3 para remover condominios
+ * @return 4 quando não tem condominios disponiveis
  */
 int agencyMenu(CAgency* agency);
 
@@ -36,6 +37,7 @@ int agencyMenu(CAgency* agency);
  * @return 0 para sair
  * @return 1 para ver um condomínio em especifico
  * @return 2 para voltar atrás
+ * @return 3 quando não tem condominios para mostrar, logo não pode fazer gestão
  */
 int viewCondos(CAgency* agency);
 

@@ -182,9 +182,16 @@ void removeCondo(CAgency *agency) {
 }
 
 int viewCondos(CAgency *agency) {
+
+    if (agency->getCondominios().isEmpty()) {
+        cout << endl << "\tNothing to show\n";
+        return 3;
+    }
+
     cout << endl << tittleBars("View Condominiums");
     cout << "View Condominiums" << endl;
     cout << tittleBars("View Condominiums") << endl;
+
 
     cout << printTable(agency->getCondominios()) << endl;
 
