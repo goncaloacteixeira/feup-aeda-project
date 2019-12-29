@@ -378,7 +378,7 @@ void removeMemberMenu(Condominio *cond) {
     }
 
     if (toRemove->getNumHabitacoes() != 0) {
-        cout << "\tCAREFUL: You are removing a member who has habitations assigned!\n";
+        cout << "\tWARNING: You are removing a member who has habitations assigned!\n";
         cout << "\tProceed (y/n)? ";
         bool flag = false;
         string option;
@@ -664,6 +664,259 @@ int rqService(Condominio *cond) {
     wait();
     return choice;
 }
+
+
+// ---
+
+int habitationsMenu(Condominio *cond) {
+    cout << endl << tittleBars("Manage Habitations");
+    cout << "Manage Habitations" << endl;
+    cout << tittleBars("Manage Habitations") << endl;
+
+    cout << endl << printTable(cond->getHabitacoes()) << endl;
+
+    cout << "\t[1] Add Habitation\n";
+    cout << "\t[2] Remove Habitation\n";
+    cout << "\t[3] Assign Habitation\n";
+    cout << "\t[4] Unasign Habitation\n";
+    cout << "\t[5] Sort Habitations\n";
+    cout << "\t[6] View only Apartments\n";
+    cout << "\t[7] View only Villas\n\n";
+
+    cout << "\t[8] Back\n";
+    cout << "\t[0] Exit\n";
+
+    int choice = -1;
+    while (!cin.good() || choice < 0 || choice > 8) {
+        cin.clear();
+
+        cout << "\n\tChoice: ";
+        cin >> choice;
+        if (!cin.good() || choice < 0 || choice > 8) {
+            cout << "\tType a valid number please\n";
+        }
+        cin.ignore();
+    }
+    return choice;
+}
+
+int addHabMenu(Condominio *cond) {
+    cout << endl << tittleBars("Add Habitation");
+    cout << "Add Habitation" << endl;
+    cout << tittleBars("Add Habitation") << endl;
+
+    cout << "\tSelect type of habitation: \n";
+    cout << "\t[1] Apartment\n";
+    cout << "\t[2] Villa\n\n";
+
+    cout << "\t[3] Back\n";
+    cout << "\t[0] Exit\n";
+
+    int choice = -1;
+    while (!cin.good() || choice < 0 || choice > 3) {
+        cin.clear();
+
+        cout << "\n\tChoice: ";
+        cin >> choice;
+        if (!cin.good() || choice < 0 || choice > 3) {
+            cout << "\tType a valid number please\n";
+        }
+        cin.ignore();
+    }
+    if (choice == 0 || choice == 3) {
+        return choice;
+    }
+    string address;
+
+    while (true) {
+        cout << "\tAddress (Street, Location, Number, Zip-Code): ";
+        getline(cin, address);
+
+        cout << "\tIs this address correct? (Y/N): ";
+        string option;
+        getline(cin, option);
+
+        bool flag = false;
+        if (option == "Y" || option == "N" || option == "y" || option == "n")
+            flag = true;
+
+        while (!flag) {
+            cout << "\tType 'Y' or 'N' please: ";
+
+            getline(cin, option);
+            if (option == "Y" || option == "N" || option == "y" || option == "n")
+                flag = true;
+        }
+
+        if (option == "Y" || option == "y") break;
+    }
+
+    cout  << "\tHabitation's Area: ";
+    float habArea;
+    cin >> habArea;
+    while (!cin.good() || choice < 0) {
+        cin.clear();
+        cin.ignore();
+
+        cout << "\tType a valid number please\n";
+        cout << "\tHabitation's Area: ";
+
+        cin >> habArea;
+    }
+    cin.ignore();
+
+    cout << "\tMonthly Payment: ";
+    float mensalidade;
+    cin >> mensalidade;
+    while (!cin.good() || choice < 0) {
+        cin.clear();
+        cin.ignore();
+
+        cout << "\tType a valid number please\n";
+        cout << "\tMonthly Payment: ";
+
+        cin >> mensalidade;
+    }
+    cin.ignore();
+
+    if (choice == 1) {
+        string type;
+        cout << "\tTypology (T0, T1, etc.): ";
+        getline(cin, type);
+
+        cout << "\tFloor: ";
+        int floor;
+        cin >> floor;
+        while (!cin.good()) {
+            cin.clear();
+            cin.ignore();
+
+            cout << "\tType a valid number please\n";
+            cout << "\tFloor: ";
+
+            cin >> floor;
+        }
+        cin.ignore();
+        cond->adicionaHabitacao(new Apartamento(address,habArea,type,floor,mensalidade));
+    }
+
+    else if (choice == 2) {
+        float extArea;
+        cout << "\tExternal Area: ";
+        cin >> extArea;
+        while (!cin.good() || extArea < 0) {
+            cin.clear();
+            cin.ignore();
+
+            cout << endl << "\tType a valid number please\n";
+            cout << "\tExternal Area: ";
+
+            cin >> extArea;
+        }
+        cin.ignore();
+
+        string option;
+        while (true) {
+            cout << "\tPool? (Y/N): ";
+
+            getline(cin, option);
+
+            bool flag = false;
+            if (option == "Y" || option == "N" || option == "y" || option == "n")
+                flag = true;
+
+            while (!flag) {
+                cout << endl << "\tType 'Y' or 'N' please: ";
+
+                getline(cin, option);
+                if (option == "Y" || option == "N" || option == "y" || option == "n")
+                    flag = true;
+            }
+            if (flag) break;
+        }
+        bool pool;
+        (option == "Y" || option == "y") ? pool = true : pool = false;
+
+        cond->adicionaHabitacao(new Vivenda(address,habArea,extArea,pool,mensalidade));
+    }
+
+    cout << endl << "\tHabitation successfully added!" << endl;
+    wait();
+    return choice;
+}
+
+void rmHabMenu(Condominio *cond) {
+    cout << endl << tittleBars("Remove Habitation");
+    cout << "Remove Habitation" << endl;
+    cout << tittleBars("Remove Habitation") << endl;
+
+    if (cond->getNumHabitacoes() == 0) {
+        cout << "\tNothing to Remove\n";
+    }
+    else {
+        string id;
+        Habitacao* habitacao;
+        while (true) {
+            try {
+                cout << "\tID (starts with V for Villa and A for Apartment) (type -1 to CANCEL): ";
+                getline(cin, id);
+                if (id == "-1")
+                    return;
+                habitacao = cond->findHab(id);
+            }
+            catch (NoSuchHabitation &e) {
+                cout << "\tHabitation with ID: " << e.getID() << " does not exist on this condominium\n";
+                continue;
+            }
+            break;
+        }
+
+        if (habitacao->getEstado()) {
+            cout << "\tWARNING: You are removing an occupied habitation!\n";
+            cout << "\tProceed (y/n)? ";
+            bool flag = false;
+            string option;
+            getline(cin, option);
+
+            if (option == "Y" || option == "N" || option == "y" || option == "n")
+                flag = true;
+
+            while (!flag) {
+                cout << "\tType 'Y' or 'N' please: ";
+
+                getline(cin, option);
+                if (option == "Y" || option == "N" || option == "y" || option == "n")
+                    flag = true;
+            }
+
+            if (option == "Y" || option == "y") {
+                for (auto &c : cond->getCondominos()) {
+                    for (auto &h : c->getHabitacoes()) {
+                        if (h == habitacao) {
+                            c->removeHabitacao(h);
+                            break;
+                        }
+                    }
+                }
+                cond->removeHabitacao(habitacao);
+            }
+            else {
+                return;
+            }
+        } else {
+            cond->removeHabitacao(habitacao);
+        }
+
+        cout << endl << "Habitation successfully removed!" << endl;
+    }
+    wait();
+}
+
+
+
+
+
+
 
 
 

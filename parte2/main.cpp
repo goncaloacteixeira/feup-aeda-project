@@ -169,8 +169,8 @@ void testFunc() {
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
 
-    rqService(c1);
-    cout << printTable(c1->getServicos());
+    rmHabMenu(c1);
+    cout << printTable(c1->getHabitacoes());
 
 }
 
@@ -186,6 +186,9 @@ int main() {
 //    a.addCondominio(c1);
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
+
+    testFunc();
+    return 0;
 
     int choice = -1;
 

@@ -74,10 +74,13 @@ Condominio* speficifyCondo(CAgency* agency);
  * @return 1 para entrar no menu dos condóminos
  * @return 2 para entrar no menu das habitações
  * @return 3 para entrar no menu dos serviços prestados
+ * // TODO - ADICIONAR MENU DE ANTIGOS CONDÓMINOS
  * @return 4 para vizualizar o 'revenue' do condomínio
  * @return 5 para voltar atrás
  */
 int condoMenu();
+
+// --- MENUS PARA CONDÓMINOS
 
 /**
  * @brief Menu para gestão dos condóminos relativos a um condominio especifico
@@ -121,5 +124,36 @@ int sortMembersMenu(Condominio* cond);
  */
 int rqService(Condominio* cond);
 
+// --- MENUS PARA HABITAÇÕES
+
+/**
+ * @brief Menu para gestão das habitações de um condominio especificado pelo utilizador
+ * @param cond
+ * @return 0 para sair
+ * @return 1 para adicionar uma habitação
+ * @return 2 para remover uma habitação
+ * @return 3 para atribuir uma habitação a um condómino
+ * @return 4 para 'desassociar' uma habitação
+ * @return 5 para ordenar as habitações
+ * @return 6 para ver apenas os apartamentos
+ * @return 7 para ver apenas as vivendas
+ * @return 8 para voltar atrás
+ */
+int habitationsMenu(Condominio* cond);
+
+/**
+ * @breif Menu para adicionar uma habitação ao condomínio
+ * @param cond Condominio especificado pelo utilizador
+ * @return 0 para sair
+ * @return 3 para voltar atrás
+ * @return diferente de 0 ou 3 para continuar
+ */
+int addHabMenu(Condominio* cond);
+
+/**
+ * @brief Menu para remover uma habitação
+ * @param cond Condominio especificado pelo utilizador
+ */
+void rmHabMenu(Condominio* cond);
 
 #endif //PARTE2_MENUS_H
