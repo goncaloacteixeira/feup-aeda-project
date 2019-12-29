@@ -109,7 +109,15 @@ void removeMemberMenu(Condominio* cond);
  * @return diferente de 0 ou 6 para continuar
  */
 int sortMembersMenu(Condominio* cond);
-void rqService(Condominio* cond);
+
+/**
+ * @brief Menu para requisitar um serviço para o condómino a especificar pelo utilizador
+ * @param cond Condominio especificado pelo utilizador
+ * @return 0 para sair
+ * @return 1 para voltar atrás
+ * @return diferente de 0 ou 6 para continuar
+ */
+int rqService(Condominio* cond);
 
 
 #endif //PARTE2_MENUS_H

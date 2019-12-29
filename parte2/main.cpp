@@ -169,7 +169,9 @@ void testFunc() {
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
 
-    sortMembersMenu(c1);
+    rqService(c1);
+    cout << printTable(c1->getServicos());
+
 }
 
 

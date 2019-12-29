@@ -13,6 +13,7 @@ string printTable(vector<Condomino*> condominos);
 string printTable(tabHFormerMembers formerMembers);
 string printTable(vector<Transporte> transports);
 string printTable(BST<Condominio*> condominios);
+string printTable(vector<Servico*> servicos);
 
 
 #endif //PARTE2_OUTPUT_FORMATS_H

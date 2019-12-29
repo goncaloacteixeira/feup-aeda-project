@@ -141,3 +141,22 @@ string printTable(BST<Condominio *> condominios) {
     table.set_cell_text_align(fort::text_align::center);
     return table.to_string();
 }
+
+string printTable(vector<Servico*> servicos) {
+    fort::char_table table;
+    table.set_border_style(FT_DOUBLE2_STYLE);
+
+    if (servicos.empty()) {
+        cout << "\tNothing to show\n";
+        return "";
+    }
+    table << fort::header
+          << "Service" << "Cost" << "Provider" << fort::endr;
+
+    for (auto & s : servicos) {
+        table << s->getTipo() << s->getCusto() << s->getPrestador() << fort::endr;
+    }
+
+    table.set_cell_text_align(fort::text_align::center);
+    return table.to_string();
+}

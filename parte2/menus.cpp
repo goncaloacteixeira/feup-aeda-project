@@ -461,6 +461,203 @@ int sortMembersMenu(Condominio *cond) {
     return choice;
 }
 
+int rqService(Condominio *cond) {
+    cout << endl << tittleBars("Request a Service for a Member");
+    cout << "Request a Service for a Member" << endl;
+    cout << tittleBars("Request a Service for a Member") << endl;
+
+    if (cond->getNumCondominos() == 0) {
+        cout << "No members!\n";
+        return 16;
+    }
+
+    string nif;
+    Condomino *condomino;
+    while (true) {
+        try {
+            cout << "\tVAT number (type -1 to CANCEL): ";
+            getline(cin,nif);
+            if (nif == "-1")
+                return 16;
+            while (!cin.good() || stoi(nif) <= 0 || !checkNIF(nif)) {
+                cout << "\tType a valid number please\n";
+                cout << "\tVAT number (type -1 to CANCEL): ";
+                getline(cin,nif);
+                if (nif == "-1")
+                    return 16;
+            }
+            condomino = cond->findCon(stoi(nif));
+        }
+        catch (NoSuchCondomino &e) {
+            cout << "That VAT number: " << e.getNIF() << " does not exist in members\n";
+            continue;
+        }
+        break;
+    }
+
+    cout << "\tRequest a service for " << condomino->getNome() << endl << endl;
+
+    cout << "\t[01] Cleaning\n";
+    cout << "\t[02] Hairdresser\n";
+    cout << "\t[03] Car Cleaner\n";
+    cout << "\t[04] Security\n";
+    cout << "\t[05] Babysitter\n";
+    cout << "\t[06] Plumber\n";
+    cout << "\t[07] Gardener\n";
+    cout << "\t[08] Electrician\n";
+    cout << "\t[09] Cook\n";
+    cout << "\t[10] Car Usher\n";
+    cout << "\t[11] Spa\n";
+    cout << "\t[12] Cinema\n";
+    cout << "\t[13] Event Organizer\n";
+    cout << "\t[14] Petsitter\n";
+    cout << "\t[15] Painter\n\n";
+
+
+    cout << "\t[16] Back\n";
+    cout << "\t[0] Exit\n";
+
+
+    int choice;
+
+    cout << "\tChoice: ";
+
+    cin >> choice;
+    while (!cin.good() || choice < 0 || choice > 16) {
+        cin.clear();
+        cin.ignore();
+
+        cout << "\tType a valid number please\n";
+        cout << "\tChoice: ";
+
+        cin >> choice;
+    }
+    cin.ignore();
+
+
+    if (choice == 0 || choice == 16)
+        return choice;
+
+    bool flag = false;
+    string prestador;
+    string type;
+
+    switch (choice) {
+        case 1:
+            while (!flag) {
+                cout << "\tProvider: ";
+                getline(cin, prestador);
+                if (cond->getNumPrestLimpeza() == cond->prestLimpezaAtuais().size()) {
+                    for (const string &provider : cond->prestLimpezaAtuais())
+                        if (provider == prestador) {
+                            flag = true;
+                            break;
+                        }
+                    if (!flag)
+                        cout << "\tThat provider cannot be added. Maximum cleaning providers reached!\n";
+                }
+                flag = true;
+            }
+            type = "Cleaning";
+            break;
+        case 2:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Hairdresser";
+            break;
+        case 3:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Car Cleaner";
+            break;
+        case 4:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Security";
+            break;
+        case 5:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Babysitter";
+            break;
+        case 6:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Plumber";
+            break;
+        case 7:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Gardener";
+            break;
+        case 8:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Electrician";
+            break;
+        case 9:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Cook";
+            break;
+        case 10:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Car Usher";
+            break;
+        case 11:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Spa";
+            break;
+        case 12:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Cinema";
+            break;
+        case 13:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Event Organizer";
+            break;
+        case 14:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Petsitter";
+            break;
+        case 15:
+            cout << "\tProvider: ";
+            getline(cin, prestador);
+            type = "Painter";
+            break;
+        default:
+            break;
+    }
+
+    float custo;
+    cout << "\tCusto: ";
+    cin >> custo;
+    while (!cin.good() || choice < 0) {
+        cin.clear();
+        cin.ignore();
+
+        cout << "\tType a valid number please\n";
+        cout << "\tCusto: ";
+
+        cin >> custo;
+    }
+    cin.ignore();
+
+
+    auto *servico = new Servico(custo, prestador, type);
+    condomino->adicionaServico(servico);
+    cond->adicionaServico(servico);
+
+    cout << endl << "\tService successfully requested!" << endl;
+    wait();
+    return choice;
+}
+
 
 
 
