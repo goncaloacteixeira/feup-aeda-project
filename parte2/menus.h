@@ -161,9 +161,13 @@ void rmHabMenu(Condominio* cond);
  * @brief Menu para atribuir uma habitação a um condómino
  * @param cond Condominio especificado pelo utilizador
  */
-void assignHab(Condominio* cond);
+void assignHabMenu(Condominio* cond);
 
-
+/**
+ * @brief Menu para desassociar uma habitação de um condómino
+ * @param cond Condominio especificado pelo utilizador
+ */
+void unassignHabMenu(Condominio* cond);
 
 
 #endif //PARTE2_MENUS_H
