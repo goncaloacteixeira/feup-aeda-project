@@ -153,11 +153,8 @@ void generateData() {
 
 }
 
-/* TODO - FAZER MENUS E TRATAMENTO DE EXCEÇÕES
- * TODO - UTILIZAR TABELAS PARA REPRESENTAÇÃO DE DADOS */
 
-
-void test() {
+void testFunc() {
     auto *c1 = new Condominio("con1.txt");
 //    auto *c2 = new Condominio("con2.txt");
 //    auto *c3 = new Condominio("con3.txt");
@@ -168,11 +165,14 @@ void test() {
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
 
-    viewCondos(&a);
+    removeMemberMenu(c1);
+    c1->writeToFiles();
 }
 
 
 int main() {
+    testFunc();
+    return 0;
 
     auto *c1 = new Condominio("con1.txt");
 //    auto *c2 = new Condominio("con2.txt");
@@ -183,6 +183,8 @@ int main() {
     a.addCondominio(c1);
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
+
+
 
     int choice = -1;
 

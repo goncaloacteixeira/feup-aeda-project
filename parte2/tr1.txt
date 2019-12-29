@@ -1,6 +1,6 @@
 Georges : 12 : Dunelm
-Nearbrook : 40 : Pewterspear Green
 Godmond Hall : 40 : Simeon
+Nearbrook : 40 : Pewterspear Green
 Bankwell : 69 : Assheton
 Halifax : 101 : Back Longworth
 Boswell : 105 : Goulder
@@ -21,8 +21,8 @@ Hare : 428 : Leestone
 Halesworth : 448 : Exchange
 Kersal Vale : 512 : Cleveleys
 Gill Bent : 516 : Graves
-Lingfield : 520 : Walnut Tree
 Telegraph : 520 : Wilkinson
+Lingfield : 520 : Walnut Tree
 Rushton : 584 : Brideoake
 Burnaby : 612 : Eve
 Royal Oak : 685 : Onslow

@@ -67,7 +67,7 @@ Condominio* speficifyCondo(CAgency* agency);
 
 /**
  * @brief Menu para gestão de um condomínio especifico
- * @param cond Condominio a especificar pelo utilizador no menu anterior
+ * @param cond Condominio especificado pelo utilizador
  * @return 0 para sair
  * @return 1 para entrar no menu dos condóminos
  * @return 2 para entrar no menu das habitações
@@ -79,6 +79,7 @@ int condoMenu();
 
 /**
  * @brief Menu para gestão dos condóminos relativos a um condominio especifico
+ * @param cond Condominio especificado pelo utilizador
  * @return 0 para sair
  * @return 1 para adicionar um condómino
  * @return 2 para remover um membro
@@ -88,7 +89,19 @@ int condoMenu();
  */
 int membersMenu(Condominio* cond);
 
+/**
+ * @breif Menu para adicionar um condómino a um condominio especifico
+ * @param cond Condominio especificado pelo utilizador
+ */
 void addMemberMenu(Condominio* cond);
+
+/**
+ * @breif Menu para remover um condómino de um condominio especifico
+ * @param cond Condominio especificado pelo utilizador
+ */
+void removeMemberMenu(Condominio* cond);
+void sortMembersMenu(Condominio* cond);
+void rqService(Condominio* cond);
 
 
 #endif //PARTE2_MENUS_H

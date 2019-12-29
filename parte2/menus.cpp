@@ -4,6 +4,11 @@
 
 #include "menus.h"
 
+void wait() {
+    cout << "\n\tPress ENTER key to continue....";
+    getchar();
+}
+
 string tittleBars(string tittle) {
     string res = "";
     for (auto &i : tittle)
@@ -107,6 +112,7 @@ int addCondo(CAgency *agency) {
 
         agency->addCondominio(new Condominio(des,loc,numLimp));
         cout << "\n\tCondominium added successfully!\n";
+        wait();
         return 1;
     }
     else if (choice == 2) {
@@ -143,6 +149,7 @@ int addCondo(CAgency *agency) {
 
         agency->addCondominio(new Condominio(filename));
         cout << "\n\tCondominium added successfully!\n";
+        wait();
         return 2;
     }
     else if (choice == 3) {
@@ -169,9 +176,11 @@ void removeCondo(CAgency *agency) {
     if (agency->findCondominio(des,loc) != nullptr) {
         agency->removeCondominio(agency->findCondominio(des,loc));
         cout << "\n\tCondominium successfully removed!\n";
+        wait();
     }
     else {
         cout << "\n\tThat condominium does not exist!\n";
+        wait();
     }
 }
 
@@ -243,9 +252,9 @@ int condoMenu() {
 }
 
 int membersMenu(Condominio* cond) {
-    cout << endl << tittleBars("Manage Condominium");
-    cout << "Manage Condominium" << endl;
-    cout << tittleBars("Manage Condominium") << endl;
+    cout << endl << tittleBars("Manage Members");
+    cout << "Manage Members" << endl;
+    cout << tittleBars("Manage Members") << endl;
 
     cout << endl << printTable(cond->getCondominos()) << endl;
 
@@ -268,5 +277,141 @@ int membersMenu(Condominio* cond) {
         cin.ignore();
     }
     return choice;
+}
+
+void addMemberMenu(Condominio *cond) {
+    cout << endl << tittleBars("Add Member");
+    cout << "Add Member" << endl;
+    cout << tittleBars("Add Member") << endl;
+
+    string name;
+    string nif;
+
+    while (true) {
+        cout << "\tName (type -1 to CANCEL): ";
+        getline(cin, name);
+
+        if (name == "-1") {
+            return;
+        }
+
+        cout << "\tIs this name correct? (Y/N): ";
+        string option;
+        getline(cin, option);
+
+        bool flag = false;
+        if (option == "Y" || option == "N" || option == "y" || option == "n")
+            flag = true;
+
+        while (!flag) {
+            cout << endl << "\tType 'Y' or 'N' please: ";
+
+            getline(cin, option);
+            if (option == "Y" || option == "N" || option == "y" || option == "n")
+                flag = true;
+        }
+
+        if (option == "Y" || option == "y") break;
+    }
+
+    while (true) {
+        try {
+            cout << "\tVAT number (type -1 to CANCEL): ";
+            getline(cin,nif);
+            if (nif == "-1")
+                return;
+            while (!cin.good() || stoi(nif) <= 0 || !checkNIF(nif)) {
+                cout << "\tType a valid number please\n";
+                cout << "\tVAT number (type -1 to CANCEL): ";
+                getline(cin,nif);
+                if (nif == "-1")
+                    return;
+            }
+            cond->adicionaCondomino(new Condomino(name, stoi(nif)));
+        }
+        catch (InvalidNIF &e) {
+            cout << "That VAT number: " << e.getNIF() << " already exists in members\n";
+            continue;
+        }
+        break;
+    }
+
+    cout << endl << "\t\tMember successfully added!" << endl;
+    wait();
+}
+
+void removeMemberMenu(Condominio *cond) {
+    cout << endl << tittleBars("Remove Member");
+    cout << "Remove Member" << endl;
+    cout << tittleBars("Remove Member") << endl;
+
+    string nif;
+    Condomino *toRemove;
+
+
+    while (true) {
+        try {
+            cout << "\tVAT number (type -1 to CANCEL): ";
+            getline(cin,nif);
+            if (nif == "-1")
+                return;
+            while (!cin.good() || stoi(nif) <= 0 || !checkNIF(nif)) {
+                cout << "\tType a valid number please\n";
+                cout << "\tVAT number (type -1 to CANCEL): ";
+                getline(cin,nif);
+                if (nif == "-1")
+                    return;
+            }
+            toRemove = cond->findCon(stoi(nif));
+        }
+        catch (NoSuchCondomino &e) {
+            cout << "That VAT number: " << e.getNIF() << " does not exist in members\n";
+            continue;
+        }
+        break;
+    }
+
+    if (toRemove->getNumHabitacoes() != 0) {
+        cout << "\tCAREFUL: You are removing a member who has habitations assigned!\n";
+        cout << "\tProceed (y/n)? ";
+        bool flag = false;
+        string option;
+        getline(cin, option);
+
+        if (option == "Y" || option == "N" || option == "y" || option == "n")
+            flag = true;
+
+        while (!flag) {
+            cout << "\tType 'Y' or 'N' please: ";
+
+            getline(cin, option);
+            if (option == "Y" || option == "N" || option == "y" || option == "n")
+                flag = true;
+        }
+
+        if (option == "Y" || option == "y") {
+            for (auto &h : toRemove->getHabitacoes()) {
+                toRemove->removeHabitacao(h);
+            }
+            cout << "\tHow long have that member been assigned to this condominium? ";
+            string time;
+            getline(cin, time);
+            cond->removeCondomino(toRemove, stoi(time));
+            cout << endl << "\t\tMember successfully removed!" << endl;
+            wait();
+            return;
+        }
+        else {
+            return;
+        }
+    }
+
+    cout << "\tHow long have that member been assigned to this condominium?: ";
+    string time;
+    getline(cin, time);
+    cond->removeCondomino(toRemove, stoi(time));
+
+    cout << endl << "\t\tMember successfully removed!" << endl;
+    wait();
 }
 
