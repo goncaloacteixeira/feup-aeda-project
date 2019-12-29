@@ -169,8 +169,26 @@ void assignHabMenu(Condominio* cond);
  */
 void unassignHabMenu(Condominio* cond);
 
-
+/**
+ * @brief Menu para ordenar as habitações
+ * @param cond Condominio especificado pelo utilizador
+ * @return 0 para sair
+ * @return 6 para voltar atrás
+ * @return diferente de 0 ou 6 para continuar
+ */
 int sortHabMenu(Condominio* cond);
+
+/**
+ * @brief Menu para ver apenas apartamentos
+ * @param cond Condominio especificado pelo utilizador
+ */
+void viewOnlyAps(Condominio* cond);
+
+/**
+ * @brief Menu para ver apenas vivendas
+ * @param cond Condominio especificado pelo utilizador
+ */
+void viewOnlyVillas(Condominio* cond);
 
 
 #endif //PARTE2_MENUS_H

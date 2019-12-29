@@ -1183,6 +1183,40 @@ int sortHabMenu(Condominio *cond) {
     return choice;
 }
 
+void viewOnlyAps(Condominio *cond) {
+    cout << endl << tittleBars("View Apartments");
+    cout << "View Apartments" << endl;
+    cout << tittleBars("View Apartments") << endl;
+
+    vector<Habitacao*> apps;
+
+    for (auto &h : cond->getHabitacoes()) {
+        if (h->getID()[0] == 'A') {
+            apps.emplace_back(h);
+        }
+    }
+
+    cout << printTable(apps);
+    wait();
+}
+
+void viewOnlyVillas(Condominio *cond) {
+    cout << endl << tittleBars("View Villas");
+    cout << "View Villas" << endl;
+    cout << tittleBars("View Villas") << endl;
+
+    vector<Habitacao*> vivs;
+
+    for (auto &h : cond->getHabitacoes()) {
+        if (h->getID()[0] == 'V') {
+            vivs.emplace_back(h);
+        }
+    }
+
+    cout << printTable(vivs);
+    wait();
+}
+
 
 
 

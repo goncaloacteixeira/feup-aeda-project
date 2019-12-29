@@ -169,8 +169,7 @@ void testFunc() {
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
 
-    sortHabMenu(c1);
-    cout << printTable(c1->getHabitacoes());
+    viewOnlyAps(c1);
 
 }
 
@@ -186,9 +185,6 @@ int main() {
 //    a.addCondominio(c1);
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
-
-    testFunc();
-    return 0;
 
     int choice = -1;
 
@@ -250,6 +246,56 @@ int main() {
                                             // exit menu
                                             return 0;
                                         }
+                                    }
+                                }
+                            }
+                            else if (choice == 2) {
+                                while (choice != 8) {
+                                    choice = habitationsMenu(cond);
+                                    if (choice == 0) {
+                                        // exit menu
+                                        return 0;
+                                    }
+                                    else if (choice == 8) {
+                                        choice = -1;
+                                        break;
+                                    }
+                                    else if (choice == 1) {
+                                        choice = addHabMenu(cond);
+                                        if (choice == 0) {
+                                            // exit menu
+                                            return 0;
+                                        }
+                                        continue;
+                                    }
+                                    else if (choice == 2) {
+                                        rmHabMenu(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 3) {
+                                        assignHabMenu(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 4) {
+                                        unassignHabMenu(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 5) {
+                                        choice = sortHabMenu(cond);
+                                        if (choice == 0) {
+                                            // exit menu
+                                            return 0;
+                                        }
+                                        choice = 5;
+                                        continue;
+                                    }
+                                    else if (choice == 6) {
+                                        viewOnlyAps(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 7) {
+                                        viewOnlyVillas(cond);
+                                        continue;
                                     }
                                 }
                             }
