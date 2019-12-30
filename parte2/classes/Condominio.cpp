@@ -132,7 +132,9 @@ Condominio::Condominio(string filename) {
     if (transportsFile.is_open()) {
         while (getline(transportsFile, trLine)) {
             vector<string> temp = split(trLine, " : ");
-            transport.push(Transporte(temp[0], stoi(temp[1]), temp[2]));
+            bool active;
+            (temp[3] == "1") ? active = true : active = false;
+            transport.push(Transporte(temp[0], stoi(temp[1]), temp[2],active));
         }
         transportsFile.close();
     }
@@ -295,7 +297,7 @@ void Condominio::writeToFiles() {
     if (!transport.empty()) {
         auto transports = this->getVectorTransports();
         for (auto &t : transports) {
-            trans << t.getLocalization() << " : " << t.getDistance() << " : " << t.getDestiny() << endl;
+            trans << t.getLocalization() << " : " << t.getDistance() << " : " << t.getDestiny() << " : " << t.getState() << endl;
         }
     }
     trans.close();

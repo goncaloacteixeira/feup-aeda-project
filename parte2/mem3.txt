@@ -1,105 +1,91 @@
-15
-Dixie OWENS
-900340116
+13
+Gloriana ROBINSON
+124234928
 0
-2
-Cleaning : 108 : BeautifulHome
-Babysitting : 64 : EverytingUNeed
-::::::::::
-Angy MYERS
-131283477
-1
-A46
-2
-Car Wash : 100 : EverytingUNeed
-Plumbing : 10 : BeautifulHome
-::::::::::
-Dacie DANIEL
-621050862
-1
-V39
-1
-Cleaning : 25 : BeautifulHome
-::::::::::
-Filide SIMPSON
-109791770
-1
-V41
-1
-Plumbing : 68 : Easy Home
-::::::::::
-Arabelle RIVERA
-756060030
-1
-A47
 0
 ::::::::::
-Wilhelmine ROSS
-177162920
-1
-V44
+Aili RODRIGUEZ
+984339351
 2
-Car Wash : 39 : EverytingUNeed
-Car Wash : 66 : SDHF
-::::::::::
-Amaleta BROWN
-559432358
-1
-A45
+A36
+A29
 2
-Security : 61 : Homes.LDA
-Car Wash : 78 : BeautifulHome
+Petsitting : 81 : SDHF
+Plumbing : 100 : Homes.LDA
 ::::::::::
-Ruperta KING
-521389295
+Junie RIVERA
+235530931
 1
-A44
-1
-Plumbing : 18 : Homes.LDA
+A35
+2
+Mechanic : 85 : Easy Home
+Car Wash : 38 : EverytingUNeed
 ::::::::::
-Demetra WELLS
-504076513
-1
-V40
+Layne WOODS
+614404921
+2
+V21
+A34
+2
+Car Wash : 73 : SDHF
+Babysitting : 104 : AFA
+::::::::::
+Kary LONG
+118816703
+0
 0
 ::::::::::
-Chiquia REED
-802311830
-0
+Janith HICKS
+114462067
 1
-Petsitting : 10 : Homes.LDA
+A32
+2
+Mechanic : 102 : Easy Home
+Security : 17 : BeautifulHome
 ::::::::::
-Mersey WILLIAMS
-452067794
+Nerita THOMPSON
+741176850
+1
+A37
+2
+Petsitting : 105 : SDHF
+Hairdresser : 23 : EverytingUNeed
+::::::::::
+Larissa POWELL
+807425646
+2
+A31
+V24
+0
+::::::::::
+Julina WHITE
+804521711
 0
 2
-Babysitting : 47 : Easy Home
-Mechanic : 83 : AFA
+Security : 15 : SDHF
+Gardener : 20 : Homes.LDA
 ::::::::::
-Clo SULLIVAN
-237997192
+Monah KELLY
+427999426
 0
-1
-Security : 41 : BeautifulHome
-::::::::::
-Cornela PHILLIPS
-668718068
-1
-A43
-2
-Security : 38 : BeautifulHome
-Gardener : 106 : SDHF
-::::::::::
-Harriett HICKS
-696036379
-1
-A42
 0
 ::::::::::
-Thelma NELSON
-938673007
+Clary HILL
+101437501
 1
-V42
+A33
+1
+Car Wash : 33 : AlwaysThere
+::::::::::
+Belia HOWARD
+100747761
+0
 2
-Plumbing : 43 : EverytingUNeed
-Cleaning : 17 : AlwaysThere
+Security : 82 : Easy Home
+Security : 80 : Homes.LDA
+::::::::::
+Chelsey STEWART
+844673212
+0
+1
+Mechanic : 59 : Homes.LDA

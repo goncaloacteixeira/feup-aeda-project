@@ -1,286 +1,246 @@
 Con2
 Manchester
-10
+20
 mem2.txt
-35
+30
 tr2.txt
 former2.txt
-V24
+V11
 1
-Back Portugal, Manchester, 51, 400-231
+Lumber, Manchester, 358, 400-340
 350
 74.000000
 1
 974
 ::::::::::
-A16
+A9
 1
-Lostock, Manchester, 44, 400-146
+Bothwell, Manchester, 372, 400-108
 135
 T4
 2
 483
 ::::::::::
-V25
+V12
 1
-Standish, Manchester, 283, 400-265
+Hopelea, Manchester, 275, 400-275
 470
 68.000000
 1
 1584
 ::::::::::
-A17
+A10
 1
-Standish, Manchester, 283, 400-265
+Hopelea, Manchester, 275, 400-275
 71
 T1
 5
 909
 ::::::::::
-A18
+A11
 1
-Holmes, Manchester, 351, 400-198
+Tipperary, Manchester, 80, 400-190
 337
 T6
 3
 878
 ::::::::::
-A19
+A12
 1
-Greenshall, Manchester, 192, 400-65
+Hedley, Manchester, 25, 400-78
 99
 T5
 4
 841
 ::::::::::
-A20
+A13
 1
-Weaverham, Manchester, 244, 400-324
+Lumber, Manchester, 358, 400-340
 196
 T1
 5
 177
 ::::::::::
-A21
+A14
 1
-Prior, Manchester, 37, 400-342
+Firwood, Manchester, 178, 400-49
 338
 T6
 9
 234
 ::::::::::
-V26
-0
-Councillor, Manchester, 135, 400-367
+V13
+1
+Transvaal, Manchester, 234, 400-317
 391
 10.000000
 0
 1209
 ::::::::::
-A22
-0
-Riddings, Manchester, 335, 400-289
+A15
+1
+Benbow, Manchester, 285, 400-230
 198
 T4
 7
 816
 ::::::::::
-A23
-0
-West Bridgewater, Manchester, 327, 400-376
+A16
+1
+Haigh, Manchester, 353, 400-396
 205
 T3
 5
 286
 ::::::::::
-V27
-1
-Ferryhill, Manchester, 323, 400-222
+V14
+0
+Hedley, Manchester, 25, 400-78
 93
 58.000000
 1
 1326
 ::::::::::
-A24
+A17
 1
-Rowe, Manchester, 126, 400-197
+Elgar, Manchester, 362, 400-94
 112
 T6+
 1
 433
 ::::::::::
-V28
+V15
 1
-Desmond, Manchester, 204, 400-170
+Bothwell, Manchester, 372, 400-108
 619
 54.000000
 0
 1250
 ::::::::::
-A25
-1
-Wharf, Manchester, 237, 400-86
+A18
+0
+Foxfield, Manchester, 123, 400-272
 194
 T6
 9
 789
 ::::::::::
-V29
-0
-Standish, Manchester, 283, 400-265
+V16
+1
+Hopelea, Manchester, 275, 400-275
 378
 31.000000
 0
 700
 ::::::::::
-A26
-1
-Desmond, Manchester, 204, 400-170
+A19
+0
+Pond, Manchester, 298, 400-308
 160
 T2
 9
 371
 ::::::::::
-V30
-1
-Rowe, Manchester, 126, 400-197
+V17
+0
+Firwood, Manchester, 178, 400-49
 552
 40.000000
 1
 917
 ::::::::::
-A27
+A20
 1
-Wharf, Manchester, 237, 400-86
+Great Moor, Manchester, 166, 400-246
 80
 T6
 10
 195
 ::::::::::
-V31
+V18
 1
-Duncombe, Manchester, 81, 400-414
+Brentfield, Manchester, 276, 400-338
 561
 33.000000
 1
 1775
 ::::::::::
-A28
-0
-Lightwood, Manchester, 162, 400-238
+A21
+1
+Hopelea, Manchester, 275, 400-275
 244
 T6
 5
 764
 ::::::::::
-A29
-0
-Lightwood, Manchester, 162, 400-238
+A22
+1
+Hopelea, Manchester, 275, 400-275
 42
 T6+
 8
 300
 ::::::::::
-A30
+A23
 0
-Back Portugal, Manchester, 51, 400-231
+Back Albert, Manchester, 79, 400-166
 239
 T5
 1
 972
 ::::::::::
-A31
-0
-Dyer, Manchester, 319, 400-143
+A24
+1
+Great Moor, Manchester, 166, 400-246
 413
 T0
 7
 342
 ::::::::::
-V32
+V19
 1
-Hepley, Manchester, 97, 400-195
+Nut, Manchester, 292, 400-347
 324
 46.000000
 1
 1314
 ::::::::::
-A32
+A25
 1
-Councillor, Manchester, 135, 400-367
+Transvaal, Manchester, 234, 400-317
 331
 T4
 4
 622
 ::::::::::
-A33
-1
-Ferryhill, Manchester, 323, 400-222
+A26
+0
+Benbow, Manchester, 285, 400-230
 101
 T5
 6
 440
 ::::::::::
-A34
-1
-Standish, Manchester, 283, 400-265
+A27
+0
+Hopelea, Manchester, 275, 400-275
 360
 T3
 4
 621
 ::::::::::
-A35
+A28
 1
-Curteis, Manchester, 206, 400-75
+Smethurst, Manchester, 5, 400-246
 63
 T6+
 4
 821
 ::::::::::
-V33
+V20
 0
-Lostock, Manchester, 44, 400-146
+Pond, Manchester, 298, 400-308
 366
 51.000000
 0
 1612
-::::::::::
-A36
-1
-Great Egerton, Manchester, 354, 400-317
-167
-T3
-9
-348
-::::::::::
-A37
-1
-Prior, Manchester, 37, 400-342
-390
-T0
-4
-985
-::::::::::
-V34
-1
-Lightwood, Manchester, 162, 400-238
-346
-15.000000
-0
-439
-::::::::::
-A38
-1
-Tranmere, Manchester, 292, 400-307
-67
-T0
-5
-223
-::::::::::
-A39
-0
-Bonnywell, Manchester, 258, 400-143
-78
-T0
-5
-908

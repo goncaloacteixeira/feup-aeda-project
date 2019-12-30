@@ -6,8 +6,8 @@
 
 #include <utility>
 
-Transporte::Transporte(string loc, unsigned dist, string dest) : localizacao(std::move(loc)), distancia(dist), destino(std::move(dest)) {
-    this->active = false;
+Transporte::Transporte(string loc, unsigned dist, string dest, bool active) : localizacao(std::move(loc)), distancia(dist), destino(std::move(dest)) {
+    this->active = active;
 }
 
 string Transporte::getLocalization() const {

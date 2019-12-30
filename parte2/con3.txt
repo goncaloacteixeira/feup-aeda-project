@@ -1,166 +1,126 @@
 Con3
 Manchester
-20
+10
 mem3.txt
-20
+15
 tr3.txt
 former3.txt
-A40
-0
-Sunnyside, Manchester, 119, 400-101
-368
-T0
-10
-688
+V21
+1
+Millington Hall, Manchester, 125, 400-86
+350
+74.000000
+1
+974
 ::::::::::
-V35
-0
-Haverton, Manchester, 284, 400-39
-557
-83.000000
-0
-614
-::::::::::
-V36
-0
-Skaife, Manchester, 375, 400-81
-430
-33.000000
-0
-951
-::::::::::
-V37
-0
-Brookwood, Manchester, 335, 400-162
-214
-69.000000
-0
-801
-::::::::::
-A41
-0
-Mayton, Manchester, 24, 400-180
-94
+A29
+1
+Hunters Hill, Manchester, 110, 400-197
+135
 T4
-8
-937
+2
+483
 ::::::::::
-V38
+V22
 0
-Industrial, Manchester, 143, 400-376
-198
-19.000000
+Fern Lea, Manchester, 258, 400-196
+470
+68.000000
 1
-1413
+1584
 ::::::::::
-V39
-1
-Elson, Manchester, 109, 400-190
-72
-27.000000
+A30
 0
-1751
-::::::::::
-A42
-1
-Beech Hayes, Manchester, 103, 400-171
-417
-T5
-8
-970
-::::::::::
-A43
-1
-Grisdale, Manchester, 264, 400-28
-121
-T0
-8
-942
-::::::::::
-A44
-1
-Hallam, Manchester, 60, 400-313
-391
-T2
-9
-400
-::::::::::
-A45
-1
-Lawers, Manchester, 399, 400-40
-183
-T2
-5
-391
-::::::::::
-A46
-1
-Pandora, Manchester, 128, 400-295
-74
-T3
-8
-847
-::::::::::
-V40
-1
-Hallam, Manchester, 60, 400-313
-136
-46.000000
-1
-541
-::::::::::
-V41
-1
-Hallam, Manchester, 60, 400-313
-583
-62.000000
-1
-905
-::::::::::
-V42
-1
-Standish, Manchester, 349, 400-113
-220
-99.000000
-0
-1215
-::::::::::
-V43
-0
-Standish, Manchester, 349, 400-113
-353
-10.000000
-1
-1065
-::::::::::
-A47
-1
-Canon, Manchester, 309, 400-103
-326
+Fern Lea, Manchester, 258, 400-196
+71
 T1
-1
-400
+5
+909
 ::::::::::
-V44
+A31
 1
-Sunnyside, Manchester, 119, 400-101
-641
-69.000000
-1
-1652
+North, Manchester, 183, 400-162
+337
+T6
+3
+878
 ::::::::::
-V45
+A32
+1
+Hunters Hill, Manchester, 110, 400-197
+99
+T5
+4
+841
+::::::::::
+A33
+1
+Millington Hall, Manchester, 125, 400-86
+196
+T1
+5
+177
+::::::::::
+A34
+1
+Liley, Manchester, 137, 400-354
+338
+T6
+9
+234
+::::::::::
+V23
 0
-Pingot, Manchester, 183, 400-241
-219
-63.000000
-1
-1429
-::::::::::
-A48
+Bispham, Manchester, 232, 400-171
+391
+10.000000
 0
-Lawers, Manchester, 399, 400-40
-215
-T2
+1209
+::::::::::
+A35
+1
+Ercall, Manchester, 383, 400-328
+198
+T4
 7
-313
+816
+::::::::::
+A36
+1
+Upper Brook, Manchester, 273, 400-275
+205
+T3
+5
+286
+::::::::::
+V24
+1
+Hunters Hill, Manchester, 110, 400-197
+93
+58.000000
+1
+1326
+::::::::::
+A37
+1
+Veronica, Manchester, 133, 400-209
+112
+T6+
+1
+433
+::::::::::
+V25
+0
+Hunters Hill, Manchester, 110, 400-197
+619
+54.000000
+0
+1250
+::::::::::
+A38
+0
+Holmes, Manchester, 195, 400-357
+194
+T6
+9
+789

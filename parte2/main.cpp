@@ -149,7 +149,7 @@ void generateData() {
             while (loc == dest) {
                 dest = streets[rand() % streets.size()];
             }
-            c.addTransportStop(Transporte(loc,rand() & 1000 + 5,dest));
+            c.addTransportStop(Transporte(loc,rand() & 1000 + 5,dest,true));
         }
 
         c.writeToFiles();
