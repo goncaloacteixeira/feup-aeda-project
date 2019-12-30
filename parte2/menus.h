@@ -47,6 +47,7 @@ int viewCondos(CAgency* agency);
  * @return 0 para sair
  * @return 1 para adicionar condominio 'from scratch'
  * @return 2 para adicionar condominio a partir de um ficheiro
+ * @return 3 para adicionar varios condominios
  * @return 3 para voltar atrás
  */
 int addCondo(CAgency* agency);
@@ -149,7 +150,7 @@ int habitationsMenu(Condominio* cond);
  * @return 3 para voltar atrás
  * @return diferente de 0 ou 3 para continuar
  */
-int addHabMenu(Condominio* cond);
+int addHabMenu(CAgency* agency, Condominio* cond);
 
 /**
  * @brief Menu para remover uma habitação

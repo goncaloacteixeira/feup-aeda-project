@@ -24,11 +24,11 @@ Gendre : 553 : Mosedale : 1
 Summer : 556 : Scholars : 1
 Varna : 609 : Bowness : 1
 Shady : 613 : Harbour Farm : 1
-Colywn : 616 : Halsworth : 1
 Broughton : 616 : Delbooth : 1
+Colywn : 616 : Halsworth : 1
 Lowes : 617 : Edgeley : 1
-Wearish : 641 : Chorley New : 1
 Chatwood : 641 : Longshut : 1
+Wearish : 641 : Chorley New : 1
 Sutherland : 648 : Coral : 1
 Ciceley Mill : 652 : Caton : 1
 Porter : 708 : Cecil : 1

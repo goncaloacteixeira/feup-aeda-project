@@ -67,17 +67,18 @@ int addCondo(CAgency *agency) {
     cout << tittleBars("Add Condominium") << endl;
 
     cout << "\t[1] Add condominium from scatch\n";
-    cout << "\t[2] Add condominium from file\n\n";
-    cout << "\t[3] Back\n";
+    cout << "\t[2] Add condominium from file\n";
+    cout << "\t[3] Add several condominiums\n\n";
+    cout << "\t[4] Back\n";
     cout << "\t[0] Exit\n";
 
     int choice = -1;
-    while (!cin.good() || choice < 0 || choice > 3) {
+    while (!cin.good() || choice < 0 || choice > 4) {
         cin.clear();
 
         cout << "\tChoice: ";
         cin >> choice;
-        if (!cin.good() || choice < 0 || choice > 3) {
+        if (!cin.good() || choice < 0 || choice > 4) {
             cout << "\tType a valid number please\n";
         }
         cin.ignore();
@@ -151,10 +152,23 @@ int addCondo(CAgency *agency) {
         return 2;
     }
     else if (choice == 3) {
-        return 3;
+        cout << endl << "----------------------\n";
+        cout << "Read Several Condominiums" << endl;
+        cout << "----------------------\n\n";
+
+        cout << "\tType the filenames separated by a space (type -1 to CANCEL): ";
+        string filenames;
+        getline(cin, filenames);
+
+        vector<string> files = split(filenames, " ");
+
+        for (auto & f : files) {
+            agency->addCondominio(new Condominio(f));
+        }
+
     }
-    else if (choice == 0) {
-        return 0;
+    else if (choice == 0 || choice == 4) {
+        return choice;
     }
 }
 
@@ -704,7 +718,7 @@ int habitationsMenu(Condominio *cond) {
     return choice;
 }
 
-int addHabMenu(Condominio *cond) {
+int addHabMenu(CAgency* agency, Condominio* cond) {
     cout << endl << tittleBars("Add Habitation");
     cout << "Add Habitation" << endl;
     cout << tittleBars("Add Habitation") << endl;
@@ -801,7 +815,18 @@ int addHabMenu(Condominio *cond) {
             cin >> floor;
         }
         cin.ignore();
-        cond->adicionaHabitacao(new Apartamento(address,habArea,type,floor,mensalidade));
+
+        string id = "A0";
+        int i = 0;
+
+        while (agency->findID(id)) {
+            id = "A" + to_string(i+1);
+            i++;
+        }
+        cond->adicionaHabitacao(new Apartamento(address, habArea, type, floor, mensalidade, id));
+        cout << endl << "\tHabitation successfully added!" << endl;
+        wait();
+        return choice;
     }
 
     else if (choice == 2) {
@@ -841,12 +866,18 @@ int addHabMenu(Condominio *cond) {
         bool pool;
         (option == "Y" || option == "y") ? pool = true : pool = false;
 
-        cond->adicionaHabitacao(new Vivenda(address,habArea,extArea,pool,mensalidade));
-    }
+        string id = "V0";
+        int i = 0;
 
-    cout << endl << "\tHabitation successfully added!" << endl;
-    wait();
-    return choice;
+        while (agency->findID(id)) {
+            id = "V" + to_string(i+1);
+            i++;
+        }
+        cond->adicionaHabitacao(new Vivenda(address, habArea, extArea, pool, mensalidade, id));
+        cout << endl << "\tHabitation successfully added!" << endl;
+        wait();
+        return choice;
+    }
 }
 
 void rmHabMenu(Condominio *cond) {

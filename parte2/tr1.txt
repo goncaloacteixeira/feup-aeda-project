@@ -8,9 +8,9 @@ Hulme Hall : 109 : Cheltenham : 1
 Aldfield : 136 : Old Doctors : 1
 Howson : 161 : Bunsen : 1
 Chataway : 164 : Back Hilden : 1
-Engine : 165 : Ollershaw : 1
-Longdale : 165 : Venice : 1
 Denstone : 165 : Upper Conran : 1
+Longdale : 165 : Venice : 1
+Engine : 165 : Ollershaw : 1
 West : 168 : Kenneth : 1
 Chelbourne : 193 : Scholey : 1
 Pensarn : 201 : Burgess : 1
@@ -32,11 +32,11 @@ Booth Bank : 417 : Bobs : 1
 Limesfield : 417 : Windsor : 1
 Reynard : 424 : Lownorth : 1
 Hare : 428 : Leestone : 1
-Deer Hill : 516 : Plumbley : 1
-Burnham : 516 : Blairgowrie : 1
 Gill Bent : 516 : Graves : 1
-Telegraph : 520 : Wilkinson : 1
+Burnham : 516 : Blairgowrie : 1
+Deer Hill : 516 : Plumbley : 1
 Lingfield : 520 : Walnut Tree : 1
+Telegraph : 520 : Wilkinson : 1
 Mangle : 552 : Wortley : 1
 Rushton : 584 : Brideoake : 1
 Burnaby : 612 : Eve : 1
@@ -56,8 +56,8 @@ Barwell : 832 : Colenso : 1
 Pobgreen : 837 : Canon : 1
 Maltmans : 840 : Thornycroft : 1
 Coin : 865 : Rossett : 1
-Little Brook : 877 : Cranlington : 1
 Ridling : 877 : Glazebrook : 1
+Little Brook : 877 : Cranlington : 1
 Peebles : 900 : Upper Kent : 1
 South Hill : 901 : Lavington : 1
 Ringlow Park : 908 : Buller : 1

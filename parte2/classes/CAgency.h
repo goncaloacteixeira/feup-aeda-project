@@ -11,16 +11,19 @@
 class CAgency {
     string name;
     unsigned nif;
+    vector<string> ids;
 
     BST<Condominio*> condominios;
 public:
     CAgency(string name, unsigned int nif) :
         condominios(new Condominio("","",0)),
-        name(name), nif(nif) { };
+        name(name), nif(nif) { ids = {}; };
 
     int addCondominios(const vector<Condominio*>& cons);
     void addCondominio(Condominio* con);
     void removeCondominio(Condominio* con);
+
+    bool findID(string id);
 
     vector<Condominio*> getCondominios(int nHabsMax);
 
@@ -29,6 +32,8 @@ public:
     friend ostream& operator<<(ostream& os, const CAgency& dt);
 
     BST<Condominio*> getCondominios();
+
+    void writeToFiles();
 
 };
 

@@ -28,11 +28,12 @@ string Habitacao::info() {
 }
 
 
-int Apartamento::ap_current_id = 0;
-Apartamento::Apartamento(string morada, float areaHabitacional, string tipologia, int piso, float mensalidade) : Habitacao(morada, areaHabitacional), id("A" + to_string(ap_current_id)){
+// int Apartamento::ap_current_id = 0;
+Apartamento::Apartamento(string morada, float areaHabitacional, string tipologia, int piso, float mensalidade, string id) : Habitacao(morada, areaHabitacional), id(id){
+
     this->tipologia = tipologia;
     this->piso = piso;
-    ap_current_id += 1;
+    //ap_current_id += 1;
     this->mensalidade = mensalidade;
 }
 
@@ -58,11 +59,11 @@ vector<string> Apartamento::extraInfo() {
     return {this->tipologia, to_string(this->piso)};
 }
 
-int Vivenda::vi_current_id = 0;
-Vivenda::Vivenda(string morada, float areaHabitacional, float areaExterior, bool piscina, float mensalidade) : Habitacao(morada, areaHabitacional) , id("V" + to_string(vi_current_id))  {
+// int Vivenda::vi_current_id = 0;
+Vivenda::Vivenda(string morada, float areaHabitacional, float areaExterior, bool piscina, float mensalidade, string id) : Habitacao(morada, areaHabitacional) , id(id)  {
     this->areaExterior = areaExterior;
     this->piscina = piscina;
-    vi_current_id += 1;
+    // vi_current_id += 1;
     this->mensalidade = mensalidade;
 }
 
