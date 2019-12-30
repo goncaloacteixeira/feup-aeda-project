@@ -3,6 +3,8 @@
 
 #include "classes/CAgency.h"
 #include "output-formats.h"
+#include "classes/utils.h"
+#include "menus.h"
 
 void generateData() {
     cout << "How many condominiuns do you want to generate? ";
@@ -118,9 +120,13 @@ void generateData() {
             for (int i = 0; i < aux; i++) {
                 Habitacao* h = c.getHabitacoes()[rand() % c.getHabitacoes().size()];
                 if (!h->getEstado())
-                    con->adicionaHabitacao(c.getHabitacoes()[rand() % c.getHabitacoes().size()]);
-                else
-                    i--;
+                    con->adicionaHabitacao(h);
+                else {
+                    if (i != 0) {
+                        i--;
+                    }
+                }
+
             }
         }
 
@@ -151,23 +157,359 @@ void generateData() {
 
 }
 
-/* TODO - FAZER MENUS E TRATAMENTO DE EXCEÇÕES
- * TODO - UTILIZAR TABELAS PARA REPRESENTAÇÃO DE DADOS */
 
-
-
-
-int main() {
-
+void testFunc() {
     auto *c1 = new Condominio("con1.txt");
-    auto *c2 = new Condominio("con2.txt");
-    auto *c3 = new Condominio("con3.txt");
+//    auto *c2 = new Condominio("con2.txt");
+//    auto *c3 = new Condominio("con3.txt");
 
 
     CAgency a("Joao",919234123);
     a.addCondominio(c1);
-    a.addCondominio(c2);
-    a.addCondominio(c3);
+//    a.addCondominio(c2);
+//    a.addCondominio(c3);
+
+    // viewOnlyAps(c1);
+
+
+}
+
+
+int main() {
+
+//    auto *c1 = new Condominio("con1.txt");
+//    auto *c2 = new Condominio("con2.txt");
+//    auto *c3 = new Condominio("con3.txt");
+
+
+//    CAgency a("Joao",919234123);
+//    a.addCondominio(c1);
+//    a.addCondominio(c2);
+//    a.addCondominio(c3);
+
+
+    int choice = -1;
+
+    CAgency agency = firstMenu();
+    while (choice != 0) {
+        choice = agencyMenu(&agency);
+        if (choice == 1) {
+            while (true) {
+                choice = viewCondos(&agency);
+
+                if (choice == 3) {  // não tem condominios para mostrar
+                    break;
+                }
+
+                if (choice == 1) {
+                    auto cond = speficifyCondo(&agency);
+                    if (cond == nullptr) {
+                        continue;
+                    } else {
+                        while (true) {
+                            choice = condoMenu();
+                            if (choice == 0) {
+                                choice = exitMenu();
+                                if (choice == 0) {
+                                    BSTItrIn<Condominio*> it(agency.getCondominios());
+                                    while (!it.isAtEnd()) {
+                                        it.retrieve()->writeToFiles();
+                                        it.advance();
+                                    }
+                                    return 0;
+                                }
+                                else if (choice == 1) {
+                                    cout << "\tNo changes made!";
+                                    return 0;
+                                }
+                                choice = -1;
+                                continue;
+                            }
+                            else if (choice == 7) {
+                                break;
+                            }
+                            else if (choice == 1) {
+                                while (choice != 5) {
+                                    choice = membersMenu(cond);
+                                    if (choice == 0) {
+                                        choice = exitMenu();
+                                        if (choice == 0) {
+                                            BSTItrIn<Condominio*> it(agency.getCondominios());
+                                            while (!it.isAtEnd()) {
+                                                it.retrieve()->writeToFiles();
+                                                it.advance();
+                                            }
+                                            return 0;
+                                        }
+                                        else if (choice == 1) {
+                                            cout << "\tNo changes made!";
+                                            return 0;
+                                        }
+                                        choice = -1;
+                                        continue;
+                                    }
+                                    else if (choice == 5) {
+                                        choice = -1;
+                                        break;
+                                    }
+                                    else if (choice == 1) {
+                                        addMemberMenu(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 2) {
+                                        removeMemberMenu(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 3) {
+                                        choice = sortMembersMenu(cond);
+                                        if (choice == 0) {
+                                            choice = exitMenu();
+                                            if (choice == 0) {
+                                                BSTItrIn<Condominio*> it(agency.getCondominios());
+                                                while (!it.isAtEnd()) {
+                                                    it.retrieve()->writeToFiles();
+                                                    it.advance();
+                                                }
+                                                return 0;
+                                            }
+                                            else if (choice == 1) {
+                                                cout << "\tNo changes made!";
+                                                return 0;
+                                            }
+                                            choice = -1;
+                                            continue;
+                                        }
+                                        choice = 3;
+                                    }
+                                    else if (choice == 4) {
+                                        choice = rqService(cond);
+                                        if (choice == 0) {
+                                            choice = exitMenu();
+                                            if (choice == 0) {
+                                                BSTItrIn<Condominio*> it(agency.getCondominios());
+                                                while (!it.isAtEnd()) {
+                                                    it.retrieve()->writeToFiles();
+                                                    it.advance();
+                                                }
+                                                return 0;
+                                            }
+                                            else if (choice == 1) {
+                                                cout << "\tNo changes made!";
+                                                return 0;
+                                            }
+                                            choice = -1;
+                                            continue;
+                                        }
+                                    }
+                                }
+                            }
+                            else if (choice == 2) {
+                                while (choice != 8) {
+                                    choice = habitationsMenu(cond);
+                                    if (choice == 0) {
+                                        choice = exitMenu();
+                                        if (choice == 0) {
+                                            BSTItrIn<Condominio*> it(agency.getCondominios());
+                                            while (!it.isAtEnd()) {
+                                                it.retrieve()->writeToFiles();
+                                                it.advance();
+                                            }
+                                            return 0;
+                                        }
+                                        else if (choice == 1) {
+                                            cout << "\tNo changes made!";
+                                            return 0;
+                                        }
+                                        choice = -1;
+                                        continue;
+                                    }
+                                    else if (choice == 8) {
+                                        choice = -1;
+                                        break;
+                                    }
+                                    else if (choice == 1) {
+                                        choice = addHabMenu(cond);
+                                        if (choice == 0) {
+                                            choice = exitMenu();
+                                            if (choice == 0) {
+                                                BSTItrIn<Condominio*> it(agency.getCondominios());
+                                                while (!it.isAtEnd()) {
+                                                    it.retrieve()->writeToFiles();
+                                                    it.advance();
+                                                }
+                                                return 0;
+                                            }
+                                            else if (choice == 1) {
+                                                cout << "\tNo changes made!";
+                                                return 0;
+                                            }
+                                            choice = -1;
+                                            continue;
+                                        }
+                                        continue;
+                                    }
+                                    else if (choice == 2) {
+                                        rmHabMenu(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 3) {
+                                        assignHabMenu(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 4) {
+                                        unassignHabMenu(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 5) {
+                                        choice = sortHabMenu(cond);
+                                        if (choice == 0) {
+                                            choice = exitMenu();
+                                            if (choice == 0) {
+                                                BSTItrIn<Condominio*> it(agency.getCondominios());
+                                                while (!it.isAtEnd()) {
+                                                    it.retrieve()->writeToFiles();
+                                                    it.advance();
+                                                }
+                                                return 0;
+                                            }
+                                            else if (choice == 1) {
+                                                cout << "\tNo changes made!";
+                                                return 0;
+                                            }
+                                            choice = -1;
+                                            continue;
+                                        }
+                                        choice = 5;
+                                        continue;
+                                    }
+                                    else if (choice == 6) {
+                                        viewOnlyAps(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 7) {
+                                        viewOnlyVillas(cond);
+                                        continue;
+                                    }
+                                }
+                            }
+                            else if (choice == 3) {
+                                servicesMenu(cond);
+                                continue;
+                            }
+                            else if (choice == 4) { // antigos condominos
+                                choice = -1;
+                                while (choice != 4) {
+                                    choice = fmMenu(cond);
+                                    if (choice == 0) {
+                                        choice = exitMenu();
+                                        if (choice == 0) {
+                                            BSTItrIn<Condominio*> it(agency.getCondominios());
+                                            while (!it.isAtEnd()) {
+                                                it.retrieve()->writeToFiles();
+                                                it.advance();
+                                            }
+                                            return 0;
+                                        }
+                                        else if (choice == 1) {
+                                            cout << "\tNo changes made!";
+                                            return 0;
+                                        }
+                                        choice = -1;
+                                        continue;
+                                    }
+                                }
+                            }
+                            else if (choice == 5) { // transportes
+                                choice = -1;
+                                while (choice != 6) {
+                                    choice = transportMenu(cond);
+                                    if (choice == 0) {
+                                        choice = exitMenu();
+                                        if (choice == 0) {
+                                            BSTItrIn<Condominio*> it(agency.getCondominios());
+                                            while (!it.isAtEnd()) {
+                                                it.retrieve()->writeToFiles();
+                                                it.advance();
+                                            }
+                                            return 0;
+                                        }
+                                        else if (choice == 1) {
+                                            cout << "\tNo changes made!";
+                                            return 0;
+                                        }
+                                        choice = -1;
+                                        continue;
+                                    }
+                                    else if (choice == 1) {
+                                        viewStopsDestiny(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 2) {
+                                        viewAllStops(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 3) {
+                                        changeStop(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 4) {
+                                        deactivateStop(cond);
+                                        continue;
+                                    }
+                                    else if (choice == 5) {
+                                        activateStop(cond);
+                                        continue;
+                                    }
+                                }
+                            }
+                            else if (choice == 6) { // revenue
+                                revenueMenu(cond);
+                            }
+                        }
+                    }
+                } else if (choice == 2) {
+                    break;
+                } else if (choice == 0) {
+                    choice = exitMenu();
+                    if (choice == 0) {
+                        BSTItrIn<Condominio*> it(agency.getCondominios());
+                        while (!it.isAtEnd()) {
+                            it.retrieve()->writeToFiles();
+                            it.advance();
+                        }
+                        return 0;
+                    }
+                    else if (choice == 1) {
+                        cout << "\tNo changes made!";
+                        return 0;
+                    }
+                    choice = -1;
+                    continue;
+                }
+            }
+        }
+        else if (choice == 2) {
+            choice = addCondo(&agency);
+        }
+        else if (choice == 3) {
+            removeCondo(&agency);
+        }
+        else if (choice == 0) {
+            choice = exitMenu();
+            if (choice == 0) {
+                BSTItrIn<Condominio *> it(agency.getCondominios());
+                while (!it.isAtEnd()) {
+                    it.retrieve()->writeToFiles();
+                    it.advance();
+                }
+                return 0;
+            } else if (choice == 1) {
+                cout << "\tNo changes made!";
+                return 0;
+            }
+            choice = -1;
+        }
+    }
 
     return 0;
 }

@@ -133,8 +133,13 @@ public:
     void removeHabitacao(Habitacao *hab);
 
     /**
-     * @brief Ordena Habitações
+     * @brief Ordena Condóminos
      * @param protocol Portocolo de ordenação
+     * protocol "id" sort by id (descendant)
+     * protocol "area-descendant" sort by habitation's area (lower to higher)
+     * protocol "area-ascendant" sort by habitation's area (higher to lower)
+     * protocol "pay-descendant" sort by monthly payment (lower to higher)
+     * protocol "pay-ascendant" sort by montly payment (lower to higher)
      */
     void ordernarHab(const string& protocol);
 
@@ -165,6 +170,11 @@ public:
     /**
      * @brief Ordena Condóminos
      * @param protocol Portocolo de ordenação
+     * protocol "name" sort by name (A-Z)
+     * protocol "number-descendant" sort by number of houses (lower to higher)
+     * protocol "number-ascendant" sort by number of houses (higher to lower)
+     * protocol "pay-descendant" sort by monthly payment (lower to higher)
+     * protocol "pay-ascendant" sort by montly payment (lower to higher)
      */
     void ordenarCond(const string& protocol);
 
@@ -219,10 +229,25 @@ public:
     vector<Transporte> getVectorTransports() const;
     void addTransportStop(const Transporte& t1);
     bool removeTransportStop(const Transporte& t1);
-    Transporte getTransport(const string& dest);
+    Transporte getTransport(const string& loc, unsigned int dist, const string& dest);
 
     // HASH TABLE
     tabHFormerMembers getFormerMembers() const;
+
+    /**
+     * @brief Função para encontrar um antigo condómino dado um NIF
+     * @param nif NIF do antigo condómino a econtrar
+     * @return antigo condómino
+     * Levanta uma exceção quando não consegue encontrar o antigo condómino
+     */
+    FormerMember findFormerMember(unsigned int nif);
+
+    /**
+     * @brief Membro para encontrar antigos condóminos que estiveram ligados ao condominio por um tempo minimo time
+     * @param time tempo minimo
+     * @return vetor com os membros antigos
+     */
+    vector<FormerMember> getformerMembers(unsigned int time);
 
     // operators
     friend ostream& operator<<(ostream& os, const Condominio& con);
@@ -267,6 +292,13 @@ class InvalidNIF {
     unsigned int nif;
 public:
     InvalidNIF(unsigned int nif) { this->nif = nif; }
+    unsigned int getNIF() { return this->nif; }
+};
+
+class NoSuchFormerMember {
+    unsigned int nif;
+public:
+    NoSuchFormerMember(unsigned int nif) { this->nif = nif; }
     unsigned int getNIF() { return this->nif; }
 };
 

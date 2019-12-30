@@ -354,7 +354,20 @@ void Condominio::removeHabitacao(Habitacao *hab) {
 }
 
 void Condominio::ordernarHab(const string& protocol) {
-    if (protocol == "area-ascending") {
+
+    if (protocol == "id") {
+        for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (habitacoes[i + 1]->getID() < habitacoes[i]->getID()) {
+                    swap(habitacoes[i], habitacoes[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "area-descendant") {
         for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
@@ -366,7 +379,7 @@ void Condominio::ordernarHab(const string& protocol) {
         }
     }
 
-    else if (protocol == "area-descending") {
+    else if (protocol == "area-ascendant") {
         for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
@@ -378,7 +391,7 @@ void Condominio::ordernarHab(const string& protocol) {
         }
     }
 
-    else if (protocol == "pay-ascending") {
+    else if (protocol == "pay-descendant") {
         for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
@@ -390,7 +403,7 @@ void Condominio::ordernarHab(const string& protocol) {
         }
     }
 
-    else if (protocol == "pay-descending") {
+    else if (protocol == "pay-ascendant") {
         for (unsigned int j = habitacoes.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
@@ -441,8 +454,7 @@ void Condominio::removeCondomino(Condomino *con, unsigned time) {
 
 
 void Condominio::ordenarCond(const string& protocol) {
-
-    if (protocol == "name-ascending") {
+    if (protocol == "name") {
         for (unsigned int j = condominos.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
@@ -454,11 +466,11 @@ void Condominio::ordenarCond(const string& protocol) {
         }
     }
 
-    else if (protocol == "name-descending") {
+    else if (protocol == "number-descendant") {
         for (unsigned int j = condominos.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
-                if (condominos[i + 1]->getNome() > condominos[i]->getNome()) {
+                if (condominos[i + 1]->getNumHabitacoes() < condominos[i]->getNumHabitacoes()) {
                     swap(condominos[i], condominos[i + 1]);
                     troca = true;
                 }
@@ -466,7 +478,19 @@ void Condominio::ordenarCond(const string& protocol) {
         }
     }
 
-    else if (protocol == "pay-ascending") {
+    else if (protocol == "number-ascendant") {
+        for (unsigned int j = condominos.size() - 1; j > 0; j--) {
+            bool troca = false;
+            for (unsigned int i = 0; i < j; i++)
+                if (condominos[i + 1]->getNumHabitacoes() > condominos[i]->getNumHabitacoes()) {
+                    swap(condominos[i], condominos[i + 1]);
+                    troca = true;
+                }
+            if (!troca) return;
+        }
+    }
+
+    else if (protocol == "pay-ascendant") {
         for (unsigned int j = condominos.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
@@ -478,7 +502,7 @@ void Condominio::ordenarCond(const string& protocol) {
         }
     }
 
-    else if (protocol == "pay-descending") {
+    else if (protocol == "pay-descendant") {
         for (unsigned int j = condominos.size() - 1; j > 0; j--) {
             bool troca = false;
             for (unsigned int i = 0; i < j; i++)
@@ -601,14 +625,21 @@ bool Condominio::removeTransportStop(const Transporte& t1) {
         }
         transport.pop();
     }
+
+    for (auto & tr : toPutBack) {
+        transport.push(tr);
+    }
+
     return found;
 }
 
-Transporte Condominio::getTransport(const string& dest) {
+Transporte Condominio::getTransport(const string& loc, unsigned int dist, const string& dest) {
     HEAP_TRANSPORT temp = this->transport;
 
     while (!temp.empty()) {
-        if (temp.top().getDestiny() == dest) {
+        if (temp.top().getLocalization() == loc &&
+            temp.top().getDistance() == dist &&
+            temp.top().getDestiny() == dest) {
             return temp.top();
         }
         temp.pop();
@@ -638,6 +669,29 @@ ostream &operator<<(ostream &os, const Condominio &con) {
 
 tabHFormerMembers Condominio::getFormerMembers() const {
     return this->formerMembers;
+}
+
+FormerMember Condominio::findFormerMember(unsigned int nif) {
+    if (formerMembers.empty()) {
+        throw NoSuchFormerMember(nif);
+    }
+    for (auto &fm : formerMembers) {
+        if (fm.nif == nif)
+            return fm;
+    }
+    throw NoSuchFormerMember(nif);
+}
+
+vector<FormerMember> Condominio::getformerMembers(unsigned int time) {
+    vector<FormerMember> temp;
+    if (formerMembers.empty()) {
+        return temp;
+    }
+    for (auto &fm : formerMembers) {
+        if (fm.time >= time)
+            temp.emplace_back(fm);
+    }
+    return temp;
 }
 
 

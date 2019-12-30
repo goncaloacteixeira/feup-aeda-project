@@ -1,21 +1,21 @@
 Con1
 Manchester
-10
+20
 mem1.txt
-30
+41
 tr1.txt
 former1.txt
 V0
-1
-Howgate, Manchester, 112, 400-139
+0
+Riddings, Manchester, 320, 400-129
 112
 39.000000
 1
 1358
 ::::::::::
 A0
-1
-Peckford, Manchester, 333, 400-189
+0
+Rink, Manchester, 92, 400-295
 86
 T6+
 2
@@ -23,15 +23,15 @@ T6+
 ::::::::::
 V1
 1
-Milbourne, Manchester, 331, 400-413
+Sidcup, Manchester, 298, 400-339
 158
 103.000000
 1
 716
 ::::::::::
 V2
-0
-Flixton, Manchester, 57, 400-172
+1
+Wildcroft, Manchester, 111, 400-364
 567
 57.000000
 1
@@ -39,7 +39,7 @@ Flixton, Manchester, 57, 400-172
 ::::::::::
 A1
 1
-Malta, Manchester, 164, 400-104
+Riddings, Manchester, 320, 400-129
 179
 T0
 5
@@ -47,7 +47,7 @@ T0
 ::::::::::
 V3
 0
-Highclove, Manchester, 135, 400-164
+Maldwyn, Manchester, 294, 400-204
 240
 34.000000
 0
@@ -55,39 +55,39 @@ Highclove, Manchester, 135, 400-164
 ::::::::::
 A2
 0
-Kirby, Manchester, 361, 400-124
+Guildford, Manchester, 339, 400-403
 292
 T4
 4
 901
 ::::::::::
 A3
-0
-Peckford, Manchester, 333, 400-189
+1
+Cocksheadhey, Manchester, 172, 400-278
 306
 T6+
 10
 647
 ::::::::::
 V4
-0
-Lewis, Manchester, 257, 400-40
+1
+Renolds, Manchester, 236, 400-244
 640
 54.000000
 1
 1275
 ::::::::::
 V5
-0
-Carib, Manchester, 144, 400-353
+1
+Guildford, Manchester, 339, 400-403
 377
 36.000000
 0
 684
 ::::::::::
 A4
-1
-Captain Lees, Manchester, 28, 400-171
+0
+Carib, Manchester, 144, 400-353
 179
 T4
 7
@@ -95,7 +95,7 @@ T4
 ::::::::::
 A5
 1
-Riddings, Manchester, 320, 400-129
+Malta, Manchester, 164, 400-104
 120
 T5
 10
@@ -103,7 +103,7 @@ T5
 ::::::::::
 V6
 1
-Morley, Manchester, 353, 400-374
+Ancroft, Manchester, 165, 400-412
 377
 29.000000
 0
@@ -134,7 +134,7 @@ Attercliffe, Manchester, 31, 400-49
 687
 ::::::::::
 V9
-1
+0
 Rink, Manchester, 92, 400-295
 613
 21.000000
@@ -151,7 +151,7 @@ T1
 ::::::::::
 A8
 0
-Lewis, Manchester, 257, 400-40
+Renolds, Manchester, 236, 400-244
 161
 T6
 8
@@ -159,7 +159,7 @@ T6
 ::::::::::
 V10
 1
-Farley, Manchester, 330, 400-51
+Sidcup, Manchester, 298, 400-339
 488
 41.000000
 1
@@ -167,31 +167,31 @@ Farley, Manchester, 330, 400-51
 ::::::::::
 V11
 0
-Oakfield, Manchester, 373, 400-267
+Maldwyn, Manchester, 294, 400-204
 563
 89.000000
 0
 1100
 ::::::::::
 A9
-1
-Riddings, Manchester, 320, 400-129
+0
+Lower Sheriff, Manchester, 228, 400-31
 392
 T6
 4
 897
 ::::::::::
 V12
-1
-Carib, Manchester, 144, 400-353
+0
+Guildford, Manchester, 339, 400-403
 190
 67.000000
 1
 576
 ::::::::::
 V13
-1
-Highclove, Manchester, 135, 400-164
+0
+Ripon, Manchester, 48, 400-34
 458
 103.000000
 1
@@ -199,7 +199,7 @@ Highclove, Manchester, 135, 400-164
 ::::::::::
 V14
 1
-Howgate, Manchester, 112, 400-139
+Malta, Manchester, 164, 400-104
 638
 30.000000
 0
@@ -207,23 +207,23 @@ Howgate, Manchester, 112, 400-139
 ::::::::::
 V15
 0
-Kirby, Manchester, 361, 400-124
+Guildford, Manchester, 339, 400-403
 459
 97.000000
 1
 953
 ::::::::::
 V16
-0
-Carib, Manchester, 144, 400-353
+1
+Kirby, Manchester, 361, 400-124
 124
 15.000000
 0
 1302
 ::::::::::
 A10
-1
-Oakfield, Manchester, 373, 400-267
+0
+Maldwyn, Manchester, 294, 400-204
 132
 T2
 6
@@ -231,16 +231,104 @@ T2
 ::::::::::
 A11
 1
-Eyam, Manchester, 250, 400-216
+Cocksheadhey, Manchester, 172, 400-278
 172
 T1
 1
 597
 ::::::::::
 A12
-1
+0
 Renolds, Manchester, 236, 400-244
 388
 T2
 10
 550
+::::::::::
+V17
+1
+Farley, Manchester, 330, 400-51
+132
+84.000000
+0
+856
+::::::::::
+A13
+1
+Fulham, Manchester, 107, 400-227
+195
+T6
+9
+723
+::::::::::
+V18
+0
+Eyam, Manchester, 250, 400-216
+169
+40.000000
+0
+1082
+::::::::::
+V19
+0
+Bay Tree, Manchester, 37, 400-330
+445
+20.000000
+0
+405
+::::::::::
+A14
+1
+Farley, Manchester, 330, 400-51
+275
+T1
+5
+748
+::::::::::
+V20
+0
+Lower Sheriff, Manchester, 228, 400-31
+324
+70.000000
+0
+606
+::::::::::
+A15
+1
+Riddings, Manchester, 320, 400-129
+70
+T1
+10
+585
+::::::::::
+V21
+1
+Ancroft, Manchester, 165, 400-412
+460
+17.000000
+0
+605
+::::::::::
+V22
+1
+Malta, Manchester, 164, 400-104
+476
+55.000000
+1
+1522
+::::::::::
+V23
+1
+Lower Sheriff, Manchester, 228, 400-31
+303
+93.000000
+0
+505
+::::::::::
+V46
+0
+Malta, Manchester, 150, 100-124
+50
+30.000000
+1
+750

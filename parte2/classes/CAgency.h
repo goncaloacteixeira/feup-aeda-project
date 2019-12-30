@@ -24,6 +24,8 @@ public:
 
     vector<Condominio*> getCondominios(int nHabsMax);
 
+    Condominio* findCondominio(string des, string loc);
+
     friend ostream& operator<<(ostream& os, const CAgency& dt);
 
     BST<Condominio*> getCondominios();

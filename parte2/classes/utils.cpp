@@ -3,6 +3,7 @@
 //
 
 #include "utils.h"
+#include <cctype>
 
 vector<string> split (string &s, string delimiter) {
     size_t pos = 0;
@@ -15,4 +16,15 @@ vector<string> split (string &s, string delimiter) {
     }
     result.push_back(s);
     return result;
+}
+
+bool checkNIF(string nif) {
+    if (nif.size() != 9)
+        return false;
+
+    for (auto & i : nif) {
+        if (!isdigit(i))
+            return false;
+    }
+    return true;
 }

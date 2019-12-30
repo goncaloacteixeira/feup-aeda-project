@@ -12,6 +12,7 @@
 using namespace std;
 
 vector<string> split (string &s, string delimiter);
+bool checkNIF(string nif);
 
 
 #endif //PARTE2_UTILS_H

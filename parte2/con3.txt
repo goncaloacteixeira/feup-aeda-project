@@ -1,566 +1,166 @@
 Con3
 Manchester
-15
+20
 mem3.txt
-70
+20
 tr3.txt
 former3.txt
-A41
-1
-Ferndown, Manchester, 257, 400-130
+A40
+0
+Sunnyside, Manchester, 119, 400-101
 368
 T0
 10
 688
 ::::::::::
-V39
+V35
 0
-Mag, Manchester, 52, 400-338
+Haverton, Manchester, 284, 400-39
 557
 83.000000
 0
 614
 ::::::::::
-V40
-1
-Minster, Manchester, 19, 400-220
+V36
+0
+Skaife, Manchester, 375, 400-81
 430
 33.000000
 0
 951
 ::::::::::
-V41
-1
-Trowtree, Manchester, 268, 400-223
+V37
+0
+Brookwood, Manchester, 335, 400-162
 214
 69.000000
 0
 801
 ::::::::::
-A42
-1
-Clegg, Manchester, 172, 400-251
+A41
+0
+Mayton, Manchester, 24, 400-180
 94
 T4
 8
 937
 ::::::::::
-V42
-1
-Downs, Manchester, 12, 400-190
+V38
+0
+Industrial, Manchester, 143, 400-376
 198
 19.000000
 1
 1413
 ::::::::::
-V43
+V39
 1
-Roker, Manchester, 345, 400-145
+Elson, Manchester, 109, 400-190
 72
 27.000000
 0
 1751
 ::::::::::
-A43
-0
-St Lawrence, Manchester, 208, 400-266
+A42
+1
+Beech Hayes, Manchester, 103, 400-171
 417
 T5
 8
 970
 ::::::::::
-A44
-0
-Bunkers Hill, Manchester, 256, 400-40
+A43
+1
+Grisdale, Manchester, 264, 400-28
 121
 T0
 8
 942
 ::::::::::
-A45
-0
-Old York, Manchester, 399, 400-105
+A44
+1
+Hallam, Manchester, 60, 400-313
 391
 T2
 9
 400
 ::::::::::
-A46
-0
-Clelland, Manchester, 232, 400-185
+A45
+1
+Lawers, Manchester, 399, 400-40
 183
 T2
 5
 391
 ::::::::::
-A47
+A46
 1
-Kingsholme, Manchester, 87, 400-223
+Pandora, Manchester, 128, 400-295
 74
 T3
 8
 847
 ::::::::::
-V44
+V40
 1
-Middlewich, Manchester, 283, 400-66
+Hallam, Manchester, 60, 400-313
 136
 46.000000
 1
 541
 ::::::::::
-V45
+V41
 1
-Middlewich, Manchester, 283, 400-66
+Hallam, Manchester, 60, 400-313
 583
 62.000000
 1
 905
 ::::::::::
-V46
+V42
 1
-Meadfoot, Manchester, 190, 400-415
+Standish, Manchester, 349, 400-113
 220
 99.000000
 0
 1215
 ::::::::::
-V47
-1
-Hadley, Manchester, 27, 400-367
+V43
+0
+Standish, Manchester, 349, 400-113
 353
 10.000000
 1
 1065
 ::::::::::
-A48
-0
-Gilbert, Manchester, 268, 400-359
+A47
+1
+Canon, Manchester, 309, 400-103
 326
 T1
 1
 400
 ::::::::::
-V48
-0
-Bishopton, Manchester, 175, 400-350
+V44
+1
+Sunnyside, Manchester, 119, 400-101
 641
 69.000000
 1
 1652
 ::::::::::
-V49
+V45
 0
-Tinsley, Manchester, 396, 400-140
+Pingot, Manchester, 183, 400-241
 219
 63.000000
 1
 1429
 ::::::::::
-A49
-1
-Clelland, Manchester, 232, 400-185
+A48
+0
+Lawers, Manchester, 399, 400-40
 215
 T2
 7
 313
-::::::::::
-A50
-0
-Busk, Manchester, 114, 400-373
-145
-T2
-4
-227
-::::::::::
-V50
-0
-Gorsey, Manchester, 218, 400-250
-112
-85.000000
-0
-1051
-::::::::::
-A51
-0
-Roker, Manchester, 345, 400-145
-60
-T5
-3
-218
-::::::::::
-A52
-1
-Hadley, Manchester, 27, 400-367
-387
-T3
-7
-245
-::::::::::
-V51
-0
-Alpine, Manchester, 52, 400-113
-362
-14.000000
-1
-1179
-::::::::::
-A53
-1
-Middlewich, Manchester, 283, 400-66
-223
-T2
-8
-692
-::::::::::
-A54
-0
-Martha, Manchester, 394, 400-73
-98
-T2
-10
-379
-::::::::::
-A55
-1
-Gilbert, Manchester, 268, 400-359
-237
-T3
-4
-681
-::::::::::
-V52
-1
-Haddington, Manchester, 46, 400-356
-573
-63.000000
-0
-1846
-::::::::::
-V53
-0
-Sir Richard Fairey, Manchester, 308, 400-113
-373
-106.000000
-1
-825
-::::::::::
-V54
-0
-Congresbury, Manchester, 367, 400-61
-642
-49.000000
-1
-1488
-::::::::::
-A56
-0
-St Lawrence, Manchester, 208, 400-266
-138
-T1
-9
-397
-::::::::::
-A57
-1
-Stalyhill, Manchester, 228, 400-419
-304
-T0
-9
-196
-::::::::::
-A58
-1
-Willow Hill, Manchester, 284, 400-211
-110
-T6
-5
-390
-::::::::::
-A59
-1
-Bradburn, Manchester, 38, 400-386
-330
-T0
-5
-218
-::::::::::
-V55
-0
-Rowland, Manchester, 50, 400-417
-416
-64.000000
-1
-373
-::::::::::
-V56
-1
-Bowstonegate, Manchester, 116, 400-177
-583
-39.000000
-1
-456
-::::::::::
-A60
-1
-Neston, Manchester, 393, 400-41
-363
-T5
-2
-256
-::::::::::
-A61
-1
-Taplin, Manchester, 337, 400-126
-363
-T2
-5
-258
-::::::::::
-A62
-1
-Stalyhill, Manchester, 228, 400-419
-330
-T6
-1
-751
-::::::::::
-V57
-0
-Clelland, Manchester, 232, 400-185
-387
-76.000000
-1
-1023
-::::::::::
-A63
-1
-Byron, Manchester, 391, 400-303
-382
-T6+
-6
-562
-::::::::::
-A64
-0
-Congresbury, Manchester, 367, 400-61
-59
-T6+
-7
-614
-::::::::::
-A65
-0
-Fernleigh, Manchester, 247, 400-134
-172
-T5
-6
-811
-::::::::::
-V58
-1
-Green Hill, Manchester, 42, 400-196
-104
-76.000000
-1
-829
-::::::::::
-V59
-0
-Garrett, Manchester, 64, 400-42
-468
-105.000000
-1
-817
-::::::::::
-A66
-1
-Taplin, Manchester, 337, 400-126
-418
-T0
-3
-274
-::::::::::
-V60
-1
-Hadley, Manchester, 27, 400-367
-405
-47.000000
-1
-828
-::::::::::
-A67
-0
-Greenburn, Manchester, 317, 400-57
-187
-T3
-7
-251
-::::::::::
-A68
-0
-Martha, Manchester, 394, 400-73
-271
-T5
-5
-357
-::::::::::
-V61
-0
-Brewery, Manchester, 148, 400-247
-603
-45.000000
-1
-1730
-::::::::::
-A69
-0
-Ellis, Manchester, 297, 400-365
-244
-T6
-10
-857
-::::::::::
-A70
-1
-Roker, Manchester, 345, 400-145
-337
-T1
-2
-367
-::::::::::
-V62
-0
-Haddington, Manchester, 46, 400-356
-119
-81.000000
-1
-1837
-::::::::::
-V63
-1
-Spring Clough, Manchester, 31, 400-171
-140
-38.000000
-0
-1458
-::::::::::
-V64
-1
-Bow Green, Manchester, 344, 400-128
-579
-63.000000
-0
-1683
-::::::::::
-A71
-1
-Kingsholme, Manchester, 87, 400-223
-49
-T3
-3
-374
-::::::::::
-A72
-1
-Trowtree, Manchester, 268, 400-223
-305
-T1
-5
-894
-::::::::::
-V65
-1
-Industry, Manchester, 90, 400-213
-566
-83.000000
-1
-552
-::::::::::
-V66
-0
-Bishopton, Manchester, 175, 400-350
-571
-102.000000
-0
-579
-::::::::::
-V67
-0
-Back Anson, Manchester, 33, 400-67
-612
-100.000000
-0
-456
-::::::::::
-V68
-1
-Bunkers Hill, Manchester, 256, 400-40
-136
-11.000000
-0
-663
-::::::::::
-V69
-0
-Hadley, Manchester, 27, 400-367
-320
-48.000000
-0
-1260
-::::::::::
-V70
-1
-Back Anson, Manchester, 33, 400-67
-161
-80.000000
-1
-1816
-::::::::::
-V71
-0
-Kinlay, Manchester, 22, 400-308
-306
-54.000000
-1
-779
-::::::::::
-A73
-0
-Chadkirk, Manchester, 184, 400-61
-380
-T1
-10
-577
-::::::::::
-A74
-1
-Burton, Manchester, 304, 400-155
-399
-T5
-8
-770
-::::::::::
-V72
-1
-Ellis, Manchester, 297, 400-365
-404
-84.000000
-1
-1101
-::::::::::
-V73
-1
-Neston, Manchester, 393, 400-41
-141
-31.000000
-0
-435
-::::::::::
-A75
-1
-St Mark, Manchester, 43, 400-351
-100
-T1
-8
-305

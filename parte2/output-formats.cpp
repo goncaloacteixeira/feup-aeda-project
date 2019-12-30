@@ -110,10 +110,12 @@ string printTable(vector<Transporte> transports) {
     }
 
     table << fort::header
-          << "Location" << "Distance (m)" << "Destiny" << fort::endr;
+          << "Location" << "Distance (m)" << "Destiny" << "Active?" << fort::endr;
 
     for (auto & tr : transports) {
-        table << tr.getLocalization() << tr.getDistance() << tr.getDestiny() << fort::endr;
+        table << tr.getLocalization() << tr.getDistance() << tr.getDestiny();
+        (tr.getState()) ? table << "Yes" : table << "No";
+        table << fort::endr;
     }
 
     table.set_cell_text_align(fort::text_align::center);
@@ -140,4 +142,49 @@ string printTable(BST<Condominio *> condominios) {
     }
     table.set_cell_text_align(fort::text_align::center);
     return table.to_string();
+}
+
+string printTable(vector<Servico*> servicos) {
+    fort::char_table table;
+    table.set_border_style(FT_DOUBLE2_STYLE);
+
+    if (servicos.empty()) {
+        cout << "\tNothing to show\n";
+        return "";
+    }
+    table << fort::header
+          << "Service" << "Cost" << "Provider" << fort::endr;
+
+    for (auto & s : servicos) {
+        table << s->getTipo() << s->getCusto() << s->getPrestador() << fort::endr;
+    }
+
+    table.set_cell_text_align(fort::text_align::center);
+    return table.to_string();
+}
+
+string printTable(vector<FormerMember> formerMembers) {
+    fort::char_table table;
+    table.set_border_style(FT_DOUBLE2_STYLE);
+
+    if (formerMembers.empty()) {
+        cout << "\tNothing to show\n";
+        return "";
+    }
+    table << fort::header
+          << "Name" << "VAT" << "Time" << fort::endr;
+
+    for (auto & fm : formerMembers) {
+        table << fm.name << fm.nif << fm.time << fort::endr;
+    }
+
+    table.set_cell_text_align(fort::text_align::center);
+    return table.to_string();
+}
+
+ostream &operator<<(ostream &os, FormerMember &fm) {
+    os << "\tName: " << fm.name << endl;
+    os << "\tVAT number: " << fm.nif << endl;
+    os << "\tTime on condominium: " << fm.time;
+    return os;
 }

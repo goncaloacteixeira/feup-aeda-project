@@ -92,6 +92,7 @@ void Condomino::adicionaHabitacao(Habitacao *hab) {
 void Condomino::removeHabitacao(Habitacao *hab) {
     for (int i = 0; i < habitacoes.size(); i++) {
         if (habitacoes[i] == hab) {
+            hab->setEstado(false);
             habitacoes.erase(habitacoes.begin() + i);
             break;
         }
