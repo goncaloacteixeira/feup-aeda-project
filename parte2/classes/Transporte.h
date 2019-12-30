@@ -15,7 +15,9 @@ using namespace std;
  * @brief Classe e Métodos para Transportes
  */
 
-
+/**
+ * @brief Classe Transporte
+ */
 class Transporte {
     string localizacao;             //!< Localização do Ponto de Paragem
     unsigned int distancia;         //!< Distancia do Ponto de Paragem ao Condomínio
