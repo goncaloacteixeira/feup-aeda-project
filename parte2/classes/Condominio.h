@@ -241,6 +241,12 @@ public:
      * Levanta uma exceção quando não consegue encontrar o antigo condómino
      */
     FormerMember findFormerMember(unsigned int nif);
+
+    /**
+     * @brief Membro para encontrar antigos condóminos que estiveram ligados ao condominio por um tempo minimo time
+     * @param time tempo minimo
+     * @return vetor com os membros antigos
+     */
     vector<FormerMember> getformerMembers(unsigned int time);
 
     // operators

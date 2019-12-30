@@ -677,4 +677,16 @@ FormerMember Condominio::findFormerMember(unsigned int nif) {
     throw NoSuchFormerMember(nif);
 }
 
+vector<FormerMember> Condominio::getformerMembers(unsigned int time) {
+    vector<FormerMember> temp;
+    if (formerMembers.empty()) {
+        return temp;
+    }
+    for (auto &fm : formerMembers) {
+        if (fm.time >= time)
+            temp.emplace_back(fm);
+    }
+    return temp;
+}
+
 

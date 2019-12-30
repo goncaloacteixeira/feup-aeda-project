@@ -236,18 +236,21 @@ int condoMenu() {
 
     cout << "\t[1] Members Menu\n";
     cout << "\t[2] Habitations Menu\n";
-    cout << "\t[3] Services Menu\n";
-    cout << "\t[4] Revenue\n\n";
-    cout << "\t[5] Back\n";
+    cout << "\t[3] View Provided Services\n";
+    cout << "\t[4] Former Members Menu\n";
+    cout << "\t[5] Transports Menu\n";
+    cout << "\t[6] Revenue\n\n";
+
+    cout << "\t[7] Back\n";
     cout << "\t[0] Exit\n";
 
     int choice = -1;
-    while (!cin.good() || choice < 0 || choice > 5) {
+    while (!cin.good() || choice < 0 || choice > 7) {
         cin.clear();
 
         cout << "\n\tChoice: ";
         cin >> choice;
-        if (!cin.good() || choice < 0 || choice > 5) {
+        if (!cin.good() || choice < 0 || choice > 7) {
             cout << "\tType a valid number please\n";
         }
         cin.ignore();
@@ -1214,6 +1217,15 @@ void viewOnlyVillas(Condominio *cond) {
     }
 
     cout << printTable(vivs);
+    wait();
+}
+
+void servicesMenu(Condominio *cond) {
+    cout << endl << tittleBars("Services Provided");
+    cout << "Services Provided" << endl;
+    cout << tittleBars("Services Provided") << endl;
+
+    cout << printTable(cond->getServicos());
     wait();
 }
 

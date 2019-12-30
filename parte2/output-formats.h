@@ -11,9 +11,12 @@
 string printTable(vector<Habitacao*> habitacoes);
 string printTable(vector<Condomino*> condominos);
 string printTable(tabHFormerMembers formerMembers);
+string printTable(vector<FormerMember> formerMembers);
 string printTable(vector<Transporte> transports);
 string printTable(BST<Condominio*> condominios);
 string printTable(vector<Servico*> servicos);
+
+ostream& operator<<(ostream& os, FormerMember& fm);
 
 
 #endif //PARTE2_OUTPUT_FORMATS_H

@@ -74,10 +74,10 @@ Condominio* speficifyCondo(CAgency* agency);
  * @return 1 para entrar no menu dos condóminos
  * @return 2 para entrar no menu das habitações
  * @return 3 para entrar no menu dos serviços prestados
- * // TODO - ADICIONAR MENU DE ANTIGOS CONDÓMINOS
- * // TODO - ADICIONAR MENU PARA TRANSPORTES
- * @return 4 para vizualizar o 'revenue' do condomínio
- * @return 5 para voltar atrás
+ * @return 4 para entrar no menu dos antigos condóminos
+ * @return 5 para entrar no menu dos transportes
+ * @return 6 para vizualizar o 'revenue' do condomínio
+ * @return 7 para voltar atrás
  */
 int condoMenu();
 
@@ -190,5 +190,8 @@ void viewOnlyAps(Condominio* cond);
  */
 void viewOnlyVillas(Condominio* cond);
 
+// --- MENU DOS SERVIÇOS
+
+void servicesMenu(Condominio* cond);
 
 #endif //PARTE2_MENUS_H

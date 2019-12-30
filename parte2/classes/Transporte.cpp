@@ -27,9 +27,10 @@ void Transporte::changeDestiny(string dest) {
 }
 
 ostream &operator<<(ostream &os, Transporte &t1) {
-    os << "Location: " << t1.localizacao << endl;
-    os << "Distance: " << t1.distancia << endl;
-    os << "Destiny: " << t1.destino << endl;
+    os << "\tLocation: " << t1.localizacao << endl;
+    os << "\tDistance: " << t1.distancia << endl;
+    os << "\tDestiny: " << t1.destino;
+    return os;
 }
 
 bool Transporte::operator<(const Transporte &t1) const  {

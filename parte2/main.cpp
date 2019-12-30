@@ -169,7 +169,8 @@ void testFunc() {
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
 
-    viewOnlyAps(c1);
+    // viewOnlyAps(c1);
+
 
 }
 
@@ -185,6 +186,7 @@ int main() {
 //    a.addCondominio(c1);
 //    a.addCondominio(c2);
 //    a.addCondominio(c3);
+
 
     int choice = -1;
 
@@ -204,13 +206,13 @@ int main() {
                     if (cond == nullptr) {
                         continue;
                     } else {
-                        while (choice != 5) {
+                        while (choice != 7) {
                             choice = condoMenu();
                             if (choice == 0) {
                                 // exit menu
                                 return 0;
                             }
-                            else if (choice == 5) {
+                            else if (choice == 7) {
                                 break;
                             }
                             else if (choice == 1) {
@@ -298,6 +300,13 @@ int main() {
                                         continue;
                                     }
                                 }
+                            }
+                            else if (choice == 3) {
+                                servicesMenu(cond);
+                                continue;
+                            }
+                            else if (choice == 4) { // antigos condominos
+
                             }
                         }
                     }
