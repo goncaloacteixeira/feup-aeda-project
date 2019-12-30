@@ -45,6 +45,12 @@ struct FormerMembersHash {
 };
 
 /**
+ * @brief Overload do operador '<<'
+ * Apresenta info basica de um antigo condómino em formato 'user-friendly'
+ */
+ostream& operator<<(ostream& os, FormerMember& fm);
+
+/**
  * @brief HashTable para guardar info de antigos condóminos
  */
 typedef unordered_set<FormerMember, FormerMembersHash, FormerMembersHash> tabHFormerMembers;
