@@ -70,7 +70,6 @@ class Apartamento : public Habitacao {
     string tipologia;           //!< Tipo de apartamento ("T0", "T1", ...)
     int piso;                   //!< Número do piso em que o apartamento se encontra
     const string id;            //!< ID do Apartamento
-    // static int ap_current_id;   //!< ID do Apartamento atual
 public:
 
     /** @brief Construtor da classe derivada Apartamento
@@ -79,6 +78,7 @@ public:
      * @param areaHabitacional Área habitacional do apartamento
      * @param tipologia Tipo de apartamento - "T0", "T1", "T2", ...
      * @param piso Piso em que o apartamento se encontra
+     * @param id ID do apartamento
      */
     Apartamento(string morada, float areaHabitacional, string tipologia, int piso, float mensalidade, string id);
 
@@ -96,28 +96,13 @@ public:
      */
     int getPiso();
 
-    //SET Methods
-
-    /** @brief Método SET da tipologia do Apartamento
-     *
-     * @param tipologia Tipologia a definir o apartamento existente
-     */
-    void setTipologia(string tipologia);
-
-    /** @brief Método SET do piso do Apartamento
-    *
-    * @param tipologia Piso a definir o apartamento existente
-    */
-    void setPiso(int piso);
-
     /**
-     *
+     * @brief Metodo GET devolve ID do apartemento
      * @return ID do Apartamento
      */
     string getID();
 
     /**
-     *
      * @return Info acerca do Apartamento
      */
     string info();
@@ -136,7 +121,6 @@ class Vivenda : public Habitacao {
     float areaExterior;     //!< Área exterior da vivenda
     bool piscina;           //!< Existe piscina (sim - true)
     const string id;        //!< ID da Vivenda
-    // static int vi_current_id;   //!< ID da Vivenda atual
 public:
 
     /** @brief Construtor da classe derivada Vivenda
@@ -161,20 +145,6 @@ public:
      * @return devolve true se existir piscina na vivenda
      */
     bool getPiscina();
-
-    //SET Methods
-
-    /** @brief Método GET da área exterior da vivenda
-     *
-     * @param areaExterior Valor da área exterior da vivenda
-     */
-    void setAreaExterior (float areaExterior);
-
-    /** @brief Método SET da existencia de piscina na vivenda
-     *
-     * @param piscina se existe piscina - true
-     */
-    void setPiscina (bool piscina);
 
     /**
      *
