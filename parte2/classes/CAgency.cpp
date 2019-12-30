@@ -15,10 +15,23 @@ int CAgency::addCondominios(const vector<Condominio *>& cons) {
 
 void CAgency::addCondominio(Condominio *con) {
     condominios.insert(con);
+    for (auto &h : con->getHabitacoes()) {
+        this->ids.emplace_back(h->getID());
+    }
 }
 
 void CAgency::removeCondominio(Condominio *con) {
     condominios.remove(con);
+
+    for (auto &h : con->getHabitacoes()) {
+        for (auto it = ids.begin(); it != ids.end(); it++) {
+            if (*it == h->getID()) {
+                it = ids.erase(it);
+                it--;
+            }
+        }
+    }
+
 }
 
 BST<Condominio *> CAgency::getCondominios() {
@@ -53,6 +66,23 @@ Condominio *CAgency::findCondominio(string des, string loc) {
         it.advance();
     }
     return nullptr;
+}
+
+bool CAgency::findID(string id) {
+    for (auto &i : ids) {
+        if (i == id) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void CAgency::writeToFiles() {
+    BSTItrIn<Condominio*> it(condominios);
+    while (!it.isAtEnd()) {
+        it.retrieve()->writeToFiles();
+        it.advance();
+    }
 }
 
 

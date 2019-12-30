@@ -70,7 +70,7 @@ class Apartamento : public Habitacao {
     string tipologia;           //!< Tipo de apartamento ("T0", "T1", ...)
     int piso;                   //!< Número do piso em que o apartamento se encontra
     const string id;            //!< ID do Apartamento
-    static int ap_current_id;   //!< ID do Apartamento atual
+    // static int ap_current_id;   //!< ID do Apartamento atual
 public:
 
     /** @brief Construtor da classe derivada Apartamento
@@ -80,7 +80,7 @@ public:
      * @param tipologia Tipo de apartamento - "T0", "T1", "T2", ...
      * @param piso Piso em que o apartamento se encontra
      */
-    Apartamento(string morada, float areaHabitacional, string tipologia, int piso, float mensalidade);
+    Apartamento(string morada, float areaHabitacional, string tipologia, int piso, float mensalidade, string id);
 
     //GET Methods
 
@@ -136,7 +136,7 @@ class Vivenda : public Habitacao {
     float areaExterior;     //!< Área exterior da vivenda
     bool piscina;           //!< Existe piscina (sim - true)
     const string id;        //!< ID da Vivenda
-    static int vi_current_id;   //!< ID da Vivenda atual
+    // static int vi_current_id;   //!< ID da Vivenda atual
 public:
 
     /** @brief Construtor da classe derivada Vivenda
@@ -146,7 +146,7 @@ public:
      * @param areaExterior      Área exterior da vivenda
      * @param piscina           Existe piscina (sim - true)
      */
-    Vivenda(string morada, float areaHabitacional, float areaExterior, bool piscina, float mensalidade);
+    Vivenda(string morada, float areaHabitacional, float areaExterior, bool piscina, float mensalidade, string id);
 
     //GET Methods
 

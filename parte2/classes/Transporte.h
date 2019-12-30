@@ -14,10 +14,10 @@ class Transporte {
     string localizacao;             //!< Localização do Ponto de Paragem
     unsigned int distancia;         //!< Distancia do Ponto de Paragem ao Condomínio
     string destino;                 //!< Destino do Ponto de Paragem
-    bool active;
+    bool active;                    //!< Estado do Ponto de Paragem
 public:
     Transporte() : localizacao(""), distancia(0), destino(""), active(false) { };
-    Transporte(string loc, unsigned dist, string dest);
+    Transporte(string loc, unsigned dist, string dest, bool active);
 
     string getLocalization() const;
     unsigned getDistance() const;

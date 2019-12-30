@@ -1,207 +1,171 @@
-30
+25
+Joice GORDON
+534436937
+2
+A21
+A15
+1
+Mechanic : 68 : Easy Home
+::::::::::
+Binnie WILSON
+662575248
+2
+A22
+A20
+2
+Mechanic : 103 : AFA
+Babysitting : 55 : BeautifulHome
+::::::::::
+Jacquenetta PHILLIPS
+106468956
+0
+1
+Mechanic : 24 : Easy Home
+::::::::::
+Shanda BARNES
+803323486
+0
+1
+Mechanic : 99 : EverytingUNeed
+::::::::::
+Maura LEE
+842901096
+2
+A16
+A12
+0
+::::::::::
+Fran COOK
+163993590
+1
+A25
+1
+Plumbing : 62 : AFA
+::::::::::
+Grier RIVERA
+858262837
+2
+V11
+V16
+0
+::::::::::
+Cristy ROBERTS
+796920524
+1
+A11
+0
+::::::::::
+Nora HERNANDEZ
+166195248
+1
+V15
+2
+Mechanic : 102 : EverytingUNeed
+Petsitting : 101 : BeautifulHome
+::::::::::
+Mellisent LEWIS
+237889809
+2
+A13
+V18
+1
+Babysitting : 81 : AFA
+::::::::::
 Julienne JAMES
 436979421
 1
-A36
-2
-Gardener : 47 : Easy Home
-Cleaning : 30 : AFA
+V13
+1
+Babysitting : 26 : AlwaysThere
 ::::::::::
 Sallyanne LOPEZ
 100433514
-0
+2
+A17
+A10
 0
 ::::::::::
 Deena ROBINSON
 481664988
+0
 2
-A32
-A33
-2
-Security : 74 : Easy Home
-Mechanic : 18 : Homes.LDA
+Mechanic : 24 : Homes.LDA
+Babysitting : 99 : Easy Home
 ::::::::::
 Phaedra PERRY
 478442695
-1
-V34
+0
 0
 ::::::::::
 Phelia STEVENS
 367638572
 0
-1
-Hairdresser : 78 : SDHF
+2
+Cleaning : 78 : AlwaysThere
+Cleaning : 13 : Homes.LDA
 ::::::::::
 Maisey BROWN
 853800581
 2
-V28
-A16
-1
-Petsitting : 99 : AlwaysThere
+A28
+A24
+2
+Gardener : 47 : Easy Home
+Cleaning : 30 : AFA
 ::::::::::
 Cal STEWART
 510787779
-0
 1
-Security : 13 : AlwaysThere
+A14
+0
 ::::::::::
 Jeniffer HENRY
 643952940
-1
-A38
 2
-Hairdresser : 29 : Easy Home
-Mechanic : 53 : AlwaysThere
+A9
+V19
+2
+Security : 74 : Easy Home
+Mechanic : 18 : Homes.LDA
 ::::::::::
 Marquita MITCHELL
 109099450
-2
-A26
-V24
+0
 0
 ::::::::::
 Frederica HUNT
 262420529
 0
 1
-Car Wash : 55 : Homes.LDA
+Hairdresser : 78 : SDHF
 ::::::::::
 Briney ALEXANDER
 395213583
-2
-A20
-V31
 1
-Car Wash : 109 : EverytingUNeed
+V12
+1
+Petsitting : 99 : AlwaysThere
 ::::::::::
 Lia MURRAY
 505021164
-1
-A18
 0
+1
+Security : 13 : AlwaysThere
 ::::::::::
 Roxanna WOOD
 709200482
 0
 2
-Plumbing : 17 : Homes.LDA
-Cleaning : 37 : Homes.LDA
+Hairdresser : 29 : Easy Home
+Mechanic : 53 : AlwaysThere
 ::::::::::
 Janna TURNER
 203519915
 0
-2
-Gardener : 77 : BeautifulHome
-Mechanic : 16 : AFA
+0
 ::::::::::
 Julietta RUSSELL
 101275137
 0
 1
-Plumbing : 98 : EverytingUNeed
-::::::::::
-Minna KING
-491006950
-1
-A19
-2
-Car Wash : 105 : AFA
-Hairdresser : 98 : SDHF
-::::::::::
-Emlynn BAILEY
-189173449
-1
-V30
-2
-Plumbing : 101 : Easy Home
-Gardener : 78 : AlwaysThere
-::::::::::
-Elonore HENRY
-976000338
-2
-A34
-A21
-1
-Mechanic : 88 : Homes.LDA
-::::::::::
-Ange HICKS
-599912046
-1
-V32
-0
-::::::::::
-Rochella HALL
-311379924
-2
-A25
-A35
-1
-Car Wash : 13 : Homes.LDA
-::::::::::
-Mira BUTLER
-596477565
-1
-V27
-2
-Gardener : 20 : SDHF
-Mechanic : 51 : BeautifulHome
-::::::::::
-Laetitia COLEMAN
-769234757
-0
-0
-::::::::::
-Gwenneth WHITE
-103076806
-2
-A37
-V25
-1
-Security : 91 : Homes.LDA
-::::::::::
-Michell ROSS
-212019048
-0
-0
-::::::::::
-Colene MCDONALD
-423195056
-0
-0
-::::::::::
-Ara SCOTT
-624338189
-0
-1
-Gardener : 10 : EverytingUNeed
-::::::::::
-Valida THOMPSON
-402104186
-1
-A24
-2
-Mechanic : 44 : Homes.LDA
-Security : 99 : SDHF
-::::::::::
-Fanny HAYES
-695172338
-2
-A17
-A27
-2
-Gardener : 73 : AFA
-Plumbing : 74 : Homes.LDA
-::::::::::
-Cathrin SHAW
-411403547
-0
-1
-Car Wash : 39 : AlwaysThere
-::::::::::
-Carlina SIMPSON
-101713721
-0
-1
-Babysitting : 21 : AFA
+Car Wash : 55 : Homes.LDA

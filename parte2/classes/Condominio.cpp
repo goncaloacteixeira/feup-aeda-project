@@ -104,7 +104,7 @@ Condominio::Condominio(string filename) {
 
         for (i = 0; i < numHab; i++) {
             if (info[i][0][0] == 'A') {
-                auto *ap = new Apartamento(info[i][2], stof(info[i][3]), info[i][4],stoi(info[i][5]), stof(info[i][6]));
+                auto *ap = new Apartamento(info[i][2], stof(info[i][3]), info[i][4],stoi(info[i][5]), stof(info[i][6]), info[i][0]);
 
                 ap->setEstado(info[i][1] == "1");
                 habitacoes.push_back(ap);
@@ -112,7 +112,7 @@ Condominio::Condominio(string filename) {
             if (info[i][0][0] == 'V') {
                 bool piscina;
                 piscina = info[i][5] == "1";
-                auto *vi = new Vivenda(info[i][2], stof(info[i][3]), stof(info[i][4]), piscina, stof(info[i][6]));
+                auto *vi = new Vivenda(info[i][2], stof(info[i][3]), stof(info[i][4]), piscina, stof(info[i][6]), info[i][0]);
 
                 vi->setEstado(info[i][1] == "1");
                 habitacoes.push_back(vi);
@@ -132,7 +132,9 @@ Condominio::Condominio(string filename) {
     if (transportsFile.is_open()) {
         while (getline(transportsFile, trLine)) {
             vector<string> temp = split(trLine, " : ");
-            transport.push(Transporte(temp[0], stoi(temp[1]), temp[2]));
+            bool active;
+            (temp[3] == "1") ? active = true : active = false;
+            transport.push(Transporte(temp[0], stoi(temp[1]), temp[2],active));
         }
         transportsFile.close();
     }
@@ -295,7 +297,7 @@ void Condominio::writeToFiles() {
     if (!transport.empty()) {
         auto transports = this->getVectorTransports();
         for (auto &t : transports) {
-            trans << t.getLocalization() << " : " << t.getDistance() << " : " << t.getDestiny() << endl;
+            trans << t.getLocalization() << " : " << t.getDistance() << " : " << t.getDestiny() << " : " << t.getState() << endl;
         }
     }
     trans.close();

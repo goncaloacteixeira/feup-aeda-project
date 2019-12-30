@@ -1,13 +1,13 @@
 Con1
 Manchester
-20
+15
 mem1.txt
-41
+20
 tr1.txt
 former1.txt
 V0
-0
-Riddings, Manchester, 320, 400-129
+1
+Howgate, Manchester, 112, 400-139
 112
 39.000000
 1
@@ -22,8 +22,8 @@ T6+
 851
 ::::::::::
 V1
-1
-Sidcup, Manchester, 298, 400-339
+0
+Milbourne, Manchester, 331, 400-413
 158
 103.000000
 1
@@ -39,23 +39,23 @@ Wildcroft, Manchester, 111, 400-364
 ::::::::::
 A1
 1
-Riddings, Manchester, 320, 400-129
+Howgate, Manchester, 112, 400-139
 179
 T0
 5
 819
 ::::::::::
 V3
-0
-Maldwyn, Manchester, 294, 400-204
+1
+Oakfield, Manchester, 373, 400-267
 240
 34.000000
 0
 1270
 ::::::::::
 A2
-0
-Guildford, Manchester, 339, 400-403
+1
+Captain Lees, Manchester, 28, 400-171
 292
 T4
 4
@@ -63,7 +63,7 @@ T4
 ::::::::::
 A3
 1
-Cocksheadhey, Manchester, 172, 400-278
+Rink, Manchester, 92, 400-295
 306
 T6+
 10
@@ -79,14 +79,14 @@ Renolds, Manchester, 236, 400-244
 ::::::::::
 V5
 1
-Guildford, Manchester, 339, 400-403
+Captain Lees, Manchester, 28, 400-171
 377
 36.000000
 0
 684
 ::::::::::
 A4
-0
+1
 Carib, Manchester, 144, 400-353
 179
 T4
@@ -94,7 +94,7 @@ T4
 182
 ::::::::::
 A5
-1
+0
 Malta, Manchester, 164, 400-104
 120
 T5
@@ -110,7 +110,7 @@ Ancroft, Manchester, 165, 400-412
 1174
 ::::::::::
 A6
-0
+1
 Ancroft, Manchester, 165, 400-412
 186
 T0
@@ -118,8 +118,8 @@ T0
 245
 ::::::::::
 V7
-0
-Eyam, Manchester, 250, 400-216
+1
+Peckford, Manchester, 333, 400-189
 559
 64.000000
 1
@@ -134,7 +134,7 @@ Attercliffe, Manchester, 31, 400-49
 687
 ::::::::::
 V9
-0
+1
 Rink, Manchester, 92, 400-295
 613
 21.000000
@@ -142,7 +142,7 @@ Rink, Manchester, 92, 400-295
 1392
 ::::::::::
 A7
-0
+1
 Hollincross, Manchester, 224, 400-200
 242
 T1
@@ -159,176 +159,8 @@ T6
 ::::::::::
 V10
 1
-Sidcup, Manchester, 298, 400-339
+Milbourne, Manchester, 331, 400-413
 488
 41.000000
 1
 1337
-::::::::::
-V11
-0
-Maldwyn, Manchester, 294, 400-204
-563
-89.000000
-0
-1100
-::::::::::
-A9
-0
-Lower Sheriff, Manchester, 228, 400-31
-392
-T6
-4
-897
-::::::::::
-V12
-0
-Guildford, Manchester, 339, 400-403
-190
-67.000000
-1
-576
-::::::::::
-V13
-0
-Ripon, Manchester, 48, 400-34
-458
-103.000000
-1
-1588
-::::::::::
-V14
-1
-Malta, Manchester, 164, 400-104
-638
-30.000000
-0
-1096
-::::::::::
-V15
-0
-Guildford, Manchester, 339, 400-403
-459
-97.000000
-1
-953
-::::::::::
-V16
-1
-Kirby, Manchester, 361, 400-124
-124
-15.000000
-0
-1302
-::::::::::
-A10
-0
-Maldwyn, Manchester, 294, 400-204
-132
-T2
-6
-560
-::::::::::
-A11
-1
-Cocksheadhey, Manchester, 172, 400-278
-172
-T1
-1
-597
-::::::::::
-A12
-0
-Renolds, Manchester, 236, 400-244
-388
-T2
-10
-550
-::::::::::
-V17
-1
-Farley, Manchester, 330, 400-51
-132
-84.000000
-0
-856
-::::::::::
-A13
-1
-Fulham, Manchester, 107, 400-227
-195
-T6
-9
-723
-::::::::::
-V18
-0
-Eyam, Manchester, 250, 400-216
-169
-40.000000
-0
-1082
-::::::::::
-V19
-0
-Bay Tree, Manchester, 37, 400-330
-445
-20.000000
-0
-405
-::::::::::
-A14
-1
-Farley, Manchester, 330, 400-51
-275
-T1
-5
-748
-::::::::::
-V20
-0
-Lower Sheriff, Manchester, 228, 400-31
-324
-70.000000
-0
-606
-::::::::::
-A15
-1
-Riddings, Manchester, 320, 400-129
-70
-T1
-10
-585
-::::::::::
-V21
-1
-Ancroft, Manchester, 165, 400-412
-460
-17.000000
-0
-605
-::::::::::
-V22
-1
-Malta, Manchester, 164, 400-104
-476
-55.000000
-1
-1522
-::::::::::
-V23
-1
-Lower Sheriff, Manchester, 228, 400-31
-303
-93.000000
-0
-505
-::::::::::
-V46
-0
-Malta, Manchester, 150, 100-124
-50
-30.000000
-1
-750
