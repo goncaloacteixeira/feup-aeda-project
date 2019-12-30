@@ -222,6 +222,7 @@ Condominio *speficifyCondo(CAgency *agency) {
 
     if (agency->findCondominio(des,loc) == nullptr) {
         cout << "\n\tCouldn't find that condominium!\n";
+        wait();
         return nullptr;
     }
     else {
@@ -415,7 +416,7 @@ void removeMemberMenu(Condominio *cond) {
         }
     }
 
-    cout << "\tHow long have that member been assigned to this condominium?: ";
+    cout << "\tHow long have that member been assigned to this condominium? ";
     string time;
     getline(cin, time);
     cond->removeCondomino(toRemove, stoi(time));
@@ -1220,6 +1221,8 @@ void viewOnlyVillas(Condominio *cond) {
     wait();
 }
 
+// ---
+
 void servicesMenu(Condominio *cond) {
     cout << endl << tittleBars("Services Provided");
     cout << "Services Provided" << endl;
@@ -1228,6 +1231,317 @@ void servicesMenu(Condominio *cond) {
     cout << printTable(cond->getServicos());
     wait();
 }
+
+// ---
+
+int fmMenu(Condominio *cond) {
+    cout << endl << tittleBars("Former Members");
+    cout << "Former Members" << endl;
+    cout << tittleBars("Former Members") << endl;
+
+    cout << "\t[1] Search for a Former Member\n";
+    cout << "\t[2] View all Former Members\n";
+    cout << "\t[3] View all Former Members given a minimum time\n\n";
+
+    cout << "\t[4] Back\n";
+    cout << "\t[0] Exit\n";
+
+    int choice = -1;
+    while (!cin.good() || choice < 0 || choice > 4) {
+        cin.clear();
+
+        cout << "\n\tChoice: ";
+        cin >> choice;
+        if (!cin.good() || choice < 0 || choice > 4) {
+            cout << "\tType a valid number please\n";
+        }
+        cin.ignore();
+    }
+
+    if (choice == 0 || choice == 4)
+        return choice;
+
+    if (choice == 1) {
+        string nif;
+        while (true) {
+            try {
+                cout << "\tVAT number (type -1 to CANCEL): ";
+                getline(cin,nif);
+                if (nif == "-1")
+                    return 3;
+                while (!cin.good() || stoi(nif) <= 0 || !checkNIF(nif)) {
+                    cout << "\tType a valid number please\n";
+                    cout << "\tVAT number (type -1 to CANCEL): ";
+                    getline(cin,nif);
+                    if (nif == "-1")
+                        return 3;
+                }
+                FormerMember fm = cond->findFormerMember(stoi(nif));
+                cout << endl << fm << endl;
+                wait();
+            }
+            catch (NoSuchCondomino &e) {
+                cout << "That VAT number: " << e.getNIF() << " does not exist in former members\n";
+                continue;
+            }
+            break;
+        }
+    }
+    else if (choice == 2) {
+        cout << printTable(cond->getFormerMembers());
+        wait();
+    }
+    else if (choice == 3) {
+        int time = -1;
+        while (!cin.good() || time < 0) {
+            cin.clear();
+            cout << "\tTime: ";
+            cin >> time;
+            if (!cin.good() || time < 0) {
+                cout << "\tType a valid number please\n";
+            }
+            cin.ignore();
+        }
+        cout << printTable(cond->getformerMembers(time));
+        wait();
+    }
+    return choice;
+}
+
+
+// ---
+
+
+int transportMenu(Condominio *cond) {
+    cout << endl << tittleBars("Transports Menu");
+    cout << "Transports Menu" << endl;
+    cout << tittleBars("Transports Menu") << endl;
+
+    cout << "\t[1] Search stops for a destiny\n";
+    cout << "\t[2] View all stops\n";
+    cout << "\t[3] Change a stop's destiny\n";
+    cout << "\t[4] Deactivate stops\n";
+    cout << "\t[5] Activate stops\n\n";
+
+    cout << "\t[6] Back\n";
+    cout << "\t[0] Exit\n";
+
+    int choice = -1;
+    while (!cin.good() || choice < 0 || choice > 6) {
+        cin.clear();
+
+        cout << "\n\tChoice: ";
+        cin >> choice;
+        if (!cin.good() || choice < 0 || choice > 6) {
+            cout << "\tType a valid number please\n";
+        }
+        cin.ignore();
+    }
+    return choice;
+}
+
+void viewStopsDestiny(Condominio *cond) {
+    cout << endl << tittleBars("View Stops for a Destiny");
+    cout << "View Stops for a Destiny" << endl;
+    cout << tittleBars("View Stops for a Destiny") << endl;
+
+    cout << "\tDestiny: ";
+    string dest;
+    getline(cin,dest);
+
+    cout << printTable(cond->getTransports(dest));
+    wait();
+}
+
+void viewAllStops(Condominio *cond) {
+    cout << endl << tittleBars("View All Stops");
+    cout << "View All Stops" << endl;
+    cout << tittleBars("View All Stops") << endl;
+
+    cout << printTable(cond->getVectorTransports());
+    wait();
+}
+
+void changeStop(Condominio *cond) {
+    cout << endl << tittleBars("Change Stop");
+    cout << "Change Stop" << endl;
+    cout << tittleBars("Change Stop") << endl;
+
+    cout << printTable(cond->getVectorTransports()) << endl;
+
+    cout << "Location: ";
+    string loc;
+    getline(cin,loc);
+    cout << "Distance: ";
+    string dist;
+    getline(cin,dist);
+    cout << "Current Destiny: ";
+    string dest;
+    getline(cin,dest);
+
+
+    Transporte t = cond->getTransport(loc,stoi(dist),dest);
+
+    if (t == Transporte()) {
+        cout << "\tThat stop does not exist\n";
+        wait();
+        return;
+    }
+
+    cout << "\tFOUND!\n";
+    cout << t << endl;
+    cout << "New destiny: ";
+    getline(cin,dest);
+
+    cond->removeTransportStop(t);
+    t.changeDestiny(dest);
+    cond->addTransportStop(t);
+
+    cout << "\n\tStop's Destiny changed successfully!\n";
+    wait();
+}
+
+void activateStop(Condominio *cond) {
+    cout << endl << tittleBars("Activate Stop");
+    cout << "Activate Stop" << endl;
+    cout << tittleBars("Activate Stop") << endl;
+
+    vector<Transporte> deactivated;
+
+    for (auto &t : cond->getVectorTransports()) {
+        if (!t.getState()) {
+            deactivated.emplace_back(t);
+        }
+    }
+
+    cout << printTable(deactivated) << endl;
+
+
+    cout << "Location: ";
+    string loc;
+    getline(cin,loc);
+    cout << "Distance: ";
+    string dist;
+    getline(cin,dist);
+    cout << "Current Destiny: ";
+    string dest;
+    getline(cin,dest);
+
+    for (auto &t : deactivated) {
+        if (t.getLocalization() == loc) {
+            if (t.getDistance() == stoi(dist)) {
+                if (t.getDestiny() == dest) {
+                    cond->removeTransportStop(t);
+                    t.changeState(true);
+                    cond->addTransportStop(t);
+                    cout << "\n\tStop activated successfully!\n";
+                    wait();
+                    return;
+                }
+            }
+        }
+    }
+    cout << "\tThat stop does not exist\n";
+    wait();
+}
+
+void deactivateStop(Condominio *cond) {
+    cout << endl << tittleBars("Deactivate Stop");
+    cout << "Deactivate Stop" << endl;
+    cout << tittleBars("Deactivate Stop") << endl;
+
+    vector<Transporte> activated;
+
+    for (auto &t : cond->getVectorTransports()) {
+        if (t.getState()) {
+            activated.emplace_back(t);
+        }
+    }
+
+    cout << printTable(activated) << endl;
+
+
+    cout << "Location: ";
+    string loc;
+    getline(cin,loc);
+    cout << "Distance: ";
+    string dist;
+    getline(cin,dist);
+    cout << "Current Destiny: ";
+    string dest;
+    getline(cin,dest);
+
+    for (auto &t : activated) {
+        if (t.getLocalization() == loc) {
+            if (t.getDistance() == stoi(dist)) {
+                if (t.getDestiny() == dest) {
+                    cond->removeTransportStop(t);
+                    t.changeState(false);
+                    cond->addTransportStop(t);
+                    cout << "\n\tStop deactivated successfully!\n";
+                    wait();
+                    return;
+                }
+            }
+        }
+    }
+    cout << "\tThat stop does not exist\n";
+    wait();
+}
+
+
+// ---
+
+
+void revenueMenu(Condominio *cond) {
+    cout << endl << tittleBars("Revenue");
+    cout << "Revenue" << endl;
+    cout << tittleBars("Revenue") << endl;
+
+    cout << "\t\t" <<cond->getDesignation() << endl << endl;
+    cout << "\tRevenue: " << cond->calcReceitas() << " euro" << endl;
+    wait();
+}
+
+
+// ---
+
+
+int exitMenu() {
+    cout << endl << tittleBars("EXIT MENU");
+    cout << "EXIT MENU" << endl;
+    cout << tittleBars("EXIT MENU") << endl;
+
+    string option;
+    while (true) {
+        cout << "\tDo you want to save the information (Y/N)? (type -1 to CANCEL): ";
+        getline(cin, option);
+
+        if (option == "-1") return -1;
+
+
+        bool flag = false;
+        if (option == "Y" || option == "N" || option == "y" || option == "n")
+            flag = true;
+
+        while (!flag) {
+            cout << "\tType 'Y' or 'N' please: ";
+
+            getline(cin, option);
+            if (option == "Y" || option == "N" || option == "y" || option == "n")
+                flag = true;
+        }
+
+        if (flag) break;
+    }
+
+    if (option == "y" || option == "Y")
+        return 0;
+    else
+        return 1;
+}
+
+
 
 
 

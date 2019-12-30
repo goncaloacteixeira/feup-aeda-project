@@ -190,8 +190,75 @@ void viewOnlyAps(Condominio* cond);
  */
 void viewOnlyVillas(Condominio* cond);
 
+
 // --- MENU DOS SERVIÇOS
 
 void servicesMenu(Condominio* cond);
+
+
+// --- MENU DOS ANTIGOS CONDÓMINOS
+
+/**
+ * @breif Menu dos Antigos Condóminos
+ * @param cond Condominio especificado pelo utilizador
+ * @return 0 para sair
+ * @return 4 para voltar atrás
+ * @return diferente de 0 ou 4 para continuar
+ */
+int fmMenu(Condominio* cond);
+
+// --- MENU DOS TRANSPORTES
+
+/**
+ * @brief Menu dos transportes
+ * @param cond Condominio especificado pelo utilizador
+ * @return 0 para sair
+ * @return 1 para ver transportes para um dado destino
+ * @return 2 para ver todas as paragens
+ * @return 3 para alterar o destino de uma paragem
+ * @return 4 para desativar paragens
+ * @return 5 para ativar paragens
+ * @return 6 para voltar atrás
+ */
+int transportMenu(Condominio* cond);
+
+/**
+ * @brief Ver todas as paragens relativas a um destino
+ * @param cond Condominio especificado pelo utilizador
+ */
+void viewStopsDestiny(Condominio* cond);
+
+/**
+ * @brief Ver todas as paragens
+ * @param cond Condominio especificado pelo utilizador
+ */
+void viewAllStops(Condominio* cond);
+
+/**
+ * @brief Alterar o destino de uma paragem
+ * @param cond Condominio especificado pelo utilizador
+ */
+void changeStop(Condominio* cond);
+
+/**
+ * @brief Desativar uma paragem
+ * @param cond Condominio especificado pelo utilizador
+ */
+void deactivateStop(Condominio* cond);
+
+/**
+ * @brief Ativar uma paragem
+ * @param cond Condominio especificado pelo utilizador
+ */
+void activateStop(Condominio* cond);
+
+// --- REVENUE MENU
+
+void revenueMenu(Condominio* cond);
+
+// --- EXIT MENU
+
+int exitMenu();
+
 
 #endif //PARTE2_MENUS_H

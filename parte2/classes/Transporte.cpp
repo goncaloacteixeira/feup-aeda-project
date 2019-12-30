@@ -45,3 +45,7 @@ void Transporte::changeState(bool state) {
     this->active = state;
 }
 
+bool Transporte::getState() const {
+    return this->active;
+}
+

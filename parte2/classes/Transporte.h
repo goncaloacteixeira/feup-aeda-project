@@ -22,6 +22,7 @@ public:
     string getLocalization() const;
     unsigned getDistance() const;
     string getDestiny() const;
+    bool getState() const;
 
     void changeDestiny(string dest);
     void changeState(bool state);

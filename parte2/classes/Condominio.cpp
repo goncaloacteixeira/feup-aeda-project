@@ -625,6 +625,11 @@ bool Condominio::removeTransportStop(const Transporte& t1) {
         }
         transport.pop();
     }
+
+    for (auto & tr : toPutBack) {
+        transport.push(tr);
+    }
+
     return found;
 }
 

@@ -2,7 +2,7 @@ Con1
 Manchester
 20
 mem1.txt
-40
+41
 tr1.txt
 former1.txt
 V0
@@ -324,3 +324,11 @@ Lower Sheriff, Manchester, 228, 400-31
 93.000000
 0
 505
+::::::::::
+V46
+0
+Malta, Manchester, 150, 100-124
+50
+30.000000
+1
+750

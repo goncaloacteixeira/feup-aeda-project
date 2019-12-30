@@ -110,10 +110,12 @@ string printTable(vector<Transporte> transports) {
     }
 
     table << fort::header
-          << "Location" << "Distance (m)" << "Destiny" << fort::endr;
+          << "Location" << "Distance (m)" << "Destiny" << "Active?" << fort::endr;
 
     for (auto & tr : transports) {
-        table << tr.getLocalization() << tr.getDistance() << tr.getDestiny() << fort::endr;
+        table << tr.getLocalization() << tr.getDistance() << tr.getDestiny();
+        (tr.getState()) ? table << "Yes" : table << "No";
+        table << fort::endr;
     }
 
     table.set_cell_text_align(fort::text_align::center);
