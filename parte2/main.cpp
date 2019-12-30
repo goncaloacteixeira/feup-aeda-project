@@ -181,9 +181,7 @@ void testFunc() {
 
 }
 
-
-int main() {
-
+int project_main_loop() {
     int choice = -1;
 
     CAgency agency = firstMenu();
@@ -450,6 +448,19 @@ int main() {
         }
         else if (choice == 2) {
             choice = addCondo(&agency);
+            if (choice == 0) {
+                choice = exitMenu();
+                if (choice == 0) {
+                    agency.writeToFiles();
+                    return 0;
+                }
+                else if (choice == 1) {
+                    cout << "\tNo changes made!";
+                    return 0;
+                }
+                choice = -1;
+                continue;
+            }
             continue;
         }
         else if (choice == 3) {
@@ -467,6 +478,38 @@ int main() {
             choice = -1;
         }
     }
+    return 0;
+}
+
+
+int main() {
+
+    cout << "\n\n\t\tWelcome!" << endl;
+    cout << "\n\t[1] GENERATE DATA\n";
+    cout << "\t[2] PROJECT LOOP\n\n";
+    cout << "\t[0] EXIT\n";
+
+    int choice = -1;
+    while (!cin.good() || choice < 0 || choice > 2) {
+        cin.clear();
+
+        cout << "\n\tChoice: ";
+        cin >> choice;
+        if (!cin.good() || choice < 0 || choice > 2) {
+            cout << "\tType a valid number please\n";
+        }
+        cin.ignore();
+    }
+
+    if (choice == 1) {
+        generateData();
+        return 0;
+    }
+    else if (choice == 2) {
+        project_main_loop();
+        return 0;
+    }
+
 
     return 0;
 }

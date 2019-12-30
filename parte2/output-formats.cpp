@@ -182,9 +182,4 @@ string printTable(vector<FormerMember> formerMembers) {
     return table.to_string();
 }
 
-ostream &operator<<(ostream &os, FormerMember &fm) {
-    os << "\tName: " << fm.name << endl;
-    os << "\tVAT number: " << fm.nif << endl;
-    os << "\tTime on condominium: " << fm.time;
-    return os;
-}
+

@@ -10,7 +10,17 @@
 #include "output-formats.h"
 #include "classes/utils.h"
 
+/**
+ * @file menus.h
+ * @brief Funções para apresentação de menus
+ */
 
+
+/**
+ * @brief Função devolve barra para colocar nos titulos dos menus
+ * @param tittle Titulo do menu
+ * @return Barra com um numero de '-'s igual ao tamanho de tittle
+ */
 string tittleBars(string tittle);
 
 
@@ -255,10 +265,20 @@ void activateStop(Condominio* cond);
 
 // --- REVENUE MENU
 
+/**
+ * @brief Menu de Lucros do condominio
+ * @param cond Condominio especificado pelo utilizador
+ */
 void revenueMenu(Condominio* cond);
 
 // --- EXIT MENU
 
+/**
+ * @brief Menu de saída
+ * @return 0 para sair e guardar info
+ * @return 1 para sair sem guardar
+ * @return -1 para cancelar
+ */
 int exitMenu();
 
 

@@ -13,13 +13,23 @@
 #include <unordered_set>
 
 
+/**
+ * @file Condominio.h
+ * @brief Estruturas relacionadas com Condominio e respetivos Métodos
+ */
+
+/**
+ * @brief Struct para guardar info de um antigo condómino
+ */
 typedef struct {
-    string name;
-    unsigned int nif;
-    unsigned int time;
+    string name;        //!< Nome do antigo condómino
+    unsigned int nif;   //!< NIF do antigo condómino
+    unsigned int time;  //!< Tempo passado no condominio
 } FormerMember;
 
-
+/**
+ * @brief Hash para a HashTable
+ */
 struct FormerMembersHash {
     int operator () (const FormerMember & f) const {
         int v = 0;
@@ -34,19 +44,32 @@ struct FormerMembersHash {
     }
 };
 
+/**
+ * @brief Overload do operador '<<'
+ * Apresenta info basica de um antigo condómino em formato 'user-friendly'
+ */
+ostream& operator<<(ostream& os, FormerMember& fm);
+
+/**
+ * @brief HashTable para guardar info de antigos condóminos
+ */
 typedef unordered_set<FormerMember, FormerMembersHash, FormerMembersHash> tabHFormerMembers;
+
+/**
+ * @brief Priority Queue para guardar info de transportes
+ */
 typedef priority_queue<Transporte> HEAP_TRANSPORT;
 
 /**
  * @brief Classe Condomínio
  */
 class Condominio {
-    static int id;
+    static int id;                          //!< ID do condominio
 
-    string conFileName;
-    string memFileName;
-    string trFileName;
-    string frFileName;
+    string conFileName;                     //!< Filename do condominio
+    string memFileName;                     //!< Filename dos condóminos
+    string trFileName;                      //!< Filename dos transportes
+    string frFileName;                      //!< Filename dos antigos condóminos
 
     string designation;                     //!< Designação do Condomínio
     string location;                        //!< Localização do Condomínio
@@ -223,15 +246,61 @@ public:
 
 
     // HEAP
+
+    /**
+     * @brief Metodo SET para atribuir transportes
+     * @param transports vetor de transportes a adicionar à priority queue
+     */
     void setTransports(vector<Transporte>* transports);
+
+    /**
+     * @brief Metodo GET devolve priority queue dos transportes
+     * @return HEAP com transportes
+     */
     HEAP_TRANSPORT getTransports() const;
+
+    /**
+     * @brief Metodo GET devolve vetor com transportes para um destino
+     * @param destiny Destino especifico
+     * @return vetor com transportes para um determinado destino
+     */
     vector<Transporte> getTransports(string destiny) const;
+
+    /**
+     * @brief Metodo GET devolve vetor com transportes
+     * @return vetor com todos os transportes
+     */
     vector<Transporte> getVectorTransports() const;
+
+    /**
+     * @brief Metodo adiciona uma paragem nova
+     * @param t1 Nova paragem a adicionar
+     */
     void addTransportStop(const Transporte& t1);
+
+    /**
+     * @brief Metodo remove um paragem
+     * @param t1 Paragem a remover
+     * @return true - paragem existente e removida
+     * @return false - paragem inexistente
+     */
     bool removeTransportStop(const Transporte& t1);
+
+    /**
+     * @brief Metodo devolve um transporte especifico
+     * @param loc   Localização para a paragem a procurar
+     * @param dist  Distancia para a paragem a procurar
+     * @param dest  Destino para a paragem a procurar
+     * @return  Transporte diferente de Transporte() caso encontre
+     */
     Transporte getTransport(const string& loc, unsigned int dist, const string& dest);
 
     // HASH TABLE
+
+    /**
+     * @brief Metodo GET devolve hashtab dos antigos membros
+     * @return HashTab dos antigos membros
+     */
     tabHFormerMembers getFormerMembers() const;
 
     /**
@@ -250,8 +319,23 @@ public:
     vector<FormerMember> getformerMembers(unsigned int time);
 
     // operators
+
+    /**
+     * @brief Overload do operador '<<'
+     * Apresenta informações basicas do Condominio em formato 'user-friendly'
+     */
     friend ostream& operator<<(ostream& os, const Condominio& con);
+
+    /**
+     * @brief Overload do operador '<'
+     * Ordenaão feita por numero de habitações e em caso de empate por numero de vivendas
+     */
     bool operator<(const Condominio &con1) const;
+
+    /**
+     * @brief Overload do operador '=='
+     * Dois condominios são iguais se tiverem as mesmas designação e localização
+     */
     bool operator==(const Condominio &con1) const;
 };
 
@@ -295,6 +379,9 @@ public:
     unsigned int getNIF() { return this->nif; }
 };
 
+/**
+ * @brief Exception Class para não conseguimos encontrar um antigo condómino
+ */
 class NoSuchFormerMember {
     unsigned int nif;
 public:

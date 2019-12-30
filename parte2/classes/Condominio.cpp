@@ -696,4 +696,10 @@ vector<FormerMember> Condominio::getformerMembers(unsigned int time) {
     return temp;
 }
 
+ostream &operator<<(ostream &os, FormerMember &fm) {
+    os << "\tName: " << fm.name << endl;
+    os << "\tVAT number: " << fm.nif << endl;
+    os << "\tTime on condominium: " << fm.time;
+    return os;
+}
 
