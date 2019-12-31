@@ -323,7 +323,7 @@ int project_main_loop() {
                                         continue;
                                     }
                                     else if (choice == 2) {
-                                        rmHabMenu(cond);
+                                        rmHabMenu(&agency, cond);
                                         continue;
                                     }
                                     else if (choice == 3) {

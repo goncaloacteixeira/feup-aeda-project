@@ -166,7 +166,7 @@ int addHabMenu(CAgency* agency, Condominio* cond);
  * @brief Menu para remover uma habitação
  * @param cond Condominio especificado pelo utilizador
  */
-void rmHabMenu(Condominio* cond);
+void rmHabMenu(CAgency* agency, Condominio* cond);
 
 /**
  * @brief Menu para atribuir uma habitação a um condómino

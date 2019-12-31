@@ -59,6 +59,18 @@ public:
     bool findID(string id);
 
     /**
+     * @brief Adiciona ID ao vetor de IDs
+     * @param id ID a adicionar
+     */
+    void addID(string id);
+
+    /**
+     * @brief Remove ID do vetor de IDs
+     * @param id ID a remover
+     */
+    void removeID(string id);
+
+    /**
      * @brief Método GET devolve vetor de apontadores de condominios
      * @param nHabsMax Numero maximo de Habitaçoes
      * @return vetor de apontadores de condominios com no maximo nHabsMax habitações

@@ -85,4 +85,17 @@ void CAgency::writeToFiles() {
     }
 }
 
+void CAgency::addID(string id) {
+    this->ids.emplace_back(id);
+}
+
+void CAgency::removeID(string id) {
+    for (auto it = ids.begin(); it != ids.end(); it++) {
+        if (id == *it) {
+            ids.erase(it);
+            return;
+        }
+    }
+}
+
 

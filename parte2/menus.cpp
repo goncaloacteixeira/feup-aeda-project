@@ -824,6 +824,7 @@ int addHabMenu(CAgency* agency, Condominio* cond) {
             i++;
         }
         cond->adicionaHabitacao(new Apartamento(address, habArea, type, floor, mensalidade, id));
+        agency->addID(id);
         cout << endl << "\tHabitation successfully added!" << endl;
         wait();
         return choice;
@@ -874,13 +875,14 @@ int addHabMenu(CAgency* agency, Condominio* cond) {
             i++;
         }
         cond->adicionaHabitacao(new Vivenda(address, habArea, extArea, pool, mensalidade, id));
+        agency->addID(id);
         cout << endl << "\tHabitation successfully added!" << endl;
         wait();
         return choice;
     }
 }
 
-void rmHabMenu(Condominio *cond) {
+void rmHabMenu(CAgency* agency, Condominio *cond) {
     cout << endl << tittleBars("Remove Habitation");
     cout << "Remove Habitation" << endl;
     cout << tittleBars("Remove Habitation") << endl;
@@ -934,12 +936,14 @@ void rmHabMenu(Condominio *cond) {
                     }
                 }
                 cond->removeHabitacao(habitacao);
+                agency->removeID(id);
             }
             else {
                 return;
             }
         } else {
             cond->removeHabitacao(habitacao);
+            agency->removeID(id);
         }
 
         cout << endl << "Habitation successfully removed!" << endl;
