@@ -1,6 +1,6 @@
 # TEMA 4 - GESTÃO DE CONDOMÍNIO - CONDOMIX
 
-[Documentação (gerada por Doxygen)](https://project-aeda-p2-g4-t3-1920.epizy.com)
+[Documentação (gerada por Doxygen)](http://project-aeda-p2-g4-t3-1920.epizy.com)
 
 Realizado pelo grupo 4 da turma 3 das aulas práticas de AEDA19/20.
 
