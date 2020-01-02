@@ -1,0 +1,206 @@
+Con1
+Manchester
+10
+mem1.txt
+25
+tr1.txt
+former1.txt
+V0
+0
+Sherborne, Manchester, 270, 400-278
+227
+25.000000
+0
+1185
+::::::::::
+A0
+0
+Prospect, Manchester, 92, 400-346
+279
+T5
+3
+827
+::::::::::
+A1
+0
+Sherford, Manchester, 68, 400-343
+193
+T6
+1
+826
+::::::::::
+A2
+1
+Sherborne, Manchester, 270, 400-278
+41
+T0
+8
+529
+::::::::::
+A3
+1
+Peatfield, Manchester, 141, 400-346
+92
+T3
+8
+535
+::::::::::
+V1
+1
+Milner, Manchester, 93, 400-206
+272
+68.000000
+0
+1517
+::::::::::
+V2
+0
+Alstone, Manchester, 137, 400-392
+261
+52.000000
+0
+1223
+::::::::::
+V3
+1
+Hawksmoor, Manchester, 197, 400-390
+634
+47.000000
+1
+1174
+::::::::::
+V4
+0
+Lane Head, Manchester, 126, 400-325
+463
+36.000000
+0
+1330
+::::::::::
+A4
+0
+Newry, Manchester, 125, 400-277
+92
+T2
+7
+631
+::::::::::
+V5
+1
+Pandora, Manchester, 87, 400-203
+334
+37.000000
+1
+355
+::::::::::
+A5
+1
+Ollerton, Manchester, 60, 400-310
+143
+T1
+5
+895
+::::::::::
+A6
+0
+Lane Head, Manchester, 126, 400-325
+44
+T6+
+5
+164
+::::::::::
+V6
+0
+Pandora, Manchester, 87, 400-203
+537
+18.000000
+1
+1528
+::::::::::
+A7
+1
+Sherford, Manchester, 68, 400-343
+233
+T3
+5
+249
+::::::::::
+A8
+1
+Emma, Manchester, 203, 400-349
+106
+T0
+10
+762
+::::::::::
+A9
+0
+Sherborne, Manchester, 270, 400-278
+124
+T3
+6
+370
+::::::::::
+A10
+1
+Wavertree, Manchester, 363, 400-241
+297
+T1
+8
+402
+::::::::::
+V7
+1
+Prospect, Manchester, 92, 400-346
+102
+66.000000
+0
+1630
+::::::::::
+A11
+1
+Coddington, Manchester, 371, 400-335
+295
+T1
+5
+169
+::::::::::
+A12
+0
+Ollerton, Manchester, 60, 400-310
+61
+T5
+8
+221
+::::::::::
+V8
+1
+Pandora, Manchester, 87, 400-203
+359
+37.000000
+0
+1206
+::::::::::
+V9
+1
+Wavertree, Manchester, 363, 400-241
+236
+75.000000
+1
+1033
+::::::::::
+V10
+1
+Maismore, Manchester, 146, 400-402
+378
+81.000000
+1
+679
+::::::::::
+V11
+1
+Hawksmoor, Manchester, 197, 400-390
+320
+78.000000
+1
+565

@@ -1,0 +1,138 @@
+20
+Sidoney MITCHELL
+300747796
+0
+1
+Security : 15 : SDHF
+::::::::::
+Kylila LEE
+268002245
+0
+1
+Security : 36 : EverytingUNeed
+::::::::::
+Emilia ROBERTSON
+109089292
+0
+2
+Hairdresser : 26 : Homes.LDA
+Petsitting : 34 : Homes.LDA
+::::::::::
+Coretta DAVIS
+722597489
+0
+2
+Security : 10 : AFA
+Plumbing : 109 : BeautifulHome
+::::::::::
+Jillana HARRIS
+247469843
+2
+V8
+V11
+2
+Security : 81 : EverytingUNeed
+Mechanic : 91 : SDHF
+::::::::::
+Fina STEWART
+369441500
+0
+2
+Mechanic : 70 : Homes.LDA
+Car Wash : 91 : BeautifulHome
+::::::::::
+Paulina MASON
+969470125
+0
+0
+::::::::::
+Diena HOWARD
+108227585
+2
+A8
+V9
+0
+::::::::::
+Tim GONZALES
+450322227
+2
+A11
+V1
+1
+Mechanic : 78 : BeautifulHome
+::::::::::
+Josy GIBSON
+860281937
+2
+A3
+A5
+2
+Petsitting : 76 : Homes.LDA
+Cleaning : 100 : AlwaysThere
+::::::::::
+Nadine JENKINS
+344316438
+0
+0
+::::::::::
+Electra HERNANDEZ
+313975407
+2
+A10
+A7
+0
+::::::::::
+Rianon WALKER
+753468858
+1
+V3
+1
+Car Wash : 55 : BeautifulHome
+::::::::::
+Gisela RICE
+984661238
+0
+0
+::::::::::
+Anya MORALES
+176065818
+1
+V10
+2
+Plumbing : 22 : SDHF
+Babysitting : 69 : BeautifulHome
+::::::::::
+Lolita PORTER
+108723101
+1
+A2
+2
+Gardener : 52 : SDHF
+Gardener : 11 : Easy Home
+::::::::::
+Pammi BARNES
+203318778
+2
+V7
+V5
+1
+Car Wash : 65 : Easy Home
+::::::::::
+Dix BROWN
+212255765
+0
+0
+::::::::::
+Elise ELLIS
+452118606
+0
+2
+Hairdresser : 49 : EverytingUNeed
+Petsitting : 77 : EverytingUNeed
+::::::::::
+Barry MITCHELL
+265344818
+0
+2
+Car Wash : 60 : AlwaysThere
+Car Wash : 30 : EverytingUNeed
