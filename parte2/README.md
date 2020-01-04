@@ -77,7 +77,7 @@ Para diferenciar os condomínios, vamos distingui-los por designação e localiz
 #### O ficheiro do condomínio
 
 ```
-desginaçao
+designaçao
 localizaçao
 num_prestadores_limpeza
 condominos_filename
